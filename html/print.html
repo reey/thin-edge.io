@@ -642,7 +642,7 @@ Thin-edge.io doesn't keep a history of all its state changes but only reacts to 
 <p><code>tedge/alarms/&lt;severity&gt;/&lt;alarm-type&gt;</code></p>
 <p>The payload format must be as follows:</p>
 <pre><code class="language-json">{
-    &quot;message&quot;: &quot;&lt;message text&gt;&quot;,
+    &quot;text&quot;: &quot;&lt;alarm text&gt;&quot;,
     &quot;time&quot;: &quot;&lt;Timestamp in ISO-8601 format&gt;&quot;
 }
 </code></pre>
@@ -657,16 +657,16 @@ If multiple messages are sent to the same alarm topic, the last alarm is conside
 <code>tedge/alarms/critical/temperature_high</code></p>
 <p>Payload:</p>
 <pre><code class="language-json">{
-    &quot;message&quot;: &quot;Temperature is very high&quot;,
+    &quot;text&quot;: &quot;Temperature is very high&quot;,
     &quot;time&quot;: &quot;2021-01-01T05:30:45+00:00&quot;
 }
 </code></pre>
 <blockquote>
-<p>Note: Both the <code>message</code> field and the <code>time</code> field are optional.
-When a <code>message</code> is not provided, it is assumed to be empty.
+<p>Note: Both the <code>text</code> field and the <code>time</code> field are optional.
+When a <code>text</code> is not provided, it is assumed to be empty.
 When <code>time</code> is not provided, thin-edge.io will use the current system time as the <code>time</code> of the alarm.
 When you want to skip both fields, use an empty json fragment <code>{}</code> as the payload to indicate the same.
-An empty message can't be used for the same as empty messages are used to clear alarms, which is discussed in the next section.</p>
+An empty message can't be used for the same, as empty messages are used to clear alarms, which is discussed in the next section.</p>
 </blockquote>
 <p>The <code>&lt;severity&gt;</code> value in the MQTT topic can only be one of the following values:</p>
 <ol>
@@ -688,9 +688,16 @@ An empty message can't be used for the same as empty messages are used to clear 
 The mapping of thin-edge alarms data to its respective cloud-native representation will be done by the corresponding cloud mapper process.
 For example, if the device is connected to Cumulocity IoT cloud platform, the Cumulocity cloud mapper process will translate the thin-edge alarm JSON data to its equivalent Cumulocity SmartREST representation.</p>
 <blockquote>
-<p>Warning: As of now, alarm data mapping is supported only on Cumulocity IoT cloud platform.
-Find more information about alarms data model in Cumulocity <a href="https://cumulocity.com/guides/concepts/domain-model/#events">here</a></p>
+<p>Warning: As of now, alarm data mapping is supported only on Cumulocity IoT cloud platform.</p>
 </blockquote>
+<h3 id="cumulocity-cloud-data-mapping"><a class="header" href="#cumulocity-cloud-data-mapping">Cumulocity cloud data mapping</a></h3>
+<p>The Cumulocity mapper will convert Thin Edge JSON alarm into Cumulocity SmartREST messages and send it to Cumulocity via MQTT.</p>
+<p>For example the <code>temperature_high</code> alarm with <code>critical</code> severity described in the earlier sections will be converted to the following Cumulocity SmartREST message:</p>
+<pre><code class="language-csv">301,temperature_high,&quot;Temperature is very high&quot;,2021-01-01T05:30:45+00:00
+</code></pre>
+<p>... and is published to <code>c8y/s/us</code> topic which will get forwarded to the connected Cumulocity cloud instance.</p>
+<p>Find more information about SmartREST representations for alarms in Cumulocity <a href="https://cumulocity.com/guides/10.11.0/reference/smartrest-two/#alarm-templates">here</a></p>
+<p>Find more information about alarms data model in Cumulocity <a href="https://cumulocity.com/guides/concepts/domain-model/#events">here</a></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="thin-edge-event"><a class="header" href="#thin-edge-event">Thin Edge Event</a></h1>
 <p>Events on thin-edge.io can be used to trigger signals when some event happens in the system.
 For example, a person entering a room or someone logging into a machine/website can all be represented as events.
@@ -705,7 +712,7 @@ If multiple events are raised for a given type, thin-edge.io will process them a
 <p><code>tedge/events/&lt;event-type&gt;</code></p>
 <p>The payload format must be as follows:</p>
 <pre><code class="language-json">{
-    &quot;message&quot;: &quot;&lt;event message text&gt;&quot;,
+    &quot;text&quot;: &quot;&lt;event text&gt;&quot;,
     &quot;time&quot;: &quot;&lt;Timestamp in ISO-8601 format&gt;&quot;
 }
 </code></pre>
@@ -714,12 +721,12 @@ If multiple events are raised for a given type, thin-edge.io will process them a
 <code>tedge/events/login_event</code></p>
 <p>Payload:</p>
 <pre><code class="language-json">{
-    &quot;message&quot;: &quot;A user just logged in&quot;,
+    &quot;text&quot;: &quot;A user just logged in&quot;,
     &quot;time&quot;: &quot;2021-01-01T05:30:45+00:00&quot;
 }
 </code></pre>
 <blockquote>
-<p>Note: Both the <code>message</code> field and the <code>time</code> field are optional.</p>
+<p>Note: Both the <code>text</code> field and the <code>time</code> field are optional.</p>
 </blockquote>
 <p>When the <code>message</code> field is not provided, the <code>event-type</code> from the MQTT topic will be used as the message as well if the connected cloud mandates one.
 When the <code>time</code> field is not provided, thin-edge.io will use the current system time as the <code>time</code> of the event.
@@ -732,15 +739,14 @@ For example, if the device is connected to Cumulocity IoT cloud platform, the Cu
 <blockquote>
 <p>Warning: As of now, event data mapping is supported only on Cumulocity IoT cloud platform.</p>
 </blockquote>
-<h3 id="cumulocity-cloud-data-mapping"><a class="header" href="#cumulocity-cloud-data-mapping">Cumulocity cloud data mapping</a></h3>
-<p>The Cumulocity mapper will convert Thin Edge JSON into Cumulocity SmartREST messages and send it to Cumulocity via MQTT,
-if the event payload size is less than 16K bytes.</p>
+<h3 id="cumulocity-cloud-data-mapping-1"><a class="header" href="#cumulocity-cloud-data-mapping-1">Cumulocity cloud data mapping</a></h3>
+<p>The Cumulocity mapper will convert Thin Edge JSON events into its Cumulocity SmartREST equivalent if the payload only contains either a <code>text</code> field or <code>time</code> field.</p>
 <p>For example the <code>login_event</code> described in the earlier sections will be converted to the following Cumulocity SmartREST message:</p>
 <pre><code class="language-csv">400,login_event,&quot;A user just logged in&quot;,2021-01-01T05:30:45+00:00
 </code></pre>
 <p>... and is published to <code>c8y/s/us</code> topic which will get forwarded to the connected Cumulocity cloud instance.</p>
-<p>If the event payload size is more than 16K, it will be converted to Cumulocity JSON format and sent over HTTP.
-The Cumulocity JSON mapping of the same event would be as follows:</p>
+<p>If the event JSON payload contains fields other than <code>text</code> and <code>time</code>, or when the payload size is more than 16K irrespective of its contents, it will be converted to Cumulocity JSON format.</p>
+<p>The Cumulocity JSON mapping of the same event would be as follows:</p>
 <pre><code class="language-json">{
     &quot;type&quot;:&quot;login_event&quot;,
     &quot;text&quot;:&quot;A user just logged in&quot;,
@@ -750,6 +756,9 @@ The Cumulocity JSON mapping of the same event would be as follows:</p>
     }
 }
 </code></pre>
+<blockquote>
+<p>Note: Mapped events will be sent to Cumulocity via MQTT if the incoming Thin Edge JSON event payload size is less than 16K bytes. If higher, HTTP will be used.</p>
+</blockquote>
 <p>Find more information about events data model in Cumulocity <a href="https://cumulocity.com/guides/concepts/domain-model/#events">here</a>.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="monitor-your-device-with-collectd"><a class="header" href="#monitor-your-device-with-collectd">Monitor your device with collectd</a></h1>
 <p>With thin-edge.io device monitoring, you can collect metrics from your device
