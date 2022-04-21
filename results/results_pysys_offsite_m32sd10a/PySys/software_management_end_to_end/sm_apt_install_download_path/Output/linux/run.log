@@ -1,0 +1,81 @@
+2022-04-21 14:41:31,536 INFO  ==============================================================
+2022-04-21 14:41:31,537 INFO  Id:    SoftwareManagement.sm_apt_install_download_path
+2022-04-21 14:41:31,538 INFO  Dir:   software_management_end_to_end/
+2022-04-21 14:41:31,539 INFO  Title: Install package to directory specified in tedge config set tmp.path
+2022-04-21 14:41:31,540 INFO  ==============================================================
+2022-04-21 14:41:32,961 INFO  Using sw id database: {'asciijump': '5475369', 'robotfindskitten': '5474869', 'squirrel3': '5475279', 'rolldice': '5152439', 'moon-buggy': '5439204', 'apple': '5495053', 'banana': '5494888', 'cherry': '5495382', 'watermelon': '5494510', 'registry': '8018911', 'hello-world': '8021526', 'docker/getting-started': '8021973', 'alpine': '7991792'}
+2022-04-21 14:41:32,962 INFO  EnvironmentC8y Setup
+2022-04-21 14:41:33,676 INFO  Executed systemctl<serv_mapper1>, exit status 3
+2022-04-21 14:41:48,254 INFO  Executed sudo<tedge_connect_c8y>, exit status 0, duration 14 secs
+2022-04-21 14:41:48,871 INFO  Executed sudo<tedge_connect_c8y_test>, exit status 0
+2022-04-21 14:41:49,384 INFO  Executed systemctl<serv_mosq2>, exit status 0
+2022-04-21 14:41:49,846 INFO  Executed systemctl<serv_mapper3>, exit status 0
+2022-04-21 14:41:52,105 INFO  State of current operation: SUCCESSFUL
+2022-04-21 14:41:52,355 INFO  Assert that (False == value) with value=False ... passed
+2022-04-21 14:41:52,824 INFO  Executed sudo, exit status 0
+2022-04-21 14:41:53,337 INFO  Executed sudo, exit status 0
+2022-04-21 14:41:53,993 INFO  Executed sudo, exit status 0
+2022-04-21 14:42:00,162 INFO  Executed sudo<tedge_disconnect_c8y>, exit status 0
+2022-04-21 14:42:00,279 INFO  Restarting mosquitto too frequently in the last 10 seconds. It was only up for 5 seconds
+2022-04-21 14:42:00,280 INFO  Delaying execution by 6 seconds
+2022-04-21 14:42:21,542 INFO  Executed sudo<tedge_connect_c8y>, exit status 0, duration 15 secs
+2022-04-21 14:42:21,792 INFO  Response status: 201
+2022-04-21 14:42:21,794 INFO  Response to action: {
+    "creationTime": "2022-04-21T14:42:21.751Z",
+    "deviceName": "m32sd10a",
+    "deviceId": "17547539",
+    "self": "https://t493319102.eu-latest.cumulocity.com/devicecontrol/operations/17588816",
+    "id": "17588816",
+    "status": "PENDING",
+    "description": "Apply software changes, triggered from PySys: [{'name': 'rolldice', 'id': '5152439', 'version': '::apt', 'url': 'https://thin-edge-io.eu-latest.cumulocity.com/inventory/binaries/12435463', 'action': 'install'}]",
+    "c8y_SoftwareUpdate": [
+        {
+            "name": "rolldice",
+            "action": "install",
+            "id": "5152439",
+            "version": "::apt",
+            "url": "https://thin-edge-io.eu-latest.cumulocity.com/inventory/binaries/12435463"
+        }
+    ]
+}
+2022-04-21 14:42:21,795 INFO  Started operation: {'creationTime': '2022-04-21T14:42:21.751Z', 'deviceName': 'm32sd10a', 'deviceId': '17547539', 'self': 'https://t493319102.eu-latest.cumulocity.com/devicecontrol/operations/17588816', 'id': '17588816', 'status': 'PENDING', 'description': "Apply software changes, triggered from PySys: [{'name': 'rolldice', 'id': '5152439', 'version': '::apt', 'url': 'https://thin-edge-io.eu-latest.cumulocity.com/inventory/binaries/12435463', 'action': 'install'}]", 'c8y_SoftwareUpdate': [{'name': 'rolldice', 'action': 'install', 'id': '5152439', 'version': '::apt', 'url': 'https://thin-edge-io.eu-latest.cumulocity.com/inventory/binaries/12435463'}]}
+2022-04-21 14:42:21,799 WARN  , retrying in 0.5 seconds...
+2022-04-21 14:42:22,303 WARN  , retrying in 0.5 seconds...
+2022-04-21 14:42:22,806 WARN  , retrying in 0.5 seconds...
+2022-04-21 14:42:23,309 WARN  , retrying in 0.5 seconds...
+2022-04-21 14:42:23,813 WARN  , retrying in 0.5 seconds...
+2022-04-21 14:42:24,316 WARN  , retrying in 0.5 seconds...
+2022-04-21 14:42:24,821 WARN  , retrying in 0.5 seconds...
+2022-04-21 14:42:25,325 WARN  , retrying in 0.5 seconds...
+2022-04-21 14:42:25,829 WARN  , retrying in 0.5 seconds...
+2022-04-21 14:42:26,332 WARN  AssertionError occurred while running test - 
+Traceback (most recent call last):
+  File "/home/pi/env-pysys/lib/python3.7/site-packages/pysys/baserunner.py", line 1294, in __call__
+    self.testObj.execute()
+  File "/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/sm_apt_install_download_path/run.py", line 83, in execute
+    assert_install_in_download_path(install_directory=self.DOWNLOAD_DIR)
+  File "/home/pi/env-pysys/lib/python3.7/site-packages/decorator.py", line 232, in fun
+    return caller(func, *(extras + args), **kw)
+  File "/home/pi/env-pysys/lib/python3.7/site-packages/retry/api.py", line 74, in retry_decorator
+    logger)
+  File "/home/pi/env-pysys/lib/python3.7/site-packages/retry/api.py", line 33, in __retry_internal
+    return f()
+  File "/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/sm_apt_install_download_path/run.py", line 28, in assert_install_in_download_path
+    assert "rolldice" in os.listdir(f"{install_directory}")
+AssertionError
+2022-04-21 14:42:26,460 WARN  AssertionError: ... blocked 
+2022-04-21 14:42:26,461 INFO  
+2022-04-21 14:42:26,462 INFO  cleanup:
+2022-04-21 14:42:26,976 INFO  Executed sudo, exit status 0
+2022-04-21 14:42:27,497 INFO  Executed sudo, exit status 0
+2022-04-21 14:42:31,942 INFO  Executed sudo<tedge_disconnect_c8y>, exit status 0
+2022-04-21 14:42:32,056 INFO  Restarting mosquitto too frequently in the last 10 seconds. It was only up for 4 seconds
+2022-04-21 14:42:32,057 INFO  Delaying execution by 7 seconds
+2022-04-21 14:42:53,591 INFO  Executed sudo<tedge_connect_c8y>, exit status 0, duration 14 secs
+2022-04-21 14:42:58,030 INFO  Executed sudo<tedge_disconnect_c8y>, exit status 0
+2022-04-21 14:42:58,593 INFO  Executed systemctl<serv_mapper5>, exit status 3
+2022-04-21 14:42:58,598 INFO  
+2022-04-21 14:42:58,598 INFO  Test duration: 87.08 secs
+2022-04-21 14:42:58,600 INFO  Test final outcome:  BLOCKED
+2022-04-21 14:42:58,602 INFO  Test outcome reason: AssertionError:
+2022-04-21 14:42:58,602 INFO  
