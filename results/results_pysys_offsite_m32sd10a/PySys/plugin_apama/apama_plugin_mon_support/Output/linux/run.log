@@ -1,12 +1,12 @@
-2022-04-21 14:31:28,284 INFO  ==============================================================
-2022-04-21 14:31:28,285 INFO  Id:    SoftwareManagement.Plugin.apama_plugin_mon_support
-2022-04-21 14:31:28,286 INFO  Dir:   plugin_apama/
-2022-04-21 14:31:28,286 INFO  Title: Validate mon file support of apama plugin
-2022-04-21 14:31:28,287 INFO  ==============================================================
-2022-04-21 14:31:28,316 WARN  Assertion that path exists=False for "/etc/tedge/apama/project" ... failed 
-2022-04-21 14:31:28,827 INFO  Executed sudo<create_project_dir>, exit status 0
-2022-04-21 14:41:28,868 WARN  Process sudo<unzip_apama_project> (pid 21674) timed out after 600 seconds, stopping process
-2022-04-21 14:41:28,871 WARN  ProcessError occurred while running test - Error stopping process sudo<unzip_apama_project> (pid 21674) due to PermissionError: [Errno 1] Operation not permitted
+2022-04-24 13:00:40,057 INFO  ==============================================================
+2022-04-24 13:00:40,058 INFO  Id:    SoftwareManagement.Plugin.apama_plugin_mon_support
+2022-04-24 13:00:40,059 INFO  Dir:   plugin_apama/
+2022-04-24 13:00:40,060 INFO  Title: Validate mon file support of apama plugin
+2022-04-24 13:00:40,060 INFO  ==============================================================
+2022-04-24 13:00:40,090 WARN  Assertion that path exists=False for "/etc/tedge/apama/project" ... failed 
+2022-04-24 13:00:40,601 INFO  Executed sudo<create_project_dir>, exit status 0
+2022-04-24 13:10:40,651 WARN  Process sudo<unzip_apama_project> (pid 27249) timed out after 600 seconds, stopping process
+2022-04-24 13:10:40,654 WARN  ProcessError occurred while running test - Error stopping process sudo<unzip_apama_project> (pid 27249) due to PermissionError: [Errno 1] Operation not permitted
 Traceback (most recent call last):
   File "/home/pi/env-pysys/lib/python3.7/site-packages/pysys/process/user.py", line 465, in startProcess
     process.start()
@@ -14,7 +14,7 @@ Traceback (most recent call last):
     self.wait(self.timeout)
   File "/home/pi/env-pysys/lib/python3.7/site-packages/pysys/process/__init__.py", line 263, in wait
     raise ProcessTimeout('Waiting for completion of %r timed out after %d seconds'%(self, int(timeout)))
-pysys.exceptions.ProcessTimeout: Waiting for completion of sudo<unzip_apama_project> (pid 21674) timed out after 600 seconds
+pysys.exceptions.ProcessTimeout: Waiting for completion of sudo<unzip_apama_project> (pid 27249) timed out after 600 seconds
 
 During handling of the above exception, another exception occurred:
 
@@ -36,17 +36,17 @@ Traceback (most recent call last):
     process.stop()
   File "/home/pi/env-pysys/lib/python3.7/site-packages/pysys/process/plat-unix/helper.py", line 252, in stop
     raise ProcessError("Error stopping process %r due to %s: %s"%(self, type(ex).__name__, ex))
-pysys.exceptions.ProcessError: Error stopping process sudo<unzip_apama_project> (pid 21674) due to PermissionError: [Errno 1] Operation not permitted
-2022-04-21 14:41:28,930 WARN  ProcessError: Error stopping process sudo<unzip_apama_project> (pid 21674) due to PermissionError: [Errno 1] Operation not permitted ... blocked 
-2022-04-21 14:41:28,932 INFO  
-2022-04-21 14:41:28,932 INFO  cleanup:
-2022-04-21 14:41:28,935 INFO  Removing apama project
-2022-04-21 14:41:30,049 WARN  Executed sudo<remove_apama_project>, exit status 1
-2022-04-21 14:41:30,054 INFO  Contents of remove_apama_project.err: 
-2022-04-21 14:41:30,055 INFO    rm: cannot remove '/etc/tedge/apama/project/logs/.nfs00000000001017be00000bc7': Device or resource busy
-2022-04-21 14:41:30,056 INFO    -----
-2022-04-21 14:41:30,056 INFO  
-2022-04-21 14:41:30,088 ERROR Error while running cleanup function: 
+pysys.exceptions.ProcessError: Error stopping process sudo<unzip_apama_project> (pid 27249) due to PermissionError: [Errno 1] Operation not permitted
+2022-04-24 13:10:40,722 WARN  ProcessError: Error stopping process sudo<unzip_apama_project> (pid 27249) due to PermissionError: [Errno 1] Operation not permitted ... blocked 
+2022-04-24 13:10:40,723 INFO  
+2022-04-24 13:10:40,724 INFO  cleanup:
+2022-04-24 13:10:40,727 INFO  Removing apama project
+2022-04-24 13:10:41,238 WARN  Executed sudo<remove_apama_project>, exit status 1
+2022-04-24 13:10:41,243 INFO  Contents of remove_apama_project.err: 
+2022-04-24 13:10:41,244 INFO    rm: cannot remove '/etc/tedge/apama/project/logs/.nfs0000000000182b4a00001334': Device or resource busy
+2022-04-24 13:10:41,245 INFO    -----
+2022-04-24 13:10:41,246 INFO  
+2022-04-24 13:10:41,277 ERROR Error while running cleanup function: 
 Traceback (most recent call last):
   File "/home/pi/env-pysys/lib/python3.7/site-packages/pysys/process/user.py", line 1305, in cleanup
     fn()
@@ -61,9 +61,9 @@ Traceback (most recent call last):
   File "/home/pi/env-pysys/lib/python3.7/site-packages/pysys/process/user.py", line 1420, in abort
     raise AbortExecution(outcome, outcomeReason, callRecord)
 pysys.exceptions.AbortExecution: sudo<remove_apama_project> returned non-zero exit code 1
-2022-04-21 14:41:30,101 WARN  Cleanup failed with 1 errors: Cleanup function failed: sudo<remove_apama_project> returned non-zero exit code 1 (AbortExecution) ... blocked 
-2022-04-21 14:41:30,104 INFO  
-2022-04-21 14:41:30,105 INFO  Test duration: 601.84 secs
-2022-04-21 14:41:30,106 INFO  Test final outcome:  BLOCKED
-2022-04-21 14:41:30,107 INFO  Test outcome reason: ProcessError: Error stopping process sudo<unzip_apama_project> (pid 21674) due to PermissionError: [Errno 1] Operation not permitted (+3 other failures)
-2022-04-21 14:41:30,107 INFO  
+2022-04-24 13:10:41,290 WARN  Cleanup failed with 1 errors: Cleanup function failed: sudo<remove_apama_project> returned non-zero exit code 1 (AbortExecution) ... blocked 
+2022-04-24 13:10:41,293 INFO  
+2022-04-24 13:10:41,294 INFO  Test duration: 601.25 secs
+2022-04-24 13:10:41,295 INFO  Test final outcome:  BLOCKED
+2022-04-24 13:10:41,296 INFO  Test outcome reason: ProcessError: Error stopping process sudo<unzip_apama_project> (pid 27249) due to PermissionError: [Errno 1] Operation not permitted (+3 other failures)
+2022-04-24 13:10:41,297 INFO  

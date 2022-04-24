@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<testsuite failures="1" name="SoftwareManagement.Plugin.apama_plugin_install" skipped="0" tests="1" time="1.46" timestamp="2022-04-21T14:31:18">
+<testsuite failures="1" name="SoftwareManagement.Plugin.apama_plugin_install" skipped="0" tests="1" time="1.48" timestamp="2022-04-24T13:00:58">
 	<testcase classname="ApamaPluginInstallTest" name="SoftwareManagement.Plugin.apama_plugin_install">
 		<failure message="BLOCKED: sudo&lt;plugin_install&gt; returned non-zero exit code 2 (+2 other failures)" type="BLOCKED"/>
-		<system-out>14:31:16 INFO  ==============================================================
-14:31:16 INFO  Id:    SoftwareManagement.Plugin.apama_plugin_install
-14:31:16 INFO  Dir:   plugin_apama/
-14:31:16 INFO  Title: Validate apama plugin install
-14:31:16 INFO  ==============================================================
-14:31:16 WARN  Assertion that path exists=False for &quot;/etc/tedge/apama/project&quot; ... failed 
-14:31:17 WARN  Executed sudo&lt;plugin_install&gt;, exit status 2
-14:31:17 INFO  Contents of plugin_install.err: 
+		<system-out>13:00:56 INFO  ==============================================================
+13:00:56 INFO  Id:    SoftwareManagement.Plugin.apama_plugin_install
+13:00:56 INFO  Dir:   plugin_apama/
+13:00:56 INFO  Title: Validate apama plugin install
+13:00:56 INFO  ==============================================================
+13:00:56 WARN  Assertion that path exists=False for &quot;/etc/tedge/apama/project&quot; ... failed 
+13:00:57 WARN  Executed sudo&lt;plugin_install&gt;, exit status 2
+13:00:57 INFO  Contents of plugin_install.err: 
   ERROR: Device or resource busy (os error 16)
   -----
 
-14:31:17 WARN  sudo&lt;plugin_install&gt; returned non-zero exit code 2 ... blocked [run.py:29]
-14:31:17 WARN  Aborted test due to BLOCKED outcome
-14:31:17 INFO  
-14:31:17 INFO  cleanup:
-14:31:17 INFO  Removing apama project
-14:31:18 WARN  Executed sudo&lt;remove_apama_project&gt;, exit status 1
-14:31:18 INFO  Contents of remove_apama_project.err: 
-  rm: cannot remove '/etc/tedge/apama/project/logs/.nfs00000000000e0e1700000bb3': Device or resource busy
+13:00:57 WARN  sudo&lt;plugin_install&gt; returned non-zero exit code 2 ... blocked [run.py:29]
+13:00:57 WARN  Aborted test due to BLOCKED outcome
+13:00:57 INFO  
+13:00:57 INFO  cleanup:
+13:00:57 INFO  Removing apama project
+13:00:58 WARN  Executed sudo&lt;remove_apama_project&gt;, exit status 1
+13:00:58 INFO  Contents of remove_apama_project.err: 
+  rm: cannot remove '/etc/tedge/apama/project/logs/.nfs00000000000e0e260000131a': Device or resource busy
   -----
 
-14:31:18 ERROR Error while running cleanup function: 
+13:00:58 ERROR Error while running cleanup function: 
 Traceback (most recent call last):
   File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/pysys/process/user.py&quot;, line 1305, in cleanup
     fn()
@@ -38,12 +38,12 @@ Traceback (most recent call last):
   File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/pysys/process/user.py&quot;, line 1420, in abort
     raise AbortExecution(outcome, outcomeReason, callRecord)
 pysys.exceptions.AbortExecution: sudo&lt;remove_apama_project&gt; returned non-zero exit code 1
-14:31:18 WARN  Cleanup failed with 1 errors: Cleanup function failed: sudo&lt;remove_apama_project&gt; returned non-zero exit code 1 (AbortExecution) ... blocked 
-14:31:18 INFO  
-14:31:18 INFO  Test duration: 1.46 secs
-14:31:18 INFO  Test final outcome:  BLOCKED
-14:31:18 INFO  Test outcome reason: sudo&lt;plugin_install&gt; returned non-zero exit code 2 (+2 other failures)
-14:31:18 INFO  
+13:00:58 WARN  Cleanup failed with 1 errors: Cleanup function failed: sudo&lt;remove_apama_project&gt; returned non-zero exit code 1 (AbortExecution) ... blocked 
+13:00:58 INFO  
+13:00:58 INFO  Test duration: 1.48 secs
+13:00:58 INFO  Test final outcome:  BLOCKED
+13:00:58 INFO  Test outcome reason: sudo&lt;plugin_install&gt; returned non-zero exit code 2 (+2 other failures)
+13:00:58 INFO  
 </system-out>
 	</testcase>
 </testsuite>

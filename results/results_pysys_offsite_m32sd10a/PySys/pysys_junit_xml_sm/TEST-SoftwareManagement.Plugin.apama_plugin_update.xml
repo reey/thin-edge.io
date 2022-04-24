@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<testsuite failures="1" name="SoftwareManagement.Plugin.apama_plugin_update" skipped="0" tests="1" time="0.67" timestamp="2022-04-21T14:41:31">
+<testsuite failures="1" name="SoftwareManagement.Plugin.apama_plugin_update" skipped="0" tests="1" time="0.73" timestamp="2022-04-24T13:10:42">
 	<testcase classname="ApamaPluginUpdateTest" name="SoftwareManagement.Plugin.apama_plugin_update">
 		<failure message="BLOCKED: sudo&lt;remove_apama_project&gt; returned non-zero exit code 1 (+2 other failures)" type="BLOCKED"/>
-		<system-out>14:41:30 INFO  ==============================================================
-14:41:30 INFO  Id:    SoftwareManagement.Plugin.apama_plugin_update
-14:41:30 INFO  Dir:   plugin_apama/
-14:41:30 INFO  Title: Validate apama plugin updating one project with another
-14:41:30 INFO  ==============================================================
-14:41:30 WARN  Assertion that path exists=False for &quot;/etc/tedge/apama/project&quot; ... failed 
-14:41:30 WARN  Aborted test due to FAILED outcome
-14:41:30 INFO  
-14:41:30 INFO  cleanup:
-14:41:30 INFO  Removing apama project
-14:41:31 WARN  Executed sudo&lt;remove_apama_project&gt;, exit status 1
-14:41:31 INFO  Contents of remove_apama_project.err: 
-  rm: cannot remove '/etc/tedge/apama/project/logs/.nfs00000000001017be00000bc7': Device or resource busy
+		<system-out>13:10:42 INFO  ==============================================================
+13:10:42 INFO  Id:    SoftwareManagement.Plugin.apama_plugin_update
+13:10:42 INFO  Dir:   plugin_apama/
+13:10:42 INFO  Title: Validate apama plugin updating one project with another
+13:10:42 INFO  ==============================================================
+13:10:42 WARN  Assertion that path exists=False for &quot;/etc/tedge/apama/project&quot; ... failed 
+13:10:42 WARN  Aborted test due to FAILED outcome
+13:10:42 INFO  
+13:10:42 INFO  cleanup:
+13:10:42 INFO  Removing apama project
+13:10:42 WARN  Executed sudo&lt;remove_apama_project&gt;, exit status 1
+13:10:42 INFO  Contents of remove_apama_project.err: 
+  rm: cannot remove '/etc/tedge/apama/project/logs/.nfs0000000000182b4a00001334': Device or resource busy
   -----
 
-14:41:31 ERROR Error while running cleanup function: 
+13:10:42 ERROR Error while running cleanup function: 
 Traceback (most recent call last):
   File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/pysys/process/user.py&quot;, line 1305, in cleanup
     fn()
@@ -32,12 +32,12 @@ Traceback (most recent call last):
   File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/pysys/process/user.py&quot;, line 1420, in abort
     raise AbortExecution(outcome, outcomeReason, callRecord)
 pysys.exceptions.AbortExecution: sudo&lt;remove_apama_project&gt; returned non-zero exit code 1
-14:41:31 WARN  Cleanup failed with 1 errors: Cleanup function failed: sudo&lt;remove_apama_project&gt; returned non-zero exit code 1 (AbortExecution) ... blocked 
-14:41:31 INFO  
-14:41:31 INFO  Test duration: 0.67 secs
-14:41:31 INFO  Test final outcome:  BLOCKED
-14:41:31 INFO  Test outcome reason: sudo&lt;remove_apama_project&gt; returned non-zero exit code 1 (+2 other failures)
-14:41:31 INFO  
+13:10:42 WARN  Cleanup failed with 1 errors: Cleanup function failed: sudo&lt;remove_apama_project&gt; returned non-zero exit code 1 (AbortExecution) ... blocked 
+13:10:42 INFO  
+13:10:42 INFO  Test duration: 0.73 secs
+13:10:42 INFO  Test final outcome:  BLOCKED
+13:10:42 INFO  Test outcome reason: sudo&lt;remove_apama_project&gt; returned non-zero exit code 1 (+2 other failures)
+13:10:42 INFO  
 </system-out>
 	</testcase>
 </testsuite>

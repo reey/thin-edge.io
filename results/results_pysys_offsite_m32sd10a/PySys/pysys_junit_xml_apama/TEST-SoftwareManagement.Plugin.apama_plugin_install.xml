@@ -1,50 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<testsuite failures="1" name="SoftwareManagement.Plugin.apama_plugin_install" skipped="0" tests="1" time="8.17" timestamp="2022-04-21T14:23:02">
+<testsuite failures="1" name="SoftwareManagement.Plugin.apama_plugin_install" skipped="0" tests="1" time="30.16" timestamp="2022-04-24T12:53:10">
 	<testcase classname="ApamaPluginInstallTest" name="SoftwareManagement.Plugin.apama_plugin_install">
-		<failure message="BLOCKED: sudo&lt;remove_apama_project&gt; returned non-zero exit code 1 (+1 other failures)" type="BLOCKED"/>
-		<system-out>14:22:54 INFO  ==============================================================
-14:22:54 INFO  Id:    SoftwareManagement.Plugin.apama_plugin_install
-14:22:54 INFO  Dir:   plugin_apama/
-14:22:54 INFO  Title: Validate apama plugin install
-14:22:54 INFO  ==============================================================
-14:22:54 INFO  Assertion that path exists=False for &quot;/etc/tedge/apama/project&quot; ... passed
-14:22:59 INFO  Executed sudo&lt;plugin_install&gt;, exit status 0
-14:23:00 INFO  Executed sudo&lt;apama_correlator_wait&gt;, exit status 0
-14:23:01 INFO  Executed sudo&lt;plugin_list_after_install&gt;, exit status 0
-14:23:01 INFO  Assertion that path exists=True for &quot;/etc/tedge/apama/project&quot; ... passed
-14:23:01 INFO  Executed sudo&lt;apama_list_monitors&gt;, exit status 0
-14:23:01 INFO  Grep on file /home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/plugin_apama/apama_plugin_install/Output/linux/apama_list_monitors.out ... passed
-14:23:01 INFO  Grep on file plugin_list_after_install.out ... passed
-14:23:01 INFO  Grep on file plugin_list_after_install.out ... passed
-14:23:01 INFO  
-14:23:01 INFO  cleanup:
-14:23:01 INFO  Removing apama project
-14:23:02 WARN  Executed sudo&lt;remove_apama_project&gt;, exit status 1
-14:23:02 INFO  Contents of remove_apama_project.err: 
-  rm: cannot remove '/etc/tedge/apama/project/logs': Directory not empty
+		<failure message="BLOCKED: sudo&lt;plugin_install&gt; returned non-zero exit code 2" type="BLOCKED"/>
+		<system-out>12:52:40 INFO  ==============================================================
+12:52:40 INFO  Id:    SoftwareManagement.Plugin.apama_plugin_install
+12:52:40 INFO  Dir:   plugin_apama/
+12:52:40 INFO  Title: Validate apama plugin install
+12:52:40 INFO  ==============================================================
+12:52:40 INFO  Assertion that path exists=False for &quot;/etc/tedge/apama/project&quot; ... passed
+12:52:52 WARN  Executed sudo&lt;plugin_install&gt;, exit status 2, duration 12 secs
+12:52:52 INFO  Contents of plugin_install.err: 
+  Failed to connect to remote component: Failed to connect to localhost:15903: Connection refused
+  ERROR: Execution of `/opt/softwareag/Apama/bin/apama_env` failed with exit status exit status: 1
   -----
 
-14:23:02 ERROR Error while running cleanup function: 
-Traceback (most recent call last):
-  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/pysys/process/user.py&quot;, line 1305, in cleanup
-    fn()
-  File &quot;/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/plugin_apama/environment_apama_plugin.py&quot;, line 144, in cleanup_project
-    self.remove_project()
-  File &quot;/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/plugin_apama/environment_apama_plugin.py&quot;, line 95, in remove_project
-    stdouterr=&quot;remove_apama_project&quot;,
-  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/pysys/process/user.py&quot;, line 482, in startProcess
-    abortOnError=abortOnError)
-  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/pysys/process/user.py&quot;, line 1401, in addOutcome
-    self.abort(outcome, outcomeReason, callRecord)
-  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/pysys/process/user.py&quot;, line 1420, in abort
-    raise AbortExecution(outcome, outcomeReason, callRecord)
-pysys.exceptions.AbortExecution: sudo&lt;remove_apama_project&gt; returned non-zero exit code 1
-14:23:02 WARN  Cleanup failed with 1 errors: Cleanup function failed: sudo&lt;remove_apama_project&gt; returned non-zero exit code 1 (AbortExecution) ... blocked 
-14:23:02 INFO  
-14:23:02 INFO  Test duration: 8.17 secs
-14:23:02 INFO  Test final outcome:  BLOCKED
-14:23:02 INFO  Test outcome reason: sudo&lt;remove_apama_project&gt; returned non-zero exit code 1 (+1 other failures)
-14:23:02 INFO  
+12:52:52 WARN  sudo&lt;plugin_install&gt; returned non-zero exit code 2 ... blocked [run.py:29]
+12:52:52 WARN  Aborted test due to BLOCKED outcome
+12:52:52 INFO  
+12:52:52 INFO  cleanup:
+12:52:52 INFO  Removing apama project
+12:52:53 INFO  Executed sudo&lt;remove_apama_project&gt;, exit status 0
+12:53:10 INFO  Executed sudo&lt;stop_apama_service&gt;, exit status 0, duration 16 secs
+12:53:10 INFO  Executed sudo&lt;remove_apama_tmp_dir&gt;, exit status 0
+12:53:10 INFO  
+12:53:10 INFO  Test duration: 30.16 secs
+12:53:10 INFO  Test final outcome:  BLOCKED
+12:53:10 INFO  Test outcome reason: sudo&lt;plugin_install&gt; returned non-zero exit code 2
+12:53:10 INFO  
 </system-out>
 	</testcase>
 </testsuite>

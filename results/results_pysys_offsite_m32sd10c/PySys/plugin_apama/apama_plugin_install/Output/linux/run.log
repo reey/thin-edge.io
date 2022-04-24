@@ -1,25 +1,25 @@
-2022-04-21 14:30:48,582 INFO  ==============================================================
-2022-04-21 14:30:48,583 INFO  Id:    SoftwareManagement.Plugin.apama_plugin_install
-2022-04-21 14:30:48,586 INFO  Dir:   plugin_apama/
-2022-04-21 14:30:48,587 INFO  Title: Validate apama plugin install
-2022-04-21 14:30:48,588 INFO  ==============================================================
-2022-04-21 14:30:49,007 WARN  Assertion that path exists=False for "/etc/tedge/apama/project" ... failed 
-2022-04-21 14:30:49,594 WARN  Executed sudo<plugin_install>, exit status 2
-2022-04-21 14:30:49,602 INFO  Contents of plugin_install.err: 
-2022-04-21 14:30:49,603 INFO    ERROR: Device or resource busy (os error 16)
-2022-04-21 14:30:49,604 INFO    -----
-2022-04-21 14:30:49,605 INFO  
-2022-04-21 14:30:49,619 WARN  sudo<plugin_install> returned non-zero exit code 2 ... blocked [run.py:29]
-2022-04-21 14:30:49,620 WARN  Aborted test due to BLOCKED outcome
-2022-04-21 14:30:49,626 INFO  
-2022-04-21 14:30:49,627 INFO  cleanup:
-2022-04-21 14:30:49,627 INFO  Removing apama project
-2022-04-21 14:30:50,539 WARN  Executed sudo<remove_apama_project>, exit status 1
-2022-04-21 14:30:50,544 INFO  Contents of remove_apama_project.err: 
-2022-04-21 14:30:50,545 INFO    rm: cannot remove '/etc/tedge/apama/project/logs/.nfs00000000000212eb00000bda': Device or resource busy
-2022-04-21 14:30:50,546 INFO    -----
-2022-04-21 14:30:50,547 INFO  
-2022-04-21 14:30:50,578 ERROR Error while running cleanup function: 
+2022-04-24 13:00:26,609 INFO  ==============================================================
+2022-04-24 13:00:26,610 INFO  Id:    SoftwareManagement.Plugin.apama_plugin_install
+2022-04-24 13:00:26,613 INFO  Dir:   plugin_apama/
+2022-04-24 13:00:26,614 INFO  Title: Validate apama plugin install
+2022-04-24 13:00:26,615 INFO  ==============================================================
+2022-04-24 13:00:26,903 WARN  Assertion that path exists=False for "/etc/tedge/apama/project" ... failed 
+2022-04-24 13:00:27,515 WARN  Executed sudo<plugin_install>, exit status 2
+2022-04-24 13:00:27,523 INFO  Contents of plugin_install.err: 
+2022-04-24 13:00:27,524 INFO    ERROR: Device or resource busy (os error 16)
+2022-04-24 13:00:27,525 INFO    -----
+2022-04-24 13:00:27,526 INFO  
+2022-04-24 13:00:27,540 WARN  sudo<plugin_install> returned non-zero exit code 2 ... blocked [run.py:29]
+2022-04-24 13:00:27,542 WARN  Aborted test due to BLOCKED outcome
+2022-04-24 13:00:27,547 INFO  
+2022-04-24 13:00:27,549 INFO  cleanup:
+2022-04-24 13:00:27,550 INFO  Removing apama project
+2022-04-24 13:00:28,060 WARN  Executed sudo<remove_apama_project>, exit status 1
+2022-04-24 13:00:28,064 INFO  Contents of remove_apama_project.err: 
+2022-04-24 13:00:28,066 INFO    rm: cannot remove '/etc/tedge/apama/project/logs/.nfs00000000000212f300001320': Device or resource busy
+2022-04-24 13:00:28,066 INFO    -----
+2022-04-24 13:00:28,067 INFO  
+2022-04-24 13:00:28,097 ERROR Error while running cleanup function: 
 Traceback (most recent call last):
   File "/home/pi/env-pysys/lib/python3.7/site-packages/pysys/process/user.py", line 1305, in cleanup
     fn()
@@ -34,9 +34,9 @@ Traceback (most recent call last):
   File "/home/pi/env-pysys/lib/python3.7/site-packages/pysys/process/user.py", line 1420, in abort
     raise AbortExecution(outcome, outcomeReason, callRecord)
 pysys.exceptions.AbortExecution: sudo<remove_apama_project> returned non-zero exit code 1
-2022-04-21 14:30:50,591 WARN  Cleanup failed with 1 errors: Cleanup function failed: sudo<remove_apama_project> returned non-zero exit code 1 (AbortExecution) ... blocked 
-2022-04-21 14:30:50,595 INFO  
-2022-04-21 14:30:50,596 INFO  Test duration: 2.03 secs
-2022-04-21 14:30:50,597 INFO  Test final outcome:  BLOCKED
-2022-04-21 14:30:50,598 INFO  Test outcome reason: sudo<plugin_install> returned non-zero exit code 2 (+2 other failures)
-2022-04-21 14:30:50,598 INFO  
+2022-04-24 13:00:28,110 WARN  Cleanup failed with 1 errors: Cleanup function failed: sudo<remove_apama_project> returned non-zero exit code 1 (AbortExecution) ... blocked 
+2022-04-24 13:00:28,113 INFO  
+2022-04-24 13:00:28,114 INFO  Test duration: 1.51 secs
+2022-04-24 13:00:28,115 INFO  Test final outcome:  BLOCKED
+2022-04-24 13:00:28,116 INFO  Test outcome reason: sudo<plugin_install> returned non-zero exit code 2 (+2 other failures)
+2022-04-24 13:00:28,117 INFO  
