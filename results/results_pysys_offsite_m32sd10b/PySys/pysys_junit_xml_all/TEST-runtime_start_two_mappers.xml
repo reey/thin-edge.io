@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testsuite failures="1" name="runtime_start_two_mappers" skipped="0" tests="1" time="1.75" timestamp="2022-04-25T21:31:26">
+	<testcase classname="RuntimeMultiMappers" name="runtime_start_two_mappers">
+		<failure message="FAILED: Grep on tedge_mapper2.err contains &quot;Error: Couldn't acquire file lock.&quot;" type="FAILED"/>
+		<system-out>21:31:24 INFO  ==============================================================
+21:31:24 INFO  Id:    runtime_start_two_mappers
+21:31:24 INFO  Dir:   tedge_mapper_c8y/
+21:31:24 INFO  Title: Validate two mappers can't be started at the same time
+21:31:24 INFO  ==============================================================
+21:31:25 INFO  Executed sudo&lt;tedge_mapper1&gt;, exit status 0
+21:31:25 INFO  Waiting for 0.1 seconds
+21:31:25 INFO  Executed sudo&lt;tedge_mapper2&gt;, exit status 1
+21:31:26 INFO  Executed sudo&lt;tedge_mapper1&gt;, exit status 0
+21:31:26 WARN  Grep on tedge_mapper2.err contains &quot;Error: Couldn't acquire file lock.&quot; ... failed [run.py:46]
+21:31:26 INFO  
+21:31:26 INFO  Test duration: 1.75 secs
+21:31:26 INFO  Test final outcome:  FAILED
+21:31:26 INFO  Test outcome reason: Grep on tedge_mapper2.err contains &quot;Error: Couldn't acquire file lock.&quot;
+21:31:26 INFO  
+</system-out>
+	</testcase>
+</testsuite>

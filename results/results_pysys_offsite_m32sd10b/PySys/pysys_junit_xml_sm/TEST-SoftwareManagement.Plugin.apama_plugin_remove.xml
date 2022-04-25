@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testsuite failures="1" name="SoftwareManagement.Plugin.apama_plugin_remove" skipped="0" tests="1" time="0.67" timestamp="2022-04-25T22:27:18">
+	<testcase classname="ApamaPluginRemoveTest" name="SoftwareManagement.Plugin.apama_plugin_remove">
+		<failure message="BLOCKED: sudo&lt;remove_apama_project&gt; returned non-zero exit code 1 (+2 other failures)" type="BLOCKED"/>
+		<system-out>22:27:17 INFO  ==============================================================
+22:27:17 INFO  Id:    SoftwareManagement.Plugin.apama_plugin_remove
+22:27:17 INFO  Dir:   plugin_apama/
+22:27:17 INFO  Title: Validate apama plugin remove
+22:27:17 INFO  ==============================================================
+22:27:17 WARN  Assertion that path exists=False for &quot;/etc/tedge/apama/project&quot; ... failed 
+22:27:17 WARN  Aborted test due to FAILED outcome
+22:27:17 INFO  
+22:27:17 INFO  cleanup:
+22:27:17 INFO  Removing apama project
+22:27:18 WARN  Executed sudo&lt;remove_apama_project&gt;, exit status 1
+22:27:18 INFO  Contents of remove_apama_project.err: 
+  rm: cannot remove '/etc/tedge/apama/project/logs/.nfs00000000000e0ef500001c22': Device or resource busy
+  -----
+
+22:27:18 ERROR Error while running cleanup function: 
+Traceback (most recent call last):
+  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/pysys/process/user.py&quot;, line 1305, in cleanup
+    fn()
+  File &quot;/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/plugin_apama/environment_apama_plugin.py&quot;, line 144, in cleanup_project
+    self.remove_project()
+  File &quot;/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/plugin_apama/environment_apama_plugin.py&quot;, line 95, in remove_project
+    stdouterr=&quot;remove_apama_project&quot;,
+  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/pysys/process/user.py&quot;, line 482, in startProcess
+    abortOnError=abortOnError)
+  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/pysys/process/user.py&quot;, line 1401, in addOutcome
+    self.abort(outcome, outcomeReason, callRecord)
+  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/pysys/process/user.py&quot;, line 1420, in abort
+    raise AbortExecution(outcome, outcomeReason, callRecord)
+pysys.exceptions.AbortExecution: sudo&lt;remove_apama_project&gt; returned non-zero exit code 1
+22:27:18 WARN  Cleanup failed with 1 errors: Cleanup function failed: sudo&lt;remove_apama_project&gt; returned non-zero exit code 1 (AbortExecution) ... blocked 
+22:27:18 INFO  
+22:27:18 INFO  Test duration: 0.67 secs
+22:27:18 INFO  Test final outcome:  BLOCKED
+22:27:18 INFO  Test outcome reason: sudo&lt;remove_apama_project&gt; returned non-zero exit code 1 (+2 other failures)
+22:27:18 INFO  
+</system-out>
+	</testcase>
+</testsuite>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testsuite failures="1" name="SoftwareManagement.sm_apt_install_remove_with_version" skipped="0" tests="1" time="30.02" timestamp="2022-04-25T21:55:44">
+	<testcase classname="PySysTest" name="SoftwareManagement.sm_apt_install_remove_with_version">
+		<failure message="BLOCKED: TypeError: 'NoneType' object is not iterable" type="BLOCKED"/>
+		<system-out>21:55:14 INFO  ==============================================================
+21:55:14 INFO  Id:    SoftwareManagement.sm_apt_install_remove_with_version
+21:55:14 INFO  Dir:   software_management_end_to_end/
+21:55:14 INFO  Title: Validate end to end behaviour for the apt plugin for packages with version
+21:55:14 INFO  ==============================================================
+21:55:14 INFO  Using sw id database: {'asciijump': '5475369', 'robotfindskitten': '5474869', 'squirrel3': '5475279', 'rolldice': '5152439', 'moon-buggy': '5439204', 'apple': '5495053', 'banana': '5494888', 'cherry': '5495382', 'watermelon': '5494510', 'registry': '8018911', 'hello-world': '8021526', 'docker/getting-started': '8021973', 'alpine': '7991792'}
+21:55:14 INFO  EnvironmentC8y Setup
+21:55:15 INFO  Executed systemctl&lt;serv_mapper1&gt;, exit status 3
+21:55:15 INFO  Restarting mosquitto too frequently in the last 10 seconds. It was only up for 4 seconds
+21:55:15 INFO  Delaying execution by 7 seconds
+21:55:36 INFO  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 0, duration 13 secs
+21:55:37 INFO  Executed sudo&lt;tedge_connect_c8y_test&gt;, exit status 0
+21:55:37 INFO  Executed systemctl&lt;serv_mosq2&gt;, exit status 0
+21:55:37 INFO  Executed systemctl&lt;serv_mapper3&gt;, exit status 0
+21:55:40 INFO  State of current operation: FAILED
+21:55:40 WARN  TypeError occurred while running test - 'NoneType' object is not iterable
+Traceback (most recent call last):
+  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/pysys/baserunner.py&quot;, line 1292, in __call__
+    self.testObj.setup()
+  File &quot;/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/sm_apt_install_remove_with_version/run.py&quot;, line 29, in setup
+    self.assertThat(&quot;False == value&quot;, value=self.check_is_installed(&quot;rolldice&quot;))
+  File &quot;/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/environment_sm_management.py&quot;, line 398, in check_is_installed
+    for package in package_list:
+TypeError: 'NoneType' object is not iterable
+21:55:40 WARN  TypeError: 'NoneType' object is not iterable ... blocked 
+21:55:40 INFO  
+21:55:40 INFO  cleanup:
+21:55:44 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
+21:55:44 INFO  Executed systemctl&lt;serv_mapper5&gt;, exit status 3
+21:55:44 INFO  
+21:55:44 INFO  Test duration: 30.02 secs
+21:55:44 INFO  Test final outcome:  BLOCKED
+21:55:44 INFO  Test outcome reason: TypeError: 'NoneType' object is not iterable
+21:55:44 INFO  
+</system-out>
+	</testcase>
+</testsuite>
