@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testsuite failures="1" name="SoftwareManagement.sm_apt_install_remove_multiple_mixed" skipped="0" tests="1" time="164.38" timestamp="2022-04-27T14:32:14">
+	<testcase classname="PySysTest" name="SoftwareManagement.sm_apt_install_remove_multiple_mixed">
+		<failure message="BLOCKED: SystemError: Timeout while waiting for status FAILED or SUCCESSFUL" type="BLOCKED"/>
+		<system-out>14:29:30 INFO  ==============================================================
+14:29:30 INFO  Id:    SoftwareManagement.sm_apt_install_remove_multiple_mixed
+14:29:30 INFO  Dir:   software_management_end_to_end/
+14:29:30 INFO  Title: Validate end to end behaviour for the apt plugin for multiple packages with mixed versions
+14:29:30 INFO  ==============================================================
+14:29:30 INFO  Using sw id database: {'asciijump': '5475369', 'robotfindskitten': '5474869', 'squirrel3': '5475279', 'rolldice': '5152439', 'moon-buggy': '5439204', 'apple': '5495053', 'banana': '5494888', 'cherry': '5495382', 'watermelon': '5494510', 'registry': '8018911', 'hello-world': '8021526', 'docker/getting-started': '8021973', 'alpine': '7991792'}
+14:29:30 INFO  EnvironmentC8y Setup
+14:29:30 INFO  Executed systemctl&lt;serv_mapper1&gt;, exit status 3
+14:29:31 INFO  Restarting mosquitto too frequently in the last 10 seconds. It was only up for 5 seconds
+14:29:31 INFO  Delaying execution by 6 seconds
+14:29:50 INFO  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 0, duration 13 secs
+14:29:51 INFO  Executed sudo&lt;tedge_connect_c8y_test&gt;, exit status 0
+14:29:51 INFO  Executed systemctl&lt;serv_mosq2&gt;, exit status 0
+14:29:52 INFO  Executed systemctl&lt;serv_mapper3&gt;, exit status 0
+14:29:54 INFO  State of current operation: PENDING
+14:29:56 INFO  State of current operation: PENDING
+14:29:58 INFO  State of current operation: PENDING
+14:30:01 INFO  State of current operation: PENDING
+14:30:03 INFO  State of current operation: PENDING
+14:30:05 INFO  State of current operation: PENDING
+14:30:07 INFO  State of current operation: PENDING
+14:30:10 INFO  State of current operation: PENDING
+14:30:12 INFO  State of current operation: PENDING
+14:30:14 INFO  State of current operation: PENDING
+14:30:16 INFO  State of current operation: PENDING
+14:30:19 INFO  State of current operation: PENDING
+14:30:21 INFO  State of current operation: PENDING
+14:30:23 INFO  State of current operation: PENDING
+14:30:25 INFO  State of current operation: PENDING
+14:30:27 INFO  State of current operation: PENDING
+14:30:30 INFO  State of current operation: PENDING
+14:30:32 INFO  State of current operation: PENDING
+14:30:34 INFO  State of current operation: PENDING
+14:30:36 INFO  State of current operation: PENDING
+14:30:38 INFO  State of current operation: PENDING
+14:30:41 INFO  State of current operation: PENDING
+14:30:43 INFO  State of current operation: PENDING
+14:30:45 INFO  State of current operation: PENDING
+14:30:47 INFO  State of current operation: PENDING
+14:30:50 INFO  State of current operation: PENDING
+14:30:52 INFO  State of current operation: PENDING
+14:30:54 INFO  State of current operation: PENDING
+14:30:56 INFO  State of current operation: PENDING
+14:30:59 INFO  State of current operation: PENDING
+14:31:01 INFO  State of current operation: PENDING
+14:31:03 INFO  State of current operation: PENDING
+14:31:05 INFO  State of current operation: PENDING
+14:31:08 INFO  State of current operation: PENDING
+14:31:10 INFO  State of current operation: PENDING
+14:31:12 INFO  State of current operation: PENDING
+14:31:14 INFO  State of current operation: PENDING
+14:31:16 INFO  State of current operation: PENDING
+14:31:19 INFO  State of current operation: PENDING
+14:31:21 INFO  State of current operation: PENDING
+14:31:23 INFO  State of current operation: PENDING
+14:31:25 INFO  State of current operation: PENDING
+14:31:28 INFO  State of current operation: PENDING
+14:31:30 INFO  State of current operation: PENDING
+14:31:32 INFO  State of current operation: PENDING
+14:31:34 INFO  State of current operation: PENDING
+14:31:36 INFO  State of current operation: PENDING
+14:31:39 INFO  State of current operation: PENDING
+14:31:41 INFO  State of current operation: PENDING
+14:31:43 INFO  State of current operation: PENDING
+14:31:45 INFO  State of current operation: PENDING
+14:31:47 INFO  State of current operation: PENDING
+14:31:50 INFO  State of current operation: PENDING
+14:31:52 INFO  State of current operation: PENDING
+14:31:54 INFO  State of current operation: PENDING
+14:31:56 INFO  State of current operation: PENDING
+14:31:59 INFO  State of current operation: PENDING
+14:32:01 INFO  State of current operation: PENDING
+14:32:03 INFO  State of current operation: PENDING
+14:32:05 INFO  State of current operation: PENDING
+14:32:07 INFO  State of current operation: PENDING
+14:32:09 WARN  SystemError occurred while running test - Timeout while waiting for status FAILED or SUCCESSFUL
+Traceback (most recent call last):
+  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/pysys/baserunner.py&quot;, line 1292, in __call__
+    self.testObj.setup()
+  File &quot;/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/sm_apt_install_remove_multiple_mixed/run.py&quot;, line 73, in setup
+    super().setup()
+  File &quot;/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/environment_sm_management.py&quot;, line 151, in setup
+    self.wait_until_end()
+  File &quot;/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/environment_sm_management.py&quot;, line 332, in wait_until_end
+    self.wait_until_status(&quot;FAILED&quot;, &quot;SUCCESSFUL&quot;)
+  File &quot;/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/environment_sm_management.py&quot;, line 381, in wait_until_status
+    &quot;Timeout while waiting for status %s or %s&quot; % (status, status2)
+SystemError: Timeout while waiting for status FAILED or SUCCESSFUL
+14:32:10 WARN  SystemError: Timeout while waiting for status FAILED or SUCCESSFUL ... blocked 
+14:32:10 INFO  
+14:32:10 INFO  cleanup:
+14:32:14 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
+14:32:14 INFO  Executed systemctl&lt;serv_mapper5&gt;, exit status 3
+14:32:14 INFO  
+14:32:14 INFO  Test duration: 164.38 secs
+14:32:14 INFO  Test final outcome:  BLOCKED
+14:32:14 INFO  Test outcome reason: SystemError: Timeout while waiting for status FAILED or SUCCESSFUL
+14:32:14 INFO  
+</system-out>
+	</testcase>
+</testsuite>

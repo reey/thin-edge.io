@@ -1,0 +1,69 @@
+2022-04-27 14:07:30,823 INFO  ==============================================================
+2022-04-27 14:07:30,824 INFO  Id:    SoftwareManagement.Plugin.apama_plugin_mon_support
+2022-04-27 14:07:30,825 INFO  Dir:   plugin_apama/
+2022-04-27 14:07:30,826 INFO  Title: Validate mon file support of apama plugin
+2022-04-27 14:07:30,826 INFO  ==============================================================
+2022-04-27 14:07:30,854 WARN  Assertion that path exists=False for "/etc/tedge/apama/project" ... failed 
+2022-04-27 14:07:31,365 INFO  Executed sudo<create_project_dir>, exit status 0
+2022-04-27 14:17:31,411 WARN  Process sudo<unzip_apama_project> (pid 19665) timed out after 600 seconds, stopping process
+2022-04-27 14:17:31,414 WARN  ProcessError occurred while running test - Error stopping process sudo<unzip_apama_project> (pid 19665) due to PermissionError: [Errno 1] Operation not permitted
+Traceback (most recent call last):
+  File "/home/pi/env-pysys/lib/python3.7/site-packages/pysys/process/user.py", line 465, in startProcess
+    process.start()
+  File "/home/pi/env-pysys/lib/python3.7/site-packages/pysys/process/__init__.py", line 282, in start
+    self.wait(self.timeout)
+  File "/home/pi/env-pysys/lib/python3.7/site-packages/pysys/process/__init__.py", line 263, in wait
+    raise ProcessTimeout('Waiting for completion of %r timed out after %d seconds'%(self, int(timeout)))
+pysys.exceptions.ProcessTimeout: Waiting for completion of sudo<unzip_apama_project> (pid 19665) timed out after 600 seconds
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/pi/env-pysys/lib/python3.7/site-packages/pysys/process/plat-unix/helper.py", line 226, in stop
+    os.kill(self.pid, sig)
+PermissionError: [Errno 1] Operation not permitted
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/pi/env-pysys/lib/python3.7/site-packages/pysys/baserunner.py", line 1292, in __call__
+    self.testObj.setup()
+  File "/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/plugin_apama/apama_plugin_mon_support/run.py", line 19, in setup
+    self.install_project(self.project.apama_input_dir + "/quickstart.zip")
+  File "/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/plugin_apama/environment_apama_plugin.py", line 72, in install_project
+    stdouterr="unzip_apama_project",
+  File "/home/pi/env-pysys/lib/python3.7/site-packages/pysys/process/user.py", line 493, in startProcess
+    process.stop()
+  File "/home/pi/env-pysys/lib/python3.7/site-packages/pysys/process/plat-unix/helper.py", line 252, in stop
+    raise ProcessError("Error stopping process %r due to %s: %s"%(self, type(ex).__name__, ex))
+pysys.exceptions.ProcessError: Error stopping process sudo<unzip_apama_project> (pid 19665) due to PermissionError: [Errno 1] Operation not permitted
+2022-04-27 14:17:31,531 WARN  ProcessError: Error stopping process sudo<unzip_apama_project> (pid 19665) due to PermissionError: [Errno 1] Operation not permitted ... blocked 
+2022-04-27 14:17:31,532 INFO  
+2022-04-27 14:17:31,533 INFO  cleanup:
+2022-04-27 14:17:31,536 INFO  Removing apama project
+2022-04-27 14:17:32,099 WARN  Executed sudo<remove_apama_project>, exit status 1
+2022-04-27 14:17:32,105 INFO  Contents of remove_apama_project.err: 
+2022-04-27 14:17:32,106 INFO    rm: cannot remove '/etc/tedge/apama/project/logs/.nfs0000000000160fea000033d8': Device or resource busy
+2022-04-27 14:17:32,107 INFO    -----
+2022-04-27 14:17:32,108 INFO  
+2022-04-27 14:17:32,139 ERROR Error while running cleanup function: 
+Traceback (most recent call last):
+  File "/home/pi/env-pysys/lib/python3.7/site-packages/pysys/process/user.py", line 1305, in cleanup
+    fn()
+  File "/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/plugin_apama/environment_apama_plugin.py", line 144, in cleanup_project
+    self.remove_project()
+  File "/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/plugin_apama/environment_apama_plugin.py", line 95, in remove_project
+    stdouterr="remove_apama_project",
+  File "/home/pi/env-pysys/lib/python3.7/site-packages/pysys/process/user.py", line 482, in startProcess
+    abortOnError=abortOnError)
+  File "/home/pi/env-pysys/lib/python3.7/site-packages/pysys/process/user.py", line 1401, in addOutcome
+    self.abort(outcome, outcomeReason, callRecord)
+  File "/home/pi/env-pysys/lib/python3.7/site-packages/pysys/process/user.py", line 1420, in abort
+    raise AbortExecution(outcome, outcomeReason, callRecord)
+pysys.exceptions.AbortExecution: sudo<remove_apama_project> returned non-zero exit code 1
+2022-04-27 14:17:32,153 WARN  Cleanup failed with 1 errors: Cleanup function failed: sudo<remove_apama_project> returned non-zero exit code 1 (AbortExecution) ... blocked 
+2022-04-27 14:17:32,156 INFO  
+2022-04-27 14:17:32,157 INFO  Test duration: 601.35 secs
+2022-04-27 14:17:32,157 INFO  Test final outcome:  BLOCKED
+2022-04-27 14:17:32,158 INFO  Test outcome reason: ProcessError: Error stopping process sudo<unzip_apama_project> (pid 19665) due to PermissionError: [Errno 1] Operation not permitted (+3 other failures)
+2022-04-27 14:17:32,159 INFO  

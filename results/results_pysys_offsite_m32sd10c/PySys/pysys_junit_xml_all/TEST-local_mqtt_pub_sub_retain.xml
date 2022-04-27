@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testsuite failures="1" name="local_mqtt_pub_sub_retain" skipped="0" tests="1" time="6.08" timestamp="2022-04-27T13:05:18">
+	<testcase classname="MqttPublishWithRetain" name="local_mqtt_pub_sub_retain">
+		<failure message="FAILED: Grep on temp_sensor_sub.out contains &quot;\[test/alarms/temp_sensor\] alarm msg 2&quot; (+1 other failures)" type="FAILED"/>
+		<system-out>13:05:12 INFO  ==============================================================
+13:05:12 INFO  Id:    local_mqtt_pub_sub_retain
+13:05:12 INFO  Dir:   local_mqtt/
+13:05:12 INFO  Title: Validate local publishing with retain flag
+13:05:12 INFO  ==============================================================
+13:05:13 INFO  Executed tedge&lt;pub_to_set_alarm&gt;, exit status 0
+13:05:13 INFO  Executed tedge&lt;pub_to_set_alarm&gt;, exit status 0
+13:05:14 INFO  Started tedge&lt;temp_sensor_sub&gt; with process id 9516
+13:05:15 INFO  Executed tedge&lt;pub_to_clear_alarm&gt;, exit status 0
+13:05:16 INFO  Executed sudo&lt;kill_out&gt;, exit status 0
+13:05:17 INFO  Executed tedge&lt;pub_to_clear_alarm&gt;, exit status 0
+13:05:17 INFO  Started tedge&lt;temp_sensor_empty_message&gt; with process id 9521
+13:05:18 INFO  Executed sudo&lt;kill_out&gt;, exit status 0
+13:05:18 WARN  Grep on temp_sensor_sub.out contains &quot;\[test/alarms/temp_sensor\] alarm msg 2&quot; ... failed [run.py:139]
+13:05:18 WARN  Grep on temp_sensor_sub.out contains &quot;\[test/alarms/temp_sensor\] &quot; ... failed [run.py:142]
+13:05:18 INFO  Grep on file temp_sensor_empty_message.out ... passed
+13:05:18 INFO  
+13:05:18 INFO  Test duration: 6.08 secs
+13:05:18 INFO  Test final outcome:  FAILED
+13:05:18 INFO  Test outcome reason: Grep on temp_sensor_sub.out contains &quot;\[test/alarms/temp_sensor\] alarm msg 2&quot; (+1 other failures)
+13:05:18 INFO  
+</system-out>
+	</testcase>
+</testsuite>
