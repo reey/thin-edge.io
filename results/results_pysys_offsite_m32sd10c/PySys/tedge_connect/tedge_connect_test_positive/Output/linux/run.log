@@ -1,0 +1,28 @@
+2022-04-27 17:43:22,228 INFO  ==============================================================
+2022-04-27 17:43:22,229 INFO  Id:    tedge_connect_test_positive
+2022-04-27 17:43:22,230 INFO  Dir:   tedge_connect/
+2022-04-27 17:43:22,231 INFO  Title: Validate tedge connect c8y --test (positive case)
+2022-04-27 17:43:22,231 INFO  ==============================================================
+2022-04-27 17:43:22,237 INFO  EnvironmentC8y Setup
+2022-04-27 17:43:22,757 INFO  Executed systemctl<serv_mapper1>, exit status 3
+2022-04-27 17:43:22,860 INFO  Restarting mosquitto too frequently in the last 10 seconds. It was only up for 5 seconds
+2022-04-27 17:43:22,862 INFO  Delaying execution by 6 seconds
+2022-04-27 17:43:42,636 INFO  Executed sudo<tedge_connect_c8y>, exit status 0, duration 13 secs
+2022-04-27 17:43:43,201 INFO  Executed sudo<tedge_connect_c8y_test>, exit status 0
+2022-04-27 17:43:43,714 INFO  Executed systemctl<serv_mosq2>, exit status 0
+2022-04-27 17:43:44,177 INFO  Executed systemctl<serv_mapper3>, exit status 0
+2022-04-27 17:43:44,179 INFO  Execute `tedge connect c8y --test`
+2022-04-27 17:43:44,743 INFO  Executed sudo<tedge_connect_c8y_test>, exit status 0
+2022-04-27 17:43:45,636 INFO  Executed systemctl<serv_mosq>, exit status 0
+2022-04-27 17:43:46,098 INFO  Executed systemctl<serv_mapper4>, exit status 0
+2022-04-27 17:43:46,100 INFO  Validate
+2022-04-27 17:43:46,106 INFO  Grep on file tedge_connect_c8y_test.out ... passed
+2022-04-27 17:43:46,107 INFO  Assertion on boolean expression equal to true ... passed
+2022-04-27 17:43:46,113 INFO  
+2022-04-27 17:43:46,114 INFO  cleanup:
+2022-04-27 17:43:50,004 INFO  Executed sudo<tedge_disconnect_c8y>, exit status 0
+2022-04-27 17:43:50,567 INFO  Executed systemctl<serv_mapper5>, exit status 3
+2022-04-27 17:43:50,571 INFO  
+2022-04-27 17:43:50,572 INFO  Test duration: 28.35 secs
+2022-04-27 17:43:50,573 INFO  Test final outcome:  PASSED
+2022-04-27 17:43:50,574 INFO  

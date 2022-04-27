@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testsuite failures="1" name="SoftwareManagement.sm_docker_install_remove_multiple" skipped="0" tests="1" time="140.53" timestamp="2022-04-27T18:28:57">
+	<testcase classname="SMDockerInstallRemove" name="SoftwareManagement.sm_docker_install_remove_multiple">
+		<failure message="BLOCKED: SystemError: The operation has failed" type="BLOCKED"/>
+		<system-out>18:26:37 INFO  ==============================================================
+18:26:37 INFO  Id:    SoftwareManagement.sm_docker_install_remove_multiple
+18:26:37 INFO  Dir:   software_management_end_to_end/
+18:26:37 INFO  Title: Validate end to end behaviour for the docker plugin for multiple docker images with mixed versions
+18:26:37 INFO  ==============================================================
+18:26:39 INFO  Using sw id database: {'asciijump': '5475369', 'robotfindskitten': '5474869', 'squirrel3': '5475279', 'rolldice': '5152439', 'moon-buggy': '5439204', 'apple': '5495053', 'banana': '5494888', 'cherry': '5495382', 'watermelon': '5494510', 'registry': '8018911', 'hello-world': '8021526', 'docker/getting-started': '8021973', 'alpine': '7991792'}
+18:26:39 INFO  EnvironmentC8y Setup
+18:26:40 INFO  Executed systemctl&lt;serv_mapper1&gt;, exit status 3
+18:26:57 INFO  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 0, duration 16 secs
+18:26:57 INFO  Executed sudo&lt;tedge_connect_c8y_test&gt;, exit status 0
+18:26:58 INFO  Executed systemctl&lt;serv_mosq2&gt;, exit status 0
+18:26:58 INFO  Executed systemctl&lt;serv_mapper3&gt;, exit status 0
+18:27:01 INFO  State of current operation: SUCCESSFUL
+18:27:01 INFO  Response status: 201
+18:27:01 INFO  Response to action: {
+    &quot;creationTime&quot;: &quot;2022-04-27T18:27:01.427Z&quot;,
+    &quot;deviceName&quot;: &quot;m32sd10b&quot;,
+    &quot;deviceId&quot;: &quot;17821468&quot;,
+    &quot;self&quot;: &quot;https://t493319102.eu-latest.cumulocity.com/devicecontrol/operations/17832440&quot;,
+    &quot;id&quot;: &quot;17832440&quot;,
+    &quot;status&quot;: &quot;PENDING&quot;,
+    &quot;description&quot;: &quot;Apply software changes, triggered from PySys: [{'action': 'install', 'id': '8021526', 'name': 'hello-world', 'url': '', 'version': '::docker'}, {'action': 'install', 'id': '8018911', 'name': 'registry', 'url': '', 'version': '2.6.2::docker'}]&quot;,
+    &quot;c8y_SoftwareUpdate&quot;: [
+        {
+            &quot;name&quot;: &quot;hello-world&quot;,
+            &quot;action&quot;: &quot;install&quot;,
+            &quot;id&quot;: &quot;8021526&quot;,
+            &quot;version&quot;: &quot;::docker&quot;,
+            &quot;url&quot;: &quot;&quot;
+        },
+        {
+            &quot;name&quot;: &quot;registry&quot;,
+            &quot;action&quot;: &quot;install&quot;,
+            &quot;id&quot;: &quot;8018911&quot;,
+            &quot;version&quot;: &quot;2.6.2::docker&quot;,
+            &quot;url&quot;: &quot;&quot;
+        }
+    ]
+}
+18:27:01 INFO  Started operation: {'creationTime': '2022-04-27T18:27:01.427Z', 'deviceName': 'm32sd10b', 'deviceId': '17821468', 'self': 'https://t493319102.eu-latest.cumulocity.com/devicecontrol/operations/17832440', 'id': '17832440', 'status': 'PENDING', 'description': &quot;Apply software changes, triggered from PySys: [{'action': 'install', 'id': '8021526', 'name': 'hello-world', 'url': '', 'version': '::docker'}, {'action': 'install', 'id': '8018911', 'name': 'registry', 'url': '', 'version': '2.6.2::docker'}]&quot;, 'c8y_SoftwareUpdate': [{'name': 'hello-world', 'action': 'install', 'id': '8021526', 'version': '::docker', 'url': ''}, {'name': 'registry', 'action': 'install', 'id': '8018911', 'version': '2.6.2::docker', 'url': ''}]}
+18:27:03 INFO  State of operation 17832440 : PENDING
+18:27:05 INFO  State of operation 17832440 : EXECUTING
+18:27:08 INFO  State of operation 17832440 : EXECUTING
+18:27:10 INFO  State of operation 17832440 : EXECUTING
+18:27:12 INFO  State of operation 17832440 : EXECUTING
+18:27:15 INFO  State of operation 17832440 : EXECUTING
+18:27:17 INFO  State of operation 17832440 : EXECUTING
+18:27:19 INFO  State of operation 17832440 : EXECUTING
+18:27:22 INFO  State of operation 17832440 : EXECUTING
+18:27:24 INFO  State of operation 17832440 : EXECUTING
+18:27:26 INFO  State of operation 17832440 : EXECUTING
+18:27:29 INFO  State of operation 17832440 : EXECUTING
+18:27:31 INFO  State of operation 17832440 : EXECUTING
+18:27:33 INFO  State of operation 17832440 : EXECUTING
+18:27:35 INFO  State of operation 17832440 : EXECUTING
+18:27:37 INFO  State of operation 17832440 : EXECUTING
+18:27:40 INFO  State of operation 17832440 : SUCCESSFUL
+18:27:41 INFO  Package hello-world is installed
+18:27:41 INFO  Package hello-world is installed
+18:27:41 INFO  Assert that (True == value) with value=True ... passed
+18:27:41 INFO  Package registry is installed
+18:27:41 INFO  Assert that (True == value) with value=True ... passed
+18:27:42 INFO  Assert that (False == value) with value=False ... passed
+18:27:42 INFO  Response status: 201
+18:27:42 INFO  Response to action: {
+    &quot;creationTime&quot;: &quot;2022-04-27T18:27:42.316Z&quot;,
+    &quot;deviceName&quot;: &quot;m32sd10b&quot;,
+    &quot;deviceId&quot;: &quot;17821468&quot;,
+    &quot;self&quot;: &quot;https://t493319102.eu-latest.cumulocity.com/devicecontrol/operations/17832444&quot;,
+    &quot;id&quot;: &quot;17832444&quot;,
+    &quot;status&quot;: &quot;PENDING&quot;,
+    &quot;description&quot;: &quot;Apply software changes, triggered from PySys: [{'action': 'install', 'id': '8018911', 'name': 'registry', 'url': '', 'version': '2.7.1::docker'}, {'action': 'install', 'id': '7991792', 'name': 'alpine', 'url': '', 'version': '::docker'}]&quot;,
+    &quot;c8y_SoftwareUpdate&quot;: [
+        {
+            &quot;name&quot;: &quot;registry&quot;,
+            &quot;action&quot;: &quot;install&quot;,
+            &quot;id&quot;: &quot;8018911&quot;,
+            &quot;version&quot;: &quot;2.7.1::docker&quot;,
+            &quot;url&quot;: &quot;&quot;
+        },
+        {
+            &quot;name&quot;: &quot;alpine&quot;,
+            &quot;action&quot;: &quot;install&quot;,
+            &quot;id&quot;: &quot;7991792&quot;,
+            &quot;version&quot;: &quot;::docker&quot;,
+            &quot;url&quot;: &quot;&quot;
+        }
+    ]
+}
+18:27:42 INFO  Started operation: {'creationTime': '2022-04-27T18:27:42.316Z', 'deviceName': 'm32sd10b', 'deviceId': '17821468', 'self': 'https://t493319102.eu-latest.cumulocity.com/devicecontrol/operations/17832444', 'id': '17832444', 'status': 'PENDING', 'description': &quot;Apply software changes, triggered from PySys: [{'action': 'install', 'id': '8018911', 'name': 'registry', 'url': '', 'version': '2.7.1::docker'}, {'action': 'install', 'id': '7991792', 'name': 'alpine', 'url': '', 'version': '::docker'}]&quot;, 'c8y_SoftwareUpdate': [{'name': 'registry', 'action': 'install', 'id': '8018911', 'version': '2.7.1::docker', 'url': ''}, {'name': 'alpine', 'action': 'install', 'id': '7991792', 'version': '::docker', 'url': ''}]}
+18:27:44 INFO  State of operation 17832444 : PENDING
+18:27:46 INFO  State of operation 17832444 : EXECUTING
+18:27:49 INFO  State of operation 17832444 : EXECUTING
+18:27:51 INFO  State of operation 17832444 : EXECUTING
+18:27:53 INFO  State of operation 17832444 : EXECUTING
+18:27:55 INFO  State of operation 17832444 : EXECUTING
+18:27:58 INFO  State of operation 17832444 : EXECUTING
+18:28:00 INFO  State of operation 17832444 : EXECUTING
+18:28:02 INFO  State of operation 17832444 : EXECUTING
+18:28:04 INFO  State of operation 17832444 : EXECUTING
+18:28:07 INFO  State of operation 17832444 : EXECUTING
+18:28:09 INFO  State of operation 17832444 : EXECUTING
+18:28:11 INFO  State of operation 17832444 : EXECUTING
+18:28:13 INFO  State of operation 17832444 : EXECUTING
+18:28:16 INFO  State of operation 17832444 : EXECUTING
+18:28:18 INFO  State of operation 17832444 : EXECUTING
+18:28:20 INFO  State of operation 17832444 : EXECUTING
+18:28:22 INFO  State of operation 17832444 : FAILED
+18:28:22 ERROR Stopping as the operation has failed
+18:28:22 WARN  SystemError occurred while running test - The operation has failed
+Traceback (most recent call last):
+  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/pysys/baserunner.py&quot;, line 1294, in __call__
+    self.testObj.execute()
+  File &quot;/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/sm_docker_install_remove_multiple/run.py&quot;, line 91, in execute
+    self.wait_until_succcess()
+  File &quot;/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/environment_sm_management.py&quot;, line 324, in wait_until_succcess
+    self.wait_until_status(&quot;SUCCESSFUL&quot;)
+  File &quot;/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/environment_sm_management.py&quot;, line 361, in wait_until_status
+    raise SystemError(&quot;The operation has failed&quot;)
+SystemError: The operation has failed
+18:28:23 WARN  SystemError: The operation has failed ... blocked 
+18:28:23 INFO  
+18:28:23 INFO  cleanup:
+18:28:23 INFO  Response status: 201
+18:28:23 INFO  Response to action: {
+    &quot;creationTime&quot;: &quot;2022-04-27T18:28:23.683Z&quot;,
+    &quot;deviceName&quot;: &quot;m32sd10b&quot;,
+    &quot;deviceId&quot;: &quot;17821468&quot;,
+    &quot;self&quot;: &quot;https://t493319102.eu-latest.cumulocity.com/devicecontrol/operations/17832452&quot;,
+    &quot;id&quot;: &quot;17832452&quot;,
+    &quot;status&quot;: &quot;PENDING&quot;,
+    &quot;description&quot;: &quot;Apply software changes, triggered from PySys: [{'action': 'delete', 'id': '8018911', 'name': 'registry', 'url': '', 'version': '2.7.1::docker'}, {'action': 'delete', 'id': '7991792', 'name': 'alpine', 'url': '', 'version': '::docker'}, {'action': 'delete', 'id': '8021526', 'name': 'hello-world', 'url': '', 'version': '::docker'}]&quot;,
+    &quot;c8y_SoftwareUpdate&quot;: [
+        {
+            &quot;name&quot;: &quot;registry&quot;,
+            &quot;action&quot;: &quot;delete&quot;,
+            &quot;id&quot;: &quot;8018911&quot;,
+            &quot;version&quot;: &quot;2.7.1::docker&quot;,
+            &quot;url&quot;: &quot;&quot;
+        },
+        {
+            &quot;name&quot;: &quot;alpine&quot;,
+            &quot;action&quot;: &quot;delete&quot;,
+            &quot;id&quot;: &quot;7991792&quot;,
+            &quot;version&quot;: &quot;::docker&quot;,
+            &quot;url&quot;: &quot;&quot;
+        },
+        {
+            &quot;name&quot;: &quot;hello-world&quot;,
+            &quot;action&quot;: &quot;delete&quot;,
+            &quot;id&quot;: &quot;8021526&quot;,
+            &quot;version&quot;: &quot;::docker&quot;,
+            &quot;url&quot;: &quot;&quot;
+        }
+    ]
+}
+18:28:23 INFO  Started operation: {'creationTime': '2022-04-27T18:28:23.683Z', 'deviceName': 'm32sd10b', 'deviceId': '17821468', 'self': 'https://t493319102.eu-latest.cumulocity.com/devicecontrol/operations/17832452', 'id': '17832452', 'status': 'PENDING', 'description': &quot;Apply software changes, triggered from PySys: [{'action': 'delete', 'id': '8018911', 'name': 'registry', 'url': '', 'version': '2.7.1::docker'}, {'action': 'delete', 'id': '7991792', 'name': 'alpine', 'url': '', 'version': '::docker'}, {'action': 'delete', 'id': '8021526', 'name': 'hello-world', 'url': '', 'version': '::docker'}]&quot;, 'c8y_SoftwareUpdate': [{'name': 'registry', 'action': 'delete', 'id': '8018911', 'version': '2.7.1::docker', 'url': ''}, {'name': 'alpine', 'action': 'delete', 'id': '7991792', 'version': '::docker', 'url': ''}, {'name': 'hello-world', 'action': 'delete', 'id': '8021526', 'version': '::docker', 'url': ''}]}
+18:28:25 INFO  State of operation 17832452 : PENDING
+18:28:28 INFO  State of operation 17832452 : EXECUTING
+18:28:30 INFO  State of operation 17832452 : EXECUTING
+18:28:32 INFO  State of operation 17832452 : EXECUTING
+18:28:34 INFO  State of operation 17832452 : EXECUTING
+18:28:37 INFO  State of operation 17832452 : EXECUTING
+18:28:39 INFO  State of operation 17832452 : EXECUTING
+18:28:41 INFO  State of operation 17832452 : SUCCESSFUL
+18:28:52 INFO  Assert that (False == value) with value=False ... passed
+18:28:52 INFO  Assert that (False == value) with value=False ... passed
+18:28:53 INFO  Assert that (False == value) with value=False ... passed
+18:28:57 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
+18:28:57 INFO  Executed systemctl&lt;serv_mapper5&gt;, exit status 3
+18:28:57 INFO  
+18:28:57 INFO  Test duration: 140.53 secs
+18:28:57 INFO  Test final outcome:  BLOCKED
+18:28:57 INFO  Test outcome reason: SystemError: The operation has failed
+18:28:57 INFO  
+</system-out>
+	</testcase>
+</testsuite>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testsuite failures="1" name="SoftwareManagement.Plugin.apama_plugin_mon_support" skipped="0" tests="1" time="29.76" timestamp="2022-04-27T18:10:45">
+	<testcase classname="ApamaPluginMonSupportTest" name="SoftwareManagement.Plugin.apama_plugin_mon_support">
+		<failure message="FAILED: Assertion that path exists=False for &quot;/etc/tedge/apama/project&quot;" type="FAILED"/>
+		<system-out>18:10:15 INFO  ==============================================================
+18:10:15 INFO  Id:    SoftwareManagement.Plugin.apama_plugin_mon_support
+18:10:15 INFO  Dir:   plugin_apama/
+18:10:15 INFO  Title: Validate mon file support of apama plugin
+18:10:15 INFO  ==============================================================
+18:10:16 WARN  Assertion that path exists=False for &quot;/etc/tedge/apama/project&quot; ... failed 
+18:10:16 INFO  Executed sudo&lt;create_project_dir&gt;, exit status 0
+18:10:17 INFO  Executed sudo&lt;unzip_apama_project&gt;, exit status 0
+18:10:17 INFO  Executed sudo&lt;move_apama_project&gt;, exit status 0
+18:10:18 INFO  Executed sudo&lt;restart_apama_service&gt;, exit status 0
+18:10:19 INFO  Executed sudo&lt;apama_correlator_wait&gt;, exit status 0
+18:10:20 INFO  Executed sudo&lt;apama_list_monitors&gt;, exit status 0
+18:10:20 INFO  Grep on file /home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/plugin_apama/apama_plugin_mon_support/Output/linux/apama_list_monitors.out ... passed
+18:10:21 INFO  Executed sudo&lt;plugin_list_before_install&gt;, exit status 0
+18:10:22 INFO  Executed sudo&lt;plugin_install&gt;, exit status 0
+18:10:22 INFO  Executed sudo&lt;apama_correlator_wait&gt;, exit status 0
+18:10:23 INFO  Executed sudo&lt;plugin_list_after_install&gt;, exit status 0
+18:10:24 INFO  Executed sudo&lt;plugin_update&gt;, exit status 0
+18:10:25 INFO  Executed sudo&lt;apama_correlator_wait&gt;, exit status 0
+18:10:26 INFO  Executed sudo&lt;plugin_list_after_update&gt;, exit status 0
+18:10:27 INFO  Executed sudo&lt;plugin_remove&gt;, exit status 0
+18:10:27 INFO  Executed sudo&lt;plugin_list_after_remove&gt;, exit status 0
+18:10:27 INFO  Grep on file plugin_list_before_install.out ... passed
+18:10:27 INFO  Grep on file plugin_list_after_install.out ... passed
+18:10:27 INFO  Grep on file plugin_list_after_update.out ... passed
+18:10:27 INFO  Grep on file plugin_list_after_remove.out ... passed
+18:10:27 INFO  
+18:10:27 INFO  cleanup:
+18:10:27 INFO  Removing apama project
+18:10:28 INFO  Executed sudo&lt;remove_apama_project&gt;, exit status 0
+18:10:45 INFO  Executed sudo&lt;stop_apama_service&gt;, exit status 0, duration 16 secs
+18:10:45 INFO  Executed sudo&lt;remove_apama_tmp_dir&gt;, exit status 0
+18:10:45 INFO  
+18:10:45 INFO  Test duration: 29.76 secs
+18:10:45 INFO  Test final outcome:  FAILED
+18:10:45 INFO  Test outcome reason: Assertion that path exists=False for &quot;/etc/tedge/apama/project&quot;
+18:10:45 INFO  
+</system-out>
+	</testcase>
+</testsuite>

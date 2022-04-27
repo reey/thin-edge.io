@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testsuite failures="1" name="SoftwareManagement.Plugin.apama_plugin_install" skipped="0" tests="1" time="30.75" timestamp="2022-04-27T18:22:28">
+	<testcase classname="ApamaPluginInstallTest" name="SoftwareManagement.Plugin.apama_plugin_install">
+		<failure message="BLOCKED: sudo&lt;plugin_install&gt; returned non-zero exit code 2" type="BLOCKED"/>
+		<system-out>18:21:57 INFO  ==============================================================
+18:21:57 INFO  Id:    SoftwareManagement.Plugin.apama_plugin_install
+18:21:57 INFO  Dir:   plugin_apama/
+18:21:57 INFO  Title: Validate apama plugin install
+18:21:57 INFO  ==============================================================
+18:21:57 INFO  Assertion that path exists=False for &quot;/etc/tedge/apama/project&quot; ... passed
+18:22:09 WARN  Executed sudo&lt;plugin_install&gt;, exit status 2, duration 11 secs
+18:22:09 INFO  Contents of plugin_install.err: 
+  Failed to connect to remote component: Failed to connect to localhost:15903: Connection refused
+  ERROR: Execution of `/opt/softwareag/Apama/bin/apama_env` failed with exit status exit status: 1
+  -----
+
+18:22:09 WARN  sudo&lt;plugin_install&gt; returned non-zero exit code 2 ... blocked [run.py:29]
+18:22:09 WARN  Aborted test due to BLOCKED outcome
+18:22:09 INFO  
+18:22:09 INFO  cleanup:
+18:22:09 INFO  Removing apama project
+18:22:09 INFO  Executed sudo&lt;remove_apama_project&gt;, exit status 0
+18:22:27 INFO  Executed sudo&lt;stop_apama_service&gt;, exit status 0, duration 17 secs
+18:22:28 INFO  Executed sudo&lt;remove_apama_tmp_dir&gt;, exit status 0
+18:22:28 INFO  
+18:22:28 INFO  Test duration: 30.75 secs
+18:22:28 INFO  Test final outcome:  BLOCKED
+18:22:28 INFO  Test outcome reason: sudo&lt;plugin_install&gt; returned non-zero exit code 2
+18:22:28 INFO  
+</system-out>
+	</testcase>
+</testsuite>
