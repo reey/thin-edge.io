@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testsuite failures="1" name="log_request_num_lines" skipped="0" tests="1" time="32.9" timestamp="2022-04-27T08:33:24">
+	<testcase classname="LogRequestVerifyNumberOfLines" name="log_request_num_lines">
+		<failure message="FAILED: Assert that (True == value) with value=False" type="FAILED"/>
+		<system-out>08:32:51 INFO  ==============================================================
+08:32:51 INFO  Id:    log_request_num_lines
+08:32:51 INFO  Dir:   log_request_end_to_end/
+08:32:51 INFO  Title: Validate end to end behaviour for the log request operation check for number of lines
+08:32:51 INFO  ==============================================================
+08:32:51 INFO  EnvironmentC8y Setup
+08:32:52 INFO  Executed systemctl&lt;serv_mapper1&gt;, exit status 3
+08:32:52 INFO  Restarting mosquitto too frequently in the last 10 seconds. It was only up for 4 seconds
+08:32:52 INFO  Delaying execution by 7 seconds
+08:33:13 INFO  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 0, duration 14 secs
+08:33:14 INFO  Executed sudo&lt;tedge_connect_c8y_test&gt;, exit status 0
+08:33:14 INFO  Executed systemctl&lt;serv_mosq2&gt;, exit status 0
+08:33:15 INFO  Executed systemctl&lt;serv_mapper3&gt;, exit status 0
+08:33:15 INFO  Executed sudo&lt;rm_logs&gt;, exit status 0
+08:33:16 INFO  Executed sudo&lt;move_logs&gt;, exit status 0
+08:33:16 INFO  log response None
+08:33:16 WARN  retry, retrying in 1 seconds...
+08:33:17 INFO  log response https://thin-edge-io.eu-latest.cumulocity.com/event/events/17729512/binaries
+08:33:18 INFO  nlines 0
+08:33:18 WARN  Assert that (True == value) with value=False ... failed [run.py:44]
+08:33:18 INFO  
+08:33:18 INFO  cleanup:
+08:33:18 INFO  Executed sudo&lt;rm_logs&gt;, exit status 0
+08:33:19 INFO  Executed sudo&lt;rm_tmp_logs&gt;, exit status 0
+08:33:19 INFO  Executed sudo&lt;send_failed&gt;, exit status 0
+08:33:23 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
+08:33:24 INFO  Executed systemctl&lt;serv_mapper5&gt;, exit status 3
+08:33:24 INFO  
+08:33:24 INFO  Test duration: 32.90 secs
+08:33:24 INFO  Test final outcome:  FAILED
+08:33:24 INFO  Test outcome reason: Assert that (True == value) with value=False
+08:33:24 INFO  
+</system-out>
+	</testcase>
+</testsuite>

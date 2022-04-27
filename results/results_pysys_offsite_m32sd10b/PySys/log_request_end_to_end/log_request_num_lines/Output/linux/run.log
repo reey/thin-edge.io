@@ -1,0 +1,32 @@
+2022-04-27 08:33:55,663 INFO  ==============================================================
+2022-04-27 08:33:55,664 INFO  Id:    log_request_num_lines
+2022-04-27 08:33:55,669 INFO  Dir:   log_request_end_to_end/
+2022-04-27 08:33:55,671 INFO  Title: Validate end to end behaviour for the log request operation check for number of lines
+2022-04-27 08:33:55,673 INFO  ==============================================================
+2022-04-27 08:33:55,733 INFO  EnvironmentC8y Setup
+2022-04-27 08:33:56,549 INFO  Executed systemctl<serv_mapper1>, exit status 3
+2022-04-27 08:33:56,677 INFO  Restarting mosquitto too frequently in the last 10 seconds. It was only up for 5 seconds
+2022-04-27 08:33:56,679 INFO  Delaying execution by 6 seconds
+2022-04-27 08:34:16,907 INFO  Executed sudo<tedge_connect_c8y>, exit status 0, duration 14 secs
+2022-04-27 08:34:17,524 INFO  Executed sudo<tedge_connect_c8y_test>, exit status 0
+2022-04-27 08:34:18,039 INFO  Executed systemctl<serv_mosq2>, exit status 0
+2022-04-27 08:34:18,502 INFO  Executed systemctl<serv_mapper3>, exit status 0
+2022-04-27 08:34:19,016 INFO  Executed sudo<rm_logs>, exit status 0
+2022-04-27 08:34:19,550 INFO  Executed sudo<move_logs>, exit status 0
+2022-04-27 08:34:19,998 INFO  log response None
+2022-04-27 08:34:19,999 WARN  retry, retrying in 1 seconds...
+2022-04-27 08:34:21,205 INFO  log response https://thin-edge-io.eu-latest.cumulocity.com/event/events/17749221/binaries
+2022-04-27 08:34:21,429 INFO  nlines 0
+2022-04-27 08:34:21,453 WARN  Assert that (True == value) with value=False ... failed [run.py:44]
+2022-04-27 08:34:21,460 INFO  
+2022-04-27 08:34:21,461 INFO  cleanup:
+2022-04-27 08:34:21,961 INFO  Executed sudo<rm_logs>, exit status 0
+2022-04-27 08:34:22,473 INFO  Executed sudo<rm_tmp_logs>, exit status 0
+2022-04-27 08:34:23,001 INFO  Executed sudo<send_failed>, exit status 0
+2022-04-27 08:34:27,138 INFO  Executed sudo<tedge_disconnect_c8y>, exit status 0
+2022-04-27 08:34:27,703 INFO  Executed systemctl<serv_mapper5>, exit status 3
+2022-04-27 08:34:27,707 INFO  
+2022-04-27 08:34:27,708 INFO  Test duration: 32.06 secs
+2022-04-27 08:34:27,709 INFO  Test final outcome:  FAILED
+2022-04-27 08:34:27,710 INFO  Test outcome reason: Assert that (True == value) with value=False
+2022-04-27 08:34:27,711 INFO  

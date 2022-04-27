@@ -1,0 +1,174 @@
+2022-04-27 10:01:00,590 INFO  ==============================================================
+2022-04-27 10:01:00,591 INFO  Id:    SoftwareManagement.sm_docker_install_remove_multiple
+2022-04-27 10:01:00,592 INFO  Dir:   software_management_end_to_end/
+2022-04-27 10:01:00,593 INFO  Title: Validate end to end behaviour for the docker plugin for multiple docker images with mixed versions
+2022-04-27 10:01:00,594 INFO  ==============================================================
+2022-04-27 10:01:00,612 INFO  Using sw id database: {'asciijump': '5475369', 'robotfindskitten': '5474869', 'squirrel3': '5475279', 'rolldice': '5152439', 'moon-buggy': '5439204', 'apple': '5495053', 'banana': '5494888', 'cherry': '5495382', 'watermelon': '5494510', 'registry': '8018911', 'hello-world': '8021526', 'docker/getting-started': '8021973', 'alpine': '7991792'}
+2022-04-27 10:01:00,613 INFO  EnvironmentC8y Setup
+2022-04-27 10:01:01,175 INFO  Executed systemctl<serv_mapper1>, exit status 3
+2022-04-27 10:01:01,283 INFO  Restarting mosquitto too frequently in the last 10 seconds. It was only up for 5 seconds
+2022-04-27 10:01:01,285 INFO  Delaying execution by 6 seconds
+2022-04-27 10:01:21,263 INFO  Executed sudo<tedge_connect_c8y>, exit status 0, duration 13 secs
+2022-04-27 10:01:21,879 INFO  Executed sudo<tedge_connect_c8y_test>, exit status 0
+2022-04-27 10:01:22,342 INFO  Executed systemctl<serv_mosq2>, exit status 0
+2022-04-27 10:01:22,814 INFO  Executed systemctl<serv_mapper3>, exit status 0
+2022-04-27 10:01:25,047 INFO  State of current operation: SUCCESSFUL
+2022-04-27 10:01:25,273 INFO  Response status: 201
+2022-04-27 10:01:25,275 INFO  Response to action: {
+    "creationTime": "2022-04-27T10:01:25.226Z",
+    "deviceName": "m32sd10d",
+    "deviceId": "17731194",
+    "self": "https://t493319102.eu-latest.cumulocity.com/devicecontrol/operations/17757689",
+    "id": "17757689",
+    "status": "PENDING",
+    "description": "Apply software changes, triggered from PySys: [{'action': 'install', 'id': '8021526', 'name': 'hello-world', 'url': '', 'version': '::docker'}, {'action': 'install', 'id': '8018911', 'name': 'registry', 'url': '', 'version': '2.6.2::docker'}]",
+    "c8y_SoftwareUpdate": [
+        {
+            "name": "hello-world",
+            "action": "install",
+            "id": "8021526",
+            "version": "::docker",
+            "url": ""
+        },
+        {
+            "name": "registry",
+            "action": "install",
+            "id": "8018911",
+            "version": "2.6.2::docker",
+            "url": ""
+        }
+    ]
+}
+2022-04-27 10:01:25,276 INFO  Started operation: {'creationTime': '2022-04-27T10:01:25.226Z', 'deviceName': 'm32sd10d', 'deviceId': '17731194', 'self': 'https://t493319102.eu-latest.cumulocity.com/devicecontrol/operations/17757689', 'id': '17757689', 'status': 'PENDING', 'description': "Apply software changes, triggered from PySys: [{'action': 'install', 'id': '8021526', 'name': 'hello-world', 'url': '', 'version': '::docker'}, {'action': 'install', 'id': '8018911', 'name': 'registry', 'url': '', 'version': '2.6.2::docker'}]", 'c8y_SoftwareUpdate': [{'name': 'hello-world', 'action': 'install', 'id': '8021526', 'version': '::docker', 'url': ''}, {'name': 'registry', 'action': 'install', 'id': '8018911', 'version': '2.6.2::docker', 'url': ''}]}
+2022-04-27 10:01:27,491 INFO  State of operation 17757689 : PENDING
+2022-04-27 10:01:29,727 INFO  State of operation 17757689 : EXECUTING
+2022-04-27 10:01:31,946 INFO  State of operation 17757689 : EXECUTING
+2022-04-27 10:01:34,207 INFO  State of operation 17757689 : EXECUTING
+2022-04-27 10:01:36,592 INFO  State of operation 17757689 : EXECUTING
+2022-04-27 10:01:38,822 INFO  State of operation 17757689 : EXECUTING
+2022-04-27 10:01:41,053 INFO  State of operation 17757689 : EXECUTING
+2022-04-27 10:01:43,330 INFO  State of operation 17757689 : EXECUTING
+2022-04-27 10:01:45,549 INFO  State of operation 17757689 : EXECUTING
+2022-04-27 10:01:47,766 INFO  State of operation 17757689 : EXECUTING
+2022-04-27 10:01:49,981 INFO  State of operation 17757689 : EXECUTING
+2022-04-27 10:01:52,721 INFO  State of operation 17757689 : EXECUTING
+2022-04-27 10:01:54,997 INFO  State of operation 17757689 : EXECUTING
+2022-04-27 10:01:57,279 INFO  State of operation 17757689 : EXECUTING
+2022-04-27 10:01:59,527 INFO  State of operation 17757689 : EXECUTING
+2022-04-27 10:02:01,742 INFO  State of operation 17757689 : EXECUTING
+2022-04-27 10:02:03,949 INFO  State of operation 17757689 : SUCCESSFUL
+2022-04-27 10:02:05,188 INFO  Package hello-world is installed
+2022-04-27 10:02:05,433 INFO  Package hello-world is installed
+2022-04-27 10:02:05,436 INFO  Assert that (True == value) with value=True ... passed
+2022-04-27 10:02:05,648 INFO  Package registry is installed
+2022-04-27 10:02:05,651 INFO  Assert that (True == value) with value=True ... passed
+2022-04-27 10:02:05,899 INFO  Assert that (False == value) with value=False ... passed
+2022-04-27 10:02:06,145 INFO  Response status: 201
+2022-04-27 10:02:06,146 INFO  Response to action: {
+    "creationTime": "2022-04-27T10:02:06.096Z",
+    "deviceName": "m32sd10d",
+    "deviceId": "17731194",
+    "self": "https://t493319102.eu-latest.cumulocity.com/devicecontrol/operations/17757691",
+    "id": "17757691",
+    "status": "PENDING",
+    "description": "Apply software changes, triggered from PySys: [{'action': 'install', 'id': '8018911', 'name': 'registry', 'url': '', 'version': '2.7.1::docker'}, {'action': 'install', 'id': '7991792', 'name': 'alpine', 'url': '', 'version': '::docker'}]",
+    "c8y_SoftwareUpdate": [
+        {
+            "name": "registry",
+            "action": "install",
+            "id": "8018911",
+            "version": "2.7.1::docker",
+            "url": ""
+        },
+        {
+            "name": "alpine",
+            "action": "install",
+            "id": "7991792",
+            "version": "::docker",
+            "url": ""
+        }
+    ]
+}
+2022-04-27 10:02:06,147 INFO  Started operation: {'creationTime': '2022-04-27T10:02:06.096Z', 'deviceName': 'm32sd10d', 'deviceId': '17731194', 'self': 'https://t493319102.eu-latest.cumulocity.com/devicecontrol/operations/17757691', 'id': '17757691', 'status': 'PENDING', 'description': "Apply software changes, triggered from PySys: [{'action': 'install', 'id': '8018911', 'name': 'registry', 'url': '', 'version': '2.7.1::docker'}, {'action': 'install', 'id': '7991792', 'name': 'alpine', 'url': '', 'version': '::docker'}]", 'c8y_SoftwareUpdate': [{'name': 'registry', 'action': 'install', 'id': '8018911', 'version': '2.7.1::docker', 'url': ''}, {'name': 'alpine', 'action': 'install', 'id': '7991792', 'version': '::docker', 'url': ''}]}
+2022-04-27 10:02:08,364 INFO  State of operation 17757691 : PENDING
+2022-04-27 10:02:10,593 INFO  State of operation 17757691 : EXECUTING
+2022-04-27 10:02:12,855 INFO  State of operation 17757691 : EXECUTING
+2022-04-27 10:02:15,066 INFO  State of operation 17757691 : EXECUTING
+2022-04-27 10:02:17,507 INFO  State of operation 17757691 : EXECUTING
+2022-04-27 10:02:19,720 INFO  State of operation 17757691 : EXECUTING
+2022-04-27 10:02:21,947 INFO  State of operation 17757691 : EXECUTING
+2022-04-27 10:02:24,165 INFO  State of operation 17757691 : EXECUTING
+2022-04-27 10:02:26,379 INFO  State of operation 17757691 : EXECUTING
+2022-04-27 10:02:28,656 INFO  State of operation 17757691 : EXECUTING
+2022-04-27 10:02:30,908 INFO  State of operation 17757691 : EXECUTING
+2022-04-27 10:02:33,129 INFO  State of operation 17757691 : EXECUTING
+2022-04-27 10:02:35,426 INFO  State of operation 17757691 : EXECUTING
+2022-04-27 10:02:37,636 INFO  State of operation 17757691 : EXECUTING
+2022-04-27 10:02:39,924 INFO  State of operation 17757691 : EXECUTING
+2022-04-27 10:02:42,167 INFO  State of operation 17757691 : EXECUTING
+2022-04-27 10:02:44,430 INFO  State of operation 17757691 : EXECUTING
+2022-04-27 10:02:46,696 INFO  State of operation 17757691 : EXECUTING
+2022-04-27 10:02:48,915 INFO  State of operation 17757691 : EXECUTING
+2022-04-27 10:02:51,191 INFO  State of operation 17757691 : EXECUTING
+2022-04-27 10:02:53,398 INFO  State of operation 17757691 : SUCCESSFUL
+2022-04-27 10:02:54,630 INFO  Package hello-world is installed
+2022-04-27 10:02:54,878 INFO  Package hello-world is installed
+2022-04-27 10:02:54,880 INFO  Assert that (True == value) with value=True ... passed
+2022-04-27 10:02:55,130 INFO  Package registry is installed
+2022-04-27 10:02:55,132 INFO  Assert that (True == value) with value=True ... passed
+2022-04-27 10:02:55,395 INFO  Package alpine is installed
+2022-04-27 10:02:55,398 INFO  Assert that (True == value) with value=True ... passed
+2022-04-27 10:02:55,409 INFO  
+2022-04-27 10:02:55,410 INFO  cleanup:
+2022-04-27 10:02:55,634 INFO  Response status: 201
+2022-04-27 10:02:55,636 INFO  Response to action: {
+    "creationTime": "2022-04-27T10:02:55.587Z",
+    "deviceName": "m32sd10d",
+    "deviceId": "17731194",
+    "self": "https://t493319102.eu-latest.cumulocity.com/devicecontrol/operations/17757698",
+    "id": "17757698",
+    "status": "PENDING",
+    "description": "Apply software changes, triggered from PySys: [{'action': 'delete', 'id': '8018911', 'name': 'registry', 'url': '', 'version': '2.7.1::docker'}, {'action': 'delete', 'id': '7991792', 'name': 'alpine', 'url': '', 'version': '::docker'}, {'action': 'delete', 'id': '8021526', 'name': 'hello-world', 'url': '', 'version': '::docker'}]",
+    "c8y_SoftwareUpdate": [
+        {
+            "name": "registry",
+            "action": "delete",
+            "id": "8018911",
+            "version": "2.7.1::docker",
+            "url": ""
+        },
+        {
+            "name": "alpine",
+            "action": "delete",
+            "id": "7991792",
+            "version": "::docker",
+            "url": ""
+        },
+        {
+            "name": "hello-world",
+            "action": "delete",
+            "id": "8021526",
+            "version": "::docker",
+            "url": ""
+        }
+    ]
+}
+2022-04-27 10:02:55,637 INFO  Started operation: {'creationTime': '2022-04-27T10:02:55.587Z', 'deviceName': 'm32sd10d', 'deviceId': '17731194', 'self': 'https://t493319102.eu-latest.cumulocity.com/devicecontrol/operations/17757698', 'id': '17757698', 'status': 'PENDING', 'description': "Apply software changes, triggered from PySys: [{'action': 'delete', 'id': '8018911', 'name': 'registry', 'url': '', 'version': '2.7.1::docker'}, {'action': 'delete', 'id': '7991792', 'name': 'alpine', 'url': '', 'version': '::docker'}, {'action': 'delete', 'id': '8021526', 'name': 'hello-world', 'url': '', 'version': '::docker'}]", 'c8y_SoftwareUpdate': [{'name': 'registry', 'action': 'delete', 'id': '8018911', 'version': '2.7.1::docker', 'url': ''}, {'name': 'alpine', 'action': 'delete', 'id': '7991792', 'version': '::docker', 'url': ''}, {'name': 'hello-world', 'action': 'delete', 'id': '8021526', 'version': '::docker', 'url': ''}]}
+2022-04-27 10:02:57,860 INFO  State of operation 17757698 : PENDING
+2022-04-27 10:03:00,095 INFO  State of operation 17757698 : EXECUTING
+2022-04-27 10:03:02,332 INFO  State of operation 17757698 : EXECUTING
+2022-04-27 10:03:04,578 INFO  State of operation 17757698 : EXECUTING
+2022-04-27 10:03:06,847 INFO  State of operation 17757698 : EXECUTING
+2022-04-27 10:03:09,100 INFO  State of operation 17757698 : EXECUTING
+2022-04-27 10:03:11,379 INFO  State of operation 17757698 : EXECUTING
+2022-04-27 10:03:13,593 INFO  State of operation 17757698 : EXECUTING
+2022-04-27 10:03:15,825 INFO  State of operation 17757698 : SUCCESSFUL
+2022-04-27 10:03:27,026 INFO  Assert that (False == value) with value=False ... passed
+2022-04-27 10:03:27,240 INFO  Assert that (False == value) with value=False ... passed
+2022-04-27 10:03:27,471 INFO  Assert that (False == value) with value=False ... passed
+2022-04-27 10:03:31,673 INFO  Executed sudo<tedge_disconnect_c8y>, exit status 0
+2022-04-27 10:03:32,236 INFO  Executed systemctl<serv_mapper5>, exit status 3
+2022-04-27 10:03:32,240 INFO  
+2022-04-27 10:03:32,241 INFO  Test duration: 151.66 secs
+2022-04-27 10:03:32,242 INFO  Test final outcome:  PASSED
+2022-04-27 10:03:32,243 INFO  
