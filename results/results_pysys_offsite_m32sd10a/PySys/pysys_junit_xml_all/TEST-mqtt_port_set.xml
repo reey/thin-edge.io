@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testsuite failures="1" name="mqtt_port_set" skipped="0" tests="1" time="2.46" timestamp="2022-04-27T10:29:08">
+	<testcase classname="MqttPortSet" name="mqtt_port_set">
+		<failure message="BLOCKED: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1 (+1 other failures)" type="BLOCKED"/>
+		<system-out>10:29:06 INFO  ==============================================================
+10:29:06 INFO  Id:    mqtt_port_set
+10:29:06 INFO  Dir:   misc_features/
+10:29:06 INFO  Title: mqtt port set
+10:29:06 INFO  ==============================================================
+10:29:06 INFO  Executed sudo&lt;mqtt_port_set&gt;, exit status 0
+10:29:07 INFO  Executed sudo&lt;tedge_get&gt;, exit status 0
+10:29:07 INFO  Grep on file tedge_get.out ... passed
+10:29:07 INFO  Grep on file /etc/tedge/tedge.toml ... passed
+10:29:07 INFO  
+10:29:07 INFO  cleanup:
+10:29:07 INFO  Executed sudo&lt;mqtt_port_unset&gt;, exit status 0
+10:29:08 WARN  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 1
+10:29:08 INFO  Contents of tedge_connect_c8y.err: 
+  Error: failed to connect Cumulocity cloud.
+  Caused by:
+      A value for `c8y.url` is missing.
+          A value can be set with `tedge config set c8y.url &lt;value&gt;`
+  -----
+
+10:29:08 ERROR Error while running cleanup function: 
+Traceback (most recent call last):
+  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/pysys/process/user.py&quot;, line 1305, in cleanup
+    fn()
+  File &quot;/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/misc_features/mqtt_port_set/run.py&quot;, line 50, in mqtt_cleanup
+    self.tedge_connect_c8y()
+  File &quot;/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/environments/environment_tedge.py&quot;, line 58, in tedge_connect_c8y
+    expectedExitStatus=expectedExitStatus,
+  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/pysys/process/user.py&quot;, line 482, in startProcess
+    abortOnError=abortOnError)
+  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/pysys/process/user.py&quot;, line 1401, in addOutcome
+    self.abort(outcome, outcomeReason, callRecord)
+  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/pysys/process/user.py&quot;, line 1420, in abort
+    raise AbortExecution(outcome, outcomeReason, callRecord)
+pysys.exceptions.AbortExecution: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1
+10:29:08 WARN  Cleanup failed with 1 errors: Cleanup function failed: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1 (AbortExecution) ... blocked 
+10:29:08 INFO  
+10:29:08 INFO  Test duration: 2.46 secs
+10:29:08 INFO  Test final outcome:  BLOCKED
+10:29:08 INFO  Test outcome reason: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1 (+1 other failures)
+10:29:08 INFO  
+</system-out>
+	</testcase>
+</testsuite>

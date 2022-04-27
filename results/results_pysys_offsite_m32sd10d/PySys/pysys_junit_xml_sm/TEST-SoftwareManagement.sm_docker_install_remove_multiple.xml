@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testsuite failures="1" name="SoftwareManagement.sm_docker_install_remove_multiple" skipped="0" tests="1" time="2.28" timestamp="2022-04-27T11:06:42">
+	<testcase classname="SMDockerInstallRemove" name="SoftwareManagement.sm_docker_install_remove_multiple">
+		<failure message="BLOCKED: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1" type="BLOCKED"/>
+		<system-out>11:06:40 INFO  ==============================================================
+11:06:40 INFO  Id:    SoftwareManagement.sm_docker_install_remove_multiple
+11:06:40 INFO  Dir:   software_management_end_to_end/
+11:06:40 INFO  Title: Validate end to end behaviour for the docker plugin for multiple docker images with mixed versions
+11:06:40 INFO  ==============================================================
+11:06:40 INFO  Using sw id database: {'asciijump': '5475369', 'robotfindskitten': '5474869', 'squirrel3': '5475279', 'rolldice': '5152439', 'moon-buggy': '5439204', 'apple': '5495053', 'banana': '5494888', 'cherry': '5495382', 'watermelon': '5494510', 'registry': '8018911', 'hello-world': '8021526', 'docker/getting-started': '8021973', 'alpine': '7991792'}
+11:06:40 INFO  EnvironmentC8y Setup
+11:06:41 INFO  Executed systemctl&lt;serv_mapper1&gt;, exit status 3
+11:06:41 WARN  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 1
+11:06:41 INFO  Contents of tedge_connect_c8y.err: 
+  Error: failed to connect Cumulocity cloud.
+  Caused by:
+      A value for `c8y.url` is missing.
+          A value can be set with `tedge config set c8y.url &lt;value&gt;`
+  -----
+
+11:06:41 WARN  sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1 ... blocked 
+11:06:41 WARN  Aborted test due to BLOCKED outcome
+11:06:41 INFO  
+11:06:41 INFO  cleanup:
+11:06:42 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
+11:06:42 INFO  Executed systemctl&lt;serv_mapper5&gt;, exit status 3
+11:06:42 INFO  
+11:06:42 INFO  Test duration: 2.28 secs
+11:06:42 INFO  Test final outcome:  BLOCKED
+11:06:42 INFO  Test outcome reason: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1
+11:06:42 INFO  
+</system-out>
+	</testcase>
+</testsuite>

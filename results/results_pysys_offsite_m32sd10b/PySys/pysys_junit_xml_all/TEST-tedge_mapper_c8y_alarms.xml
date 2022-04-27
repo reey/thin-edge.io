@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testsuite failures="1" name="tedge_mapper_c8y_alarms" skipped="0" tests="1" time="2.47" timestamp="2022-04-27T10:31:27">
+	<testcase classname="TedgeMapperC8yAlarm" name="tedge_mapper_c8y_alarms">
+		<failure message="BLOCKED: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1" type="BLOCKED"/>
+		<system-out>10:31:24 INFO  ==============================================================
+10:31:24 INFO  Id:    tedge_mapper_c8y_alarms
+10:31:24 INFO  Dir:   tedge_mapper_c8y/
+10:31:24 INFO  Title: Validate that alarms sent to tedge/alarms topic \ gets mapped as alarms in Cumulocity
+10:31:24 INFO  ==============================================================
+10:31:24 INFO  EnvironmentC8y Setup
+10:31:25 INFO  Executed systemctl&lt;serv_mapper1&gt;, exit status 3
+10:31:25 WARN  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 1
+10:31:25 INFO  Contents of tedge_connect_c8y.err: 
+  Error: failed to connect Cumulocity cloud.
+  Caused by:
+      A value for `c8y.url` is missing.
+          A value can be set with `tedge config set c8y.url &lt;value&gt;`
+  -----
+
+10:31:26 WARN  sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1 ... blocked 
+10:31:26 WARN  Aborted test due to BLOCKED outcome
+10:31:26 INFO  
+10:31:26 INFO  cleanup:
+10:31:26 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
+10:31:27 INFO  Executed systemctl&lt;serv_mapper5&gt;, exit status 3
+10:31:27 INFO  
+10:31:27 INFO  Test duration: 2.47 secs
+10:31:27 INFO  Test final outcome:  BLOCKED
+10:31:27 INFO  Test outcome reason: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1
+10:31:27 INFO  
+</system-out>
+	</testcase>
+</testsuite>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testsuite failures="1" name="tedge_mapper_c8y_child_device_measurement" skipped="0" tests="1" time="2.35" timestamp="2022-04-27T10:36:21">
+	<testcase classname="TedgeMapperC8yChildDevice" name="tedge_mapper_c8y_child_device_measurement">
+		<failure message="BLOCKED: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1" type="BLOCKED"/>
+		<system-out>10:36:18 INFO  ==============================================================
+10:36:18 INFO  Id:    tedge_mapper_c8y_child_device_measurement
+10:36:18 INFO  Dir:   tedge_mapper_c8y/
+10:36:18 INFO  Title: Validate that measurements sent to tedge/measurements/child topic gets mapped as the child device's measurement in Cumulocity
+10:36:18 INFO  ==============================================================
+10:36:18 INFO  EnvironmentC8y Setup
+10:36:19 INFO  Executed systemctl&lt;serv_mapper1&gt;, exit status 3
+10:36:19 WARN  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 1
+10:36:19 INFO  Contents of tedge_connect_c8y.err: 
+  Error: failed to connect Cumulocity cloud.
+  Caused by:
+      A value for `c8y.url` is missing.
+          A value can be set with `tedge config set c8y.url &lt;value&gt;`
+  -----
+
+10:36:19 WARN  sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1 ... blocked 
+10:36:19 WARN  Aborted test due to BLOCKED outcome
+10:36:19 INFO  
+10:36:19 INFO  cleanup:
+10:36:20 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
+10:36:21 INFO  Executed systemctl&lt;serv_mapper5&gt;, exit status 3
+10:36:21 INFO  
+10:36:21 INFO  Test duration: 2.35 secs
+10:36:21 INFO  Test final outcome:  BLOCKED
+10:36:21 INFO  Test outcome reason: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1
+10:36:21 INFO  
+</system-out>
+	</testcase>
+</testsuite>

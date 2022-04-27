@@ -1,0 +1,26 @@
+2022-04-27 10:30:43,207 INFO  ==============================================================
+2022-04-27 10:30:43,208 INFO  Id:    c8y_restart_bridge
+2022-04-27 10:30:43,209 INFO  Dir:   tedge_connect/
+2022-04-27 10:30:43,210 INFO  Title: Bridge restart
+2022-04-27 10:30:43,211 INFO  ==============================================================
+2022-04-27 10:30:43,216 INFO  EnvironmentC8y Setup
+2022-04-27 10:30:43,778 INFO  Executed systemctl<serv_mapper1>, exit status 3
+2022-04-27 10:30:44,399 WARN  Executed sudo<tedge_connect_c8y>, exit status 1
+2022-04-27 10:30:44,404 INFO  Contents of tedge_connect_c8y.err: 
+2022-04-27 10:30:44,405 INFO    Error: failed to connect Cumulocity cloud.
+2022-04-27 10:30:44,406 INFO    Caused by:
+2022-04-27 10:30:44,407 INFO        A value for `c8y.url` is missing.
+2022-04-27 10:30:44,407 INFO            A value can be set with `tedge config set c8y.url <value>`
+2022-04-27 10:30:44,408 INFO    -----
+2022-04-27 10:30:44,409 INFO  
+2022-04-27 10:30:44,473 WARN  sudo<tedge_connect_c8y> returned non-zero exit code 1 ... blocked 
+2022-04-27 10:30:44,475 WARN  Aborted test due to BLOCKED outcome
+2022-04-27 10:30:44,479 INFO  
+2022-04-27 10:30:44,480 INFO  cleanup:
+2022-04-27 10:30:45,099 INFO  Executed sudo<tedge_disconnect_c8y>, exit status 0
+2022-04-27 10:30:45,712 INFO  Executed systemctl<serv_mapper5>, exit status 3
+2022-04-27 10:30:45,716 INFO  
+2022-04-27 10:30:45,716 INFO  Test duration: 2.51 secs
+2022-04-27 10:30:45,717 INFO  Test final outcome:  BLOCKED
+2022-04-27 10:30:45,718 INFO  Test outcome reason: sudo<tedge_connect_c8y> returned non-zero exit code 1
+2022-04-27 10:30:45,719 INFO  

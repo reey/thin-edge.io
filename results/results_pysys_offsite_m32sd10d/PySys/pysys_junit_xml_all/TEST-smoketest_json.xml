@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testsuite failures="1" name="smoketest_json" skipped="0" tests="1" time="2.41" timestamp="2022-04-27T10:29:58">
+	<testcase classname="SmokeTestJson" name="smoketest_json">
+		<failure message="BLOCKED: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1" type="BLOCKED"/>
+		<system-out>10:29:56 INFO  ==============================================================
+10:29:56 INFO  Id:    smoketest_json
+10:29:56 INFO  Dir:   smoketests/
+10:29:56 INFO  Title: Smoke Test Json
+10:29:56 INFO  ==============================================================
+10:29:56 INFO  EnvironmentC8y Setup
+10:29:56 INFO  Executed systemctl&lt;serv_mapper1&gt;, exit status 3
+10:29:57 WARN  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 1
+10:29:57 INFO  Contents of tedge_connect_c8y.err: 
+  Error: failed to connect Cumulocity cloud.
+  Caused by:
+      A value for `c8y.url` is missing.
+          A value can be set with `tedge config set c8y.url &lt;value&gt;`
+  -----
+
+10:29:57 WARN  sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1 ... blocked 
+10:29:57 WARN  Aborted test due to BLOCKED outcome
+10:29:57 INFO  
+10:29:57 INFO  cleanup:
+10:29:58 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
+10:29:58 INFO  Executed systemctl&lt;serv_mapper5&gt;, exit status 3
+10:29:58 INFO  
+10:29:58 INFO  Test duration: 2.41 secs
+10:29:58 INFO  Test final outcome:  BLOCKED
+10:29:58 INFO  Test outcome reason: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1
+10:29:58 INFO  
+</system-out>
+	</testcase>
+</testsuite>

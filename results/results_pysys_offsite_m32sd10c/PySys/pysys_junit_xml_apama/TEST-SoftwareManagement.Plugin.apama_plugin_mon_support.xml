@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testsuite failures="1" name="SoftwareManagement.Plugin.apama_plugin_mon_support" skipped="0" tests="1" time="12.35" timestamp="2022-04-27T10:55:36">
+	<testcase classname="ApamaPluginMonSupportTest" name="SoftwareManagement.Plugin.apama_plugin_mon_support">
+		<failure message="BLOCKED: sudo&lt;remove_apama_project&gt; returned non-zero exit code 1 (+1 other failures)" type="BLOCKED"/>
+		<system-out>10:55:23 INFO  ==============================================================
+10:55:23 INFO  Id:    SoftwareManagement.Plugin.apama_plugin_mon_support
+10:55:23 INFO  Dir:   plugin_apama/
+10:55:23 INFO  Title: Validate mon file support of apama plugin
+10:55:23 INFO  ==============================================================
+10:55:23 INFO  Assertion that path exists=False for &quot;/etc/tedge/apama/project&quot; ... passed
+10:55:24 INFO  Executed sudo&lt;create_project_dir&gt;, exit status 0
+10:55:24 INFO  Executed sudo&lt;unzip_apama_project&gt;, exit status 0
+10:55:25 INFO  Executed sudo&lt;move_apama_project&gt;, exit status 0
+10:55:26 INFO  Executed sudo&lt;restart_apama_service&gt;, exit status 0
+10:55:27 INFO  Executed sudo&lt;apama_correlator_wait&gt;, exit status 0
+10:55:28 INFO  Executed sudo&lt;apama_list_monitors&gt;, exit status 0
+10:55:28 INFO  Grep on file /home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/plugin_apama/apama_plugin_mon_support/Output/linux/apama_list_monitors.out ... passed
+10:55:28 INFO  Executed sudo&lt;plugin_list_before_install&gt;, exit status 0
+10:55:29 INFO  Executed sudo&lt;plugin_install&gt;, exit status 0
+10:55:30 INFO  Executed sudo&lt;apama_correlator_wait&gt;, exit status 0
+10:55:31 INFO  Executed sudo&lt;plugin_list_after_install&gt;, exit status 0
+10:55:32 INFO  Executed sudo&lt;plugin_update&gt;, exit status 0
+10:55:33 INFO  Executed sudo&lt;apama_correlator_wait&gt;, exit status 0
+10:55:34 INFO  Executed sudo&lt;plugin_list_after_update&gt;, exit status 0
+10:55:34 INFO  Executed sudo&lt;plugin_remove&gt;, exit status 0
+10:55:35 INFO  Executed sudo&lt;plugin_list_after_remove&gt;, exit status 0
+10:55:35 INFO  Grep on file plugin_list_before_install.out ... passed
+10:55:35 INFO  Grep on file plugin_list_after_install.out ... passed
+10:55:35 INFO  Grep on file plugin_list_after_update.out ... passed
+10:55:35 INFO  Grep on file plugin_list_after_remove.out ... passed
+10:55:35 INFO  
+10:55:35 INFO  cleanup:
+10:55:35 INFO  Removing apama project
+10:55:36 WARN  Executed sudo&lt;remove_apama_project&gt;, exit status 1
+10:55:36 INFO  Contents of remove_apama_project.err: 
+  rm: cannot remove '/etc/tedge/apama/project/logs': Directory not empty
+  -----
+
+10:55:36 ERROR Error while running cleanup function: 
+Traceback (most recent call last):
+  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/pysys/process/user.py&quot;, line 1305, in cleanup
+    fn()
+  File &quot;/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/plugin_apama/environment_apama_plugin.py&quot;, line 144, in cleanup_project
+    self.remove_project()
+  File &quot;/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/plugin_apama/environment_apama_plugin.py&quot;, line 95, in remove_project
+    stdouterr=&quot;remove_apama_project&quot;,
+  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/pysys/process/user.py&quot;, line 482, in startProcess
+    abortOnError=abortOnError)
+  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/pysys/process/user.py&quot;, line 1401, in addOutcome
+    self.abort(outcome, outcomeReason, callRecord)
+  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/pysys/process/user.py&quot;, line 1420, in abort
+    raise AbortExecution(outcome, outcomeReason, callRecord)
+pysys.exceptions.AbortExecution: sudo&lt;remove_apama_project&gt; returned non-zero exit code 1
+10:55:36 WARN  Cleanup failed with 1 errors: Cleanup function failed: sudo&lt;remove_apama_project&gt; returned non-zero exit code 1 (AbortExecution) ... blocked 
+10:55:36 INFO  
+10:55:36 INFO  Test duration: 12.35 secs
+10:55:36 INFO  Test final outcome:  BLOCKED
+10:55:36 INFO  Test outcome reason: sudo&lt;remove_apama_project&gt; returned non-zero exit code 1 (+1 other failures)
+10:55:36 INFO  
+</system-out>
+	</testcase>
+</testsuite>

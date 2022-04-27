@@ -1,0 +1,32 @@
+2022-04-27 10:34:14,522 INFO  ==============================================================
+2022-04-27 10:34:14,523 INFO  Id:    valid_device_id
+2022-04-27 10:34:14,524 INFO  Dir:   misc_features/
+2022-04-27 10:34:14,525 INFO  Title: Valid device ID
+2022-04-27 10:34:14,526 INFO  ==============================================================
+2022-04-27 10:34:15,203 INFO  Executed sudo<tedge_disconnect_c8y>, exit status 0
+2022-04-27 10:34:15,716 INFO  Executed sudo<create_cert_dir>, exit status 0
+2022-04-27 10:34:16,229 INFO  Executed sudo<change_owner_of_dir>, exit status 0
+2022-04-27 10:34:16,741 INFO  Executed sudo<set_cert_path>, exit status 0
+2022-04-27 10:34:17,256 INFO  Executed sudo<set_key_path>, exit status 0
+2022-04-27 10:34:17,819 INFO  Executed sudo<cert_create>, exit status 0
+2022-04-27 10:34:18,331 WARN  Executed sudo<cert_upload>, exit status 1
+2022-04-27 10:34:18,336 INFO  Contents of cert_upload.err: 
+2022-04-27 10:34:18,337 INFO    Error: missing configuration parameter
+2022-04-27 10:34:18,338 INFO    Caused by:
+2022-04-27 10:34:18,338 INFO        A value for `c8y.url` is missing.
+2022-04-27 10:34:18,339 INFO            A value can be set with `tedge config set c8y.url <value>`
+2022-04-27 10:34:18,340 INFO    -----
+2022-04-27 10:34:18,340 INFO  
+2022-04-27 10:34:18,365 WARN  sudo<cert_upload> returned non-zero exit code 1 ... blocked [run.py:94]
+2022-04-27 10:34:18,366 WARN  Aborted test due to BLOCKED outcome
+2022-04-27 10:34:18,372 INFO  
+2022-04-27 10:34:18,373 INFO  cleanup:
+2022-04-27 10:34:18,988 INFO  Executed sudo<tedge_disconnect_c8y>, exit status 0
+2022-04-27 10:34:19,507 INFO  Executed sudo<unset_cert_path>, exit status 0
+2022-04-27 10:34:20,071 INFO  Executed sudo<unset_key_path>, exit status 0
+2022-04-27 10:34:20,672 INFO  Executed sudo<remove_cert_dir>, exit status 0
+2022-04-27 10:34:20,677 INFO  
+2022-04-27 10:34:20,678 INFO  Test duration: 6.16 secs
+2022-04-27 10:34:20,679 INFO  Test final outcome:  BLOCKED
+2022-04-27 10:34:20,681 INFO  Test outcome reason: sudo<cert_upload> returned non-zero exit code 1
+2022-04-27 10:34:20,682 INFO  

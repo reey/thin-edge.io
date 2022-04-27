@@ -1,0 +1,26 @@
+2022-04-27 10:35:51,855 INFO  ==============================================================
+2022-04-27 10:35:51,856 INFO  Id:    tedge_connect_test_sm_services
+2022-04-27 10:35:51,857 INFO  Dir:   tedge_connect/
+2022-04-27 10:35:51,858 INFO  Title: Validate Software Management Services started and enabled on tedge connect c8y
+2022-04-27 10:35:51,859 INFO  ==============================================================
+2022-04-27 10:35:51,864 INFO  EnvironmentC8y Setup
+2022-04-27 10:35:52,428 INFO  Executed systemctl<serv_mapper1>, exit status 3
+2022-04-27 10:35:53,044 WARN  Executed sudo<tedge_connect_c8y>, exit status 1
+2022-04-27 10:35:53,052 INFO  Contents of tedge_connect_c8y.err: 
+2022-04-27 10:35:53,053 INFO    Error: failed to connect Cumulocity cloud.
+2022-04-27 10:35:53,054 INFO    Caused by:
+2022-04-27 10:35:53,055 INFO        A value for `c8y.url` is missing.
+2022-04-27 10:35:53,055 INFO            A value can be set with `tedge config set c8y.url <value>`
+2022-04-27 10:35:53,056 INFO    -----
+2022-04-27 10:35:53,057 INFO  
+2022-04-27 10:35:53,093 WARN  sudo<tedge_connect_c8y> returned non-zero exit code 1 ... blocked 
+2022-04-27 10:35:53,094 WARN  Aborted test due to BLOCKED outcome
+2022-04-27 10:35:53,099 INFO  
+2022-04-27 10:35:53,100 INFO  cleanup:
+2022-04-27 10:35:53,715 INFO  Executed sudo<tedge_disconnect_c8y>, exit status 0
+2022-04-27 10:35:54,635 INFO  Executed systemctl<serv_mapper5>, exit status 3
+2022-04-27 10:35:54,639 INFO  
+2022-04-27 10:35:54,640 INFO  Test duration: 2.79 secs
+2022-04-27 10:35:54,641 INFO  Test final outcome:  BLOCKED
+2022-04-27 10:35:54,642 INFO  Test outcome reason: sudo<tedge_connect_c8y> returned non-zero exit code 1
+2022-04-27 10:35:54,643 INFO  

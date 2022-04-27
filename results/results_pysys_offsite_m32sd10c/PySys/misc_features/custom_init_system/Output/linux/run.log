@@ -1,0 +1,26 @@
+2022-04-27 10:34:01,841 INFO  ==============================================================
+2022-04-27 10:34:01,842 INFO  Id:    custom_init_system
+2022-04-27 10:34:01,843 INFO  Dir:   misc_features/
+2022-04-27 10:34:01,844 INFO  Title: Custom init system test
+2022-04-27 10:34:01,845 INFO  ==============================================================
+2022-04-27 10:34:02,364 INFO  Executed sudo<copy_system_config>, exit status 0
+2022-04-27 10:34:02,876 INFO  Executed sudo<copy_dummy_init>, exit status 0
+2022-04-27 10:34:03,389 WARN  Executed sudo<tedge_connect>, exit status 1
+2022-04-27 10:34:03,394 INFO  Contents of tedge_connect.err: 
+2022-04-27 10:34:03,395 INFO    Error: failed to connect Cumulocity cloud.
+2022-04-27 10:34:03,396 INFO    Caused by:
+2022-04-27 10:34:03,397 INFO        A value for `c8y.url` is missing.
+2022-04-27 10:34:03,397 INFO            A value can be set with `tedge config set c8y.url <value>`
+2022-04-27 10:34:03,398 INFO    -----
+2022-04-27 10:34:03,399 INFO  
+2022-04-27 10:34:03,421 WARN  sudo<tedge_connect> returned non-zero exit code 1 ... blocked [run.py:53]
+2022-04-27 10:34:03,422 WARN  Aborted test due to BLOCKED outcome
+2022-04-27 10:34:03,427 INFO  
+2022-04-27 10:34:03,428 INFO  cleanup:
+2022-04-27 10:34:03,940 INFO  Executed sudo<remove_system_config>, exit status 0
+2022-04-27 10:34:04,457 INFO  Executed sudo<remove_dummy_init>, exit status 0
+2022-04-27 10:34:04,462 INFO  
+2022-04-27 10:34:04,463 INFO  Test duration: 2.62 secs
+2022-04-27 10:34:04,464 INFO  Test final outcome:  BLOCKED
+2022-04-27 10:34:04,465 INFO  Test outcome reason: sudo<tedge_connect> returned non-zero exit code 1
+2022-04-27 10:34:04,466 INFO  

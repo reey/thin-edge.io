@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testsuite failures="1" name="SoftwareManagement.Plugin.apama_plugin_update" skipped="0" tests="1" time="5.18" timestamp="2022-04-27T10:51:38">
+	<testcase classname="ApamaPluginUpdateTest" name="SoftwareManagement.Plugin.apama_plugin_update">
+		<failure message="BLOCKED: sudo&lt;plugin_install&gt; returned non-zero exit code 2 (+2 other failures)" type="BLOCKED"/>
+		<system-out>10:51:33 INFO  ==============================================================
+10:51:33 INFO  Id:    SoftwareManagement.Plugin.apama_plugin_update
+10:51:33 INFO  Dir:   plugin_apama/
+10:51:33 INFO  Title: Validate apama plugin updating one project with another
+10:51:33 INFO  ==============================================================
+10:51:33 INFO  Assertion that path exists=False for &quot;/etc/tedge/apama/project&quot; ... passed
+10:51:33 INFO  Executed sudo&lt;create_project_dir&gt;, exit status 0
+10:51:34 INFO  Executed sudo&lt;unzip_apama_project&gt;, exit status 0
+10:51:34 INFO  Executed sudo&lt;move_apama_project&gt;, exit status 0
+10:51:35 INFO  Executed sudo&lt;restart_apama_service&gt;, exit status 0
+10:51:36 INFO  Executed sudo&lt;apama_correlator_wait&gt;, exit status 0
+10:51:36 INFO  Assertion that path exists=True for &quot;/etc/tedge/apama/project&quot; ... passed
+10:51:37 INFO  Executed sudo&lt;apama_list_monitors&gt;, exit status 0
+10:51:37 INFO  Grep on file /home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/plugin_apama/apama_plugin_update/Output/linux/apama_list_monitors.out ... passed
+10:51:37 WARN  Executed sudo&lt;plugin_install&gt;, exit status 2
+10:51:37 INFO  Contents of plugin_install.err: 
+  ERROR: Directory not empty (os error 39)
+  -----
+
+10:51:37 WARN  sudo&lt;plugin_install&gt; returned non-zero exit code 2 ... blocked [run.py:35]
+10:51:37 WARN  Aborted test due to BLOCKED outcome
+10:51:37 INFO  
+10:51:37 INFO  cleanup:
+10:51:37 INFO  Removing apama project
+10:51:38 WARN  Executed sudo&lt;remove_apama_project&gt;, exit status 1
+10:51:38 INFO  Contents of remove_apama_project.err: 
+  rm: cannot remove '/etc/tedge/apama/project/logs/.nfs0000000000160e5500002dc2': Device or resource busy
+  -----
+
+10:51:38 ERROR Error while running cleanup function: 
+Traceback (most recent call last):
+  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/pysys/process/user.py&quot;, line 1305, in cleanup
+    fn()
+  File &quot;/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/plugin_apama/environment_apama_plugin.py&quot;, line 144, in cleanup_project
+    self.remove_project()
+  File &quot;/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/plugin_apama/environment_apama_plugin.py&quot;, line 95, in remove_project
+    stdouterr=&quot;remove_apama_project&quot;,
+  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/pysys/process/user.py&quot;, line 482, in startProcess
+    abortOnError=abortOnError)
+  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/pysys/process/user.py&quot;, line 1401, in addOutcome
+    self.abort(outcome, outcomeReason, callRecord)
+  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/pysys/process/user.py&quot;, line 1420, in abort
+    raise AbortExecution(outcome, outcomeReason, callRecord)
+pysys.exceptions.AbortExecution: sudo&lt;remove_apama_project&gt; returned non-zero exit code 1
+10:51:38 WARN  Cleanup failed with 1 errors: Cleanup function failed: sudo&lt;remove_apama_project&gt; returned non-zero exit code 1 (AbortExecution) ... blocked 
+10:51:38 INFO  
+10:51:38 INFO  Test duration: 5.18 secs
+10:51:38 INFO  Test final outcome:  BLOCKED
+10:51:38 INFO  Test outcome reason: sudo&lt;plugin_install&gt; returned non-zero exit code 2 (+2 other failures)
+10:51:38 INFO  
+</system-out>
+	</testcase>
+</testsuite>

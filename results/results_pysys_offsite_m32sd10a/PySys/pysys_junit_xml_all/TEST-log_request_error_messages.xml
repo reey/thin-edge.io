@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testsuite failures="1" name="log_request_error_messages" skipped="0" tests="1" time="11.94" timestamp="2022-04-27T10:28:55">
+	<testcase classname="LogRequestVerifySearchTextError" name="log_request_error_messages">
+		<failure message="BLOCKED: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1" type="BLOCKED"/>
+		<system-out>10:28:43 INFO  ==============================================================
+10:28:43 INFO  Id:    log_request_error_messages
+10:28:43 INFO  Dir:   log_request_end_to_end/
+10:28:43 INFO  Title: Validate end to end behaviour for the log request operation check for error messages
+10:28:43 INFO  ==============================================================
+10:28:44 INFO  EnvironmentC8y Setup
+10:28:44 INFO  Executed systemctl&lt;serv_mapper1&gt;, exit status 3
+10:28:45 INFO  Restarting mosquitto too frequently in the last 10 seconds. It was only up for 3 seconds
+10:28:45 INFO  Delaying execution by 8 seconds
+10:28:53 WARN  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 1
+10:28:53 INFO  Contents of tedge_connect_c8y.err: 
+  Error: failed to connect Cumulocity cloud.
+  Caused by:
+      A value for `c8y.url` is missing.
+          A value can be set with `tedge config set c8y.url &lt;value&gt;`
+  -----
+
+10:28:53 WARN  sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1 ... blocked 
+10:28:53 WARN  Aborted test due to BLOCKED outcome
+10:28:53 INFO  
+10:28:53 INFO  cleanup:
+10:28:54 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
+10:28:55 INFO  Executed systemctl&lt;serv_mapper5&gt;, exit status 3
+10:28:55 INFO  
+10:28:55 INFO  Test duration: 11.94 secs
+10:28:55 INFO  Test final outcome:  BLOCKED
+10:28:55 INFO  Test outcome reason: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1
+10:28:55 INFO  
+</system-out>
+	</testcase>
+</testsuite>

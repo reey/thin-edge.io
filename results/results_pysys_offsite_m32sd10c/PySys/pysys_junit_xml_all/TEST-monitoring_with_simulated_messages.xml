@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testsuite failures="1" name="monitoring_with_simulated_messages" skipped="0" tests="1" time="4.46" timestamp="2022-04-27T10:34:40">
+	<testcase classname="MonitoringWithSimulatedMessages" name="monitoring_with_simulated_messages">
+		<failure message="FAILED: Assert that (collectd_msg_validation_result == expected_result) with collectd_msg_validation_result=False, expected_result=True" type="FAILED"/>
+		<system-out>10:34:35 INFO  ==============================================================
+10:34:35 INFO  Id:    monitoring_with_simulated_messages
+10:34:35 INFO  Dir:   monitoring/
+10:34:35 INFO  Title: Validate the tedge dm agent messages that are produced from the simulated collectd messages
+10:34:35 INFO  ==============================================================
+10:34:36 INFO  Executed sudo&lt;collectd&gt;, exit status 0
+10:34:36 INFO  Executed sudo&lt;collectd_mapper&gt;, exit status 0
+10:34:36 INFO  Started sudo&lt;tedge_sub&gt; with process id 28075
+10:34:37 INFO  Executed sudo&lt;tedge_temp&gt;, exit status 0
+10:34:38 INFO  Executed sudo&lt;tedge_pres&gt;, exit status 0
+10:34:39 INFO  Executed sudo&lt;kill_out&gt;, exit status 0
+10:34:39 WARN  Assert that (collectd_msg_validation_result == expected_result) with collectd_msg_validation_result=False, expected_result=True ... failed [run.py:99]
+10:34:39 INFO     collectd_msg_validation_result: False
+10:34:39 INFO                    expected_result: True
+10:34:39 INFO  
+10:34:39 INFO  cleanup:
+10:34:39 INFO  monitoring_cleanup
+10:34:40 INFO  Executed sudo&lt;collectd_mapper&gt;, exit status 0
+10:34:40 INFO  
+10:34:40 INFO  Test duration: 4.46 secs
+10:34:40 INFO  Test final outcome:  FAILED
+10:34:40 INFO  Test outcome reason: Assert that (collectd_msg_validation_result == expected_result) with collectd_msg_validation_result=False, expected_result=True
+10:34:40 INFO  
+</system-out>
+	</testcase>
+</testsuite>

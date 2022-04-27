@@ -1,0 +1,2567 @@
+<?xml version='1.0' encoding='utf-8'?>
+<testsuites tests="147" failures="55" errors="0" skipped="45" time="0.0"><testsuite name="SoftwareManagement.Plugin.apama_plugin_install" tests="3" errors="0" failures="2" skipped="1" time="0"><testcase classname="ApamaPluginInstallTest" name="SoftwareManagement.Plugin.apama_plugin_install">
+		<skipped message="SKIPPED: Apama plugin tests are disabled by default. Execute `pysys run` with `-XmyPlatform=container` to run these tests" />
+		<system-out>10:34:40 INFO  ==============================================================
+10:34:40 INFO  Id:    SoftwareManagement.Plugin.apama_plugin_install
+10:34:40 INFO  Dir:   plugin_apama/
+10:34:40 INFO  Title: Validate apama plugin install
+10:34:40 INFO  ==============================================================
+10:34:40 INFO  Apama plugin tests are disabled by default. Execute `pysys run` with `-XmyPlatform=container` to run these tests ... skipped
+10:34:40 WARN  Aborted test due to SKIPPED outcome
+10:34:40 INFO  
+10:34:40 INFO  Test duration: 0.04 secs
+10:34:40 INFO  Test final outcome:  SKIPPED
+10:34:40 INFO  Test outcome reason: Apama plugin tests are disabled by default. Execute `pysys run` with `-XmyPlatform=container` to run these tests
+10:34:40 INFO  
+</system-out>
+	</testcase>
+<testcase classname="ApamaPluginInstallTest" name="SoftwareManagement.Plugin.apama_plugin_install">
+		<failure message="BLOCKED: sudo&lt;plugin_install&gt; returned non-zero exit code 2" type="BLOCKED" />
+		<system-out>10:54:51 INFO  ==============================================================
+10:54:51 INFO  Id:    SoftwareManagement.Plugin.apama_plugin_install
+10:54:51 INFO  Dir:   plugin_apama/
+10:54:51 INFO  Title: Validate apama plugin install
+10:54:51 INFO  ==============================================================
+10:54:51 INFO  Assertion that path exists=False for "/etc/tedge/apama/project" ... passed
+10:55:05 WARN  Executed sudo&lt;plugin_install&gt;, exit status 2, duration 13 secs
+10:55:05 INFO  Contents of plugin_install.err: 
+  Failed to connect to remote component: Timeout after 1ms while waiting for response for name lookup
+  ERROR: Execution of `/opt/softwareag/Apama/bin/apama_env` failed with exit status exit status: 1
+  -----
+
+10:55:05 WARN  sudo&lt;plugin_install&gt; returned non-zero exit code 2 ... blocked [run.py:29]
+10:55:05 WARN  Aborted test due to BLOCKED outcome
+10:55:05 INFO  
+10:55:05 INFO  cleanup:
+10:55:05 INFO  Removing apama project
+10:55:06 INFO  Executed sudo&lt;remove_apama_project&gt;, exit status 0
+10:55:23 INFO  Executed sudo&lt;stop_apama_service&gt;, exit status 0, duration 17 secs
+10:55:23 INFO  Executed sudo&lt;remove_apama_tmp_dir&gt;, exit status 0
+10:55:23 INFO  
+10:55:23 INFO  Test duration: 32.20 secs
+10:55:23 INFO  Test final outcome:  BLOCKED
+10:55:23 INFO  Test outcome reason: sudo&lt;plugin_install&gt; returned non-zero exit code 2
+10:55:23 INFO  
+</system-out>
+	</testcase>
+<testcase classname="ApamaPluginInstallTest" name="SoftwareManagement.Plugin.apama_plugin_install">
+		<failure message="BLOCKED: sudo&lt;plugin_install&gt; returned non-zero exit code 2 (+2 other failures)" type="BLOCKED" />
+		<system-out>11:00:15 INFO  ==============================================================
+11:00:15 INFO  Id:    SoftwareManagement.Plugin.apama_plugin_install
+11:00:15 INFO  Dir:   plugin_apama/
+11:00:15 INFO  Title: Validate apama plugin install
+11:00:15 INFO  ==============================================================
+11:00:15 WARN  Assertion that path exists=False for "/etc/tedge/apama/project" ... failed 
+11:00:15 WARN  Executed sudo&lt;plugin_install&gt;, exit status 2
+11:00:15 INFO  Contents of plugin_install.err: 
+  ERROR: Device or resource busy (os error 16)
+  -----
+
+11:00:15 WARN  sudo&lt;plugin_install&gt; returned non-zero exit code 2 ... blocked [run.py:29]
+11:00:15 WARN  Aborted test due to BLOCKED outcome
+11:00:15 INFO  
+11:00:15 INFO  cleanup:
+11:00:15 INFO  Removing apama project
+11:00:16 WARN  Executed sudo&lt;remove_apama_project&gt;, exit status 1
+11:00:16 INFO  Contents of remove_apama_project.err: 
+  rm: cannot remove '/etc/tedge/apama/project/logs/.nfs000000000002130800002b09': Device or resource busy
+  -----
+
+11:00:16 ERROR Error while running cleanup function: 
+Traceback (most recent call last):
+  File "/home/pi/env-pysys/lib/python3.7/site-packages/pysys/process/user.py", line 1305, in cleanup
+    fn()
+  File "/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/plugin_apama/environment_apama_plugin.py", line 144, in cleanup_project
+    self.remove_project()
+  File "/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/plugin_apama/environment_apama_plugin.py", line 95, in remove_project
+    stdouterr="remove_apama_project",
+  File "/home/pi/env-pysys/lib/python3.7/site-packages/pysys/process/user.py", line 482, in startProcess
+    abortOnError=abortOnError)
+  File "/home/pi/env-pysys/lib/python3.7/site-packages/pysys/process/user.py", line 1401, in addOutcome
+    self.abort(outcome, outcomeReason, callRecord)
+  File "/home/pi/env-pysys/lib/python3.7/site-packages/pysys/process/user.py", line 1420, in abort
+    raise AbortExecution(outcome, outcomeReason, callRecord)
+pysys.exceptions.AbortExecution: sudo&lt;remove_apama_project&gt; returned non-zero exit code 1
+11:00:16 WARN  Cleanup failed with 1 errors: Cleanup function failed: sudo&lt;remove_apama_project&gt; returned non-zero exit code 1 (AbortExecution) ... blocked 
+11:00:16 INFO  
+11:00:16 INFO  Test duration: 1.52 secs
+11:00:16 INFO  Test final outcome:  BLOCKED
+11:00:16 INFO  Test outcome reason: sudo&lt;plugin_install&gt; returned non-zero exit code 2 (+2 other failures)
+11:00:16 INFO  
+</system-out>
+	</testcase>
+</testsuite><testsuite name="SoftwareManagement.Plugin.apama_plugin_mon_support" tests="3" errors="0" failures="2" skipped="1" time="0"><testcase classname="ApamaPluginMonSupportTest" name="SoftwareManagement.Plugin.apama_plugin_mon_support">
+		<skipped message="SKIPPED: Apama plugin tests are disabled by default. Execute `pysys run` with `-XmyPlatform=container` to run these tests" />
+		<system-out>10:34:40 INFO  ==============================================================
+10:34:40 INFO  Id:    SoftwareManagement.Plugin.apama_plugin_mon_support
+10:34:40 INFO  Dir:   plugin_apama/
+10:34:40 INFO  Title: Validate mon file support of apama plugin
+10:34:40 INFO  ==============================================================
+10:34:40 INFO  Apama plugin tests are disabled by default. Execute `pysys run` with `-XmyPlatform=container` to run these tests ... skipped
+10:34:40 WARN  Aborted test due to SKIPPED outcome
+10:34:40 INFO  
+10:34:40 INFO  Test duration: 0.04 secs
+10:34:40 INFO  Test final outcome:  SKIPPED
+10:34:40 INFO  Test outcome reason: Apama plugin tests are disabled by default. Execute `pysys run` with `-XmyPlatform=container` to run these tests
+10:34:40 INFO  
+</system-out>
+	</testcase>
+<testcase classname="ApamaPluginMonSupportTest" name="SoftwareManagement.Plugin.apama_plugin_mon_support">
+		<failure message="BLOCKED: sudo&lt;remove_apama_project&gt; returned non-zero exit code 1 (+1 other failures)" type="BLOCKED" />
+		<system-out>10:55:23 INFO  ==============================================================
+10:55:23 INFO  Id:    SoftwareManagement.Plugin.apama_plugin_mon_support
+10:55:23 INFO  Dir:   plugin_apama/
+10:55:23 INFO  Title: Validate mon file support of apama plugin
+10:55:23 INFO  ==============================================================
+10:55:23 INFO  Assertion that path exists=False for "/etc/tedge/apama/project" ... passed
+10:55:24 INFO  Executed sudo&lt;create_project_dir&gt;, exit status 0
+10:55:24 INFO  Executed sudo&lt;unzip_apama_project&gt;, exit status 0
+10:55:25 INFO  Executed sudo&lt;move_apama_project&gt;, exit status 0
+10:55:26 INFO  Executed sudo&lt;restart_apama_service&gt;, exit status 0
+10:55:27 INFO  Executed sudo&lt;apama_correlator_wait&gt;, exit status 0
+10:55:28 INFO  Executed sudo&lt;apama_list_monitors&gt;, exit status 0
+10:55:28 INFO  Grep on file /home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/plugin_apama/apama_plugin_mon_support/Output/linux/apama_list_monitors.out ... passed
+10:55:28 INFO  Executed sudo&lt;plugin_list_before_install&gt;, exit status 0
+10:55:29 INFO  Executed sudo&lt;plugin_install&gt;, exit status 0
+10:55:30 INFO  Executed sudo&lt;apama_correlator_wait&gt;, exit status 0
+10:55:31 INFO  Executed sudo&lt;plugin_list_after_install&gt;, exit status 0
+10:55:32 INFO  Executed sudo&lt;plugin_update&gt;, exit status 0
+10:55:33 INFO  Executed sudo&lt;apama_correlator_wait&gt;, exit status 0
+10:55:34 INFO  Executed sudo&lt;plugin_list_after_update&gt;, exit status 0
+10:55:34 INFO  Executed sudo&lt;plugin_remove&gt;, exit status 0
+10:55:35 INFO  Executed sudo&lt;plugin_list_after_remove&gt;, exit status 0
+10:55:35 INFO  Grep on file plugin_list_before_install.out ... passed
+10:55:35 INFO  Grep on file plugin_list_after_install.out ... passed
+10:55:35 INFO  Grep on file plugin_list_after_update.out ... passed
+10:55:35 INFO  Grep on file plugin_list_after_remove.out ... passed
+10:55:35 INFO  
+10:55:35 INFO  cleanup:
+10:55:35 INFO  Removing apama project
+10:55:36 WARN  Executed sudo&lt;remove_apama_project&gt;, exit status 1
+10:55:36 INFO  Contents of remove_apama_project.err: 
+  rm: cannot remove '/etc/tedge/apama/project/logs': Directory not empty
+  -----
+
+10:55:36 ERROR Error while running cleanup function: 
+Traceback (most recent call last):
+  File "/home/pi/env-pysys/lib/python3.7/site-packages/pysys/process/user.py", line 1305, in cleanup
+    fn()
+  File "/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/plugin_apama/environment_apama_plugin.py", line 144, in cleanup_project
+    self.remove_project()
+  File "/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/plugin_apama/environment_apama_plugin.py", line 95, in remove_project
+    stdouterr="remove_apama_project",
+  File "/home/pi/env-pysys/lib/python3.7/site-packages/pysys/process/user.py", line 482, in startProcess
+    abortOnError=abortOnError)
+  File "/home/pi/env-pysys/lib/python3.7/site-packages/pysys/process/user.py", line 1401, in addOutcome
+    self.abort(outcome, outcomeReason, callRecord)
+  File "/home/pi/env-pysys/lib/python3.7/site-packages/pysys/process/user.py", line 1420, in abort
+    raise AbortExecution(outcome, outcomeReason, callRecord)
+pysys.exceptions.AbortExecution: sudo&lt;remove_apama_project&gt; returned non-zero exit code 1
+10:55:36 WARN  Cleanup failed with 1 errors: Cleanup function failed: sudo&lt;remove_apama_project&gt; returned non-zero exit code 1 (AbortExecution) ... blocked 
+10:55:36 INFO  
+10:55:36 INFO  Test duration: 12.35 secs
+10:55:36 INFO  Test final outcome:  BLOCKED
+10:55:36 INFO  Test outcome reason: sudo&lt;remove_apama_project&gt; returned non-zero exit code 1 (+1 other failures)
+10:55:36 INFO  
+</system-out>
+	</testcase>
+<testcase classname="ApamaPluginMonSupportTest" name="SoftwareManagement.Plugin.apama_plugin_mon_support">
+		<failure message="BLOCKED: ProcessError: Error stopping process sudo&lt;unzip_apama_project&gt; (pid 2137) due to PermissionError: [Errno 1] Operation not permitted (+3 other failures)" type="BLOCKED" />
+		<system-out>11:00:16 INFO  ==============================================================
+11:00:16 INFO  Id:    SoftwareManagement.Plugin.apama_plugin_mon_support
+11:00:16 INFO  Dir:   plugin_apama/
+11:00:16 INFO  Title: Validate mon file support of apama plugin
+11:00:16 INFO  ==============================================================
+11:00:16 WARN  Assertion that path exists=False for "/etc/tedge/apama/project" ... failed 
+11:00:17 INFO  Executed sudo&lt;create_project_dir&gt;, exit status 0
+11:10:17 WARN  Process sudo&lt;unzip_apama_project&gt; (pid 2137) timed out after 600 seconds, stopping process
+11:10:17 WARN  ProcessError occurred while running test - Error stopping process sudo&lt;unzip_apama_project&gt; (pid 2137) due to PermissionError: [Errno 1] Operation not permitted
+Traceback (most recent call last):
+  File "/home/pi/env-pysys/lib/python3.7/site-packages/pysys/process/user.py", line 465, in startProcess
+    process.start()
+  File "/home/pi/env-pysys/lib/python3.7/site-packages/pysys/process/__init__.py", line 282, in start
+    self.wait(self.timeout)
+  File "/home/pi/env-pysys/lib/python3.7/site-packages/pysys/process/__init__.py", line 263, in wait
+    raise ProcessTimeout('Waiting for completion of %r timed out after %d seconds'%(self, int(timeout)))
+pysys.exceptions.ProcessTimeout: Waiting for completion of sudo&lt;unzip_apama_project&gt; (pid 2137) timed out after 600 seconds
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/pi/env-pysys/lib/python3.7/site-packages/pysys/process/plat-unix/helper.py", line 226, in stop
+    os.kill(self.pid, sig)
+PermissionError: [Errno 1] Operation not permitted
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/pi/env-pysys/lib/python3.7/site-packages/pysys/baserunner.py", line 1292, in __call__
+    self.testObj.setup()
+  File "/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/plugin_apama/apama_plugin_mon_support/run.py", line 19, in setup
+    self.install_project(self.project.apama_input_dir + "/quickstart.zip")
+  File "/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/plugin_apama/environment_apama_plugin.py", line 72, in install_project
+    stdouterr="unzip_apama_project",
+  File "/home/pi/env-pysys/lib/python3.7/site-packages/pysys/process/user.py", line 493, in startProcess
+    process.stop()
+  File "/home/pi/env-pysys/lib/python3.7/site-packages/pysys/process/plat-unix/helper.py", line 252, in stop
+    raise ProcessError("Error stopping process %r due to %s: %s"%(self, type(ex).__name__, ex))
+pysys.exceptions.ProcessError: Error stopping process sudo&lt;unzip_apama_project&gt; (pid 2137) due to PermissionError: [Errno 1] Operation not permitted
+11:10:17 WARN  ProcessError: Error stopping process sudo&lt;unzip_apama_project&gt; (pid 2137) due to PermissionError: [Errno 1] Operation not permitted ... blocked 
+11:10:17 INFO  
+11:10:17 INFO  cleanup:
+11:10:17 INFO  Removing apama project
+11:10:17 WARN  Executed sudo&lt;remove_apama_project&gt;, exit status 1
+11:10:17 INFO  Contents of remove_apama_project.err: 
+  rm: cannot remove '/etc/tedge/apama/project/logs/.nfs000000000002130800002b09': Device or resource busy
+  -----
+
+11:10:17 ERROR Error while running cleanup function: 
+Traceback (most recent call last):
+  File "/home/pi/env-pysys/lib/python3.7/site-packages/pysys/process/user.py", line 1305, in cleanup
+    fn()
+  File "/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/plugin_apama/environment_apama_plugin.py", line 144, in cleanup_project
+    self.remove_project()
+  File "/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/plugin_apama/environment_apama_plugin.py", line 95, in remove_project
+    stdouterr="remove_apama_project",
+  File "/home/pi/env-pysys/lib/python3.7/site-packages/pysys/process/user.py", line 482, in startProcess
+    abortOnError=abortOnError)
+  File "/home/pi/env-pysys/lib/python3.7/site-packages/pysys/process/user.py", line 1401, in addOutcome
+    self.abort(outcome, outcomeReason, callRecord)
+  File "/home/pi/env-pysys/lib/python3.7/site-packages/pysys/process/user.py", line 1420, in abort
+    raise AbortExecution(outcome, outcomeReason, callRecord)
+pysys.exceptions.AbortExecution: sudo&lt;remove_apama_project&gt; returned non-zero exit code 1
+11:10:17 WARN  Cleanup failed with 1 errors: Cleanup function failed: sudo&lt;remove_apama_project&gt; returned non-zero exit code 1 (AbortExecution) ... blocked 
+11:10:17 INFO  
+11:10:17 INFO  Test duration: 601.23 secs
+11:10:17 INFO  Test final outcome:  BLOCKED
+11:10:17 INFO  Test outcome reason: ProcessError: Error stopping process sudo&lt;unzip_apama_project&gt; (pid 2137) due to PermissionError: [Errno 1] Operation not permitted (+3 other failures)
+11:10:17 INFO  
+</system-out>
+	</testcase>
+</testsuite><testsuite name="SoftwareManagement.Plugin.apama_plugin_remove" tests="3" errors="0" failures="2" skipped="1" time="0"><testcase classname="ApamaPluginRemoveTest" name="SoftwareManagement.Plugin.apama_plugin_remove">
+		<skipped message="SKIPPED: Apama plugin tests are disabled by default. Execute `pysys run` with `-XmyPlatform=container` to run these tests" />
+		<system-out>10:34:40 INFO  ==============================================================
+10:34:40 INFO  Id:    SoftwareManagement.Plugin.apama_plugin_remove
+10:34:40 INFO  Dir:   plugin_apama/
+10:34:40 INFO  Title: Validate apama plugin remove
+10:34:40 INFO  ==============================================================
+10:34:40 INFO  Apama plugin tests are disabled by default. Execute `pysys run` with `-XmyPlatform=container` to run these tests ... skipped
+10:34:40 WARN  Aborted test due to SKIPPED outcome
+10:34:40 INFO  
+10:34:40 INFO  Test duration: 0.02 secs
+10:34:40 INFO  Test final outcome:  SKIPPED
+10:34:40 INFO  Test outcome reason: Apama plugin tests are disabled by default. Execute `pysys run` with `-XmyPlatform=container` to run these tests
+10:34:40 INFO  
+</system-out>
+	</testcase>
+<testcase classname="ApamaPluginRemoveTest" name="SoftwareManagement.Plugin.apama_plugin_remove">
+		<failure message="BLOCKED: sudo&lt;remove_apama_project&gt; returned non-zero exit code 1 (+2 other failures)" type="BLOCKED" />
+		<system-out>10:55:36 INFO  ==============================================================
+10:55:36 INFO  Id:    SoftwareManagement.Plugin.apama_plugin_remove
+10:55:36 INFO  Dir:   plugin_apama/
+10:55:36 INFO  Title: Validate apama plugin remove
+10:55:36 INFO  ==============================================================
+10:55:36 WARN  Assertion that path exists=False for "/etc/tedge/apama/project" ... failed 
+10:55:36 WARN  Aborted test due to FAILED outcome
+10:55:36 INFO  
+10:55:36 INFO  cleanup:
+10:55:36 INFO  Removing apama project
+10:55:36 WARN  Executed sudo&lt;remove_apama_project&gt;, exit status 1
+10:55:36 INFO  Contents of remove_apama_project.err: 
+  rm: cannot remove '/etc/tedge/apama/project/logs/.nfs000000000002130800002b09': Device or resource busy
+  -----
+
+10:55:36 ERROR Error while running cleanup function: 
+Traceback (most recent call last):
+  File "/home/pi/env-pysys/lib/python3.7/site-packages/pysys/process/user.py", line 1305, in cleanup
+    fn()
+  File "/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/plugin_apama/environment_apama_plugin.py", line 144, in cleanup_project
+    self.remove_project()
+  File "/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/plugin_apama/environment_apama_plugin.py", line 95, in remove_project
+    stdouterr="remove_apama_project",
+  File "/home/pi/env-pysys/lib/python3.7/site-packages/pysys/process/user.py", line 482, in startProcess
+    abortOnError=abortOnError)
+  File "/home/pi/env-pysys/lib/python3.7/site-packages/pysys/process/user.py", line 1401, in addOutcome
+    self.abort(outcome, outcomeReason, callRecord)
+  File "/home/pi/env-pysys/lib/python3.7/site-packages/pysys/process/user.py", line 1420, in abort
+    raise AbortExecution(outcome, outcomeReason, callRecord)
+pysys.exceptions.AbortExecution: sudo&lt;remove_apama_project&gt; returned non-zero exit code 1
+10:55:36 WARN  Cleanup failed with 1 errors: Cleanup function failed: sudo&lt;remove_apama_project&gt; returned non-zero exit code 1 (AbortExecution) ... blocked 
+10:55:36 INFO  
+10:55:36 INFO  Test duration: 0.63 secs
+10:55:36 INFO  Test final outcome:  BLOCKED
+10:55:36 INFO  Test outcome reason: sudo&lt;remove_apama_project&gt; returned non-zero exit code 1 (+2 other failures)
+10:55:36 INFO  
+</system-out>
+	</testcase>
+<testcase classname="ApamaPluginRemoveTest" name="SoftwareManagement.Plugin.apama_plugin_remove">
+		<failure message="BLOCKED: sudo&lt;remove_apama_project&gt; returned non-zero exit code 1 (+2 other failures)" type="BLOCKED" />
+		<system-out>11:10:17 INFO  ==============================================================
+11:10:17 INFO  Id:    SoftwareManagement.Plugin.apama_plugin_remove
+11:10:17 INFO  Dir:   plugin_apama/
+11:10:17 INFO  Title: Validate apama plugin remove
+11:10:17 INFO  ==============================================================
+11:10:17 WARN  Assertion that path exists=False for "/etc/tedge/apama/project" ... failed 
+11:10:17 WARN  Aborted test due to FAILED outcome
+11:10:17 INFO  
+11:10:17 INFO  cleanup:
+11:10:17 INFO  Removing apama project
+11:10:18 WARN  Executed sudo&lt;remove_apama_project&gt;, exit status 1
+11:10:18 INFO  Contents of remove_apama_project.err: 
+  rm: cannot remove '/etc/tedge/apama/project/logs/.nfs000000000002130800002b09': Device or resource busy
+  -----
+
+11:10:18 ERROR Error while running cleanup function: 
+Traceback (most recent call last):
+  File "/home/pi/env-pysys/lib/python3.7/site-packages/pysys/process/user.py", line 1305, in cleanup
+    fn()
+  File "/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/plugin_apama/environment_apama_plugin.py", line 144, in cleanup_project
+    self.remove_project()
+  File "/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/plugin_apama/environment_apama_plugin.py", line 95, in remove_project
+    stdouterr="remove_apama_project",
+  File "/home/pi/env-pysys/lib/python3.7/site-packages/pysys/process/user.py", line 482, in startProcess
+    abortOnError=abortOnError)
+  File "/home/pi/env-pysys/lib/python3.7/site-packages/pysys/process/user.py", line 1401, in addOutcome
+    self.abort(outcome, outcomeReason, callRecord)
+  File "/home/pi/env-pysys/lib/python3.7/site-packages/pysys/process/user.py", line 1420, in abort
+    raise AbortExecution(outcome, outcomeReason, callRecord)
+pysys.exceptions.AbortExecution: sudo&lt;remove_apama_project&gt; returned non-zero exit code 1
+11:10:18 WARN  Cleanup failed with 1 errors: Cleanup function failed: sudo&lt;remove_apama_project&gt; returned non-zero exit code 1 (AbortExecution) ... blocked 
+11:10:18 INFO  
+11:10:18 INFO  Test duration: 0.63 secs
+11:10:18 INFO  Test final outcome:  BLOCKED
+11:10:18 INFO  Test outcome reason: sudo&lt;remove_apama_project&gt; returned non-zero exit code 1 (+2 other failures)
+11:10:18 INFO  
+</system-out>
+	</testcase>
+</testsuite><testsuite name="SoftwareManagement.Plugin.apama_plugin_update" tests="3" errors="0" failures="2" skipped="1" time="0"><testcase classname="ApamaPluginUpdateTest" name="SoftwareManagement.Plugin.apama_plugin_update">
+		<skipped message="SKIPPED: Apama plugin tests are disabled by default. Execute `pysys run` with `-XmyPlatform=container` to run these tests" />
+		<system-out>10:34:40 INFO  ==============================================================
+10:34:40 INFO  Id:    SoftwareManagement.Plugin.apama_plugin_update
+10:34:40 INFO  Dir:   plugin_apama/
+10:34:40 INFO  Title: Validate apama plugin updating one project with another
+10:34:40 INFO  ==============================================================
+10:34:40 INFO  Apama plugin tests are disabled by default. Execute `pysys run` with `-XmyPlatform=container` to run these tests ... skipped
+10:34:40 WARN  Aborted test due to SKIPPED outcome
+10:34:40 INFO  
+10:34:40 INFO  Test duration: 0.02 secs
+10:34:40 INFO  Test final outcome:  SKIPPED
+10:34:40 INFO  Test outcome reason: Apama plugin tests are disabled by default. Execute `pysys run` with `-XmyPlatform=container` to run these tests
+10:34:40 INFO  
+</system-out>
+	</testcase>
+<testcase classname="ApamaPluginUpdateTest" name="SoftwareManagement.Plugin.apama_plugin_update">
+		<failure message="BLOCKED: sudo&lt;remove_apama_project&gt; returned non-zero exit code 1 (+2 other failures)" type="BLOCKED" />
+		<system-out>10:55:36 INFO  ==============================================================
+10:55:36 INFO  Id:    SoftwareManagement.Plugin.apama_plugin_update
+10:55:36 INFO  Dir:   plugin_apama/
+10:55:36 INFO  Title: Validate apama plugin updating one project with another
+10:55:36 INFO  ==============================================================
+10:55:36 WARN  Assertion that path exists=False for "/etc/tedge/apama/project" ... failed 
+10:55:36 WARN  Aborted test due to FAILED outcome
+10:55:36 INFO  
+10:55:36 INFO  cleanup:
+10:55:36 INFO  Removing apama project
+10:55:37 WARN  Executed sudo&lt;remove_apama_project&gt;, exit status 1
+10:55:37 INFO  Contents of remove_apama_project.err: 
+  rm: cannot remove '/etc/tedge/apama/project/logs/.nfs000000000002130800002b09': Device or resource busy
+  -----
+
+10:55:37 ERROR Error while running cleanup function: 
+Traceback (most recent call last):
+  File "/home/pi/env-pysys/lib/python3.7/site-packages/pysys/process/user.py", line 1305, in cleanup
+    fn()
+  File "/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/plugin_apama/environment_apama_plugin.py", line 144, in cleanup_project
+    self.remove_project()
+  File "/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/plugin_apama/environment_apama_plugin.py", line 95, in remove_project
+    stdouterr="remove_apama_project",
+  File "/home/pi/env-pysys/lib/python3.7/site-packages/pysys/process/user.py", line 482, in startProcess
+    abortOnError=abortOnError)
+  File "/home/pi/env-pysys/lib/python3.7/site-packages/pysys/process/user.py", line 1401, in addOutcome
+    self.abort(outcome, outcomeReason, callRecord)
+  File "/home/pi/env-pysys/lib/python3.7/site-packages/pysys/process/user.py", line 1420, in abort
+    raise AbortExecution(outcome, outcomeReason, callRecord)
+pysys.exceptions.AbortExecution: sudo&lt;remove_apama_project&gt; returned non-zero exit code 1
+10:55:37 WARN  Cleanup failed with 1 errors: Cleanup function failed: sudo&lt;remove_apama_project&gt; returned non-zero exit code 1 (AbortExecution) ... blocked 
+10:55:37 INFO  
+10:55:37 INFO  Test duration: 0.64 secs
+10:55:37 INFO  Test final outcome:  BLOCKED
+10:55:37 INFO  Test outcome reason: sudo&lt;remove_apama_project&gt; returned non-zero exit code 1 (+2 other failures)
+10:55:37 INFO  
+</system-out>
+	</testcase>
+<testcase classname="ApamaPluginUpdateTest" name="SoftwareManagement.Plugin.apama_plugin_update">
+		<failure message="BLOCKED: sudo&lt;remove_apama_project&gt; returned non-zero exit code 1 (+2 other failures)" type="BLOCKED" />
+		<system-out>11:10:18 INFO  ==============================================================
+11:10:18 INFO  Id:    SoftwareManagement.Plugin.apama_plugin_update
+11:10:18 INFO  Dir:   plugin_apama/
+11:10:18 INFO  Title: Validate apama plugin updating one project with another
+11:10:18 INFO  ==============================================================
+11:10:18 WARN  Assertion that path exists=False for "/etc/tedge/apama/project" ... failed 
+11:10:18 WARN  Aborted test due to FAILED outcome
+11:10:18 INFO  
+11:10:18 INFO  cleanup:
+11:10:18 INFO  Removing apama project
+11:10:19 WARN  Executed sudo&lt;remove_apama_project&gt;, exit status 1
+11:10:19 INFO  Contents of remove_apama_project.err: 
+  rm: cannot remove '/etc/tedge/apama/project/logs/.nfs000000000002130800002b09': Device or resource busy
+  -----
+
+11:10:19 ERROR Error while running cleanup function: 
+Traceback (most recent call last):
+  File "/home/pi/env-pysys/lib/python3.7/site-packages/pysys/process/user.py", line 1305, in cleanup
+    fn()
+  File "/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/plugin_apama/environment_apama_plugin.py", line 144, in cleanup_project
+    self.remove_project()
+  File "/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/plugin_apama/environment_apama_plugin.py", line 95, in remove_project
+    stdouterr="remove_apama_project",
+  File "/home/pi/env-pysys/lib/python3.7/site-packages/pysys/process/user.py", line 482, in startProcess
+    abortOnError=abortOnError)
+  File "/home/pi/env-pysys/lib/python3.7/site-packages/pysys/process/user.py", line 1401, in addOutcome
+    self.abort(outcome, outcomeReason, callRecord)
+  File "/home/pi/env-pysys/lib/python3.7/site-packages/pysys/process/user.py", line 1420, in abort
+    raise AbortExecution(outcome, outcomeReason, callRecord)
+pysys.exceptions.AbortExecution: sudo&lt;remove_apama_project&gt; returned non-zero exit code 1
+11:10:19 WARN  Cleanup failed with 1 errors: Cleanup function failed: sudo&lt;remove_apama_project&gt; returned non-zero exit code 1 (AbortExecution) ... blocked 
+11:10:19 INFO  
+11:10:19 INFO  Test duration: 0.67 secs
+11:10:19 INFO  Test final outcome:  BLOCKED
+11:10:19 INFO  Test outcome reason: sudo&lt;remove_apama_project&gt; returned non-zero exit code 1 (+2 other failures)
+11:10:19 INFO  
+</system-out>
+	</testcase>
+</testsuite><testsuite name="SoftwareManagement.sm_apt_install_download_path" tests="3" errors="0" failures="2" skipped="1" time="0"><testcase classname="AptInstallWithDownloadPath" name="SoftwareManagement.sm_apt_install_download_path">
+		<skipped message="SKIPPED: Testing the apt plugin is not supported on this platform.Use parameter -XmyPlatform='container' to enable it" />
+		<system-out>10:35:09 INFO  ==============================================================
+10:35:09 INFO  Id:    SoftwareManagement.sm_apt_install_download_path
+10:35:09 INFO  Dir:   software_management_end_to_end/
+10:35:09 INFO  Title: Install package to directory specified in tedge config set tmp.path
+10:35:09 INFO  ==============================================================
+10:35:09 INFO  Testing the apt plugin is not supported on this platform.Use parameter -XmyPlatform='container' to enable it ... skipped
+10:35:09 WARN  Aborted test due to SKIPPED outcome
+10:35:09 INFO  
+10:35:09 INFO  Test duration: 0.06 secs
+10:35:09 INFO  Test final outcome:  SKIPPED
+10:35:09 INFO  Test outcome reason: Testing the apt plugin is not supported on this platform.Use parameter -XmyPlatform='container' to enable it
+10:35:09 INFO  
+</system-out>
+	</testcase>
+<testcase classname="AptInstallWithDownloadPath" name="SoftwareManagement.sm_apt_install_download_path">
+		<failure message="BLOCKED: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1" type="BLOCKED" />
+		<system-out>10:54:31 INFO  ==============================================================
+10:54:31 INFO  Id:    SoftwareManagement.sm_apt_install_download_path
+10:54:31 INFO  Dir:   software_management_end_to_end/
+10:54:31 INFO  Title: Install package to directory specified in tedge config set tmp.path
+10:54:31 INFO  ==============================================================
+10:54:31 INFO  Using sw id database: {'asciijump': '5475369', 'robotfindskitten': '5474869', 'squirrel3': '5475279', 'rolldice': '5152439', 'moon-buggy': '5439204', 'apple': '5495053', 'banana': '5494888', 'cherry': '5495382', 'watermelon': '5494510', 'registry': '8018911', 'hello-world': '8021526', 'docker/getting-started': '8021973', 'alpine': '7991792'}
+10:54:31 INFO  EnvironmentC8y Setup
+10:54:31 INFO  Executed systemctl&lt;serv_mapper1&gt;, exit status 3
+10:54:32 WARN  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 1
+10:54:32 INFO  Contents of tedge_connect_c8y.err: 
+  Error: failed to connect Cumulocity cloud.
+  Caused by:
+      A value for `c8y.url` is missing.
+          A value can be set with `tedge config set c8y.url &lt;value&gt;`
+  -----
+
+10:54:33 WARN  sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1 ... blocked 
+10:54:33 WARN  Aborted test due to BLOCKED outcome
+10:54:33 INFO  
+10:54:33 INFO  cleanup:
+10:54:33 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
+10:54:34 INFO  Executed systemctl&lt;serv_mapper5&gt;, exit status 3
+10:54:34 INFO  
+10:54:34 INFO  Test duration: 2.98 secs
+10:54:34 INFO  Test final outcome:  BLOCKED
+10:54:34 INFO  Test outcome reason: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1
+10:54:34 INFO  
+</system-out>
+	</testcase>
+<testcase classname="AptInstallWithDownloadPath" name="SoftwareManagement.sm_apt_install_download_path">
+		<failure message="BLOCKED: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1" type="BLOCKED" />
+		<system-out>11:10:19 INFO  ==============================================================
+11:10:19 INFO  Id:    SoftwareManagement.sm_apt_install_download_path
+11:10:19 INFO  Dir:   software_management_end_to_end/
+11:10:19 INFO  Title: Install package to directory specified in tedge config set tmp.path
+11:10:19 INFO  ==============================================================
+11:10:20 INFO  Using sw id database: {'asciijump': '5475369', 'robotfindskitten': '5474869', 'squirrel3': '5475279', 'rolldice': '5152439', 'moon-buggy': '5439204', 'apple': '5495053', 'banana': '5494888', 'cherry': '5495382', 'watermelon': '5494510', 'registry': '8018911', 'hello-world': '8021526', 'docker/getting-started': '8021973', 'alpine': '7991792'}
+11:10:20 INFO  EnvironmentC8y Setup
+11:10:21 INFO  Executed systemctl&lt;serv_mapper1&gt;, exit status 3
+11:10:21 WARN  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 1
+11:10:21 INFO  Contents of tedge_connect_c8y.err: 
+  Error: failed to connect Cumulocity cloud.
+  Caused by:
+      A value for `c8y.url` is missing.
+          A value can be set with `tedge config set c8y.url &lt;value&gt;`
+  -----
+
+11:10:22 WARN  sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1 ... blocked 
+11:10:22 WARN  Aborted test due to BLOCKED outcome
+11:10:22 INFO  
+11:10:22 INFO  cleanup:
+11:10:22 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
+11:10:23 INFO  Executed systemctl&lt;serv_mapper5&gt;, exit status 3
+11:10:23 INFO  
+11:10:23 INFO  Test duration: 3.94 secs
+11:10:23 INFO  Test final outcome:  BLOCKED
+11:10:23 INFO  Test outcome reason: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1
+11:10:23 INFO  
+</system-out>
+	</testcase>
+</testsuite><testsuite name="SoftwareManagement.sm_apt_install_fail" tests="3" errors="0" failures="2" skipped="1" time="0"><testcase classname="PySysTest" name="SoftwareManagement.sm_apt_install_fail">
+		<skipped message="SKIPPED: Testing the apt plugin is not supported on this platform.Use parameter -XmyPlatform='container' to enable it" />
+		<system-out>10:35:09 INFO  ==============================================================
+10:35:09 INFO  Id:    SoftwareManagement.sm_apt_install_fail
+10:35:09 INFO  Dir:   software_management_end_to_end/
+10:35:09 INFO  Title: Validate end to end behaviour for a failing installation
+10:35:09 INFO  ==============================================================
+10:35:09 INFO  Testing the apt plugin is not supported on this platform.Use parameter -XmyPlatform='container' to enable it ... skipped
+10:35:09 WARN  Aborted test due to SKIPPED outcome
+10:35:09 INFO  
+10:35:09 INFO  Test duration: 0.02 secs
+10:35:09 INFO  Test final outcome:  SKIPPED
+10:35:09 INFO  Test outcome reason: Testing the apt plugin is not supported on this platform.Use parameter -XmyPlatform='container' to enable it
+10:35:09 INFO  
+</system-out>
+	</testcase>
+<testcase classname="PySysTest" name="SoftwareManagement.sm_apt_install_fail">
+		<failure message="BLOCKED: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1" type="BLOCKED" />
+		<system-out>10:54:34 INFO  ==============================================================
+10:54:34 INFO  Id:    SoftwareManagement.sm_apt_install_fail
+10:54:34 INFO  Dir:   software_management_end_to_end/
+10:54:34 INFO  Title: Validate end to end behaviour for a failing installation
+10:54:34 INFO  ==============================================================
+10:54:34 INFO  Using sw id database: {'asciijump': '5475369', 'robotfindskitten': '5474869', 'squirrel3': '5475279', 'rolldice': '5152439', 'moon-buggy': '5439204', 'apple': '5495053', 'banana': '5494888', 'cherry': '5495382', 'watermelon': '5494510', 'registry': '8018911', 'hello-world': '8021526', 'docker/getting-started': '8021973', 'alpine': '7991792'}
+10:54:34 INFO  EnvironmentC8y Setup
+10:54:34 INFO  Executed systemctl&lt;serv_mapper1&gt;, exit status 3
+10:54:35 WARN  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 1
+10:54:35 INFO  Contents of tedge_connect_c8y.err: 
+  Error: failed to connect Cumulocity cloud.
+  Caused by:
+      A value for `c8y.url` is missing.
+          A value can be set with `tedge config set c8y.url &lt;value&gt;`
+  -----
+
+10:54:35 WARN  sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1 ... blocked 
+10:54:35 WARN  Aborted test due to BLOCKED outcome
+10:54:35 INFO  
+10:54:35 INFO  cleanup:
+10:54:36 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
+10:54:36 INFO  Executed systemctl&lt;serv_mapper5&gt;, exit status 3
+10:54:36 INFO  
+10:54:36 INFO  Test duration: 2.27 secs
+10:54:36 INFO  Test final outcome:  BLOCKED
+10:54:36 INFO  Test outcome reason: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1
+10:54:36 INFO  
+</system-out>
+	</testcase>
+<testcase classname="PySysTest" name="SoftwareManagement.sm_apt_install_fail">
+		<failure message="BLOCKED: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1" type="BLOCKED" />
+		<system-out>11:10:23 INFO  ==============================================================
+11:10:23 INFO  Id:    SoftwareManagement.sm_apt_install_fail
+11:10:23 INFO  Dir:   software_management_end_to_end/
+11:10:23 INFO  Title: Validate end to end behaviour for a failing installation
+11:10:23 INFO  ==============================================================
+11:10:23 INFO  Using sw id database: {'asciijump': '5475369', 'robotfindskitten': '5474869', 'squirrel3': '5475279', 'rolldice': '5152439', 'moon-buggy': '5439204', 'apple': '5495053', 'banana': '5494888', 'cherry': '5495382', 'watermelon': '5494510', 'registry': '8018911', 'hello-world': '8021526', 'docker/getting-started': '8021973', 'alpine': '7991792'}
+11:10:23 INFO  EnvironmentC8y Setup
+11:10:23 INFO  Executed systemctl&lt;serv_mapper1&gt;, exit status 3
+11:10:24 WARN  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 1
+11:10:24 INFO  Contents of tedge_connect_c8y.err: 
+  Error: failed to connect Cumulocity cloud.
+  Caused by:
+      A value for `c8y.url` is missing.
+          A value can be set with `tedge config set c8y.url &lt;value&gt;`
+  -----
+
+11:10:24 WARN  sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1 ... blocked 
+11:10:24 WARN  Aborted test due to BLOCKED outcome
+11:10:24 INFO  
+11:10:24 INFO  cleanup:
+11:10:25 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
+11:10:25 INFO  Executed systemctl&lt;serv_mapper5&gt;, exit status 3
+11:10:25 INFO  
+11:10:25 INFO  Test duration: 2.28 secs
+11:10:25 INFO  Test final outcome:  BLOCKED
+11:10:25 INFO  Test outcome reason: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1
+11:10:25 INFO  
+</system-out>
+	</testcase>
+</testsuite><testsuite name="SoftwareManagement.sm_apt_install_remove" tests="3" errors="0" failures="2" skipped="1" time="0"><testcase classname="PySysTest" name="SoftwareManagement.sm_apt_install_remove">
+		<skipped message="SKIPPED: Testing the apt plugin is not supported on this platform.Use parameter -XmyPlatform='container' to enable it" />
+		<system-out>10:35:09 INFO  ==============================================================
+10:35:09 INFO  Id:    SoftwareManagement.sm_apt_install_remove
+10:35:09 INFO  Dir:   software_management_end_to_end/
+10:35:09 INFO  Title: Validate end to end behaviour for the apt plugin for installation and removal of packages
+10:35:09 INFO  ==============================================================
+10:35:09 INFO  Testing the apt plugin is not supported on this platform.Use parameter -XmyPlatform='container' to enable it ... skipped
+10:35:09 WARN  Aborted test due to SKIPPED outcome
+10:35:09 INFO  
+10:35:09 INFO  Test duration: 0.02 secs
+10:35:09 INFO  Test final outcome:  SKIPPED
+10:35:09 INFO  Test outcome reason: Testing the apt plugin is not supported on this platform.Use parameter -XmyPlatform='container' to enable it
+10:35:09 INFO  
+</system-out>
+	</testcase>
+<testcase classname="PySysTest" name="SoftwareManagement.sm_apt_install_remove">
+		<failure message="BLOCKED: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1" type="BLOCKED" />
+		<system-out>10:54:36 INFO  ==============================================================
+10:54:36 INFO  Id:    SoftwareManagement.sm_apt_install_remove
+10:54:36 INFO  Dir:   software_management_end_to_end/
+10:54:36 INFO  Title: Validate end to end behaviour for the apt plugin for installation and removal of packages
+10:54:36 INFO  ==============================================================
+10:54:36 INFO  Using sw id database: {'asciijump': '5475369', 'robotfindskitten': '5474869', 'squirrel3': '5475279', 'rolldice': '5152439', 'moon-buggy': '5439204', 'apple': '5495053', 'banana': '5494888', 'cherry': '5495382', 'watermelon': '5494510', 'registry': '8018911', 'hello-world': '8021526', 'docker/getting-started': '8021973', 'alpine': '7991792'}
+10:54:36 INFO  EnvironmentC8y Setup
+10:54:37 INFO  Executed systemctl&lt;serv_mapper1&gt;, exit status 3
+10:54:37 WARN  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 1
+10:54:37 INFO  Contents of tedge_connect_c8y.err: 
+  Error: failed to connect Cumulocity cloud.
+  Caused by:
+      A value for `c8y.url` is missing.
+          A value can be set with `tedge config set c8y.url &lt;value&gt;`
+  -----
+
+10:54:37 WARN  sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1 ... blocked 
+10:54:37 WARN  Aborted test due to BLOCKED outcome
+10:54:37 INFO  
+10:54:37 INFO  cleanup:
+10:54:38 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
+10:54:38 INFO  Executed systemctl&lt;serv_mapper5&gt;, exit status 3
+10:54:38 INFO  
+10:54:38 INFO  Test duration: 2.25 secs
+10:54:38 INFO  Test final outcome:  BLOCKED
+10:54:38 INFO  Test outcome reason: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1
+10:54:38 INFO  
+</system-out>
+	</testcase>
+<testcase classname="PySysTest" name="SoftwareManagement.sm_apt_install_remove">
+		<failure message="BLOCKED: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1" type="BLOCKED" />
+		<system-out>11:10:25 INFO  ==============================================================
+11:10:25 INFO  Id:    SoftwareManagement.sm_apt_install_remove
+11:10:25 INFO  Dir:   software_management_end_to_end/
+11:10:25 INFO  Title: Validate end to end behaviour for the apt plugin for installation and removal of packages
+11:10:25 INFO  ==============================================================
+11:10:25 INFO  Using sw id database: {'asciijump': '5475369', 'robotfindskitten': '5474869', 'squirrel3': '5475279', 'rolldice': '5152439', 'moon-buggy': '5439204', 'apple': '5495053', 'banana': '5494888', 'cherry': '5495382', 'watermelon': '5494510', 'registry': '8018911', 'hello-world': '8021526', 'docker/getting-started': '8021973', 'alpine': '7991792'}
+11:10:25 INFO  EnvironmentC8y Setup
+11:10:26 INFO  Executed systemctl&lt;serv_mapper1&gt;, exit status 3
+11:10:26 WARN  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 1
+11:10:26 INFO  Contents of tedge_connect_c8y.err: 
+  Error: failed to connect Cumulocity cloud.
+  Caused by:
+      A value for `c8y.url` is missing.
+          A value can be set with `tedge config set c8y.url &lt;value&gt;`
+  -----
+
+11:10:26 WARN  sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1 ... blocked 
+11:10:26 WARN  Aborted test due to BLOCKED outcome
+11:10:26 INFO  
+11:10:26 INFO  cleanup:
+11:10:27 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
+11:10:27 INFO  Executed systemctl&lt;serv_mapper5&gt;, exit status 3
+11:10:27 INFO  
+11:10:27 INFO  Test duration: 2.29 secs
+11:10:27 INFO  Test final outcome:  BLOCKED
+11:10:27 INFO  Test outcome reason: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1
+11:10:27 INFO  
+</system-out>
+	</testcase>
+</testsuite><testsuite name="SoftwareManagement.sm_apt_install_remove_default" tests="3" errors="0" failures="2" skipped="1" time="0"><testcase classname="PySysTest" name="SoftwareManagement.sm_apt_install_remove_default">
+		<skipped message="SKIPPED: Testing the apt plugin is not supported on this platform.Use parameter -XmyPlatform='container' to enable it" />
+		<system-out>10:35:09 INFO  ==============================================================
+10:35:09 INFO  Id:    SoftwareManagement.sm_apt_install_remove_default
+10:35:09 INFO  Dir:   software_management_end_to_end/
+10:35:09 INFO  Title: Validate end to end behaviour for the default plugin for installation and removal of packages
+10:35:09 INFO  ==============================================================
+10:35:09 INFO  Testing the apt plugin is not supported on this platform.Use parameter -XmyPlatform='container' to enable it ... skipped
+10:35:09 WARN  Aborted test due to SKIPPED outcome
+10:35:09 INFO  
+10:35:09 INFO  Test duration: 0.02 secs
+10:35:09 INFO  Test final outcome:  SKIPPED
+10:35:09 INFO  Test outcome reason: Testing the apt plugin is not supported on this platform.Use parameter -XmyPlatform='container' to enable it
+10:35:09 INFO  
+</system-out>
+	</testcase>
+<testcase classname="PySysTest" name="SoftwareManagement.sm_apt_install_remove_default">
+		<failure message="BLOCKED: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1" type="BLOCKED" />
+		<system-out>10:54:38 INFO  ==============================================================
+10:54:38 INFO  Id:    SoftwareManagement.sm_apt_install_remove_default
+10:54:38 INFO  Dir:   software_management_end_to_end/
+10:54:38 INFO  Title: Validate end to end behaviour for the default plugin for installation and removal of packages
+10:54:38 INFO  ==============================================================
+10:54:38 INFO  Using sw id database: {'asciijump': '5475369', 'robotfindskitten': '5474869', 'squirrel3': '5475279', 'rolldice': '5152439', 'moon-buggy': '5439204', 'apple': '5495053', 'banana': '5494888', 'cherry': '5495382', 'watermelon': '5494510', 'registry': '8018911', 'hello-world': '8021526', 'docker/getting-started': '8021973', 'alpine': '7991792'}
+10:54:38 INFO  EnvironmentC8y Setup
+10:54:39 INFO  Executed systemctl&lt;serv_mapper1&gt;, exit status 3
+10:54:39 WARN  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 1
+10:54:39 INFO  Contents of tedge_connect_c8y.err: 
+  Error: failed to connect Cumulocity cloud.
+  Caused by:
+      A value for `c8y.url` is missing.
+          A value can be set with `tedge config set c8y.url &lt;value&gt;`
+  -----
+
+10:54:40 WARN  sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1 ... blocked 
+10:54:40 WARN  Aborted test due to BLOCKED outcome
+10:54:40 INFO  
+10:54:40 INFO  cleanup:
+10:54:40 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
+10:54:41 INFO  Executed systemctl&lt;serv_mapper5&gt;, exit status 3
+10:54:41 INFO  
+10:54:41 INFO  Test duration: 2.26 secs
+10:54:41 INFO  Test final outcome:  BLOCKED
+10:54:41 INFO  Test outcome reason: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1
+10:54:41 INFO  
+</system-out>
+	</testcase>
+<testcase classname="PySysTest" name="SoftwareManagement.sm_apt_install_remove_default">
+		<failure message="BLOCKED: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1" type="BLOCKED" />
+		<system-out>11:10:27 INFO  ==============================================================
+11:10:27 INFO  Id:    SoftwareManagement.sm_apt_install_remove_default
+11:10:27 INFO  Dir:   software_management_end_to_end/
+11:10:27 INFO  Title: Validate end to end behaviour for the default plugin for installation and removal of packages
+11:10:27 INFO  ==============================================================
+11:10:27 INFO  Using sw id database: {'asciijump': '5475369', 'robotfindskitten': '5474869', 'squirrel3': '5475279', 'rolldice': '5152439', 'moon-buggy': '5439204', 'apple': '5495053', 'banana': '5494888', 'cherry': '5495382', 'watermelon': '5494510', 'registry': '8018911', 'hello-world': '8021526', 'docker/getting-started': '8021973', 'alpine': '7991792'}
+11:10:27 INFO  EnvironmentC8y Setup
+11:10:28 INFO  Executed systemctl&lt;serv_mapper1&gt;, exit status 3
+11:10:29 WARN  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 1
+11:10:29 INFO  Contents of tedge_connect_c8y.err: 
+  Error: failed to connect Cumulocity cloud.
+  Caused by:
+      A value for `c8y.url` is missing.
+          A value can be set with `tedge config set c8y.url &lt;value&gt;`
+  -----
+
+11:10:29 WARN  sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1 ... blocked 
+11:10:29 WARN  Aborted test due to BLOCKED outcome
+11:10:29 INFO  
+11:10:29 INFO  cleanup:
+11:10:29 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
+11:10:30 INFO  Executed systemctl&lt;serv_mapper5&gt;, exit status 3
+11:10:30 INFO  
+11:10:30 INFO  Test duration: 2.30 secs
+11:10:30 INFO  Test final outcome:  BLOCKED
+11:10:30 INFO  Test outcome reason: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1
+11:10:30 INFO  
+</system-out>
+	</testcase>
+</testsuite><testsuite name="SoftwareManagement.sm_apt_install_remove_multiple" tests="3" errors="0" failures="2" skipped="1" time="0"><testcase classname="PySysTest" name="SoftwareManagement.sm_apt_install_remove_multiple">
+		<skipped message="SKIPPED: Testing the apt plugin is not supported on this platform.Use parameter -XmyPlatform='container' to enable it" />
+		<system-out>10:35:09 INFO  ==============================================================
+10:35:09 INFO  Id:    SoftwareManagement.sm_apt_install_remove_multiple
+10:35:09 INFO  Dir:   software_management_end_to_end/
+10:35:09 INFO  Title: Validate end to end behaviour for the apt plugin for multiple packages
+10:35:09 INFO  ==============================================================
+10:35:09 INFO  Testing the apt plugin is not supported on this platform.Use parameter -XmyPlatform='container' to enable it ... skipped
+10:35:09 WARN  Aborted test due to SKIPPED outcome
+10:35:09 INFO  
+10:35:09 INFO  Test duration: 0.02 secs
+10:35:09 INFO  Test final outcome:  SKIPPED
+10:35:09 INFO  Test outcome reason: Testing the apt plugin is not supported on this platform.Use parameter -XmyPlatform='container' to enable it
+10:35:09 INFO  
+</system-out>
+	</testcase>
+<testcase classname="PySysTest" name="SoftwareManagement.sm_apt_install_remove_multiple">
+		<failure message="BLOCKED: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1" type="BLOCKED" />
+		<system-out>10:54:41 INFO  ==============================================================
+10:54:41 INFO  Id:    SoftwareManagement.sm_apt_install_remove_multiple
+10:54:41 INFO  Dir:   software_management_end_to_end/
+10:54:41 INFO  Title: Validate end to end behaviour for the apt plugin for multiple packages
+10:54:41 INFO  ==============================================================
+10:54:41 INFO  Using sw id database: {'asciijump': '5475369', 'robotfindskitten': '5474869', 'squirrel3': '5475279', 'rolldice': '5152439', 'moon-buggy': '5439204', 'apple': '5495053', 'banana': '5494888', 'cherry': '5495382', 'watermelon': '5494510', 'registry': '8018911', 'hello-world': '8021526', 'docker/getting-started': '8021973', 'alpine': '7991792'}
+10:54:41 INFO  EnvironmentC8y Setup
+10:54:41 INFO  Executed systemctl&lt;serv_mapper1&gt;, exit status 3
+10:54:42 WARN  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 1
+10:54:42 INFO  Contents of tedge_connect_c8y.err: 
+  Error: failed to connect Cumulocity cloud.
+  Caused by:
+      A value for `c8y.url` is missing.
+          A value can be set with `tedge config set c8y.url &lt;value&gt;`
+  -----
+
+10:54:42 WARN  sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1 ... blocked 
+10:54:42 WARN  Aborted test due to BLOCKED outcome
+10:54:42 INFO  
+10:54:42 INFO  cleanup:
+10:54:42 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
+10:54:43 INFO  Executed systemctl&lt;serv_mapper5&gt;, exit status 3
+10:54:43 INFO  
+10:54:43 INFO  Test duration: 2.27 secs
+10:54:43 INFO  Test final outcome:  BLOCKED
+10:54:43 INFO  Test outcome reason: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1
+10:54:43 INFO  
+</system-out>
+	</testcase>
+<testcase classname="PySysTest" name="SoftwareManagement.sm_apt_install_remove_multiple">
+		<failure message="BLOCKED: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1" type="BLOCKED" />
+		<system-out>11:10:30 INFO  ==============================================================
+11:10:30 INFO  Id:    SoftwareManagement.sm_apt_install_remove_multiple
+11:10:30 INFO  Dir:   software_management_end_to_end/
+11:10:30 INFO  Title: Validate end to end behaviour for the apt plugin for multiple packages
+11:10:30 INFO  ==============================================================
+11:10:30 INFO  Using sw id database: {'asciijump': '5475369', 'robotfindskitten': '5474869', 'squirrel3': '5475279', 'rolldice': '5152439', 'moon-buggy': '5439204', 'apple': '5495053', 'banana': '5494888', 'cherry': '5495382', 'watermelon': '5494510', 'registry': '8018911', 'hello-world': '8021526', 'docker/getting-started': '8021973', 'alpine': '7991792'}
+11:10:30 INFO  EnvironmentC8y Setup
+11:10:30 INFO  Executed systemctl&lt;serv_mapper1&gt;, exit status 3
+11:10:31 WARN  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 1
+11:10:31 INFO  Contents of tedge_connect_c8y.err: 
+  Error: failed to connect Cumulocity cloud.
+  Caused by:
+      A value for `c8y.url` is missing.
+          A value can be set with `tedge config set c8y.url &lt;value&gt;`
+  -----
+
+11:10:31 WARN  sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1 ... blocked 
+11:10:31 WARN  Aborted test due to BLOCKED outcome
+11:10:31 INFO  
+11:10:31 INFO  cleanup:
+11:10:32 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
+11:10:32 INFO  Executed systemctl&lt;serv_mapper5&gt;, exit status 3
+11:10:32 INFO  
+11:10:32 INFO  Test duration: 2.30 secs
+11:10:32 INFO  Test final outcome:  BLOCKED
+11:10:32 INFO  Test outcome reason: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1
+11:10:32 INFO  
+</system-out>
+	</testcase>
+</testsuite><testsuite name="SoftwareManagement.sm_apt_install_remove_multiple_mixed" tests="3" errors="0" failures="2" skipped="1" time="0"><testcase classname="PySysTest" name="SoftwareManagement.sm_apt_install_remove_multiple_mixed">
+		<skipped message="SKIPPED: Testing the apt plugin is not supported on this platform.Use parameter -XmyPlatform='container' to enable it" />
+		<system-out>10:35:09 INFO  ==============================================================
+10:35:09 INFO  Id:    SoftwareManagement.sm_apt_install_remove_multiple_mixed
+10:35:09 INFO  Dir:   software_management_end_to_end/
+10:35:09 INFO  Title: Validate end to end behaviour for the apt plugin for multiple packages with mixed versions
+10:35:09 INFO  ==============================================================
+10:35:09 INFO  Testing the apt plugin is not supported on this platform.Use parameter -XmyPlatform='container' to enable it ... skipped
+10:35:09 WARN  Aborted test due to SKIPPED outcome
+10:35:09 INFO  
+10:35:09 INFO  Test duration: 0.02 secs
+10:35:09 INFO  Test final outcome:  SKIPPED
+10:35:09 INFO  Test outcome reason: Testing the apt plugin is not supported on this platform.Use parameter -XmyPlatform='container' to enable it
+10:35:09 INFO  
+</system-out>
+	</testcase>
+<testcase classname="PySysTest" name="SoftwareManagement.sm_apt_install_remove_multiple_mixed">
+		<failure message="BLOCKED: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1" type="BLOCKED" />
+		<system-out>10:54:43 INFO  ==============================================================
+10:54:43 INFO  Id:    SoftwareManagement.sm_apt_install_remove_multiple_mixed
+10:54:43 INFO  Dir:   software_management_end_to_end/
+10:54:43 INFO  Title: Validate end to end behaviour for the apt plugin for multiple packages with mixed versions
+10:54:43 INFO  ==============================================================
+10:54:43 INFO  Using sw id database: {'asciijump': '5475369', 'robotfindskitten': '5474869', 'squirrel3': '5475279', 'rolldice': '5152439', 'moon-buggy': '5439204', 'apple': '5495053', 'banana': '5494888', 'cherry': '5495382', 'watermelon': '5494510', 'registry': '8018911', 'hello-world': '8021526', 'docker/getting-started': '8021973', 'alpine': '7991792'}
+10:54:43 INFO  EnvironmentC8y Setup
+10:54:43 INFO  Executed systemctl&lt;serv_mapper1&gt;, exit status 3
+10:54:44 WARN  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 1
+10:54:44 INFO  Contents of tedge_connect_c8y.err: 
+  Error: failed to connect Cumulocity cloud.
+  Caused by:
+      A value for `c8y.url` is missing.
+          A value can be set with `tedge config set c8y.url &lt;value&gt;`
+  -----
+
+10:54:44 WARN  sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1 ... blocked 
+10:54:44 WARN  Aborted test due to BLOCKED outcome
+10:54:44 INFO  
+10:54:44 INFO  cleanup:
+10:54:45 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
+10:54:45 INFO  Executed systemctl&lt;serv_mapper5&gt;, exit status 3
+10:54:45 INFO  
+10:54:45 INFO  Test duration: 2.36 secs
+10:54:45 INFO  Test final outcome:  BLOCKED
+10:54:45 INFO  Test outcome reason: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1
+10:54:45 INFO  
+</system-out>
+	</testcase>
+<testcase classname="PySysTest" name="SoftwareManagement.sm_apt_install_remove_multiple_mixed">
+		<failure message="BLOCKED: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1" type="BLOCKED" />
+		<system-out>11:10:32 INFO  ==============================================================
+11:10:32 INFO  Id:    SoftwareManagement.sm_apt_install_remove_multiple_mixed
+11:10:32 INFO  Dir:   software_management_end_to_end/
+11:10:32 INFO  Title: Validate end to end behaviour for the apt plugin for multiple packages with mixed versions
+11:10:32 INFO  ==============================================================
+11:10:32 INFO  Using sw id database: {'asciijump': '5475369', 'robotfindskitten': '5474869', 'squirrel3': '5475279', 'rolldice': '5152439', 'moon-buggy': '5439204', 'apple': '5495053', 'banana': '5494888', 'cherry': '5495382', 'watermelon': '5494510', 'registry': '8018911', 'hello-world': '8021526', 'docker/getting-started': '8021973', 'alpine': '7991792'}
+11:10:32 INFO  EnvironmentC8y Setup
+11:10:33 INFO  Executed systemctl&lt;serv_mapper1&gt;, exit status 3
+11:10:33 WARN  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 1
+11:10:33 INFO  Contents of tedge_connect_c8y.err: 
+  Error: failed to connect Cumulocity cloud.
+  Caused by:
+      A value for `c8y.url` is missing.
+          A value can be set with `tedge config set c8y.url &lt;value&gt;`
+  -----
+
+11:10:33 WARN  sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1 ... blocked 
+11:10:33 WARN  Aborted test due to BLOCKED outcome
+11:10:33 INFO  
+11:10:33 INFO  cleanup:
+11:10:34 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
+11:10:34 INFO  Executed systemctl&lt;serv_mapper5&gt;, exit status 3
+11:10:34 INFO  
+11:10:34 INFO  Test duration: 2.30 secs
+11:10:34 INFO  Test final outcome:  BLOCKED
+11:10:34 INFO  Test outcome reason: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1
+11:10:34 INFO  
+</system-out>
+	</testcase>
+</testsuite><testsuite name="SoftwareManagement.sm_apt_install_remove_with_version" tests="3" errors="0" failures="2" skipped="1" time="0"><testcase classname="PySysTest" name="SoftwareManagement.sm_apt_install_remove_with_version">
+		<skipped message="SKIPPED: Testing the apt plugin is not supported on this platform.Use parameter -XmyPlatform='container' to enable it" />
+		<system-out>10:35:09 INFO  ==============================================================
+10:35:09 INFO  Id:    SoftwareManagement.sm_apt_install_remove_with_version
+10:35:09 INFO  Dir:   software_management_end_to_end/
+10:35:09 INFO  Title: Validate end to end behaviour for the apt plugin for packages with version
+10:35:09 INFO  ==============================================================
+10:35:09 INFO  Testing the apt plugin is not supported on this platform.Use parameter -XmyPlatform='container' to enable it ... skipped
+10:35:09 WARN  Aborted test due to SKIPPED outcome
+10:35:09 INFO  
+10:35:09 INFO  Test duration: 0.03 secs
+10:35:09 INFO  Test final outcome:  SKIPPED
+10:35:09 INFO  Test outcome reason: Testing the apt plugin is not supported on this platform.Use parameter -XmyPlatform='container' to enable it
+10:35:09 INFO  
+</system-out>
+	</testcase>
+<testcase classname="PySysTest" name="SoftwareManagement.sm_apt_install_remove_with_version">
+		<failure message="BLOCKED: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1" type="BLOCKED" />
+		<system-out>10:54:45 INFO  ==============================================================
+10:54:45 INFO  Id:    SoftwareManagement.sm_apt_install_remove_with_version
+10:54:45 INFO  Dir:   software_management_end_to_end/
+10:54:45 INFO  Title: Validate end to end behaviour for the apt plugin for packages with version
+10:54:45 INFO  ==============================================================
+10:54:45 INFO  Using sw id database: {'asciijump': '5475369', 'robotfindskitten': '5474869', 'squirrel3': '5475279', 'rolldice': '5152439', 'moon-buggy': '5439204', 'apple': '5495053', 'banana': '5494888', 'cherry': '5495382', 'watermelon': '5494510', 'registry': '8018911', 'hello-world': '8021526', 'docker/getting-started': '8021973', 'alpine': '7991792'}
+10:54:45 INFO  EnvironmentC8y Setup
+10:54:46 INFO  Executed systemctl&lt;serv_mapper1&gt;, exit status 3
+10:54:47 WARN  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 1
+10:54:47 INFO  Contents of tedge_connect_c8y.err: 
+  Error: failed to connect Cumulocity cloud.
+  Caused by:
+      A value for `c8y.url` is missing.
+          A value can be set with `tedge config set c8y.url &lt;value&gt;`
+  -----
+
+10:54:47 WARN  sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1 ... blocked 
+10:54:47 WARN  Aborted test due to BLOCKED outcome
+10:54:47 INFO  
+10:54:47 INFO  cleanup:
+10:54:47 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
+10:54:48 INFO  Executed systemctl&lt;serv_mapper5&gt;, exit status 3
+10:54:48 INFO  
+10:54:48 INFO  Test duration: 2.26 secs
+10:54:48 INFO  Test final outcome:  BLOCKED
+10:54:48 INFO  Test outcome reason: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1
+10:54:48 INFO  
+</system-out>
+	</testcase>
+<testcase classname="PySysTest" name="SoftwareManagement.sm_apt_install_remove_with_version">
+		<failure message="BLOCKED: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1" type="BLOCKED" />
+		<system-out>11:10:34 INFO  ==============================================================
+11:10:34 INFO  Id:    SoftwareManagement.sm_apt_install_remove_with_version
+11:10:34 INFO  Dir:   software_management_end_to_end/
+11:10:34 INFO  Title: Validate end to end behaviour for the apt plugin for packages with version
+11:10:34 INFO  ==============================================================
+11:10:34 INFO  Using sw id database: {'asciijump': '5475369', 'robotfindskitten': '5474869', 'squirrel3': '5475279', 'rolldice': '5152439', 'moon-buggy': '5439204', 'apple': '5495053', 'banana': '5494888', 'cherry': '5495382', 'watermelon': '5494510', 'registry': '8018911', 'hello-world': '8021526', 'docker/getting-started': '8021973', 'alpine': '7991792'}
+11:10:34 INFO  EnvironmentC8y Setup
+11:10:35 INFO  Executed systemctl&lt;serv_mapper1&gt;, exit status 3
+11:10:36 WARN  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 1
+11:10:36 INFO  Contents of tedge_connect_c8y.err: 
+  Error: failed to connect Cumulocity cloud.
+  Caused by:
+      A value for `c8y.url` is missing.
+          A value can be set with `tedge config set c8y.url &lt;value&gt;`
+  -----
+
+11:10:36 WARN  sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1 ... blocked 
+11:10:36 WARN  Aborted test due to BLOCKED outcome
+11:10:36 INFO  
+11:10:36 INFO  cleanup:
+11:10:36 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
+11:10:37 INFO  Executed systemctl&lt;serv_mapper5&gt;, exit status 3
+11:10:37 INFO  
+11:10:37 INFO  Test duration: 2.32 secs
+11:10:37 INFO  Test final outcome:  BLOCKED
+11:10:37 INFO  Test outcome reason: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1
+11:10:37 INFO  
+</system-out>
+	</testcase>
+</testsuite><testsuite name="SoftwareManagement.sm_docker_install_remove_multiple" tests="3" errors="0" failures="2" skipped="1" time="0"><testcase classname="SMDockerInstallRemove" name="SoftwareManagement.sm_docker_install_remove_multiple">
+		<skipped message="SKIPPED: Testing the apt plugin is not supported on this platform.Use parameter -XmyPlatform='container' to enable it" />
+		<system-out>10:35:09 INFO  ==============================================================
+10:35:09 INFO  Id:    SoftwareManagement.sm_docker_install_remove_multiple
+10:35:09 INFO  Dir:   software_management_end_to_end/
+10:35:09 INFO  Title: Validate end to end behaviour for the docker plugin for multiple docker images with mixed versions
+10:35:09 INFO  ==============================================================
+10:35:09 INFO  Testing the apt plugin is not supported on this platform.Use parameter -XmyPlatform='container' to enable it ... skipped
+10:35:09 WARN  Aborted test due to SKIPPED outcome
+10:35:09 INFO  
+10:35:09 INFO  Test duration: 0.02 secs
+10:35:09 INFO  Test final outcome:  SKIPPED
+10:35:09 INFO  Test outcome reason: Testing the apt plugin is not supported on this platform.Use parameter -XmyPlatform='container' to enable it
+10:35:09 INFO  
+</system-out>
+	</testcase>
+<testcase classname="SMDockerInstallRemove" name="SoftwareManagement.sm_docker_install_remove_multiple">
+		<failure message="BLOCKED: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1" type="BLOCKED" />
+		<system-out>10:59:27 INFO  ==============================================================
+10:59:27 INFO  Id:    SoftwareManagement.sm_docker_install_remove_multiple
+10:59:27 INFO  Dir:   software_management_end_to_end/
+10:59:27 INFO  Title: Validate end to end behaviour for the docker plugin for multiple docker images with mixed versions
+10:59:27 INFO  ==============================================================
+10:59:29 INFO  Using sw id database: {'asciijump': '5475369', 'robotfindskitten': '5474869', 'squirrel3': '5475279', 'rolldice': '5152439', 'moon-buggy': '5439204', 'apple': '5495053', 'banana': '5494888', 'cherry': '5495382', 'watermelon': '5494510', 'registry': '8018911', 'hello-world': '8021526', 'docker/getting-started': '8021973', 'alpine': '7991792'}
+10:59:29 INFO  EnvironmentC8y Setup
+10:59:29 INFO  Executed systemctl&lt;serv_mapper1&gt;, exit status 3
+10:59:30 WARN  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 1
+10:59:30 INFO  Contents of tedge_connect_c8y.err: 
+  Error: failed to connect Cumulocity cloud.
+  Caused by:
+      A value for `c8y.url` is missing.
+          A value can be set with `tedge config set c8y.url &lt;value&gt;`
+  -----
+
+10:59:31 WARN  sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1 ... blocked 
+10:59:31 WARN  Aborted test due to BLOCKED outcome
+10:59:31 INFO  
+10:59:31 INFO  cleanup:
+10:59:31 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
+10:59:32 INFO  Executed systemctl&lt;serv_mapper5&gt;, exit status 3
+10:59:32 INFO  
+10:59:32 INFO  Test duration: 4.96 secs
+10:59:32 INFO  Test final outcome:  BLOCKED
+10:59:32 INFO  Test outcome reason: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1
+10:59:32 INFO  
+</system-out>
+	</testcase>
+<testcase classname="SMDockerInstallRemove" name="SoftwareManagement.sm_docker_install_remove_multiple">
+		<failure message="BLOCKED: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1" type="BLOCKED" />
+		<system-out>11:10:37 INFO  ==============================================================
+11:10:37 INFO  Id:    SoftwareManagement.sm_docker_install_remove_multiple
+11:10:37 INFO  Dir:   software_management_end_to_end/
+11:10:37 INFO  Title: Validate end to end behaviour for the docker plugin for multiple docker images with mixed versions
+11:10:37 INFO  ==============================================================
+11:10:37 INFO  Using sw id database: {'asciijump': '5475369', 'robotfindskitten': '5474869', 'squirrel3': '5475279', 'rolldice': '5152439', 'moon-buggy': '5439204', 'apple': '5495053', 'banana': '5494888', 'cherry': '5495382', 'watermelon': '5494510', 'registry': '8018911', 'hello-world': '8021526', 'docker/getting-started': '8021973', 'alpine': '7991792'}
+11:10:37 INFO  EnvironmentC8y Setup
+11:10:37 INFO  Executed systemctl&lt;serv_mapper1&gt;, exit status 3
+11:10:38 WARN  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 1
+11:10:38 INFO  Contents of tedge_connect_c8y.err: 
+  Error: failed to connect Cumulocity cloud.
+  Caused by:
+      A value for `c8y.url` is missing.
+          A value can be set with `tedge config set c8y.url &lt;value&gt;`
+  -----
+
+11:10:38 WARN  sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1 ... blocked 
+11:10:38 WARN  Aborted test due to BLOCKED outcome
+11:10:38 INFO  
+11:10:38 INFO  cleanup:
+11:10:39 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
+11:10:39 INFO  Executed systemctl&lt;serv_mapper5&gt;, exit status 3
+11:10:39 INFO  
+11:10:39 INFO  Test duration: 2.26 secs
+11:10:39 INFO  Test final outcome:  BLOCKED
+11:10:39 INFO  Test outcome reason: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1
+11:10:39 INFO  
+</system-out>
+	</testcase>
+</testsuite><testsuite name="SoftwareManagement.sm_fake_install_remove" tests="2" errors="0" failures="1" skipped="1" time="0"><testcase classname="PySysTest" name="SoftwareManagement.sm_fake_install_remove">
+		<skipped message="SKIPPED: Testing the fake plugin is not enabled.Use parameter -Xfakeplugin=fakeplugin to enable it" />
+		<system-out>10:35:09 INFO  ==============================================================
+10:35:09 INFO  Id:    SoftwareManagement.sm_fake_install_remove
+10:35:09 INFO  Dir:   software_management_end_to_end/
+10:35:09 INFO  Title: Validate end to end behaviour for the dummy plugin for installation and removal of packages
+10:35:09 INFO  ==============================================================
+10:35:09 INFO  Testing the fake plugin is not enabled.Use parameter -Xfakeplugin=fakeplugin to enable it ... skipped
+10:35:09 WARN  Aborted test due to SKIPPED outcome
+10:35:09 INFO  
+10:35:09 INFO  Test duration: 0.02 secs
+10:35:09 INFO  Test final outcome:  SKIPPED
+10:35:09 INFO  Test outcome reason: Testing the fake plugin is not enabled.Use parameter -Xfakeplugin=fakeplugin to enable it
+10:35:09 INFO  
+</system-out>
+	</testcase>
+<testcase classname="PySysTest" name="SoftwareManagement.sm_fake_install_remove">
+		<failure message="BLOCKED: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1" type="BLOCKED" />
+		<system-out>11:10:39 INFO  ==============================================================
+11:10:39 INFO  Id:    SoftwareManagement.sm_fake_install_remove
+11:10:39 INFO  Dir:   software_management_end_to_end/
+11:10:39 INFO  Title: Validate end to end behaviour for the dummy plugin for installation and removal of packages
+11:10:39 INFO  ==============================================================
+11:10:39 INFO  Using sw id database: {'asciijump': '5475369', 'robotfindskitten': '5474869', 'squirrel3': '5475279', 'rolldice': '5152439', 'moon-buggy': '5439204', 'apple': '5495053', 'banana': '5494888', 'cherry': '5495382', 'watermelon': '5494510', 'registry': '8018911', 'hello-world': '8021526', 'docker/getting-started': '8021973', 'alpine': '7991792'}
+11:10:39 INFO  EnvironmentC8y Setup
+11:10:40 INFO  Executed systemctl&lt;serv_mapper1&gt;, exit status 3
+11:10:40 WARN  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 1
+11:10:40 INFO  Contents of tedge_connect_c8y.err: 
+  Error: failed to connect Cumulocity cloud.
+  Caused by:
+      A value for `c8y.url` is missing.
+          A value can be set with `tedge config set c8y.url &lt;value&gt;`
+  -----
+
+11:10:40 WARN  sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1 ... blocked 
+11:10:40 WARN  Aborted test due to BLOCKED outcome
+11:10:40 INFO  
+11:10:40 INFO  cleanup:
+11:10:41 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
+11:10:41 INFO  Executed systemctl&lt;serv_mapper5&gt;, exit status 3
+11:10:41 INFO  
+11:10:41 INFO  Test duration: 2.33 secs
+11:10:41 INFO  Test final outcome:  BLOCKED
+11:10:41 INFO  Test outcome reason: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1
+11:10:41 INFO  
+</system-out>
+	</testcase>
+</testsuite><testsuite name="SoftwareManagement.sm_fake_install_remove_multiple" tests="2" errors="0" failures="1" skipped="1" time="0"><testcase classname="PySysTest" name="SoftwareManagement.sm_fake_install_remove_multiple">
+		<skipped message="SKIPPED: Testing the fake plugin is not enabled.Use parameter -Xfakeplugin=fakeplugin to enable it" />
+		<system-out>10:35:09 INFO  ==============================================================
+10:35:09 INFO  Id:    SoftwareManagement.sm_fake_install_remove_multiple
+10:35:09 INFO  Dir:   software_management_end_to_end/
+10:35:09 INFO  Title: Validate end to end behaviour for the dummy-plugin for multiple packages
+10:35:09 INFO  ==============================================================
+10:35:09 INFO  Testing the fake plugin is not enabled.Use parameter -Xfakeplugin=fakeplugin to enable it ... skipped
+10:35:09 WARN  Aborted test due to SKIPPED outcome
+10:35:09 INFO  
+10:35:09 INFO  Test duration: 0.02 secs
+10:35:09 INFO  Test final outcome:  SKIPPED
+10:35:09 INFO  Test outcome reason: Testing the fake plugin is not enabled.Use parameter -Xfakeplugin=fakeplugin to enable it
+10:35:09 INFO  
+</system-out>
+	</testcase>
+<testcase classname="PySysTest" name="SoftwareManagement.sm_fake_install_remove_multiple">
+		<failure message="BLOCKED: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1" type="BLOCKED" />
+		<system-out>11:10:41 INFO  ==============================================================
+11:10:41 INFO  Id:    SoftwareManagement.sm_fake_install_remove_multiple
+11:10:41 INFO  Dir:   software_management_end_to_end/
+11:10:41 INFO  Title: Validate end to end behaviour for the dummy-plugin for multiple packages
+11:10:41 INFO  ==============================================================
+11:10:41 INFO  Using sw id database: {'asciijump': '5475369', 'robotfindskitten': '5474869', 'squirrel3': '5475279', 'rolldice': '5152439', 'moon-buggy': '5439204', 'apple': '5495053', 'banana': '5494888', 'cherry': '5495382', 'watermelon': '5494510', 'registry': '8018911', 'hello-world': '8021526', 'docker/getting-started': '8021973', 'alpine': '7991792'}
+11:10:41 INFO  EnvironmentC8y Setup
+11:10:42 INFO  Executed systemctl&lt;serv_mapper1&gt;, exit status 3
+11:10:43 WARN  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 1
+11:10:43 INFO  Contents of tedge_connect_c8y.err: 
+  Error: failed to connect Cumulocity cloud.
+  Caused by:
+      A value for `c8y.url` is missing.
+          A value can be set with `tedge config set c8y.url &lt;value&gt;`
+  -----
+
+11:10:43 WARN  sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1 ... blocked 
+11:10:43 WARN  Aborted test due to BLOCKED outcome
+11:10:43 INFO  
+11:10:43 INFO  cleanup:
+11:10:43 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
+11:10:44 INFO  Executed systemctl&lt;serv_mapper5&gt;, exit status 3
+11:10:44 INFO  
+11:10:44 INFO  Test duration: 2.26 secs
+11:10:44 INFO  Test final outcome:  BLOCKED
+11:10:44 INFO  Test outcome reason: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1
+11:10:44 INFO  
+</system-out>
+	</testcase>
+</testsuite><testsuite name="SoftwareManagement.sm_mapper_fail_and_reconnect" tests="2" errors="0" failures="0" skipped="2" time="0"><testcase classname="MapperC8yReceiveLastMessageOnRestart" name="SoftwareManagement.sm_mapper_fail_and_reconnect">
+		<skipped message="SKIPPED: instable https://github.com/thin-edge/thin-edge.io/issues/752" />
+		<system-out>10:35:09 INFO  ==============================================================
+10:35:09 INFO  Id:    SoftwareManagement.sm_mapper_fail_and_reconnect
+10:35:09 INFO  Dir:   software_management_end_to_end/
+10:35:09 INFO  Title: Validate the tedge-mapper-sm-c8y for receiving the last message on restart
+10:35:09 INFO  ==============================================================
+10:35:09 INFO  instable https://github.com/thin-edge/thin-edge.io/issues/752 ... skipped
+10:35:09 INFO  
+10:35:09 INFO  Test duration: 0.02 secs
+10:35:09 INFO  Test final outcome:  SKIPPED
+10:35:09 INFO  Test outcome reason: instable https://github.com/thin-edge/thin-edge.io/issues/752
+10:35:09 INFO  
+</system-out>
+	</testcase>
+<testcase classname="MapperC8yReceiveLastMessageOnRestart" name="SoftwareManagement.sm_mapper_fail_and_reconnect">
+		<skipped message="SKIPPED: instable https://github.com/thin-edge/thin-edge.io/issues/752" />
+		<system-out>11:10:44 INFO  ==============================================================
+11:10:44 INFO  Id:    SoftwareManagement.sm_mapper_fail_and_reconnect
+11:10:44 INFO  Dir:   software_management_end_to_end/
+11:10:44 INFO  Title: Validate the tedge-mapper-sm-c8y for receiving the last message on restart
+11:10:44 INFO  ==============================================================
+11:10:44 INFO  instable https://github.com/thin-edge/thin-edge.io/issues/752 ... skipped
+11:10:44 INFO  
+11:10:44 INFO  Test duration: 0.04 secs
+11:10:44 INFO  Test final outcome:  SKIPPED
+11:10:44 INFO  Test outcome reason: instable https://github.com/thin-edge/thin-edge.io/issues/752
+11:10:44 INFO  
+</system-out>
+	</testcase>
+</testsuite><testsuite name="SoftwareManagement.sm_mixed_install_remove_multiple" tests="2" errors="0" failures="1" skipped="1" time="0"><testcase classname="PySysTest" name="SoftwareManagement.sm_mixed_install_remove_multiple">
+		<skipped message="SKIPPED: Testing the fake plugin is not enabled.Use parameter -Xfakeplugin=fakeplugin to enable it" />
+		<system-out>10:35:10 INFO  ==============================================================
+10:35:10 INFO  Id:    SoftwareManagement.sm_mixed_install_remove_multiple
+10:35:10 INFO  Dir:   software_management_end_to_end/
+10:35:10 INFO  Title: Validate end to end behaviour for the dummy-plugin for multiple packages with mixed versions
+10:35:10 INFO  ==============================================================
+10:35:10 INFO  Testing the fake plugin is not enabled.Use parameter -Xfakeplugin=fakeplugin to enable it ... skipped
+10:35:10 WARN  Aborted test due to SKIPPED outcome
+10:35:10 INFO  
+10:35:10 INFO  Test duration: 0.02 secs
+10:35:10 INFO  Test final outcome:  SKIPPED
+10:35:10 INFO  Test outcome reason: Testing the fake plugin is not enabled.Use parameter -Xfakeplugin=fakeplugin to enable it
+10:35:10 INFO  
+</system-out>
+	</testcase>
+<testcase classname="PySysTest" name="SoftwareManagement.sm_mixed_install_remove_multiple">
+		<failure message="BLOCKED: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1" type="BLOCKED" />
+		<system-out>11:10:44 INFO  ==============================================================
+11:10:44 INFO  Id:    SoftwareManagement.sm_mixed_install_remove_multiple
+11:10:44 INFO  Dir:   software_management_end_to_end/
+11:10:44 INFO  Title: Validate end to end behaviour for the dummy-plugin for multiple packages with mixed versions
+11:10:44 INFO  ==============================================================
+11:10:44 INFO  Using sw id database: {'asciijump': '5475369', 'robotfindskitten': '5474869', 'squirrel3': '5475279', 'rolldice': '5152439', 'moon-buggy': '5439204', 'apple': '5495053', 'banana': '5494888', 'cherry': '5495382', 'watermelon': '5494510', 'registry': '8018911', 'hello-world': '8021526', 'docker/getting-started': '8021973', 'alpine': '7991792'}
+11:10:44 INFO  EnvironmentC8y Setup
+11:10:44 INFO  Executed systemctl&lt;serv_mapper1&gt;, exit status 3
+11:10:45 WARN  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 1
+11:10:45 INFO  Contents of tedge_connect_c8y.err: 
+  Error: failed to connect Cumulocity cloud.
+  Caused by:
+      A value for `c8y.url` is missing.
+          A value can be set with `tedge config set c8y.url &lt;value&gt;`
+  -----
+
+11:10:45 WARN  sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1 ... blocked 
+11:10:45 WARN  Aborted test due to BLOCKED outcome
+11:10:45 INFO  
+11:10:45 INFO  cleanup:
+11:10:46 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
+11:10:46 INFO  Executed systemctl&lt;serv_mapper5&gt;, exit status 3
+11:10:46 INFO  
+11:10:46 INFO  Test duration: 2.26 secs
+11:10:46 INFO  Test final outcome:  BLOCKED
+11:10:46 INFO  Test outcome reason: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1
+11:10:46 INFO  
+</system-out>
+	</testcase>
+</testsuite><testsuite name="agent_init_session" tests="1" errors="0" failures="1" skipped="0" time="0"><testcase classname="AgentInitSession" name="agent_init_session">
+		<failure message="FAILED: Grep on sub_resp.out contains &quot;Ld3KgqpcLDlrYH6sfpG7w&quot;" type="FAILED" />
+		<system-out>10:35:38 INFO  ==============================================================
+10:35:38 INFO  Id:    agent_init_session
+10:35:38 INFO  Dir:   tedge_agent/
+10:35:38 INFO  Title: Validate tedge agent init session feature
+10:35:38 INFO  ==============================================================
+10:35:38 INFO  Executed sudo&lt;remove_lock&gt;, exit status 0
+10:35:39 INFO  Executed sudo&lt;agent_clear&gt;, exit status 0
+10:35:39 INFO  Executed sudo&lt;agent_init&gt;, exit status 0
+10:35:40 INFO  Executed sudo&lt;pub_req&gt;, exit status 0
+10:35:40 INFO  Started sudo&lt;sub_resp&gt; with process id 28332
+10:35:41 INFO  Executed sudo&lt;agent_start&gt;, exit status 0
+10:35:41 INFO  Waiting for 2.0 seconds
+10:35:45 INFO  Executed sudo&lt;agent_stop&gt;, exit status 0
+10:35:45 INFO  Executed sudo&lt;sub_stop&gt;, exit status 0
+10:35:45 WARN  Grep on sub_resp.out contains "Ld3KgqpcLDlrYH6sfpG7w" ... failed [run.py:87]
+10:35:45 INFO  
+10:35:45 INFO  Test duration: 7.52 secs
+10:35:45 INFO  Test final outcome:  FAILED
+10:35:45 INFO  Test outcome reason: Grep on sub_resp.out contains "Ld3KgqpcLDlrYH6sfpG7w"
+10:35:45 INFO  
+</system-out>
+	</testcase>
+</testsuite><testsuite name="apt_fail_noarg" tests="2" errors="0" failures="0" skipped="1" time="0"><testcase classname="AptPluginFailNoArg" name="apt_fail_noarg">
+		<skipped message="SKIPPED: Testing the apt plugin is not supported on this platform.To run the tests call PySys with -XmyPlatform='container'" />
+		<system-out>10:34:40 INFO  ==============================================================
+10:34:40 INFO  Id:    apt_fail_noarg
+10:34:40 INFO  Dir:   plugin_apt/
+10:34:40 INFO  Title: Validate apt plugin fetures(prepare, list, install, remove finalize) without arguments
+10:34:40 INFO  ==============================================================
+10:34:40 INFO  Testing the apt plugin is not supported on this platform.To run the tests call PySys with -XmyPlatform='container' ... skipped
+10:34:40 WARN  Aborted test due to SKIPPED outcome
+10:34:40 INFO  
+10:34:40 INFO  Test duration: 0.05 secs
+10:34:40 INFO  Test final outcome:  SKIPPED
+10:34:40 INFO  Test outcome reason: Testing the apt plugin is not supported on this platform.To run the tests call PySys with -XmyPlatform='container'
+10:34:40 INFO  
+</system-out>
+	</testcase>
+<testcase classname="AptPluginFailNoArg" name="apt_fail_noarg" />
+</testsuite><testsuite name="apt_finalize" tests="2" errors="0" failures="0" skipped="1" time="0"><testcase classname="AptPluginFinalize" name="apt_finalize">
+		<skipped message="SKIPPED: Testing the apt plugin is not supported on this platform.To run the tests call PySys with -XmyPlatform='container'" />
+		<system-out>10:34:40 INFO  ==============================================================
+10:34:40 INFO  Id:    apt_finalize
+10:34:40 INFO  Dir:   plugin_apt/
+10:34:40 INFO  Title: Validate apt plugin finalize - dense version
+10:34:40 INFO  ==============================================================
+10:34:40 INFO  Testing the apt plugin is not supported on this platform.To run the tests call PySys with -XmyPlatform='container' ... skipped
+10:34:40 WARN  Aborted test due to SKIPPED outcome
+10:34:40 INFO  
+10:34:40 INFO  Test duration: 0.02 secs
+10:34:40 INFO  Test final outcome:  SKIPPED
+10:34:40 INFO  Test outcome reason: Testing the apt plugin is not supported on this platform.To run the tests call PySys with -XmyPlatform='container'
+10:34:40 INFO  
+</system-out>
+	</testcase>
+<testcase classname="AptPluginFinalize" name="apt_finalize" />
+</testsuite><testsuite name="apt_install" tests="2" errors="0" failures="0" skipped="1" time="0"><testcase classname="AptPluginInstallDense" name="apt_install">
+		<skipped message="SKIPPED: Testing the apt plugin is not supported on this platform.To run the tests call PySys with -XmyPlatform='container'" />
+		<system-out>10:34:40 INFO  ==============================================================
+10:34:40 INFO  Id:    apt_install
+10:34:40 INFO  Dir:   plugin_apt/
+10:34:40 INFO  Title: Validate apt plugin prepare - dense version
+10:34:40 INFO  ==============================================================
+10:34:40 INFO  Testing the apt plugin is not supported on this platform.To run the tests call PySys with -XmyPlatform='container' ... skipped
+10:34:40 WARN  Aborted test due to SKIPPED outcome
+10:34:40 INFO  
+10:34:40 INFO  Test duration: 0.02 secs
+10:34:40 INFO  Test final outcome:  SKIPPED
+10:34:40 INFO  Test outcome reason: Testing the apt plugin is not supported on this platform.To run the tests call PySys with -XmyPlatform='container'
+10:34:40 INFO  
+</system-out>
+	</testcase>
+<testcase classname="AptPluginInstallDense" name="apt_install" />
+</testsuite><testsuite name="apt_install_fail" tests="2" errors="0" failures="0" skipped="1" time="0"><testcase classname="AptPluginInstallFail" name="apt_install_fail">
+		<skipped message="SKIPPED: Testing the apt plugin is not supported on this platform.To run the tests call PySys with -XmyPlatform='container'" />
+		<system-out>10:34:40 INFO  ==============================================================
+10:34:40 INFO  Id:    apt_install_fail
+10:34:40 INFO  Dir:   plugin_apt/
+10:34:40 INFO  Title: Validate apt plugin prepare - failing
+10:34:40 INFO  ==============================================================
+10:34:40 INFO  Testing the apt plugin is not supported on this platform.To run the tests call PySys with -XmyPlatform='container' ... skipped
+10:34:40 WARN  Aborted test due to SKIPPED outcome
+10:34:40 INFO  
+10:34:40 INFO  Test duration: 0.02 secs
+10:34:40 INFO  Test final outcome:  SKIPPED
+10:34:40 INFO  Test outcome reason: Testing the apt plugin is not supported on this platform.To run the tests call PySys with -XmyPlatform='container'
+10:34:40 INFO  
+</system-out>
+	</testcase>
+<testcase classname="AptPluginInstallFail" name="apt_install_fail" />
+</testsuite><testsuite name="apt_install_local_file" tests="2" errors="0" failures="0" skipped="1" time="0"><testcase classname="AptPluginInstallFromLocalFile" name="apt_install_local_file">
+		<skipped message="SKIPPED: Testing the apt plugin is not supported on this platform.To run the tests call PySys with -XmyPlatform='container'" />
+		<system-out>10:34:40 INFO  ==============================================================
+10:34:40 INFO  Id:    apt_install_local_file
+10:34:40 INFO  Dir:   plugin_apt/
+10:34:40 INFO  Title: Validate apt plugin install from local file - SUCCESS case
+10:34:40 INFO  ==============================================================
+10:34:40 INFO  Testing the apt plugin is not supported on this platform.To run the tests call PySys with -XmyPlatform='container' ... skipped
+10:34:40 WARN  Aborted test due to SKIPPED outcome
+10:34:40 INFO  
+10:34:40 INFO  Test duration: 0.02 secs
+10:34:40 INFO  Test final outcome:  SKIPPED
+10:34:40 INFO  Test outcome reason: Testing the apt plugin is not supported on this platform.To run the tests call PySys with -XmyPlatform='container'
+10:34:40 INFO  
+</system-out>
+	</testcase>
+<testcase classname="AptPluginInstallFromLocalFile" name="apt_install_local_file" />
+</testsuite><testsuite name="apt_install_local_file_fail" tests="2" errors="0" failures="0" skipped="1" time="0"><testcase classname="AptPluginInstallFromLocalFileFail" name="apt_install_local_file_fail">
+		<skipped message="SKIPPED: Testing the apt plugin is not supported on this platform.To run the tests call PySys with -XmyPlatform='container'" />
+		<system-out>10:34:40 INFO  ==============================================================
+10:34:40 INFO  Id:    apt_install_local_file_fail
+10:34:40 INFO  Dir:   plugin_apt/
+10:34:40 INFO  Title: Validate apt plugin install from local file - FAIL case
+10:34:40 INFO  ==============================================================
+10:34:40 INFO  Testing the apt plugin is not supported on this platform.To run the tests call PySys with -XmyPlatform='container' ... skipped
+10:34:40 WARN  Aborted test due to SKIPPED outcome
+10:34:40 INFO  
+10:34:40 INFO  Test duration: 0.02 secs
+10:34:40 INFO  Test final outcome:  SKIPPED
+10:34:40 INFO  Test outcome reason: Testing the apt plugin is not supported on this platform.To run the tests call PySys with -XmyPlatform='container'
+10:34:40 INFO  
+</system-out>
+	</testcase>
+<testcase classname="AptPluginInstallFromLocalFileFail" name="apt_install_local_file_fail" />
+</testsuite><testsuite name="apt_install_local_file_with_version" tests="2" errors="0" failures="0" skipped="1" time="0"><testcase classname="AptPluginInstallFromLocalFileWithVersion" name="apt_install_local_file_with_version">
+		<skipped message="SKIPPED: Testing the apt plugin is not supported on this platform.To run the tests call PySys with -XmyPlatform='container'" />
+		<system-out>10:34:41 INFO  ==============================================================
+10:34:41 INFO  Id:    apt_install_local_file_with_version
+10:34:41 INFO  Dir:   plugin_apt/
+10:34:41 INFO  Title: Validate apt plugin install from local file AND with a version - SUCCESS case
+10:34:41 INFO  ==============================================================
+10:34:41 INFO  Testing the apt plugin is not supported on this platform.To run the tests call PySys with -XmyPlatform='container' ... skipped
+10:34:41 WARN  Aborted test due to SKIPPED outcome
+10:34:41 INFO  
+10:34:41 INFO  Test duration: 0.02 secs
+10:34:41 INFO  Test final outcome:  SKIPPED
+10:34:41 INFO  Test outcome reason: Testing the apt plugin is not supported on this platform.To run the tests call PySys with -XmyPlatform='container'
+10:34:41 INFO  
+</system-out>
+	</testcase>
+<testcase classname="AptPluginInstallFromLocalFileWithVersion" name="apt_install_local_file_with_version" />
+</testsuite><testsuite name="apt_install_local_file_with_version_fail" tests="2" errors="0" failures="0" skipped="1" time="0"><testcase classname="AptPluginInstallFromLocalFileWithVersionFail" name="apt_install_local_file_with_version_fail">
+		<skipped message="SKIPPED: Testing the apt plugin is not supported on this platform.To run the tests call PySys with -XmyPlatform='container'" />
+		<system-out>10:34:41 INFO  ==============================================================
+10:34:41 INFO  Id:    apt_install_local_file_with_version_fail
+10:34:41 INFO  Dir:   plugin_apt/
+10:34:41 INFO  Title: Validate apt plugin install from local file AND with a version - FAIL case
+10:34:41 INFO  ==============================================================
+10:34:41 INFO  Testing the apt plugin is not supported on this platform.To run the tests call PySys with -XmyPlatform='container' ... skipped
+10:34:41 WARN  Aborted test due to SKIPPED outcome
+10:34:41 INFO  
+10:34:41 INFO  Test duration: 0.02 secs
+10:34:41 INFO  Test final outcome:  SKIPPED
+10:34:41 INFO  Test outcome reason: Testing the apt plugin is not supported on this platform.To run the tests call PySys with -XmyPlatform='container'
+10:34:41 INFO  
+</system-out>
+	</testcase>
+<testcase classname="AptPluginInstallFromLocalFileWithVersionFail" name="apt_install_local_file_with_version_fail" />
+</testsuite><testsuite name="apt_list_format" tests="2" errors="0" failures="0" skipped="0" time="0"><testcase classname="AptPluginListFormat" name="apt_list_format" />
+<testcase classname="AptPluginListFormat" name="apt_list_format" />
+</testsuite><testsuite name="apt_prepare" tests="2" errors="0" failures="0" skipped="1" time="0"><testcase classname="AptPluginPrepare" name="apt_prepare">
+		<skipped message="SKIPPED: Testing the apt plugin is not supported on this platform.To run the tests call PySys with -XmyPlatform='container'" />
+		<system-out>10:34:47 INFO  ==============================================================
+10:34:47 INFO  Id:    apt_prepare
+10:34:47 INFO  Dir:   plugin_apt/
+10:34:47 INFO  Title: Validate apt plugin install - dense version
+10:34:47 INFO  ==============================================================
+10:34:47 INFO  Testing the apt plugin is not supported on this platform.To run the tests call PySys with -XmyPlatform='container' ... skipped
+10:34:47 WARN  Aborted test due to SKIPPED outcome
+10:34:47 INFO  
+10:34:47 INFO  Test duration: 0.02 secs
+10:34:47 INFO  Test final outcome:  SKIPPED
+10:34:47 INFO  Test outcome reason: Testing the apt plugin is not supported on this platform.To run the tests call PySys with -XmyPlatform='container'
+10:34:47 INFO  
+</system-out>
+	</testcase>
+<testcase classname="AptPluginPrepare" name="apt_prepare" />
+</testsuite><testsuite name="apt_prepare_install_finalize" tests="2" errors="0" failures="0" skipped="1" time="0"><testcase classname="AptPluginPrepareInstallFinalize" name="apt_prepare_install_finalize">
+		<skipped message="SKIPPED: Testing the apt plugin is not supported on this platform.To run the tests call PySys with -XmyPlatform='container'" />
+		<system-out>10:34:47 INFO  ==============================================================
+10:34:47 INFO  Id:    apt_prepare_install_finalize
+10:34:47 INFO  Dir:   plugin_apt/
+10:34:47 INFO  Title: Validate apt plugin install use case
+10:34:47 INFO  ==============================================================
+10:34:47 INFO  Testing the apt plugin is not supported on this platform.To run the tests call PySys with -XmyPlatform='container' ... skipped
+10:34:47 WARN  Aborted test due to SKIPPED outcome
+10:34:47 INFO  
+10:34:47 INFO  Test duration: 0.02 secs
+10:34:47 INFO  Test final outcome:  SKIPPED
+10:34:47 INFO  Test outcome reason: Testing the apt plugin is not supported on this platform.To run the tests call PySys with -XmyPlatform='container'
+10:34:47 INFO  
+</system-out>
+	</testcase>
+<testcase classname="AptPluginPrepareInstallFinalize" name="apt_prepare_install_finalize" />
+</testsuite><testsuite name="apt_remove" tests="2" errors="0" failures="0" skipped="1" time="0"><testcase classname="AptPluginRemoveDense" name="apt_remove">
+		<skipped message="SKIPPED: Testing the apt plugin is not supported on this platform.To run the tests call PySys with -XmyPlatform='container'" />
+		<system-out>10:34:47 INFO  ==============================================================
+10:34:47 INFO  Id:    apt_remove
+10:34:47 INFO  Dir:   plugin_apt/
+10:34:47 INFO  Title: Validate apt plugin prepare - dense version
+10:34:47 INFO  ==============================================================
+10:34:47 INFO  Testing the apt plugin is not supported on this platform.To run the tests call PySys with -XmyPlatform='container' ... skipped
+10:34:47 WARN  Aborted test due to SKIPPED outcome
+10:34:47 INFO  
+10:34:47 INFO  Test duration: 0.02 secs
+10:34:47 INFO  Test final outcome:  SKIPPED
+10:34:47 INFO  Test outcome reason: Testing the apt plugin is not supported on this platform.To run the tests call PySys with -XmyPlatform='container'
+10:34:47 INFO  
+</system-out>
+	</testcase>
+<testcase classname="AptPluginRemoveDense" name="apt_remove" />
+</testsuite><testsuite name="apt_remove_fail" tests="2" errors="0" failures="0" skipped="1" time="0"><testcase classname="AptPluginRemoveFails" name="apt_remove_fail">
+		<skipped message="SKIPPED: Testing the apt plugin is not supported on this platform.To run the tests call PySys with -XmyPlatform='container'" />
+		<system-out>10:34:47 INFO  ==============================================================
+10:34:47 INFO  Id:    apt_remove_fail
+10:34:47 INFO  Dir:   plugin_apt/
+10:34:47 INFO  Title: Validate apt plugin prepare - failing
+10:34:47 INFO  ==============================================================
+10:34:47 INFO  Testing the apt plugin is not supported on this platform.To run the tests call PySys with -XmyPlatform='container' ... skipped
+10:34:47 WARN  Aborted test due to SKIPPED outcome
+10:34:47 INFO  
+10:34:47 INFO  Test duration: 0.03 secs
+10:34:47 INFO  Test final outcome:  SKIPPED
+10:34:47 INFO  Test outcome reason: Testing the apt plugin is not supported on this platform.To run the tests call PySys with -XmyPlatform='container'
+10:34:47 INFO  
+</system-out>
+	</testcase>
+<testcase classname="AptPluginRemoveFails" name="apt_remove_fail" />
+</testsuite><testsuite name="apt_sequence_install_with_version" tests="2" errors="0" failures="0" skipped="1" time="0"><testcase classname="AptPluginPrepInstallWithVersionFinalize" name="apt_sequence_install_with_version">
+		<skipped message="SKIPPED: Testing the apt plugin is not supported on this platform.To run the tests call PySys with -XmyPlatform='container'" />
+		<system-out>10:34:47 INFO  ==============================================================
+10:34:47 INFO  Id:    apt_sequence_install_with_version
+10:34:47 INFO  Dir:   plugin_apt/
+10:34:47 INFO  Title: Validate apt plugin install with version use case
+10:34:47 INFO  ==============================================================
+10:34:47 INFO  Testing the apt plugin is not supported on this platform.To run the tests call PySys with -XmyPlatform='container' ... skipped
+10:34:47 WARN  Aborted test due to SKIPPED outcome
+10:34:47 INFO  
+10:34:47 INFO  Test duration: 0.02 secs
+10:34:47 INFO  Test final outcome:  SKIPPED
+10:34:47 INFO  Test outcome reason: Testing the apt plugin is not supported on this platform.To run the tests call PySys with -XmyPlatform='container'
+10:34:47 INFO  
+</system-out>
+	</testcase>
+<testcase classname="AptPluginPrepInstallWithVersionFinalize" name="apt_sequence_install_with_version" />
+</testsuite><testsuite name="apt_sequence_install_with_version_fail" tests="2" errors="0" failures="0" skipped="1" time="0"><testcase classname="AptPluginInstallWithVersionFails" name="apt_sequence_install_with_version_fail">
+		<skipped message="SKIPPED: Testing the apt plugin is not supported on this platform.To run the tests call PySys with -XmyPlatform='container'" />
+		<system-out>10:34:47 INFO  ==============================================================
+10:34:47 INFO  Id:    apt_sequence_install_with_version_fail
+10:34:47 INFO  Dir:   plugin_apt/
+10:34:47 INFO  Title: Validate apt plugin install with version fails use case
+10:34:47 INFO  ==============================================================
+10:34:47 INFO  Testing the apt plugin is not supported on this platform.To run the tests call PySys with -XmyPlatform='container' ... skipped
+10:34:47 WARN  Aborted test due to SKIPPED outcome
+10:34:47 INFO  
+10:34:47 INFO  Test duration: 0.02 secs
+10:34:47 INFO  Test final outcome:  SKIPPED
+10:34:47 INFO  Test outcome reason: Testing the apt plugin is not supported on this platform.To run the tests call PySys with -XmyPlatform='container'
+10:34:47 INFO  
+</system-out>
+	</testcase>
+<testcase classname="AptPluginInstallWithVersionFails" name="apt_sequence_install_with_version_fail" />
+</testsuite><testsuite name="apt_sequence_remove" tests="2" errors="0" failures="0" skipped="1" time="0"><testcase classname="AptPluginInstallPrepareRemoveFinalize" name="apt_sequence_remove">
+		<skipped message="SKIPPED: Testing the apt plugin is not supported on this platform.To run the tests call PySys with -XmyPlatform='container'" />
+		<system-out>10:34:47 INFO  ==============================================================
+10:34:47 INFO  Id:    apt_sequence_remove
+10:34:47 INFO  Dir:   plugin_apt/
+10:34:47 INFO  Title: Validate apt plugin prepare install remove finalize use case
+10:34:47 INFO  ==============================================================
+10:34:47 INFO  Testing the apt plugin is not supported on this platform.To run the tests call PySys with -XmyPlatform='container' ... skipped
+10:34:47 WARN  Aborted test due to SKIPPED outcome
+10:34:47 INFO  
+10:34:47 INFO  Test duration: 0.02 secs
+10:34:47 INFO  Test final outcome:  SKIPPED
+10:34:47 INFO  Test outcome reason: Testing the apt plugin is not supported on this platform.To run the tests call PySys with -XmyPlatform='container'
+10:34:47 INFO  
+</system-out>
+	</testcase>
+<testcase classname="AptPluginInstallPrepareRemoveFinalize" name="apt_sequence_remove" />
+</testsuite><testsuite name="apt_sequence_remove_with_version" tests="2" errors="0" failures="0" skipped="1" time="0"><testcase classname="AptPluginRemoveWithVersion" name="apt_sequence_remove_with_version">
+		<skipped message="SKIPPED: Testing the apt plugin is not supported on this platform.To run the tests call PySys with -XmyPlatform='container'" />
+		<system-out>10:34:47 INFO  ==============================================================
+10:34:47 INFO  Id:    apt_sequence_remove_with_version
+10:34:47 INFO  Dir:   plugin_apt/
+10:34:47 INFO  Title: Validate apt plugin remove with version use case
+10:34:47 INFO  ==============================================================
+10:34:48 INFO  Testing the apt plugin is not supported on this platform.To run the tests call PySys with -XmyPlatform='container' ... skipped
+10:34:48 WARN  Aborted test due to SKIPPED outcome
+10:34:48 INFO  
+10:34:48 INFO  Test duration: 0.02 secs
+10:34:48 INFO  Test final outcome:  SKIPPED
+10:34:48 INFO  Test outcome reason: Testing the apt plugin is not supported on this platform.To run the tests call PySys with -XmyPlatform='container'
+10:34:48 INFO  
+</system-out>
+	</testcase>
+<testcase classname="AptPluginRemoveWithVersion" name="apt_sequence_remove_with_version" />
+</testsuite><testsuite name="apt_sequence_remove_with_version_fail" tests="2" errors="0" failures="0" skipped="1" time="0"><testcase classname="AptPluginRemoveWithVersionFails" name="apt_sequence_remove_with_version_fail">
+		<skipped message="SKIPPED: Testing the apt plugin is not supported on this platform.To run the tests call PySys with -XmyPlatform='container'" />
+		<system-out>10:34:48 INFO  ==============================================================
+10:34:48 INFO  Id:    apt_sequence_remove_with_version_fail
+10:34:48 INFO  Dir:   plugin_apt/
+10:34:48 INFO  Title: Validate apt plugin remove with version fails when the version not found
+10:34:48 INFO  ==============================================================
+10:34:48 INFO  Testing the apt plugin is not supported on this platform.To run the tests call PySys with -XmyPlatform='container' ... skipped
+10:34:48 WARN  Aborted test due to SKIPPED outcome
+10:34:48 INFO  
+10:34:48 INFO  Test duration: 0.02 secs
+10:34:48 INFO  Test final outcome:  SKIPPED
+10:34:48 INFO  Test outcome reason: Testing the apt plugin is not supported on this platform.To run the tests call PySys with -XmyPlatform='container'
+10:34:48 INFO  
+</system-out>
+	</testcase>
+<testcase classname="AptPluginRemoveWithVersionFails" name="apt_sequence_remove_with_version_fail" />
+</testsuite><testsuite name="apt_update_list" tests="2" errors="0" failures="0" skipped="1" time="0"><testcase classname="AptPluginUpdateList" name="apt_update_list">
+		<skipped message="SKIPPED: Testing the apt plugin is not supported on this platform.To run the tests call PySys with -XmyPlatform='container'" />
+		<system-out>10:34:48 INFO  ==============================================================
+10:34:48 INFO  Id:    apt_update_list
+10:34:48 INFO  Dir:   plugin_apt/
+10:34:48 INFO  Title: Validate apt plugin update-list command use case
+10:34:48 INFO  ==============================================================
+10:34:48 INFO  Testing the apt plugin is not supported on this platform.To run the tests call PySys with -XmyPlatform='container' ... skipped
+10:34:48 WARN  Aborted test due to SKIPPED outcome
+10:34:48 INFO  
+10:34:48 INFO  Test duration: 0.02 secs
+10:34:48 INFO  Test final outcome:  SKIPPED
+10:34:48 INFO  Test outcome reason: Testing the apt plugin is not supported on this platform.To run the tests call PySys with -XmyPlatform='container'
+10:34:48 INFO  
+</system-out>
+	</testcase>
+<testcase classname="AptPluginUpdateList" name="apt_update_list" />
+</testsuite><testsuite name="apt_wrong_option" tests="2" errors="0" failures="0" skipped="1" time="0"><testcase classname="AptPluginWrongOption" name="apt_wrong_option">
+		<skipped message="SKIPPED: Testing the apt plugin is not supported on this platform.To run the tests call PySys with -XmyPlatform='container'" />
+		<system-out>10:34:48 INFO  ==============================================================
+10:34:48 INFO  Id:    apt_wrong_option
+10:34:48 INFO  Dir:   plugin_apt/
+10:34:48 INFO  Title: Validate apt plugin install
+10:34:48 INFO  ==============================================================
+10:34:48 INFO  Testing the apt plugin is not supported on this platform.To run the tests call PySys with -XmyPlatform='container' ... skipped
+10:34:48 WARN  Aborted test due to SKIPPED outcome
+10:34:48 INFO  
+10:34:48 INFO  Test duration: 0.02 secs
+10:34:48 INFO  Test final outcome:  SKIPPED
+10:34:48 INFO  Test outcome reason: Testing the apt plugin is not supported on this platform.To run the tests call PySys with -XmyPlatform='container'
+10:34:48 INFO  
+</system-out>
+	</testcase>
+<testcase classname="AptPluginWrongOption" name="apt_wrong_option" />
+</testsuite><testsuite name="c8y_jwt_token_retrieval" tests="1" errors="0" failures="1" skipped="0" time="0"><testcase classname="ValidateJWTTokenRetrieval" name="c8y_jwt_token_retrieval">
+		<failure message="BLOCKED: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1" type="BLOCKED" />
+		<system-out>10:33:24 INFO  ==============================================================
+10:33:24 INFO  Id:    c8y_jwt_token_retrieval
+10:33:24 INFO  Dir:   cloud_c8y/
+10:33:24 INFO  Title: Validate the Cumulocity JWT Token Retrieval feature
+10:33:24 INFO  ==============================================================
+10:33:24 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
+10:33:25 WARN  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 1
+10:33:25 INFO  Contents of tedge_connect_c8y.err: 
+  Error: failed to connect Cumulocity cloud.
+  Caused by:
+      A value for `c8y.url` is missing.
+          A value can be set with `tedge config set c8y.url &lt;value&gt;`
+  -----
+
+10:33:25 WARN  sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1 ... blocked [environment_tedge.py:58,run.py:31]
+10:33:25 WARN  Aborted test due to BLOCKED outcome
+10:33:25 INFO  
+10:33:25 INFO  cleanup:
+10:33:26 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
+10:33:26 INFO  
+10:33:26 INFO  Test duration: 2.08 secs
+10:33:26 INFO  Test final outcome:  BLOCKED
+10:33:26 INFO  Test outcome reason: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1
+10:33:26 INFO  
+</system-out>
+	</testcase>
+</testsuite><testsuite name="c8y_restart_bridge" tests="1" errors="0" failures="1" skipped="0" time="0"><testcase classname="RestartBridge" name="c8y_restart_bridge">
+		<failure message="BLOCKED: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1" type="BLOCKED" />
+		<system-out>10:35:46 INFO  ==============================================================
+10:35:46 INFO  Id:    c8y_restart_bridge
+10:35:46 INFO  Dir:   tedge_connect/
+10:35:46 INFO  Title: Bridge restart
+10:35:46 INFO  ==============================================================
+10:35:46 INFO  EnvironmentC8y Setup
+10:35:46 INFO  Executed systemctl&lt;serv_mapper1&gt;, exit status 3
+10:35:47 WARN  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 1
+10:35:47 INFO  Contents of tedge_connect_c8y.err: 
+  Error: failed to connect Cumulocity cloud.
+  Caused by:
+      A value for `c8y.url` is missing.
+          A value can be set with `tedge config set c8y.url &lt;value&gt;`
+  -----
+
+10:35:47 WARN  sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1 ... blocked 
+10:35:47 WARN  Aborted test due to BLOCKED outcome
+10:35:47 INFO  
+10:35:47 INFO  cleanup:
+10:35:47 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
+10:35:48 INFO  Executed systemctl&lt;serv_mapper5&gt;, exit status 3
+10:35:48 INFO  
+10:35:48 INFO  Test duration: 2.46 secs
+10:35:48 INFO  Test final outcome:  BLOCKED
+10:35:48 INFO  Test outcome reason: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1
+10:35:48 INFO  
+</system-out>
+	</testcase>
+</testsuite><testsuite name="call_tedge_-V" tests="1" errors="0" failures="0" skipped="0" time="0"><testcase classname="PySysTest" name="call_tedge_-V" />
+</testsuite><testsuite name="call_tedge_-h" tests="1" errors="0" failures="0" skipped="0" time="0"><testcase classname="PySysTest" name="call_tedge_-h" />
+</testsuite><testsuite name="call_tedge_-h_-V" tests="1" errors="0" failures="0" skipped="0" time="0"><testcase classname="PySysTest" name="call_tedge_-h_-V" />
+</testsuite><testsuite name="call_tedge_config_help" tests="1" errors="0" failures="0" skipped="0" time="0"><testcase classname="PySysTest" name="call_tedge_config_help" />
+</testsuite><testsuite name="call_tedge_config_list" tests="1" errors="0" failures="0" skipped="0" time="0"><testcase classname="PySysTest" name="call_tedge_config_list" />
+</testsuite><testsuite name="custom_init_system" tests="1" errors="0" failures="1" skipped="0" time="0"><testcase classname="CustomInitSystem" name="custom_init_system">
+		<failure message="BLOCKED: sudo&lt;tedge_connect&gt; returned non-zero exit code 1" type="BLOCKED" />
+		<system-out>10:34:01 INFO  ==============================================================
+10:34:01 INFO  Id:    custom_init_system
+10:34:01 INFO  Dir:   misc_features/
+10:34:01 INFO  Title: Custom init system test
+10:34:01 INFO  ==============================================================
+10:34:02 INFO  Executed sudo&lt;copy_system_config&gt;, exit status 0
+10:34:02 INFO  Executed sudo&lt;copy_dummy_init&gt;, exit status 0
+10:34:03 WARN  Executed sudo&lt;tedge_connect&gt;, exit status 1
+10:34:03 INFO  Contents of tedge_connect.err: 
+  Error: failed to connect Cumulocity cloud.
+  Caused by:
+      A value for `c8y.url` is missing.
+          A value can be set with `tedge config set c8y.url &lt;value&gt;`
+  -----
+
+10:34:03 WARN  sudo&lt;tedge_connect&gt; returned non-zero exit code 1 ... blocked [run.py:53]
+10:34:03 WARN  Aborted test due to BLOCKED outcome
+10:34:03 INFO  
+10:34:03 INFO  cleanup:
+10:34:03 INFO  Executed sudo&lt;remove_system_config&gt;, exit status 0
+10:34:04 INFO  Executed sudo&lt;remove_dummy_init&gt;, exit status 0
+10:34:04 INFO  
+10:34:04 INFO  Test duration: 2.62 secs
+10:34:04 INFO  Test final outcome:  BLOCKED
+10:34:04 INFO  Test outcome reason: sudo&lt;tedge_connect&gt; returned non-zero exit code 1
+10:34:04 INFO  
+</system-out>
+	</testcase>
+</testsuite><testsuite name="docker_plugin_finalize" tests="2" errors="0" failures="0" skipped="1" time="0"><testcase classname="DockerPluginFinalizeTest" name="docker_plugin_finalize">
+		<skipped message="SKIPPED: Testing the docker plugin is not supported on this platform.To run it, all the test with -XmyPlatform='container'" />
+		<system-out>10:34:48 INFO  ==============================================================
+10:34:48 INFO  Id:    docker_plugin_finalize
+10:34:48 INFO  Dir:   plugin_docker/
+10:34:48 INFO  Title: Validate docker plugin finalize command
+10:34:48 INFO  ==============================================================
+10:34:48 INFO  Testing the docker plugin is not supported on this platform.To run it, all the test with -XmyPlatform='container' ... skipped
+10:34:48 WARN  Aborted test due to SKIPPED outcome
+10:34:48 INFO  
+10:34:48 INFO  Test duration: 0.05 secs
+10:34:48 INFO  Test final outcome:  SKIPPED
+10:34:48 INFO  Test outcome reason: Testing the docker plugin is not supported on this platform.To run it, all the test with -XmyPlatform='container'
+10:34:48 INFO  
+</system-out>
+	</testcase>
+<testcase classname="DockerPluginFinalizeTest" name="docker_plugin_finalize" />
+</testsuite><testsuite name="docker_plugin_install" tests="2" errors="0" failures="0" skipped="1" time="0"><testcase classname="DockerPluginInstallTest" name="docker_plugin_install">
+		<skipped message="SKIPPED: Testing the docker plugin is not supported on this platform.To run it, all the test with -XmyPlatform='container'" />
+		<system-out>10:34:48 INFO  ==============================================================
+10:34:48 INFO  Id:    docker_plugin_install
+10:34:48 INFO  Dir:   plugin_docker/
+10:34:48 INFO  Title: Validate docker plugin install
+10:34:48 INFO  ==============================================================
+10:34:48 INFO  Testing the docker plugin is not supported on this platform.To run it, all the test with -XmyPlatform='container' ... skipped
+10:34:48 WARN  Aborted test due to SKIPPED outcome
+10:34:48 INFO  
+10:34:48 INFO  Test duration: 0.02 secs
+10:34:48 INFO  Test final outcome:  SKIPPED
+10:34:48 INFO  Test outcome reason: Testing the docker plugin is not supported on this platform.To run it, all the test with -XmyPlatform='container'
+10:34:48 INFO  
+</system-out>
+	</testcase>
+<testcase classname="DockerPluginInstallTest" name="docker_plugin_install" />
+</testsuite><testsuite name="docker_plugin_install_with_version" tests="2" errors="0" failures="0" skipped="1" time="0"><testcase classname="DockerPluginInstallWithVersionTest" name="docker_plugin_install_with_version">
+		<skipped message="SKIPPED: Testing the docker plugin is not supported on this platform.To run it, all the test with -XmyPlatform='container'" />
+		<system-out>10:34:48 INFO  ==============================================================
+10:34:48 INFO  Id:    docker_plugin_install_with_version
+10:34:48 INFO  Dir:   plugin_docker/
+10:34:48 INFO  Title: Validate docker plugin install
+10:34:48 INFO  ==============================================================
+10:34:48 INFO  Testing the docker plugin is not supported on this platform.To run it, all the test with -XmyPlatform='container' ... skipped
+10:34:48 WARN  Aborted test due to SKIPPED outcome
+10:34:48 INFO  
+10:34:48 INFO  Test duration: 0.02 secs
+10:34:48 INFO  Test final outcome:  SKIPPED
+10:34:48 INFO  Test outcome reason: Testing the docker plugin is not supported on this platform.To run it, all the test with -XmyPlatform='container'
+10:34:48 INFO  
+</system-out>
+	</testcase>
+<testcase classname="DockerPluginInstallWithVersionTest" name="docker_plugin_install_with_version" />
+</testsuite><testsuite name="docker_plugin_remove" tests="2" errors="0" failures="0" skipped="1" time="0"><testcase classname="DockerPluginRemoveTest" name="docker_plugin_remove">
+		<skipped message="SKIPPED: Testing the docker plugin is not supported on this platform.To run it, all the test with -XmyPlatform='container'" />
+		<system-out>10:34:48 INFO  ==============================================================
+10:34:48 INFO  Id:    docker_plugin_remove
+10:34:48 INFO  Dir:   plugin_docker/
+10:34:48 INFO  Title: Validate docker plugin remove
+10:34:48 INFO  ==============================================================
+10:34:48 INFO  Testing the docker plugin is not supported on this platform.To run it, all the test with -XmyPlatform='container' ... skipped
+10:34:48 WARN  Aborted test due to SKIPPED outcome
+10:34:48 INFO  
+10:34:48 INFO  Test duration: 0.02 secs
+10:34:48 INFO  Test final outcome:  SKIPPED
+10:34:48 INFO  Test outcome reason: Testing the docker plugin is not supported on this platform.To run it, all the test with -XmyPlatform='container'
+10:34:48 INFO  
+</system-out>
+	</testcase>
+<testcase classname="DockerPluginRemoveTest" name="docker_plugin_remove" />
+</testsuite><testsuite name="docker_plugin_remove_with_version" tests="2" errors="0" failures="0" skipped="1" time="0"><testcase classname="DockerPluginRemoveWithVersionTest" name="docker_plugin_remove_with_version">
+		<skipped message="SKIPPED: Testing the docker plugin is not supported on this platform.To run it, all the test with -XmyPlatform='container'" />
+		<system-out>10:34:48 INFO  ==============================================================
+10:34:48 INFO  Id:    docker_plugin_remove_with_version
+10:34:48 INFO  Dir:   plugin_docker/
+10:34:48 INFO  Title: Validate docker plugin remove with version
+10:34:48 INFO  ==============================================================
+10:34:48 INFO  Testing the docker plugin is not supported on this platform.To run it, all the test with -XmyPlatform='container' ... skipped
+10:34:48 WARN  Aborted test due to SKIPPED outcome
+10:34:48 INFO  
+10:34:48 INFO  Test duration: 0.02 secs
+10:34:48 INFO  Test final outcome:  SKIPPED
+10:34:48 INFO  Test outcome reason: Testing the docker plugin is not supported on this platform.To run it, all the test with -XmyPlatform='container'
+10:34:48 INFO  
+</system-out>
+	</testcase>
+<testcase classname="DockerPluginRemoveWithVersionTest" name="docker_plugin_remove_with_version" />
+</testsuite><testsuite name="docker_plugin_update" tests="2" errors="0" failures="0" skipped="1" time="0"><testcase classname="DockerPluginUpdateTest" name="docker_plugin_update">
+		<skipped message="SKIPPED: Testing the docker plugin is not supported on this platform.To run it, all the test with -XmyPlatform='container'" />
+		<system-out>10:34:48 INFO  ==============================================================
+10:34:48 INFO  Id:    docker_plugin_update
+10:34:48 INFO  Dir:   plugin_docker/
+10:34:48 INFO  Title: Validate docker plugin install updates existing containers
+10:34:48 INFO  ==============================================================
+10:34:48 INFO  Testing the docker plugin is not supported on this platform.To run it, all the test with -XmyPlatform='container' ... skipped
+10:34:48 WARN  Aborted test due to SKIPPED outcome
+10:34:48 INFO  
+10:34:48 INFO  Test duration: 0.02 secs
+10:34:48 INFO  Test final outcome:  SKIPPED
+10:34:48 INFO  Test outcome reason: Testing the docker plugin is not supported on this platform.To run it, all the test with -XmyPlatform='container'
+10:34:48 INFO  
+</system-out>
+	</testcase>
+<testcase classname="DockerPluginUpdateTest" name="docker_plugin_update" />
+</testsuite><testsuite name="invalid_device_id" tests="1" errors="0" failures="0" skipped="0" time="0"><testcase classname="InvalidDeviceId" name="invalid_device_id" />
+</testsuite><testsuite name="local_mqtt_pub_fail_noqos" tests="1" errors="0" failures="0" skipped="0" time="0"><testcase classname="PySysTest" name="local_mqtt_pub_fail_noqos" />
+</testsuite><testsuite name="local_mqtt_pub_fail_qos0" tests="1" errors="0" failures="0" skipped="0" time="0"><testcase classname="PySysTest" name="local_mqtt_pub_fail_qos0" />
+</testsuite><testsuite name="local_mqtt_pub_fail_qos1" tests="1" errors="0" failures="0" skipped="0" time="0"><testcase classname="PySysTest" name="local_mqtt_pub_fail_qos1" />
+</testsuite><testsuite name="local_mqtt_pub_fail_qos2" tests="1" errors="0" failures="0" skipped="0" time="0"><testcase classname="PySysTest" name="local_mqtt_pub_fail_qos2" />
+</testsuite><testsuite name="local_mqtt_pub_sub" tests="1" errors="0" failures="0" skipped="0" time="0"><testcase classname="PySysTest" name="local_mqtt_pub_sub" />
+</testsuite><testsuite name="local_mqtt_pub_sub_retain" tests="1" errors="0" failures="0" skipped="0" time="0"><testcase classname="MqttPublishWithRetain" name="local_mqtt_pub_sub_retain" />
+</testsuite><testsuite name="local_mqtt_pub_sub_with_sudo" tests="1" errors="0" failures="0" skipped="0" time="0"><testcase classname="PySysTest" name="local_mqtt_pub_sub_with_sudo" />
+</testsuite><testsuite name="local_mqtt_sub_fail" tests="1" errors="0" failures="0" skipped="0" time="0"><testcase classname="PySysTest" name="local_mqtt_sub_fail" />
+</testsuite><testsuite name="log_request_error_messages" tests="1" errors="0" failures="1" skipped="0" time="0"><testcase classname="LogRequestVerifySearchTextError" name="log_request_error_messages">
+		<failure message="BLOCKED: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1" type="BLOCKED" />
+		<system-out>10:33:46 INFO  ==============================================================
+10:33:46 INFO  Id:    log_request_error_messages
+10:33:46 INFO  Dir:   log_request_end_to_end/
+10:33:46 INFO  Title: Validate end to end behaviour for the log request operation check for error messages
+10:33:46 INFO  ==============================================================
+10:33:47 INFO  EnvironmentC8y Setup
+10:33:48 INFO  Executed systemctl&lt;serv_mapper1&gt;, exit status 3
+10:33:48 INFO  Restarting mosquitto too frequently in the last 10 seconds. It was only up for 2 seconds
+10:33:48 INFO  Delaying execution by 9 seconds
+10:33:57 WARN  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 1
+10:33:57 INFO  Contents of tedge_connect_c8y.err: 
+  Error: failed to connect Cumulocity cloud.
+  Caused by:
+      A value for `c8y.url` is missing.
+          A value can be set with `tedge config set c8y.url &lt;value&gt;`
+  -----
+
+10:33:57 WARN  sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1 ... blocked 
+10:33:57 WARN  Aborted test due to BLOCKED outcome
+10:33:57 INFO  
+10:33:57 INFO  cleanup:
+10:33:58 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
+10:33:59 INFO  Executed systemctl&lt;serv_mapper5&gt;, exit status 3
+10:33:59 INFO  
+10:33:59 INFO  Test duration: 13.03 secs
+10:33:59 INFO  Test final outcome:  BLOCKED
+10:33:59 INFO  Test outcome reason: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1
+10:33:59 INFO  
+</system-out>
+	</testcase>
+</testsuite><testsuite name="log_request_num_lines" tests="1" errors="0" failures="1" skipped="0" time="0"><testcase classname="LogRequestVerifyNumberOfLines" name="log_request_num_lines">
+		<failure message="BLOCKED: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1" type="BLOCKED" />
+		<system-out>10:33:59 INFO  ==============================================================
+10:33:59 INFO  Id:    log_request_num_lines
+10:33:59 INFO  Dir:   log_request_end_to_end/
+10:33:59 INFO  Title: Validate end to end behaviour for the log request operation check for number of lines
+10:33:59 INFO  ==============================================================
+10:33:59 INFO  EnvironmentC8y Setup
+10:33:59 INFO  Executed systemctl&lt;serv_mapper1&gt;, exit status 3
+10:34:00 WARN  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 1
+10:34:00 INFO  Contents of tedge_connect_c8y.err: 
+  Error: failed to connect Cumulocity cloud.
+  Caused by:
+      A value for `c8y.url` is missing.
+          A value can be set with `tedge config set c8y.url &lt;value&gt;`
+  -----
+
+10:34:00 WARN  sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1 ... blocked 
+10:34:00 WARN  Aborted test due to BLOCKED outcome
+10:34:00 INFO  
+10:34:00 INFO  cleanup:
+10:34:01 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
+10:34:01 INFO  Executed systemctl&lt;serv_mapper5&gt;, exit status 3
+10:34:01 INFO  
+10:34:01 INFO  Test duration: 2.65 secs
+10:34:01 INFO  Test final outcome:  BLOCKED
+10:34:01 INFO  Test outcome reason: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1
+10:34:01 INFO  
+</system-out>
+	</testcase>
+</testsuite><testsuite name="mapper_awaits_before_reconnect" tests="1" errors="0" failures="1" skipped="0" time="0"><testcase classname="MapperReconnectAwait" name="mapper_awaits_before_reconnect">
+		<failure message="FAILED: Line count on tedge_mapper_journal.out for &quot;::mapper: MQTT connection error:&quot; expected &gt;=2 but got 0" type="FAILED" />
+		<system-out>10:36:05 INFO  ==============================================================
+10:36:05 INFO  Id:    mapper_awaits_before_reconnect
+10:36:05 INFO  Dir:   tedge_mapper_c8y/
+10:36:05 INFO  Title: Validate mapper doesn't reconnect too often
+10:36:05 INFO  ==============================================================
+10:36:05 INFO  Started mosquitto_sub with process id 28466
+10:36:05 INFO  Waiting for 0.1 seconds
+10:36:06 INFO  Executed sudo&lt;tedge_mapper&gt;, exit status 0
+10:36:06 INFO  Waiting for 5.0 seconds
+10:36:11 INFO  Executed sudo&lt;tedge_mapper&gt;, exit status 0
+10:36:12 INFO  Executed sudo&lt;tedge_mapper_journal&gt;, exit status 0
+10:36:13 WARN  Grep on tedge_mapper_journal.out contains "ERROR" ... failed [run.py:67]
+10:36:13 INFO  Line count on file tedge_mapper_journal.out ... passed
+10:36:13 WARN  Line count on tedge_mapper_journal.out for "::mapper: MQTT connection error:" expected &gt;=2 but got 0 ... failed [run.py:78]
+10:36:13 WARN  Aborted test due to FAILED outcome
+10:36:13 INFO  
+10:36:13 INFO  Test duration: 7.46 secs
+10:36:13 INFO  Test final outcome:  FAILED
+10:36:13 INFO  Test outcome reason: Line count on tedge_mapper_journal.out for "::mapper: MQTT connection error:" expected &gt;=2 but got 0
+10:36:13 INFO  
+</system-out>
+	</testcase>
+</testsuite><testsuite name="monitoring_smaller_interval" tests="1" errors="0" failures="1" skipped="0" time="0"><testcase classname="MonitoringSmallInterval" name="monitoring_smaller_interval">
+		<failure message="FAILED: Assert that (collectd_msg_validation_result == expected_result) with collectd_msg_validation_result=False, expected_result=True" type="FAILED" />
+		<system-out>10:34:20 INFO  ==============================================================
+10:34:20 INFO  Id:    monitoring_smaller_interval
+10:34:20 INFO  Dir:   monitoring/
+10:34:20 INFO  Title: Validate the tedge dm agent messages that are produced with smaller sampling interval than the batching window. Here the simulated collectd messages are used
+10:34:20 INFO  ==============================================================
+10:34:21 INFO  Executed sudo&lt;collectd&gt;, exit status 0
+10:34:21 INFO  Executed sudo&lt;collectd_mapper&gt;, exit status 0
+10:34:22 INFO  Started sudo&lt;tedge_sub&gt; with process id 28023
+10:34:22 INFO  Executed sudo&lt;tedge_temp&gt;, exit status 0
+10:34:23 INFO  Executed sudo&lt;tedge_pres&gt;, exit status 0
+10:34:23 INFO  Executed sudo&lt;tedge_temp&gt;, exit status 0
+10:34:24 INFO  Executed sudo&lt;tedge_pres&gt;, exit status 0
+10:34:25 INFO  Executed sudo&lt;tedge_temp&gt;, exit status 0
+10:34:25 INFO  Executed sudo&lt;tedge_pres&gt;, exit status 0
+10:34:26 INFO  Executed sudo&lt;tedge_temp&gt;, exit status 0
+10:34:26 INFO  Executed sudo&lt;tedge_pres&gt;, exit status 0
+10:34:27 INFO  Executed sudo&lt;tedge_temp&gt;, exit status 0
+10:34:27 INFO  Executed sudo&lt;tedge_pres&gt;, exit status 0
+10:34:28 INFO  Executed sudo&lt;tedge_temp&gt;, exit status 0
+10:34:28 INFO  Executed sudo&lt;tedge_pres&gt;, exit status 0
+10:34:29 INFO  Executed sudo&lt;tedge_temp&gt;, exit status 0
+10:34:30 INFO  Executed sudo&lt;tedge_pres&gt;, exit status 0
+10:34:30 INFO  Executed sudo&lt;tedge_temp&gt;, exit status 0
+10:34:31 INFO  Executed sudo&lt;tedge_pres&gt;, exit status 0
+10:34:31 INFO  Executed sudo&lt;tedge_temp&gt;, exit status 0
+10:34:32 INFO  Executed sudo&lt;tedge_pres&gt;, exit status 0
+10:34:32 INFO  Executed sudo&lt;tedge_temp&gt;, exit status 0
+10:34:33 INFO  Executed sudo&lt;tedge_pres&gt;, exit status 0
+10:34:35 INFO  Executed sudo&lt;kill_out&gt;, exit status 0
+10:34:35 WARN  Assert that (collectd_msg_validation_result == expected_result) with collectd_msg_validation_result=False, expected_result=True ... failed [run.py:105]
+10:34:35 INFO     collectd_msg_validation_result: False
+10:34:35 INFO                    expected_result: True
+10:34:35 INFO  
+10:34:35 INFO  cleanup:
+10:34:35 INFO  monitoring_cleanup
+10:34:35 INFO  Executed sudo&lt;collectd_mapper&gt;, exit status 0
+10:34:35 INFO  
+10:34:35 INFO  Test duration: 14.98 secs
+10:34:35 INFO  Test final outcome:  FAILED
+10:34:35 INFO  Test outcome reason: Assert that (collectd_msg_validation_result == expected_result) with collectd_msg_validation_result=False, expected_result=True
+10:34:35 INFO  
+</system-out>
+	</testcase>
+</testsuite><testsuite name="monitoring_with_collectd" tests="1" errors="0" failures="0" skipped="1" time="0"><testcase classname="MonitoringWithCollectd" name="monitoring_with_collectd">
+		<skipped message="SKIPPED: Test execution disabled due to #792 (instable)" />
+		<system-out>10:34:35 INFO  ==============================================================
+10:34:35 INFO  Id:    monitoring_with_collectd
+10:34:35 INFO  Dir:   monitoring/
+10:34:35 INFO  Title: Validate tedge dm agent messages that are produced by batching the collectd messages
+10:34:35 INFO  ==============================================================
+10:34:35 INFO  Test execution disabled due to #792 (instable) ... skipped
+10:34:35 INFO  
+10:34:35 INFO  Test duration: 0.02 secs
+10:34:35 INFO  Test final outcome:  SKIPPED
+10:34:35 INFO  Test outcome reason: Test execution disabled due to #792 (instable)
+10:34:35 INFO  
+</system-out>
+	</testcase>
+</testsuite><testsuite name="monitoring_with_simulated_messages" tests="1" errors="0" failures="1" skipped="0" time="0"><testcase classname="MonitoringWithSimulatedMessages" name="monitoring_with_simulated_messages">
+		<failure message="FAILED: Assert that (collectd_msg_validation_result == expected_result) with collectd_msg_validation_result=False, expected_result=True" type="FAILED" />
+		<system-out>10:34:35 INFO  ==============================================================
+10:34:35 INFO  Id:    monitoring_with_simulated_messages
+10:34:35 INFO  Dir:   monitoring/
+10:34:35 INFO  Title: Validate the tedge dm agent messages that are produced from the simulated collectd messages
+10:34:35 INFO  ==============================================================
+10:34:36 INFO  Executed sudo&lt;collectd&gt;, exit status 0
+10:34:36 INFO  Executed sudo&lt;collectd_mapper&gt;, exit status 0
+10:34:36 INFO  Started sudo&lt;tedge_sub&gt; with process id 28075
+10:34:37 INFO  Executed sudo&lt;tedge_temp&gt;, exit status 0
+10:34:38 INFO  Executed sudo&lt;tedge_pres&gt;, exit status 0
+10:34:39 INFO  Executed sudo&lt;kill_out&gt;, exit status 0
+10:34:39 WARN  Assert that (collectd_msg_validation_result == expected_result) with collectd_msg_validation_result=False, expected_result=True ... failed [run.py:99]
+10:34:39 INFO     collectd_msg_validation_result: False
+10:34:39 INFO                    expected_result: True
+10:34:39 INFO  
+10:34:39 INFO  cleanup:
+10:34:39 INFO  monitoring_cleanup
+10:34:40 INFO  Executed sudo&lt;collectd_mapper&gt;, exit status 0
+10:34:40 INFO  
+10:34:40 INFO  Test duration: 4.46 secs
+10:34:40 INFO  Test final outcome:  FAILED
+10:34:40 INFO  Test outcome reason: Assert that (collectd_msg_validation_result == expected_result) with collectd_msg_validation_result=False, expected_result=True
+10:34:40 INFO  
+</system-out>
+	</testcase>
+</testsuite><testsuite name="mqtt_port_change_connection_fails" tests="1" errors="0" failures="0" skipped="0" time="0"><testcase classname="MqttPortChangeConnectionFails" name="mqtt_port_change_connection_fails" />
+</testsuite><testsuite name="mqtt_port_change_connection_works" tests="1" errors="0" failures="0" skipped="1" time="0"><testcase classname="MqttPortChangeConnectionWorks" name="mqtt_port_change_connection_works">
+		<skipped message="SKIPPED: failing intermitently" />
+		<system-out>10:34:10 INFO  ==============================================================
+10:34:10 INFO  Id:    mqtt_port_change_connection_works
+10:34:10 INFO  Dir:   misc_features/
+10:34:10 INFO  Title: mqtt port change connection works for all the thin-edge services that use the mosquitto broker
+10:34:10 INFO  ==============================================================
+10:34:10 INFO  failing intermitently ... skipped
+10:34:10 INFO  
+10:34:10 INFO  Test duration: 0.02 secs
+10:34:10 INFO  Test final outcome:  SKIPPED
+10:34:10 INFO  Test outcome reason: failing intermitently
+10:34:10 INFO  
+</system-out>
+	</testcase>
+</testsuite><testsuite name="mqtt_port_set" tests="1" errors="0" failures="1" skipped="0" time="0"><testcase classname="MqttPortSet" name="mqtt_port_set">
+		<failure message="BLOCKED: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1 (+1 other failures)" type="BLOCKED" />
+		<system-out>10:34:10 INFO  ==============================================================
+10:34:10 INFO  Id:    mqtt_port_set
+10:34:10 INFO  Dir:   misc_features/
+10:34:10 INFO  Title: mqtt port set
+10:34:10 INFO  ==============================================================
+10:34:11 INFO  Executed sudo&lt;mqtt_port_set&gt;, exit status 0
+10:34:11 INFO  Executed sudo&lt;tedge_get&gt;, exit status 0
+10:34:11 INFO  Grep on file tedge_get.out ... passed
+10:34:11 INFO  Grep on file /etc/tedge/tedge.toml ... passed
+10:34:11 INFO  
+10:34:11 INFO  cleanup:
+10:34:12 INFO  Executed sudo&lt;mqtt_port_unset&gt;, exit status 0
+10:34:12 WARN  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 1
+10:34:12 INFO  Contents of tedge_connect_c8y.err: 
+  Error: failed to connect Cumulocity cloud.
+  Caused by:
+      A value for `c8y.url` is missing.
+          A value can be set with `tedge config set c8y.url &lt;value&gt;`
+  -----
+
+10:34:12 ERROR Error while running cleanup function: 
+Traceback (most recent call last):
+  File "/home/pi/env-pysys/lib/python3.7/site-packages/pysys/process/user.py", line 1305, in cleanup
+    fn()
+  File "/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/misc_features/mqtt_port_set/run.py", line 50, in mqtt_cleanup
+    self.tedge_connect_c8y()
+  File "/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/environments/environment_tedge.py", line 58, in tedge_connect_c8y
+    expectedExitStatus=expectedExitStatus,
+  File "/home/pi/env-pysys/lib/python3.7/site-packages/pysys/process/user.py", line 482, in startProcess
+    abortOnError=abortOnError)
+  File "/home/pi/env-pysys/lib/python3.7/site-packages/pysys/process/user.py", line 1401, in addOutcome
+    self.abort(outcome, outcomeReason, callRecord)
+  File "/home/pi/env-pysys/lib/python3.7/site-packages/pysys/process/user.py", line 1420, in abort
+    raise AbortExecution(outcome, outcomeReason, callRecord)
+pysys.exceptions.AbortExecution: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1
+10:34:12 WARN  Cleanup failed with 1 errors: Cleanup function failed: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1 (AbortExecution) ... blocked 
+10:34:12 INFO  
+10:34:12 INFO  Test duration: 2.28 secs
+10:34:12 INFO  Test final outcome:  BLOCKED
+10:34:12 INFO  Test outcome reason: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1 (+1 other failures)
+10:34:12 INFO  
+</system-out>
+	</testcase>
+</testsuite><testsuite name="mqtt_port_unset" tests="1" errors="0" failures="0" skipped="0" time="0"><testcase classname="MqttPortUnSet" name="mqtt_port_unset" />
+</testsuite><testsuite name="publish_flux" tests="1" errors="0" failures="1" skipped="0" time="0"><testcase classname="PublishFlux" name="publish_flux">
+		<failure message="BLOCKED: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1" type="BLOCKED" />
+		<system-out>10:34:48 INFO  ==============================================================
+10:34:48 INFO  Id:    publish_flux
+10:34:48 INFO  Dir:   smoketests/
+10:34:48 INFO  Title: Publish to flux topic
+10:34:48 INFO  ==============================================================
+10:34:48 INFO  EnvironmentC8y Setup
+10:34:49 INFO  Executed systemctl&lt;serv_mapper1&gt;, exit status 3
+10:34:49 WARN  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 1
+10:34:49 INFO  Contents of tedge_connect_c8y.err: 
+  Error: failed to connect Cumulocity cloud.
+  Caused by:
+      A value for `c8y.url` is missing.
+          A value can be set with `tedge config set c8y.url &lt;value&gt;`
+  -----
+
+10:34:50 WARN  sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1 ... blocked 
+10:34:50 WARN  Aborted test due to BLOCKED outcome
+10:34:50 INFO  
+10:34:50 INFO  cleanup:
+10:34:50 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
+10:34:51 INFO  Executed systemctl&lt;serv_mapper5&gt;, exit status 3
+10:34:51 INFO  
+10:34:51 INFO  Test duration: 2.51 secs
+10:34:51 INFO  Test final outcome:  BLOCKED
+10:34:51 INFO  Test outcome reason: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1
+10:34:51 INFO  
+</system-out>
+	</testcase>
+</testsuite><testsuite name="publish_sawmill" tests="1" errors="0" failures="1" skipped="0" time="0"><testcase classname="PublishSawmill" name="publish_sawmill">
+		<failure message="BLOCKED: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1" type="BLOCKED" />
+		<system-out>10:34:51 INFO  ==============================================================
+10:34:51 INFO  Id:    publish_sawmill
+10:34:51 INFO  Dir:   smoketests/
+10:34:51 INFO  Title: Publish to sawmill topic
+10:34:51 INFO  ==============================================================
+10:34:51 INFO  EnvironmentC8y Setup
+10:34:51 INFO  Executed systemctl&lt;serv_mapper1&gt;, exit status 3
+10:34:52 WARN  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 1
+10:34:52 INFO  Contents of tedge_connect_c8y.err: 
+  Error: failed to connect Cumulocity cloud.
+  Caused by:
+      A value for `c8y.url` is missing.
+          A value can be set with `tedge config set c8y.url &lt;value&gt;`
+  -----
+
+10:34:52 WARN  sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1 ... blocked 
+10:34:52 WARN  Aborted test due to BLOCKED outcome
+10:34:52 INFO  
+10:34:52 INFO  cleanup:
+10:34:53 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
+10:34:53 INFO  Executed systemctl&lt;serv_mapper5&gt;, exit status 3
+10:34:53 INFO  
+10:34:53 INFO  Test duration: 2.46 secs
+10:34:53 INFO  Test final outcome:  BLOCKED
+10:34:53 INFO  Test outcome reason: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1
+10:34:53 INFO  
+</system-out>
+	</testcase>
+</testsuite><testsuite name="runtime_start_two_mappers" tests="1" errors="0" failures="1" skipped="0" time="0"><testcase classname="RuntimeMultiMappers" name="runtime_start_two_mappers">
+		<failure message="BLOCKED: sudo&lt;tedge_mapper1&gt; returned non-zero exit code 1" type="BLOCKED" />
+		<system-out>10:36:13 INFO  ==============================================================
+10:36:13 INFO  Id:    runtime_start_two_mappers
+10:36:13 INFO  Dir:   tedge_mapper_c8y/
+10:36:13 INFO  Title: Validate two mappers can't be started at the same time
+10:36:13 INFO  ==============================================================
+10:36:13 WARN  Executed sudo&lt;tedge_mapper1&gt;, exit status 1
+10:36:13 INFO  Contents of tedge_mapper1.err: 
+  Job for tedge-mapper-c8y.service failed because the control process exited with error code.
+  See "systemctl status tedge-mapper-c8y.service" and "journalctl -xe" for details.
+  -----
+
+10:36:13 WARN  sudo&lt;tedge_mapper1&gt; returned non-zero exit code 1 ... blocked [run.py:26]
+10:36:13 WARN  Aborted test due to BLOCKED outcome
+10:36:13 INFO  
+10:36:13 INFO  Test duration: 0.61 secs
+10:36:13 INFO  Test final outcome:  BLOCKED
+10:36:13 INFO  Test outcome reason: sudo&lt;tedge_mapper1&gt; returned non-zero exit code 1
+10:36:13 INFO  
+</system-out>
+	</testcase>
+</testsuite><testsuite name="sm_tedge_mapper_init_session" tests="1" errors="0" failures="1" skipped="0" time="0"><testcase classname="TedgeSMMapperInitSession" name="sm_tedge_mapper_init_session">
+		<failure message="BLOCKED: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1" type="BLOCKED" />
+		<system-out>10:36:13 INFO  ==============================================================
+10:36:13 INFO  Id:    sm_tedge_mapper_init_session
+10:36:13 INFO  Dir:   tedge_mapper_c8y/
+10:36:13 INFO  Title: Validate tedge_mapper_sm_c8y init session feature
+10:36:13 INFO  ==============================================================
+10:36:13 INFO  EnvironmentC8y Setup
+10:36:14 INFO  Executed systemctl&lt;serv_mapper1&gt;, exit status 3
+10:36:15 WARN  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 1
+10:36:15 INFO  Contents of tedge_connect_c8y.err: 
+  Error: failed to connect Cumulocity cloud.
+  Caused by:
+      A value for `c8y.url` is missing.
+          A value can be set with `tedge config set c8y.url &lt;value&gt;`
+  -----
+
+10:36:15 WARN  sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1 ... blocked 
+10:36:15 WARN  Aborted test due to BLOCKED outcome
+10:36:15 INFO  
+10:36:15 INFO  cleanup:
+10:36:15 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
+10:36:16 INFO  Executed systemctl&lt;serv_mapper5&gt;, exit status 3
+10:36:16 INFO  
+10:36:16 INFO  Test duration: 2.37 secs
+10:36:16 INFO  Test final outcome:  BLOCKED
+10:36:16 INFO  Test outcome reason: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1
+10:36:16 INFO  
+</system-out>
+	</testcase>
+</testsuite><testsuite name="smoketest_json" tests="1" errors="0" failures="1" skipped="0" time="0"><testcase classname="SmokeTestJson" name="smoketest_json">
+		<failure message="BLOCKED: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1" type="BLOCKED" />
+		<system-out>10:34:53 INFO  ==============================================================
+10:34:53 INFO  Id:    smoketest_json
+10:34:53 INFO  Dir:   smoketests/
+10:34:53 INFO  Title: Smoke Test Json
+10:34:53 INFO  ==============================================================
+10:34:53 INFO  EnvironmentC8y Setup
+10:34:54 INFO  Executed systemctl&lt;serv_mapper1&gt;, exit status 3
+10:34:55 WARN  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 1
+10:34:55 INFO  Contents of tedge_connect_c8y.err: 
+  Error: failed to connect Cumulocity cloud.
+  Caused by:
+      A value for `c8y.url` is missing.
+          A value can be set with `tedge config set c8y.url &lt;value&gt;`
+  -----
+
+10:34:55 WARN  sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1 ... blocked 
+10:34:55 WARN  Aborted test due to BLOCKED outcome
+10:34:55 INFO  
+10:34:55 INFO  cleanup:
+10:34:55 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
+10:34:56 INFO  Executed systemctl&lt;serv_mapper5&gt;, exit status 3
+10:34:56 INFO  
+10:34:56 INFO  Test duration: 2.48 secs
+10:34:56 INFO  Test final outcome:  BLOCKED
+10:34:56 INFO  Test outcome reason: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1
+10:34:56 INFO  
+</system-out>
+	</testcase>
+</testsuite><testsuite name="smoketest_json_400_samples_10ms" tests="1" errors="0" failures="1" skipped="0" time="0"><testcase classname="SmoketestJson400Samples10ms" name="smoketest_json_400_samples_10ms">
+		<failure message="BLOCKED: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1" type="BLOCKED" />
+		<system-out>10:34:56 INFO  ==============================================================
+10:34:56 INFO  Id:    smoketest_json_400_samples_10ms
+10:34:56 INFO  Dir:   smoketests/
+10:34:56 INFO  Title: Smoketest Json 400 Samples 10ms Delay
+10:34:56 INFO  ==============================================================
+10:34:56 INFO  EnvironmentC8y Setup
+10:34:56 INFO  Executed systemctl&lt;serv_mapper1&gt;, exit status 3
+10:34:57 WARN  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 1
+10:34:57 INFO  Contents of tedge_connect_c8y.err: 
+  Error: failed to connect Cumulocity cloud.
+  Caused by:
+      A value for `c8y.url` is missing.
+          A value can be set with `tedge config set c8y.url &lt;value&gt;`
+  -----
+
+10:34:57 WARN  sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1 ... blocked 
+10:34:57 WARN  Aborted test due to BLOCKED outcome
+10:34:57 INFO  
+10:34:57 INFO  cleanup:
+10:34:58 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
+10:34:58 INFO  Executed systemctl&lt;serv_mapper5&gt;, exit status 3
+10:34:58 INFO  
+10:34:58 INFO  Test duration: 2.48 secs
+10:34:58 INFO  Test final outcome:  BLOCKED
+10:34:58 INFO  Test outcome reason: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1
+10:34:58 INFO  
+</system-out>
+	</testcase>
+</testsuite><testsuite name="smoketest_json_400_samples_20ms" tests="1" errors="0" failures="1" skipped="0" time="0"><testcase classname="SmoketestJson400Samples20ms" name="smoketest_json_400_samples_20ms">
+		<failure message="BLOCKED: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1" type="BLOCKED" />
+		<system-out>10:34:58 INFO  ==============================================================
+10:34:58 INFO  Id:    smoketest_json_400_samples_20ms
+10:34:58 INFO  Dir:   smoketests/
+10:34:58 INFO  Title: Smoketest Json 400 Samples 20ms Delay
+10:34:58 INFO  ==============================================================
+10:34:58 INFO  EnvironmentC8y Setup
+10:34:59 INFO  Executed systemctl&lt;serv_mapper1&gt;, exit status 3
+10:35:00 WARN  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 1
+10:35:00 INFO  Contents of tedge_connect_c8y.err: 
+  Error: failed to connect Cumulocity cloud.
+  Caused by:
+      A value for `c8y.url` is missing.
+          A value can be set with `tedge config set c8y.url &lt;value&gt;`
+  -----
+
+10:35:00 WARN  sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1 ... blocked 
+10:35:00 WARN  Aborted test due to BLOCKED outcome
+10:35:00 INFO  
+10:35:00 INFO  cleanup:
+10:35:00 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
+10:35:01 INFO  Executed systemctl&lt;serv_mapper5&gt;, exit status 3
+10:35:01 INFO  
+10:35:01 INFO  Test duration: 2.48 secs
+10:35:01 INFO  Test final outcome:  BLOCKED
+10:35:01 INFO  Test outcome reason: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1
+10:35:01 INFO  
+</system-out>
+	</testcase>
+</testsuite><testsuite name="smoketest_smartrest" tests="1" errors="0" failures="1" skipped="0" time="0"><testcase classname="SmoketestSmartRest" name="smoketest_smartrest">
+		<failure message="BLOCKED: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1" type="BLOCKED" />
+		<system-out>10:35:01 INFO  ==============================================================
+10:35:01 INFO  Id:    smoketest_smartrest
+10:35:01 INFO  Dir:   smoketests/
+10:35:01 INFO  Title: Smoketest SmartREST
+10:35:01 INFO  ==============================================================
+10:35:01 INFO  EnvironmentC8y Setup
+10:35:02 INFO  Executed systemctl&lt;serv_mapper1&gt;, exit status 3
+10:35:02 WARN  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 1
+10:35:02 INFO  Contents of tedge_connect_c8y.err: 
+  Error: failed to connect Cumulocity cloud.
+  Caused by:
+      A value for `c8y.url` is missing.
+          A value can be set with `tedge config set c8y.url &lt;value&gt;`
+  -----
+
+10:35:02 WARN  sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1 ... blocked 
+10:35:02 WARN  Aborted test due to BLOCKED outcome
+10:35:02 INFO  
+10:35:02 INFO  cleanup:
+10:35:03 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
+10:35:03 INFO  Executed systemctl&lt;serv_mapper5&gt;, exit status 3
+10:35:03 INFO  
+10:35:03 INFO  Test duration: 2.46 secs
+10:35:03 INFO  Test final outcome:  BLOCKED
+10:35:03 INFO  Test outcome reason: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1
+10:35:03 INFO  
+</system-out>
+	</testcase>
+</testsuite><testsuite name="smoketest_smartrest_400_samples_1Xms" tests="1" errors="0" failures="1" skipped="0" time="0"><testcase classname="SmoketestSmartRest400Samples1Xms" name="smoketest_smartrest_400_samples_1Xms">
+		<failure message="BLOCKED: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1" type="BLOCKED" />
+		<system-out>10:35:03 INFO  ==============================================================
+10:35:03 INFO  Id:    smoketest_smartrest_400_samples_1Xms
+10:35:03 INFO  Dir:   smoketests/
+10:35:03 INFO  Title: Smoketest Smart Rest 400 Samples 1Xms Delay
+10:35:03 INFO  ==============================================================
+10:35:03 INFO  EnvironmentC8y Setup
+10:35:04 INFO  Executed systemctl&lt;serv_mapper1&gt;, exit status 3
+10:35:05 WARN  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 1
+10:35:05 INFO  Contents of tedge_connect_c8y.err: 
+  Error: failed to connect Cumulocity cloud.
+  Caused by:
+      A value for `c8y.url` is missing.
+          A value can be set with `tedge config set c8y.url &lt;value&gt;`
+  -----
+
+10:35:05 WARN  sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1 ... blocked 
+10:35:05 WARN  Aborted test due to BLOCKED outcome
+10:35:05 INFO  
+10:35:05 INFO  cleanup:
+10:35:05 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
+10:35:06 INFO  Executed systemctl&lt;serv_mapper5&gt;, exit status 3
+10:35:06 INFO  
+10:35:06 INFO  Test duration: 2.46 secs
+10:35:06 INFO  Test final outcome:  BLOCKED
+10:35:06 INFO  Test outcome reason: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1
+10:35:06 INFO  
+</system-out>
+	</testcase>
+</testsuite><testsuite name="smoketest_smartrest_400_samples_20ms" tests="1" errors="0" failures="1" skipped="0" time="0"><testcase classname="SmoketestSmartRest400Samples20ms" name="smoketest_smartrest_400_samples_20ms">
+		<failure message="BLOCKED: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1" type="BLOCKED" />
+		<system-out>10:35:06 INFO  ==============================================================
+10:35:06 INFO  Id:    smoketest_smartrest_400_samples_20ms
+10:35:06 INFO  Dir:   smoketests/
+10:35:06 INFO  Title: Smoketest SmartRest 400 Samples 20ms Delay
+10:35:06 INFO  ==============================================================
+10:35:06 INFO  EnvironmentC8y Setup
+10:35:07 INFO  Executed systemctl&lt;serv_mapper1&gt;, exit status 3
+10:35:07 WARN  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 1
+10:35:07 INFO  Contents of tedge_connect_c8y.err: 
+  Error: failed to connect Cumulocity cloud.
+  Caused by:
+      A value for `c8y.url` is missing.
+          A value can be set with `tedge config set c8y.url &lt;value&gt;`
+  -----
+
+10:35:07 WARN  sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1 ... blocked 
+10:35:07 WARN  Aborted test due to BLOCKED outcome
+10:35:07 INFO  
+10:35:07 INFO  cleanup:
+10:35:08 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
+10:35:08 INFO  Executed systemctl&lt;serv_mapper5&gt;, exit status 3
+10:35:08 INFO  
+10:35:08 INFO  Test duration: 2.46 secs
+10:35:08 INFO  Test final outcome:  BLOCKED
+10:35:08 INFO  Test outcome reason: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1
+10:35:08 INFO  
+</system-out>
+	</testcase>
+</testsuite><testsuite name="tedge_agent_user_sudo_access" tests="1" errors="0" failures="0" skipped="1" time="0"><testcase classname="TedgeAgentUserSudoAccess" name="tedge_agent_user_sudo_access">
+		<skipped message="SKIPPED: #955 Observation: Exit code of the apt plugin when called with no arguments" />
+		<system-out>10:35:35 INFO  ==============================================================
+10:35:35 INFO  Id:    tedge_agent_user_sudo_access
+10:35:35 INFO  Dir:   tedge/
+10:35:35 INFO  Title: Validate tedge-agent user has a limited sudo right
+10:35:35 INFO  ==============================================================
+10:35:35 INFO  #955 Observation: Exit code of the apt plugin when called with no arguments ... skipped
+10:35:35 INFO  
+10:35:35 INFO  Test duration: 0.02 secs
+10:35:35 INFO  Test final outcome:  SKIPPED
+10:35:35 INFO  Test outcome reason: #955 Observation: Exit code of the apt plugin when called with no arguments
+10:35:35 INFO  
+</system-out>
+	</testcase>
+</testsuite><testsuite name="tedge_connect_test_negative" tests="1" errors="0" failures="0" skipped="0" time="0"><testcase classname="TedgeConnectTestNegative" name="tedge_connect_test_negative" />
+</testsuite><testsuite name="tedge_connect_test_positive" tests="1" errors="0" failures="1" skipped="0" time="0"><testcase classname="TedgeConnectTestPositive" name="tedge_connect_test_positive">
+		<failure message="BLOCKED: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1" type="BLOCKED" />
+		<system-out>10:35:49 INFO  ==============================================================
+10:35:49 INFO  Id:    tedge_connect_test_positive
+10:35:49 INFO  Dir:   tedge_connect/
+10:35:49 INFO  Title: Validate tedge connect c8y --test (positive case)
+10:35:49 INFO  ==============================================================
+10:35:49 INFO  EnvironmentC8y Setup
+10:35:49 INFO  Executed systemctl&lt;serv_mapper1&gt;, exit status 3
+10:35:50 WARN  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 1
+10:35:50 INFO  Contents of tedge_connect_c8y.err: 
+  Error: failed to connect Cumulocity cloud.
+  Caused by:
+      A value for `c8y.url` is missing.
+          A value can be set with `tedge config set c8y.url &lt;value&gt;`
+  -----
+
+10:35:50 WARN  sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1 ... blocked 
+10:35:50 WARN  Aborted test due to BLOCKED outcome
+10:35:50 INFO  
+10:35:50 INFO  cleanup:
+10:35:51 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
+10:35:51 INFO  Executed systemctl&lt;serv_mapper5&gt;, exit status 3
+10:35:51 INFO  
+10:35:51 INFO  Test duration: 2.53 secs
+10:35:51 INFO  Test final outcome:  BLOCKED
+10:35:51 INFO  Test outcome reason: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1
+10:35:51 INFO  
+</system-out>
+	</testcase>
+</testsuite><testsuite name="tedge_connect_test_sm_services" tests="1" errors="0" failures="1" skipped="0" time="0"><testcase classname="TedgeConnectTestSMServices" name="tedge_connect_test_sm_services">
+		<failure message="BLOCKED: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1" type="BLOCKED" />
+		<system-out>10:35:51 INFO  ==============================================================
+10:35:51 INFO  Id:    tedge_connect_test_sm_services
+10:35:51 INFO  Dir:   tedge_connect/
+10:35:51 INFO  Title: Validate Software Management Services started and enabled on tedge connect c8y
+10:35:51 INFO  ==============================================================
+10:35:51 INFO  EnvironmentC8y Setup
+10:35:52 INFO  Executed systemctl&lt;serv_mapper1&gt;, exit status 3
+10:35:53 WARN  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 1
+10:35:53 INFO  Contents of tedge_connect_c8y.err: 
+  Error: failed to connect Cumulocity cloud.
+  Caused by:
+      A value for `c8y.url` is missing.
+          A value can be set with `tedge config set c8y.url &lt;value&gt;`
+  -----
+
+10:35:53 WARN  sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1 ... blocked 
+10:35:53 WARN  Aborted test due to BLOCKED outcome
+10:35:53 INFO  
+10:35:53 INFO  cleanup:
+10:35:53 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
+10:35:54 INFO  Executed systemctl&lt;serv_mapper5&gt;, exit status 3
+10:35:54 INFO  
+10:35:54 INFO  Test duration: 2.79 secs
+10:35:54 INFO  Test final outcome:  BLOCKED
+10:35:54 INFO  Test outcome reason: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1
+10:35:54 INFO  
+</system-out>
+	</testcase>
+</testsuite><testsuite name="tedge_disconnect_test_sm_services" tests="1" errors="0" failures="1" skipped="0" time="0"><testcase classname="TedgeDisConnectTestSMServices" name="tedge_disconnect_test_sm_services">
+		<failure message="BLOCKED: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1" type="BLOCKED" />
+		<system-out>10:35:54 INFO  ==============================================================
+10:35:54 INFO  Id:    tedge_disconnect_test_sm_services
+10:35:54 INFO  Dir:   tedge_connect/
+10:35:54 INFO  Title: Validate Software Management Services stopped and disabled on tedge disconnect c8y
+10:35:54 INFO  ==============================================================
+10:35:54 INFO  EnvironmentC8y Setup
+10:35:55 INFO  Executed systemctl&lt;serv_mapper1&gt;, exit status 3
+10:35:55 WARN  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 1
+10:35:55 INFO  Contents of tedge_connect_c8y.err: 
+  Error: failed to connect Cumulocity cloud.
+  Caused by:
+      A value for `c8y.url` is missing.
+          A value can be set with `tedge config set c8y.url &lt;value&gt;`
+  -----
+
+10:35:55 WARN  sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1 ... blocked 
+10:35:55 WARN  Aborted test due to BLOCKED outcome
+10:35:55 INFO  
+10:35:55 INFO  cleanup:
+10:35:56 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
+10:35:57 INFO  Executed systemctl&lt;serv_mapper5&gt;, exit status 3
+10:35:57 INFO  
+10:35:57 INFO  Test duration: 2.39 secs
+10:35:57 INFO  Test final outcome:  BLOCKED
+10:35:57 INFO  Test outcome reason: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1
+10:35:57 INFO  
+</system-out>
+	</testcase>
+</testsuite><testsuite name="tedge_mapper_az_negative" tests="1" errors="0" failures="0" skipped="0" time="0"><testcase classname="TedgeMapperAzError" name="tedge_mapper_az_negative" />
+</testsuite><testsuite name="tedge_mapper_az_with_timestamp" tests="1" errors="0" failures="0" skipped="0" time="0"><testcase classname="TedgeMapperAzWithTimestamp" name="tedge_mapper_az_with_timestamp" />
+</testsuite><testsuite name="tedge_mapper_az_without_timestamp" tests="1" errors="0" failures="0" skipped="0" time="0"><testcase classname="TedgeMapperAzWithoutTimestamp" name="tedge_mapper_az_without_timestamp" />
+</testsuite><testsuite name="tedge_mapper_c8y_alarms" tests="1" errors="0" failures="1" skipped="0" time="0"><testcase classname="TedgeMapperC8yAlarm" name="tedge_mapper_c8y_alarms">
+		<failure message="BLOCKED: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1" type="BLOCKED" />
+		<system-out>10:36:16 INFO  ==============================================================
+10:36:16 INFO  Id:    tedge_mapper_c8y_alarms
+10:36:16 INFO  Dir:   tedge_mapper_c8y/
+10:36:16 INFO  Title: Validate that alarms sent to tedge/alarms topic \ gets mapped as alarms in Cumulocity
+10:36:16 INFO  ==============================================================
+10:36:16 INFO  EnvironmentC8y Setup
+10:36:16 INFO  Executed systemctl&lt;serv_mapper1&gt;, exit status 3
+10:36:17 WARN  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 1
+10:36:17 INFO  Contents of tedge_connect_c8y.err: 
+  Error: failed to connect Cumulocity cloud.
+  Caused by:
+      A value for `c8y.url` is missing.
+          A value can be set with `tedge config set c8y.url &lt;value&gt;`
+  -----
+
+10:36:17 WARN  sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1 ... blocked 
+10:36:17 WARN  Aborted test due to BLOCKED outcome
+10:36:17 INFO  
+10:36:17 INFO  cleanup:
+10:36:18 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
+10:36:18 INFO  Executed systemctl&lt;serv_mapper5&gt;, exit status 3
+10:36:18 INFO  
+10:36:18 INFO  Test duration: 2.27 secs
+10:36:18 INFO  Test final outcome:  BLOCKED
+10:36:18 INFO  Test outcome reason: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1
+10:36:18 INFO  
+</system-out>
+	</testcase>
+</testsuite><testsuite name="tedge_mapper_c8y_child_device_measurement" tests="1" errors="0" failures="1" skipped="0" time="0"><testcase classname="TedgeMapperC8yChildDevice" name="tedge_mapper_c8y_child_device_measurement">
+		<failure message="BLOCKED: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1" type="BLOCKED" />
+		<system-out>10:36:18 INFO  ==============================================================
+10:36:18 INFO  Id:    tedge_mapper_c8y_child_device_measurement
+10:36:18 INFO  Dir:   tedge_mapper_c8y/
+10:36:18 INFO  Title: Validate that measurements sent to tedge/measurements/child topic gets mapped as the child device's measurement in Cumulocity
+10:36:18 INFO  ==============================================================
+10:36:18 INFO  EnvironmentC8y Setup
+10:36:19 INFO  Executed systemctl&lt;serv_mapper1&gt;, exit status 3
+10:36:19 WARN  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 1
+10:36:19 INFO  Contents of tedge_connect_c8y.err: 
+  Error: failed to connect Cumulocity cloud.
+  Caused by:
+      A value for `c8y.url` is missing.
+          A value can be set with `tedge config set c8y.url &lt;value&gt;`
+  -----
+
+10:36:19 WARN  sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1 ... blocked 
+10:36:19 WARN  Aborted test due to BLOCKED outcome
+10:36:19 INFO  
+10:36:19 INFO  cleanup:
+10:36:20 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
+10:36:21 INFO  Executed systemctl&lt;serv_mapper5&gt;, exit status 3
+10:36:21 INFO  
+10:36:21 INFO  Test duration: 2.35 secs
+10:36:21 INFO  Test final outcome:  BLOCKED
+10:36:21 INFO  Test outcome reason: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1
+10:36:21 INFO  
+</system-out>
+	</testcase>
+</testsuite><testsuite name="tedge_mapper_c8y_packet_threshold_size" tests="1" errors="0" failures="1" skipped="0" time="0"><testcase classname="TedgeMapperC8yThresholdPacketSize" name="tedge_mapper_c8y_packet_threshold_size">
+		<failure message="FAILED: Grep on tedge_sub.out contains &quot;The size of the message received on tedge/measurements is 20489 which is greater than the threshold size of 16184.&quot;" type="FAILED" />
+		<system-out>10:36:21 INFO  ==============================================================
+10:36:21 INFO  Id:    tedge_mapper_c8y_packet_threshold_size
+10:36:21 INFO  Dir:   tedge_mapper_c8y/
+10:36:21 INFO  Title: Validate the Cumulocity Mapper accepted threshold packet size when it receives a message on tedge/measurements
+10:36:21 INFO  ==============================================================
+10:36:21 INFO  Executed sudo&lt;tedge_mapper_c8y&gt;, exit status 0
+10:36:21 INFO  Started sudo&lt;tedge_sub&gt; with process id 28549
+10:36:22 INFO  Executed sudo&lt;tedge_msg&gt;, exit status 0
+10:36:23 INFO  Executed sudo&lt;tedge_pub&gt;, exit status 0
+10:36:23 INFO  Executed sudo&lt;kill_out&gt;, exit status 0
+10:36:23 WARN  Grep on tedge_sub.out contains "The size of the message received on tedge/measurements is 20489 which is greater than the threshold size of 16184." ... failed [run.py:88]
+10:36:23 INFO  
+10:36:23 INFO  cleanup:
+10:36:23 INFO  mapper_cleanup
+10:36:24 INFO  Executed sudo&lt;tedge_mapper_c8y&gt;, exit status 0
+10:36:24 INFO  
+10:36:24 INFO  Test duration: 3.18 secs
+10:36:24 INFO  Test final outcome:  FAILED
+10:36:24 INFO  Test outcome reason: Grep on tedge_sub.out contains "The size of the message received on tedge/measurements is 20489 which is greater than the threshold size of 16184."
+10:36:24 INFO  
+</system-out>
+	</testcase>
+</testsuite><testsuite name="tedge_software_update" tests="1" errors="0" failures="1" skipped="0" time="0"><testcase classname="PySysTest" name="tedge_software_update">
+		<failure message="BLOCKED: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1" type="BLOCKED" />
+		<system-out>10:35:35 INFO  ==============================================================
+10:35:35 INFO  Id:    tedge_software_update
+10:35:35 INFO  Dir:   tedge/
+10:35:35 INFO  Title: Software install from download path
+10:35:35 INFO  ==============================================================
+10:35:35 INFO  EnvironmentC8y Setup
+10:35:36 INFO  Executed systemctl&lt;serv_mapper1&gt;, exit status 3
+10:35:37 WARN  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 1
+10:35:37 INFO  Contents of tedge_connect_c8y.err: 
+  Error: failed to connect Cumulocity cloud.
+  Caused by:
+      A value for `c8y.url` is missing.
+          A value can be set with `tedge config set c8y.url &lt;value&gt;`
+  -----
+
+10:35:37 WARN  sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1 ... blocked 
+10:35:37 WARN  Aborted test due to BLOCKED outcome
+10:35:37 INFO  
+10:35:37 INFO  cleanup:
+10:35:37 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
+10:35:38 INFO  Executed systemctl&lt;serv_mapper5&gt;, exit status 3
+10:35:38 INFO  
+10:35:38 INFO  Test duration: 2.46 secs
+10:35:38 INFO  Test final outcome:  BLOCKED
+10:35:38 INFO  Test outcome reason: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1
+10:35:38 INFO  
+</system-out>
+	</testcase>
+</testsuite><testsuite name="valid_device_id" tests="1" errors="0" failures="1" skipped="0" time="0"><testcase classname="ValidateValidDeviceId" name="valid_device_id">
+		<failure message="BLOCKED: sudo&lt;cert_upload&gt; returned non-zero exit code 1" type="BLOCKED" />
+		<system-out>10:34:14 INFO  ==============================================================
+10:34:14 INFO  Id:    valid_device_id
+10:34:14 INFO  Dir:   misc_features/
+10:34:14 INFO  Title: Valid device ID
+10:34:14 INFO  ==============================================================
+10:34:15 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
+10:34:15 INFO  Executed sudo&lt;create_cert_dir&gt;, exit status 0
+10:34:16 INFO  Executed sudo&lt;change_owner_of_dir&gt;, exit status 0
+10:34:16 INFO  Executed sudo&lt;set_cert_path&gt;, exit status 0
+10:34:17 INFO  Executed sudo&lt;set_key_path&gt;, exit status 0
+10:34:17 INFO  Executed sudo&lt;cert_create&gt;, exit status 0
+10:34:18 WARN  Executed sudo&lt;cert_upload&gt;, exit status 1
+10:34:18 INFO  Contents of cert_upload.err: 
+  Error: missing configuration parameter
+  Caused by:
+      A value for `c8y.url` is missing.
+          A value can be set with `tedge config set c8y.url &lt;value&gt;`
+  -----
+
+10:34:18 WARN  sudo&lt;cert_upload&gt; returned non-zero exit code 1 ... blocked [run.py:94]
+10:34:18 WARN  Aborted test due to BLOCKED outcome
+10:34:18 INFO  
+10:34:18 INFO  cleanup:
+10:34:18 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
+10:34:19 INFO  Executed sudo&lt;unset_cert_path&gt;, exit status 0
+10:34:20 INFO  Executed sudo&lt;unset_key_path&gt;, exit status 0
+10:34:20 INFO  Executed sudo&lt;remove_cert_dir&gt;, exit status 0
+10:34:20 INFO  
+10:34:20 INFO  Test duration: 6.16 secs
+10:34:20 INFO  Test final outcome:  BLOCKED
+10:34:20 INFO  Test outcome reason: sudo&lt;cert_upload&gt; returned non-zero exit code 1
+10:34:20 INFO  
+</system-out>
+	</testcase>
+</testsuite></testsuites>

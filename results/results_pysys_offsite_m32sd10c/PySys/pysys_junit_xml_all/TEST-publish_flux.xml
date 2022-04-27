@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testsuite failures="1" name="publish_flux" skipped="0" tests="1" time="2.51" timestamp="2022-04-27T10:34:51">
+	<testcase classname="PublishFlux" name="publish_flux">
+		<failure message="BLOCKED: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1" type="BLOCKED"/>
+		<system-out>10:34:48 INFO  ==============================================================
+10:34:48 INFO  Id:    publish_flux
+10:34:48 INFO  Dir:   smoketests/
+10:34:48 INFO  Title: Publish to flux topic
+10:34:48 INFO  ==============================================================
+10:34:48 INFO  EnvironmentC8y Setup
+10:34:49 INFO  Executed systemctl&lt;serv_mapper1&gt;, exit status 3
+10:34:49 WARN  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 1
+10:34:49 INFO  Contents of tedge_connect_c8y.err: 
+  Error: failed to connect Cumulocity cloud.
+  Caused by:
+      A value for `c8y.url` is missing.
+          A value can be set with `tedge config set c8y.url &lt;value&gt;`
+  -----
+
+10:34:50 WARN  sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1 ... blocked 
+10:34:50 WARN  Aborted test due to BLOCKED outcome
+10:34:50 INFO  
+10:34:50 INFO  cleanup:
+10:34:50 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
+10:34:51 INFO  Executed systemctl&lt;serv_mapper5&gt;, exit status 3
+10:34:51 INFO  
+10:34:51 INFO  Test duration: 2.51 secs
+10:34:51 INFO  Test final outcome:  BLOCKED
+10:34:51 INFO  Test outcome reason: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1
+10:34:51 INFO  
+</system-out>
+	</testcase>
+</testsuite>
