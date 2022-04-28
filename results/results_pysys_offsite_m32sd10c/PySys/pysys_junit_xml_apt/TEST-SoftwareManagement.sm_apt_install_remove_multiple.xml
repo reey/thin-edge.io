@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testsuite failures="1" name="SoftwareManagement.sm_apt_install_remove_multiple" skipped="0" tests="1" time="179.99" timestamp="2022-04-28T09:02:41">
+	<testcase classname="PySysTest" name="SoftwareManagement.sm_apt_install_remove_multiple">
+		<failure message="FAILED: Assert that (False == value) with value=True" type="FAILED"/>
+		<system-out>08:59:41 INFO  ==============================================================
+08:59:41 INFO  Id:    SoftwareManagement.sm_apt_install_remove_multiple
+08:59:41 INFO  Dir:   software_management_end_to_end/
+08:59:41 INFO  Title: Validate end to end behaviour for the apt plugin for multiple packages
+08:59:41 INFO  ==============================================================
+08:59:41 INFO  Using sw id database: {'asciijump': '5475369', 'robotfindskitten': '5474869', 'squirrel3': '5475279', 'rolldice': '5152439', 'moon-buggy': '5439204', 'apple': '5495053', 'banana': '5494888', 'cherry': '5495382', 'watermelon': '5494510', 'registry': '8018911', 'hello-world': '8021526', 'docker/getting-started': '8021973', 'alpine': '7991792'}
+08:59:41 INFO  EnvironmentC8y Setup
+08:59:42 INFO  Executed systemctl&lt;serv_mapper1&gt;, exit status 3
+08:59:42 INFO  Restarting mosquitto too frequently in the last 10 seconds. It was only up for 4 seconds
+08:59:42 INFO  Delaying execution by 7 seconds
+09:00:03 INFO  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 0, duration 13 secs
+09:00:04 INFO  Executed sudo&lt;tedge_connect_c8y_test&gt;, exit status 0
+09:00:04 INFO  Executed systemctl&lt;serv_mosq2&gt;, exit status 0
+09:00:05 INFO  Executed systemctl&lt;serv_mapper3&gt;, exit status 0
+09:00:07 INFO  State of current operation: SUCCESSFUL
+09:00:07 INFO  Assert that (False == value) with value=False ... passed
+09:00:07 INFO  Assert that (False == value) with value=False ... passed
+09:00:08 INFO  Assert that (False == value) with value=False ... passed
+09:00:08 INFO  Package robotfindskitten is installed
+09:00:08 WARN  Assert that (False == value) with value=True ... failed 
+09:00:08 INFO  Response status: 201
+09:00:08 INFO  Response to action: {
+    &quot;creationTime&quot;: &quot;2022-04-28T09:00:08.469Z&quot;,
+    &quot;deviceName&quot;: &quot;m32sd10c&quot;,
+    &quot;deviceId&quot;: &quot;17835720&quot;,
+    &quot;self&quot;: &quot;https://t493319102.eu-latest.cumulocity.com/devicecontrol/operations/17887529&quot;,
+    &quot;id&quot;: &quot;17887529&quot;,
+    &quot;status&quot;: &quot;PENDING&quot;,
+    &quot;description&quot;: &quot;Apply software changes, triggered from PySys: [{'action': 'install', 'id': '5475369', 'name': 'asciijump', 'url': ' ', 'version': '::apt'}, {'action': 'install', 'id': '5474869', 'name': 'robotfindskitten', 'url': ' ', 'version': '::apt'}, {'action': 'install', 'id': '5475279', 'name': 'squirrel3', 'url': ' ', 'version': '::apt'}]&quot;,
+    &quot;c8y_SoftwareUpdate&quot;: [
+        {
+            &quot;name&quot;: &quot;asciijump&quot;,
+            &quot;action&quot;: &quot;install&quot;,
+            &quot;id&quot;: &quot;5475369&quot;,
+            &quot;version&quot;: &quot;::apt&quot;,
+            &quot;url&quot;: &quot; &quot;
+        },
+        {
+            &quot;name&quot;: &quot;robotfindskitten&quot;,
+            &quot;action&quot;: &quot;install&quot;,
+            &quot;id&quot;: &quot;5474869&quot;,
+            &quot;version&quot;: &quot;::apt&quot;,
+            &quot;url&quot;: &quot; &quot;
+        },
+        {
+            &quot;name&quot;: &quot;squirrel3&quot;,
+            &quot;action&quot;: &quot;install&quot;,
+            &quot;id&quot;: &quot;5475279&quot;,
+            &quot;version&quot;: &quot;::apt&quot;,
+            &quot;url&quot;: &quot; &quot;
+        }
+    ]
+}
+09:00:08 INFO  Started operation: {'creationTime': '2022-04-28T09:00:08.469Z', 'deviceName': 'm32sd10c', 'deviceId': '17835720', 'self': 'https://t493319102.eu-latest.cumulocity.com/devicecontrol/operations/17887529', 'id': '17887529', 'status': 'PENDING', 'description': &quot;Apply software changes, triggered from PySys: [{'action': 'install', 'id': '5475369', 'name': 'asciijump', 'url': ' ', 'version': '::apt'}, {'action': 'install', 'id': '5474869', 'name': 'robotfindskitten', 'url': ' ', 'version': '::apt'}, {'action': 'install', 'id': '5475279', 'name': 'squirrel3', 'url': ' ', 'version': '::apt'}]&quot;, 'c8y_SoftwareUpdate': [{'name': 'asciijump', 'action': 'install', 'id': '5475369', 'version': '::apt', 'url': ' '}, {'name': 'robotfindskitten', 'action': 'install', 'id': '5474869', 'version': '::apt', 'url': ' '}, {'name': 'squirrel3', 'action': 'install', 'id': '5475279', 'version': '::apt', 'url': ' '}]}
+09:00:10 INFO  State of operation 17887529 : PENDING
+09:00:13 INFO  State of operation 17887529 : EXECUTING
+09:00:15 INFO  State of operation 17887529 : EXECUTING
+09:00:17 INFO  State of operation 17887529 : EXECUTING
+09:00:19 INFO  State of operation 17887529 : EXECUTING
+09:00:21 INFO  State of operation 17887529 : EXECUTING
+09:00:24 INFO  State of operation 17887529 : EXECUTING
+09:00:27 INFO  State of operation 17887529 : EXECUTING
+09:00:30 INFO  State of operation 17887529 : EXECUTING
+09:00:32 INFO  State of operation 17887529 : EXECUTING
+09:00:34 INFO  State of operation 17887529 : EXECUTING
+09:00:36 INFO  State of operation 17887529 : EXECUTING
+09:00:38 INFO  State of operation 17887529 : EXECUTING
+09:00:41 INFO  State of operation 17887529 : EXECUTING
+09:00:43 INFO  State of operation 17887529 : EXECUTING
+09:00:45 INFO  State of operation 17887529 : EXECUTING
+09:00:48 INFO  State of operation 17887529 : EXECUTING
+09:00:50 INFO  State of operation 17887529 : EXECUTING
+09:00:52 INFO  State of operation 17887529 : EXECUTING
+09:00:55 INFO  State of operation 17887529 : EXECUTING
+09:00:57 INFO  State of operation 17887529 : EXECUTING
+09:01:00 INFO  State of operation 17887529 : EXECUTING
+09:01:02 INFO  State of operation 17887529 : EXECUTING
+09:01:04 INFO  State of operation 17887529 : EXECUTING
+09:01:06 INFO  State of operation 17887529 : EXECUTING
+09:01:09 INFO  State of operation 17887529 : EXECUTING
+09:01:11 INFO  State of operation 17887529 : EXECUTING
+09:01:13 INFO  State of operation 17887529 : EXECUTING
+09:01:15 INFO  State of operation 17887529 : EXECUTING
+09:01:18 INFO  State of operation 17887529 : EXECUTING
+09:01:20 INFO  State of operation 17887529 : EXECUTING
+09:01:22 INFO  State of operation 17887529 : EXECUTING
+09:01:24 INFO  State of operation 17887529 : EXECUTING
+09:01:27 INFO  State of operation 17887529 : EXECUTING
+09:01:29 INFO  State of operation 17887529 : SUCCESSFUL
+09:01:29 INFO  Assert that (False == value) with value=False ... passed
+09:01:29 INFO  Package asciijump is installed
+09:01:29 INFO  Assert that (True == value) with value=True ... passed
+09:01:30 INFO  Package squirrel3 is installed
+09:01:30 INFO  Assert that (True == value) with value=True ... passed
+09:01:30 INFO  Package robotfindskitten is installed
+09:01:30 INFO  Assert that (True == value) with value=True ... passed
+09:01:30 INFO  Response status: 201
+09:01:30 INFO  Response to action: {
+    &quot;creationTime&quot;: &quot;2022-04-28T09:01:30.440Z&quot;,
+    &quot;deviceName&quot;: &quot;m32sd10c&quot;,
+    &quot;deviceId&quot;: &quot;17835720&quot;,
+    &quot;self&quot;: &quot;https://t493319102.eu-latest.cumulocity.com/devicecontrol/operations/17887537&quot;,
+    &quot;id&quot;: &quot;17887537&quot;,
+    &quot;status&quot;: &quot;PENDING&quot;,
+    &quot;description&quot;: &quot;Apply software changes, triggered from PySys: [{'action': 'delete', 'id': '5475369', 'name': 'asciijump', 'url': ' ', 'version': '::apt'}, {'action': 'delete', 'id': '5474869', 'name': 'robotfindskitten', 'url': ' ', 'version': '::apt'}, {'action': 'delete', 'id': '5475279', 'name': 'squirrel3', 'url': ' ', 'version': '::apt'}]&quot;,
+    &quot;c8y_SoftwareUpdate&quot;: [
+        {
+            &quot;name&quot;: &quot;asciijump&quot;,
+            &quot;action&quot;: &quot;delete&quot;,
+            &quot;id&quot;: &quot;5475369&quot;,
+            &quot;version&quot;: &quot;::apt&quot;,
+            &quot;url&quot;: &quot; &quot;
+        },
+        {
+            &quot;name&quot;: &quot;robotfindskitten&quot;,
+            &quot;action&quot;: &quot;delete&quot;,
+            &quot;id&quot;: &quot;5474869&quot;,
+            &quot;version&quot;: &quot;::apt&quot;,
+            &quot;url&quot;: &quot; &quot;
+        },
+        {
+            &quot;name&quot;: &quot;squirrel3&quot;,
+            &quot;action&quot;: &quot;delete&quot;,
+            &quot;id&quot;: &quot;5475279&quot;,
+            &quot;version&quot;: &quot;::apt&quot;,
+            &quot;url&quot;: &quot; &quot;
+        }
+    ]
+}
+09:01:30 INFO  Started operation: {'creationTime': '2022-04-28T09:01:30.440Z', 'deviceName': 'm32sd10c', 'deviceId': '17835720', 'self': 'https://t493319102.eu-latest.cumulocity.com/devicecontrol/operations/17887537', 'id': '17887537', 'status': 'PENDING', 'description': &quot;Apply software changes, triggered from PySys: [{'action': 'delete', 'id': '5475369', 'name': 'asciijump', 'url': ' ', 'version': '::apt'}, {'action': 'delete', 'id': '5474869', 'name': 'robotfindskitten', 'url': ' ', 'version': '::apt'}, {'action': 'delete', 'id': '5475279', 'name': 'squirrel3', 'url': ' ', 'version': '::apt'}]&quot;, 'c8y_SoftwareUpdate': [{'name': 'asciijump', 'action': 'delete', 'id': '5475369', 'version': '::apt', 'url': ' '}, {'name': 'robotfindskitten', 'action': 'delete', 'id': '5474869', 'version': '::apt', 'url': ' '}, {'name': 'squirrel3', 'action': 'delete', 'id': '5475279', 'version': '::apt', 'url': ' '}]}
+09:01:32 INFO  State of operation 17887537 : PENDING
+09:01:34 INFO  State of operation 17887537 : EXECUTING
+09:01:37 INFO  State of operation 17887537 : EXECUTING
+09:01:39 INFO  State of operation 17887537 : EXECUTING
+09:01:41 INFO  State of operation 17887537 : EXECUTING
+09:01:43 INFO  State of operation 17887537 : EXECUTING
+09:01:46 INFO  State of operation 17887537 : EXECUTING
+09:01:49 INFO  State of operation 17887537 : EXECUTING
+09:01:51 INFO  State of operation 17887537 : EXECUTING
+09:01:54 INFO  State of operation 17887537 : EXECUTING
+09:01:56 INFO  State of operation 17887537 : EXECUTING
+09:01:58 INFO  State of operation 17887537 : EXECUTING
+09:02:00 INFO  State of operation 17887537 : EXECUTING
+09:02:03 INFO  State of operation 17887537 : EXECUTING
+09:02:05 INFO  State of operation 17887537 : EXECUTING
+09:02:07 INFO  State of operation 17887537 : EXECUTING
+09:02:10 INFO  State of operation 17887537 : EXECUTING
+09:02:12 INFO  State of operation 17887537 : EXECUTING
+09:02:15 INFO  State of operation 17887537 : EXECUTING
+09:02:17 INFO  State of operation 17887537 : EXECUTING
+09:02:19 INFO  State of operation 17887537 : EXECUTING
+09:02:22 INFO  State of operation 17887537 : EXECUTING
+09:02:24 INFO  State of operation 17887537 : EXECUTING
+09:02:26 INFO  State of operation 17887537 : EXECUTING
+09:02:29 INFO  State of operation 17887537 : EXECUTING
+09:02:31 INFO  State of operation 17887537 : EXECUTING
+09:02:34 INFO  State of operation 17887537 : EXECUTING
+09:02:36 INFO  State of operation 17887537 : SUCCESSFUL
+09:02:36 INFO  Assert that (False == value) with value=False ... passed
+09:02:36 INFO  Assert that (False == value) with value=False ... passed
+09:02:36 INFO  Assert that (False == value) with value=False ... passed
+09:02:37 INFO  Assert that (False == value) with value=False ... passed
+09:02:37 INFO  
+09:02:37 INFO  cleanup:
+09:02:41 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
+09:02:41 INFO  Executed systemctl&lt;serv_mapper5&gt;, exit status 3
+09:02:41 INFO  
+09:02:41 INFO  Test duration: 179.99 secs
+09:02:41 INFO  Test final outcome:  FAILED
+09:02:41 INFO  Test outcome reason: Assert that (False == value) with value=True
+09:02:41 INFO  
+</system-out>
+	</testcase>
+</testsuite>

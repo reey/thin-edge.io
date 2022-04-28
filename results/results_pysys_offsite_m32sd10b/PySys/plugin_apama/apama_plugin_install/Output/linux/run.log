@@ -1,0 +1,24 @@
+2022-04-28 09:16:38,689 INFO  ==============================================================
+2022-04-28 09:16:38,690 INFO  Id:    SoftwareManagement.Plugin.apama_plugin_install
+2022-04-28 09:16:38,694 INFO  Dir:   plugin_apama/
+2022-04-28 09:16:38,695 INFO  Title: Validate apama plugin install
+2022-04-28 09:16:38,695 INFO  ==============================================================
+2022-04-28 09:16:38,780 INFO  Assertion that path exists=False for "/etc/tedge/apama/project" ... passed
+2022-04-28 09:16:41,959 INFO  Executed sudo<plugin_install>, exit status 0
+2022-04-28 09:16:42,824 INFO  Executed sudo<apama_correlator_wait>, exit status 0
+2022-04-28 09:16:43,587 INFO  Executed sudo<plugin_list_after_install>, exit status 0
+2022-04-28 09:16:43,589 INFO  Assertion that path exists=True for "/etc/tedge/apama/project" ... passed
+2022-04-28 09:16:44,355 INFO  Executed sudo<apama_list_monitors>, exit status 0
+2022-04-28 09:16:44,366 INFO  Grep on file /home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/plugin_apama/apama_plugin_install/Output/linux/apama_list_monitors.out ... passed
+2022-04-28 09:16:44,372 INFO  Grep on file plugin_list_after_install.out ... passed
+2022-04-28 09:16:44,377 INFO  Grep on file plugin_list_after_install.out ... passed
+2022-04-28 09:16:44,383 INFO  
+2022-04-28 09:16:44,384 INFO  cleanup:
+2022-04-28 09:16:44,385 INFO  Removing apama project
+2022-04-28 09:17:01,114 INFO  Executed sudo<stop_apama_service>, exit status 0, duration 16 secs
+2022-04-28 09:17:01,626 INFO  Executed sudo<remove_apama_project>, exit status 0
+2022-04-28 09:17:02,141 INFO  Executed sudo<remove_apama_tmp_dir>, exit status 0
+2022-04-28 09:17:02,146 INFO  
+2022-04-28 09:17:02,146 INFO  Test duration: 23.47 secs
+2022-04-28 09:17:02,148 INFO  Test final outcome:  PASSED
+2022-04-28 09:17:02,149 INFO  
