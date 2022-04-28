@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testsuite failures="1" name="log_request_error_messages" skipped="0" tests="1" time="36.29" timestamp="2022-04-28T10:59:32">
+	<testcase classname="LogRequestVerifySearchTextError" name="log_request_error_messages">
+		<failure message="FAILED: Assert that (True == value) with value=False" type="FAILED"/>
+		<system-out>10:58:56 INFO  ==============================================================
+10:58:56 INFO  Id:    log_request_error_messages
+10:58:56 INFO  Dir:   log_request_end_to_end/
+10:58:56 INFO  Title: Validate end to end behaviour for the log request operation check for error messages
+10:58:56 INFO  ==============================================================
+10:58:57 INFO  EnvironmentC8y Setup
+10:58:57 INFO  Executed systemctl&lt;serv_mapper1&gt;, exit status 3
+10:58:58 INFO  Restarting mosquitto too frequently in the last 10 seconds. It was only up for 2 seconds
+10:58:58 INFO  Delaying execution by 9 seconds
+10:59:20 INFO  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 0, duration 13 secs
+10:59:21 INFO  Executed sudo&lt;tedge_connect_c8y_test&gt;, exit status 0
+10:59:22 INFO  Executed systemctl&lt;serv_mosq2&gt;, exit status 0
+10:59:22 INFO  Executed systemctl&lt;serv_mapper3&gt;, exit status 0
+10:59:22 INFO  Executed sudo&lt;rm_logs&gt;, exit status 0
+10:59:23 INFO  Executed sudo&lt;move_logs&gt;, exit status 0
+10:59:24 INFO  log response None
+10:59:24 WARN  retry, retrying in 1 seconds...
+10:59:25 INFO  log response https://thin-edge-io.eu-latest.cumulocity.com/event/events/17869758/binaries
+10:59:26 WARN  Assert that (True == value) with value=False ... failed [run.py:43]
+10:59:26 INFO  
+10:59:26 INFO  cleanup:
+10:59:26 INFO  Executed sudo&lt;rm_logs&gt;, exit status 0
+10:59:27 INFO  Executed sudo&lt;rm_tmp_logs&gt;, exit status 0
+10:59:27 INFO  Executed sudo&lt;send_failed&gt;, exit status 0
+10:59:31 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
+10:59:32 INFO  Executed systemctl&lt;serv_mapper5&gt;, exit status 3
+10:59:32 INFO  
+10:59:32 INFO  Test duration: 36.29 secs
+10:59:32 INFO  Test final outcome:  FAILED
+10:59:32 INFO  Test outcome reason: Assert that (True == value) with value=False
+10:59:32 INFO  
+</system-out>
+	</testcase>
+</testsuite>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testsuite failures="1" name="SoftwareManagement.sm_docker_install_remove_multiple" skipped="0" tests="1" time="41.01" timestamp="2022-04-28T12:12:40">
+	<testcase classname="SMDockerInstallRemove" name="SoftwareManagement.sm_docker_install_remove_multiple">
+		<failure message="BLOCKED: SystemError: The operation has failed" type="BLOCKED"/>
+		<system-out>12:11:59 INFO  ==============================================================
+12:11:59 INFO  Id:    SoftwareManagement.sm_docker_install_remove_multiple
+12:11:59 INFO  Dir:   software_management_end_to_end/
+12:11:59 INFO  Title: Validate end to end behaviour for the docker plugin for multiple docker images with mixed versions
+12:11:59 INFO  ==============================================================
+12:11:59 INFO  Using sw id database: {'asciijump': '5475369', 'robotfindskitten': '5474869', 'squirrel3': '5475279', 'rolldice': '5152439', 'moon-buggy': '5439204', 'apple': '5495053', 'banana': '5494888', 'cherry': '5495382', 'watermelon': '5494510', 'registry': '8018911', 'hello-world': '8021526', 'docker/getting-started': '8021973', 'alpine': '7991792'}
+12:11:59 INFO  EnvironmentC8y Setup
+12:12:00 INFO  Executed systemctl&lt;serv_mapper1&gt;, exit status 3
+12:12:00 INFO  Restarting mosquitto too frequently in the last 10 seconds. It was only up for 4 seconds
+12:12:00 INFO  Delaying execution by 7 seconds
+12:12:21 INFO  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 0, duration 13 secs
+12:12:21 INFO  Executed sudo&lt;tedge_connect_c8y_test&gt;, exit status 0
+12:12:22 INFO  Executed systemctl&lt;serv_mosq2&gt;, exit status 0
+12:12:22 INFO  Executed systemctl&lt;serv_mapper3&gt;, exit status 0
+12:12:24 INFO  State of current operation: SUCCESSFUL
+12:12:25 INFO  Response status: 201
+12:12:25 INFO  Response to action: {
+    &quot;creationTime&quot;: &quot;2022-04-28T12:12:25.050Z&quot;,
+    &quot;deviceName&quot;: &quot;m32sd10c&quot;,
+    &quot;deviceId&quot;: &quot;17884832&quot;,
+    &quot;self&quot;: &quot;https://t493319102.eu-latest.cumulocity.com/devicecontrol/operations/17901377&quot;,
+    &quot;id&quot;: &quot;17901377&quot;,
+    &quot;status&quot;: &quot;PENDING&quot;,
+    &quot;description&quot;: &quot;Apply software changes, triggered from PySys: [{'action': 'install', 'id': '8021526', 'name': 'hello-world', 'url': '', 'version': '::docker'}, {'action': 'install', 'id': '8018911', 'name': 'registry', 'url': '', 'version': '2.6.2::docker'}]&quot;,
+    &quot;c8y_SoftwareUpdate&quot;: [
+        {
+            &quot;name&quot;: &quot;hello-world&quot;,
+            &quot;action&quot;: &quot;install&quot;,
+            &quot;id&quot;: &quot;8021526&quot;,
+            &quot;version&quot;: &quot;::docker&quot;,
+            &quot;url&quot;: &quot;&quot;
+        },
+        {
+            &quot;name&quot;: &quot;registry&quot;,
+            &quot;action&quot;: &quot;install&quot;,
+            &quot;id&quot;: &quot;8018911&quot;,
+            &quot;version&quot;: &quot;2.6.2::docker&quot;,
+            &quot;url&quot;: &quot;&quot;
+        }
+    ]
+}
+12:12:25 INFO  Started operation: {'creationTime': '2022-04-28T12:12:25.050Z', 'deviceName': 'm32sd10c', 'deviceId': '17884832', 'self': 'https://t493319102.eu-latest.cumulocity.com/devicecontrol/operations/17901377', 'id': '17901377', 'status': 'PENDING', 'description': &quot;Apply software changes, triggered from PySys: [{'action': 'install', 'id': '8021526', 'name': 'hello-world', 'url': '', 'version': '::docker'}, {'action': 'install', 'id': '8018911', 'name': 'registry', 'url': '', 'version': '2.6.2::docker'}]&quot;, 'c8y_SoftwareUpdate': [{'name': 'hello-world', 'action': 'install', 'id': '8021526', 'version': '::docker', 'url': ''}, {'name': 'registry', 'action': 'install', 'id': '8018911', 'version': '2.6.2::docker', 'url': ''}]}
+12:12:27 INFO  State of operation 17901377 : PENDING
+12:12:29 INFO  State of operation 17901377 : EXECUTING
+12:12:31 INFO  State of operation 17901377 : EXECUTING
+12:12:33 INFO  State of operation 17901377 : EXECUTING
+12:12:36 INFO  State of operation 17901377 : FAILED
+12:12:36 ERROR Stopping as the operation has failed
+12:12:36 WARN  SystemError occurred while running test - The operation has failed
+Traceback (most recent call last):
+  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/pysys/baserunner.py&quot;, line 1292, in __call__
+    self.testObj.setup()
+  File &quot;/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/sm_docker_install_remove_multiple/run.py&quot;, line 55, in setup
+    self.wait_until_succcess()
+  File &quot;/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/environment_sm_management.py&quot;, line 324, in wait_until_succcess
+    self.wait_until_status(&quot;SUCCESSFUL&quot;)
+  File &quot;/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/environment_sm_management.py&quot;, line 361, in wait_until_status
+    raise SystemError(&quot;The operation has failed&quot;)
+SystemError: The operation has failed
+12:12:36 WARN  SystemError: The operation has failed ... blocked 
+12:12:36 INFO  
+12:12:36 INFO  cleanup:
+12:12:39 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
+12:12:40 INFO  Executed systemctl&lt;serv_mapper5&gt;, exit status 3
+12:12:40 INFO  
+12:12:40 INFO  Test duration: 41.01 secs
+12:12:40 INFO  Test final outcome:  BLOCKED
+12:12:40 INFO  Test outcome reason: SystemError: The operation has failed
+12:12:40 INFO  
+</system-out>
+	</testcase>
+</testsuite>

@@ -1,0 +1,34 @@
+2022-04-28 11:02:16,643 INFO  ==============================================================
+2022-04-28 11:02:16,644 INFO  Id:    monitoring_with_simulated_messages
+2022-04-28 11:02:16,645 INFO  Dir:   monitoring/
+2022-04-28 11:02:16,646 INFO  Title: Validate the tedge dm agent messages that are produced from the simulated collectd messages
+2022-04-28 11:02:16,647 INFO  ==============================================================
+2022-04-28 11:02:17,219 INFO  Executed sudo<collectd>, exit status 0
+2022-04-28 11:02:17,787 INFO  Executed sudo<collectd_mapper>, exit status 0
+2022-04-28 11:02:17,799 INFO  Started sudo<tedge_sub> with process id 26312
+2022-04-28 11:02:18,466 INFO  Executed sudo<tedge_temp>, exit status 0
+2022-04-28 11:02:18,979 INFO  Executed sudo<tedge_pres>, exit status 0
+2022-04-28 11:02:20,492 INFO  Executed sudo<kill_out>, exit status 0
+2022-04-28 11:02:20,496 INFO  0
+
+2022-04-28 11:02:20,497 WARN  TypeError occurred while running test - 'int' object is not subscriptable
+Traceback (most recent call last):
+  File "/home/pi/env-pysys/lib/python3.7/site-packages/pysys/baserunner.py", line 1296, in __call__
+    self.testObj.validate()
+  File "/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/monitoring/monitoring_with_simulated_messages/run.py", line 98, in validate
+    collectd_msg_validation_result=self.validate_json(),
+  File "/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/monitoring/monitoring_with_simulated_messages/run.py", line 108, in validate_json
+    if not self.validate_time():
+  File "/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/monitoring/monitoring_with_simulated_messages/run.py", line 127, in validate_time
+    if self.js_msg["time"]:
+TypeError: 'int' object is not subscriptable
+2022-04-28 11:02:20,512 WARN  TypeError: 'int' object is not subscriptable ... blocked 
+2022-04-28 11:02:20,514 INFO  
+2022-04-28 11:02:20,514 INFO  cleanup:
+2022-04-28 11:02:20,515 INFO  monitoring_cleanup
+2022-04-28 11:02:21,127 INFO  Executed sudo<collectd_mapper>, exit status 0
+2022-04-28 11:02:21,132 INFO  
+2022-04-28 11:02:21,132 INFO  Test duration: 4.49 secs
+2022-04-28 11:02:21,134 INFO  Test final outcome:  BLOCKED
+2022-04-28 11:02:21,135 INFO  Test outcome reason: TypeError: 'int' object is not subscriptable
+2022-04-28 11:02:21,135 INFO  

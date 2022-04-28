@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testsuite failures="1" name="mapper_awaits_before_reconnect" skipped="0" tests="1" time="7.68" timestamp="2022-04-28T11:15:10">
+	<testcase classname="MapperReconnectAwait" name="mapper_awaits_before_reconnect">
+		<failure message="FAILED: Line count on tedge_mapper_journal.out for &quot;tedge_mapper::core::mapper: MQTT connection error:&quot; expected &gt;=2 but got 0" type="FAILED"/>
+		<system-out>11:15:03 INFO  ==============================================================
+11:15:03 INFO  Id:    mapper_awaits_before_reconnect
+11:15:03 INFO  Dir:   tedge_mapper_c8y/
+11:15:03 INFO  Title: Validate mapper doesn't reconnect too often
+11:15:03 INFO  ==============================================================
+11:15:03 INFO  Started mosquitto_sub with process id 30120
+11:15:03 INFO  Waiting for 0.1 seconds
+11:15:03 INFO  Executed sudo&lt;tedge_mapper&gt;, exit status 0
+11:15:03 INFO  Waiting for 5.0 seconds
+11:15:09 INFO  Executed sudo&lt;tedge_mapper&gt;, exit status 0
+11:15:10 INFO  Executed sudo&lt;tedge_mapper_journal&gt;, exit status 0
+11:15:10 WARN  Grep on tedge_mapper_journal.out contains &quot;ERROR&quot; ... failed [run.py:67]
+11:15:10 INFO  Line count on file tedge_mapper_journal.out ... passed
+11:15:10 WARN  Line count on tedge_mapper_journal.out for &quot;tedge_mapper::core::mapper: MQTT connection error:&quot; expected &gt;=2 but got 0 ... failed [run.py:78]
+11:15:10 WARN  Aborted test due to FAILED outcome
+11:15:10 INFO  
+11:15:10 INFO  Test duration: 7.68 secs
+11:15:10 INFO  Test final outcome:  FAILED
+11:15:10 INFO  Test outcome reason: Line count on tedge_mapper_journal.out for &quot;tedge_mapper::core::mapper: MQTT connection error:&quot; expected &gt;=2 but got 0
+11:15:10 INFO  
+</system-out>
+	</testcase>
+</testsuite>

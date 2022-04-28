@@ -1,0 +1,75 @@
+2022-04-28 12:12:42,125 INFO  ==============================================================
+2022-04-28 12:12:42,126 INFO  Id:    SoftwareManagement.sm_fake_install_remove
+2022-04-28 12:12:42,127 INFO  Dir:   software_management_end_to_end/
+2022-04-28 12:12:42,128 INFO  Title: Validate end to end behaviour for the dummy plugin for installation and removal of packages
+2022-04-28 12:12:42,128 INFO  ==============================================================
+2022-04-28 12:12:42,134 INFO  Using sw id database: {'asciijump': '5475369', 'robotfindskitten': '5474869', 'squirrel3': '5475279', 'rolldice': '5152439', 'moon-buggy': '5439204', 'apple': '5495053', 'banana': '5494888', 'cherry': '5495382', 'watermelon': '5494510', 'registry': '8018911', 'hello-world': '8021526', 'docker/getting-started': '8021973', 'alpine': '7991792'}
+2022-04-28 12:12:42,136 INFO  EnvironmentC8y Setup
+2022-04-28 12:12:42,704 INFO  Executed systemctl<serv_mapper1>, exit status 3
+2022-04-28 12:12:42,809 INFO  Restarting mosquitto too frequently in the last 10 seconds. It was only up for 5 seconds
+2022-04-28 12:12:42,810 INFO  Delaying execution by 6 seconds
+2022-04-28 12:13:02,873 INFO  Executed sudo<tedge_connect_c8y>, exit status 0, duration 14 secs
+2022-04-28 12:13:03,470 INFO  Executed sudo<tedge_connect_c8y_test>, exit status 0
+2022-04-28 12:13:03,936 INFO  Executed systemctl<serv_mosq2>, exit status 0
+2022-04-28 12:13:04,405 INFO  Executed systemctl<serv_mapper3>, exit status 0
+2022-04-28 12:13:06,627 INFO  State of current operation: FAILED
+2022-04-28 12:13:06,873 INFO  Assert that (False == value) with value=False ... passed
+2022-04-28 12:13:07,095 INFO  Response status: 201
+2022-04-28 12:13:07,097 INFO  Response to action: {
+    "creationTime": "2022-04-28T12:13:07.056Z",
+    "deviceName": "m32sd10b",
+    "deviceId": "17884833",
+    "self": "https://t493319102.eu-latest.cumulocity.com/devicecontrol/operations/17901394",
+    "id": "17901394",
+    "status": "PENDING",
+    "description": "Apply software changes, triggered from PySys: [{'name': 'watermelon', 'id': '5494510', 'version': '::fruits', 'url': '', 'action': 'install'}]",
+    "c8y_SoftwareUpdate": [
+        {
+            "name": "watermelon",
+            "action": "install",
+            "id": "5494510",
+            "version": "::fruits",
+            "url": ""
+        }
+    ]
+}
+2022-04-28 12:13:07,098 INFO  Started operation: {'creationTime': '2022-04-28T12:13:07.056Z', 'deviceName': 'm32sd10b', 'deviceId': '17884833', 'self': 'https://t493319102.eu-latest.cumulocity.com/devicecontrol/operations/17901394', 'id': '17901394', 'status': 'PENDING', 'description': "Apply software changes, triggered from PySys: [{'name': 'watermelon', 'id': '5494510', 'version': '::fruits', 'url': '', 'action': 'install'}]", 'c8y_SoftwareUpdate': [{'name': 'watermelon', 'action': 'install', 'id': '5494510', 'version': '::fruits', 'url': ''}]}
+2022-04-28 12:13:09,312 INFO  State of operation 17901394 : PENDING
+2022-04-28 12:13:11,541 INFO  State of operation 17901394 : EXECUTING
+2022-04-28 12:13:13,767 INFO  State of operation 17901394 : EXECUTING
+2022-04-28 12:13:15,970 INFO  State of operation 17901394 : SUCCESSFUL
+2022-04-28 12:13:16,205 INFO  Package vanilla is installed
+2022-04-28 12:13:16,207 INFO  Assert that (True == value) with value=True ... passed
+2022-04-28 12:13:16,433 INFO  Response status: 201
+2022-04-28 12:13:16,435 INFO  Response to action: {
+    "creationTime": "2022-04-28T12:13:16.393Z",
+    "deviceName": "m32sd10b",
+    "deviceId": "17884833",
+    "self": "https://t493319102.eu-latest.cumulocity.com/devicecontrol/operations/17901410",
+    "id": "17901410",
+    "status": "PENDING",
+    "description": "Apply software changes, triggered from PySys: [{'name': 'watermelon', 'id': '5494510', 'version': '::fruits', 'url': '', 'action': 'delete'}]",
+    "c8y_SoftwareUpdate": [
+        {
+            "name": "watermelon",
+            "action": "delete",
+            "id": "5494510",
+            "version": "::fruits",
+            "url": ""
+        }
+    ]
+}
+2022-04-28 12:13:16,435 INFO  Started operation: {'creationTime': '2022-04-28T12:13:16.393Z', 'deviceName': 'm32sd10b', 'deviceId': '17884833', 'self': 'https://t493319102.eu-latest.cumulocity.com/devicecontrol/operations/17901410', 'id': '17901410', 'status': 'PENDING', 'description': "Apply software changes, triggered from PySys: [{'name': 'watermelon', 'id': '5494510', 'version': '::fruits', 'url': '', 'action': 'delete'}]", 'c8y_SoftwareUpdate': [{'name': 'watermelon', 'action': 'delete', 'id': '5494510', 'version': '::fruits', 'url': ''}]}
+2022-04-28 12:13:18,662 INFO  State of operation 17901410 : PENDING
+2022-04-28 12:13:20,878 INFO  State of operation 17901410 : EXECUTING
+2022-04-28 12:13:23,111 INFO  State of operation 17901410 : EXECUTING
+2022-04-28 12:13:25,321 INFO  State of operation 17901410 : SUCCESSFUL
+2022-04-28 12:13:25,546 INFO  Assert that (False == value) with value=False ... passed
+2022-04-28 12:13:25,552 INFO  
+2022-04-28 12:13:25,553 INFO  cleanup:
+2022-04-28 12:13:29,452 INFO  Executed sudo<tedge_disconnect_c8y>, exit status 0
+2022-04-28 12:13:30,016 INFO  Executed systemctl<serv_mapper5>, exit status 3
+2022-04-28 12:13:30,020 INFO  
+2022-04-28 12:13:30,020 INFO  Test duration: 47.90 secs
+2022-04-28 12:13:30,022 INFO  Test final outcome:  PASSED
+2022-04-28 12:13:30,023 INFO  

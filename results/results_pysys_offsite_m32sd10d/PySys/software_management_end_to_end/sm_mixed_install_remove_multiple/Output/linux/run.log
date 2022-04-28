@@ -1,0 +1,111 @@
+2022-04-28 12:13:53,817 INFO  ==============================================================
+2022-04-28 12:13:53,818 INFO  Id:    SoftwareManagement.sm_mixed_install_remove_multiple
+2022-04-28 12:13:53,819 INFO  Dir:   software_management_end_to_end/
+2022-04-28 12:13:53,820 INFO  Title: Validate end to end behaviour for the dummy-plugin for multiple packages with mixed versions
+2022-04-28 12:13:53,821 INFO  ==============================================================
+2022-04-28 12:13:53,829 INFO  Using sw id database: {'asciijump': '5475369', 'robotfindskitten': '5474869', 'squirrel3': '5475279', 'rolldice': '5152439', 'moon-buggy': '5439204', 'apple': '5495053', 'banana': '5494888', 'cherry': '5495382', 'watermelon': '5494510', 'registry': '8018911', 'hello-world': '8021526', 'docker/getting-started': '8021973', 'alpine': '7991792'}
+2022-04-28 12:13:53,830 INFO  EnvironmentC8y Setup
+2022-04-28 12:13:54,392 INFO  Executed systemctl<serv_mapper1>, exit status 3
+2022-04-28 12:13:54,520 INFO  Restarting mosquitto too frequently in the last 10 seconds. It was only up for 5 seconds
+2022-04-28 12:13:54,522 INFO  Delaying execution by 6 seconds
+2022-04-28 12:14:14,042 INFO  Executed sudo<tedge_connect_c8y>, exit status 0, duration 13 secs
+2022-04-28 12:14:14,659 INFO  Executed sudo<tedge_connect_c8y_test>, exit status 0
+2022-04-28 12:14:15,151 INFO  Executed systemctl<serv_mosq2>, exit status 0
+2022-04-28 12:14:15,614 INFO  Executed systemctl<serv_mapper3>, exit status 0
+2022-04-28 12:14:17,847 INFO  State of current operation: SUCCESSFUL
+2022-04-28 12:14:18,080 INFO  Package apple is installed
+2022-04-28 12:14:18,082 INFO  Assert that (True == value) with value=True ... passed
+2022-04-28 12:14:18,304 INFO  Package banana is installed
+2022-04-28 12:14:18,306 INFO  Assert that (True == value) with value=True ... passed
+2022-04-28 12:14:18,530 INFO  Package cherry is installed
+2022-04-28 12:14:18,532 INFO  Assert that (True == value) with value=True ... passed
+2022-04-28 12:14:18,748 INFO  Package asciijump is installed
+2022-04-28 12:14:18,782 WARN  Assert that (False == value) with value=True ... failed 
+2022-04-28 12:14:19,029 INFO  Assert that (False == value) with value=False ... passed
+2022-04-28 12:14:19,292 INFO  Response status: 201
+2022-04-28 12:14:19,294 INFO  Response to action: {
+    "creationTime": "2022-04-28T12:14:19.235Z",
+    "deviceName": "m32sd10d",
+    "deviceId": "17889227",
+    "self": "https://t493319102.eu-latest.cumulocity.com/devicecontrol/operations/17901429",
+    "id": "17901429",
+    "status": "PENDING",
+    "description": "Apply software changes, triggered from PySys: [{'action': 'install', 'id': '5495053', 'name': 'apple', 'url': ' ', 'version': '::fruits'}, {'action': 'install', 'id': '5494888', 'name': 'banana', 'url': ' ', 'version': '::fruits'}, {'action': 'install', 'id': '5475369', 'name': 'asciijump', 'url': ' ', 'version': '::apt'}, {'action': 'install', 'id': '5495382', 'name': 'cherry', 'url': ' ', 'version': '::fruits'}, {'action': 'install', 'id': '8018911', 'name': 'registry', 'url': ' ', 'version': '::docker'}]",
+    "c8y_SoftwareUpdate": [
+        {
+            "name": "apple",
+            "action": "install",
+            "id": "5495053",
+            "version": "::fruits",
+            "url": " "
+        },
+        {
+            "name": "banana",
+            "action": "install",
+            "id": "5494888",
+            "version": "::fruits",
+            "url": " "
+        },
+        {
+            "name": "asciijump",
+            "action": "install",
+            "id": "5475369",
+            "version": "::apt",
+            "url": " "
+        },
+        {
+            "name": "cherry",
+            "action": "install",
+            "id": "5495382",
+            "version": "::fruits",
+            "url": " "
+        },
+        {
+            "name": "registry",
+            "action": "install",
+            "id": "8018911",
+            "version": "::docker",
+            "url": " "
+        }
+    ]
+}
+2022-04-28 12:14:19,295 INFO  Started operation: {'creationTime': '2022-04-28T12:14:19.235Z', 'deviceName': 'm32sd10d', 'deviceId': '17889227', 'self': 'https://t493319102.eu-latest.cumulocity.com/devicecontrol/operations/17901429', 'id': '17901429', 'status': 'PENDING', 'description': "Apply software changes, triggered from PySys: [{'action': 'install', 'id': '5495053', 'name': 'apple', 'url': ' ', 'version': '::fruits'}, {'action': 'install', 'id': '5494888', 'name': 'banana', 'url': ' ', 'version': '::fruits'}, {'action': 'install', 'id': '5475369', 'name': 'asciijump', 'url': ' ', 'version': '::apt'}, {'action': 'install', 'id': '5495382', 'name': 'cherry', 'url': ' ', 'version': '::fruits'}, {'action': 'install', 'id': '8018911', 'name': 'registry', 'url': ' ', 'version': '::docker'}]", 'c8y_SoftwareUpdate': [{'name': 'apple', 'action': 'install', 'id': '5495053', 'version': '::fruits', 'url': ' '}, {'name': 'banana', 'action': 'install', 'id': '5494888', 'version': '::fruits', 'url': ' '}, {'name': 'asciijump', 'action': 'install', 'id': '5475369', 'version': '::apt', 'url': ' '}, {'name': 'cherry', 'action': 'install', 'id': '5495382', 'version': '::fruits', 'url': ' '}, {'name': 'registry', 'action': 'install', 'id': '8018911', 'version': '::docker', 'url': ' '}]}
+2022-04-28 12:14:21,511 INFO  State of operation 17901429 : PENDING
+2022-04-28 12:14:23,741 INFO  State of operation 17901429 : EXECUTING
+2022-04-28 12:14:26,003 INFO  State of operation 17901429 : EXECUTING
+2022-04-28 12:14:28,220 INFO  State of operation 17901429 : EXECUTING
+2022-04-28 12:14:30,441 INFO  State of operation 17901429 : EXECUTING
+2022-04-28 12:14:32,673 INFO  State of operation 17901429 : EXECUTING
+2022-04-28 12:14:35,324 INFO  State of operation 17901429 : EXECUTING
+2022-04-28 12:14:38,035 INFO  State of operation 17901429 : EXECUTING
+2022-04-28 12:14:40,258 INFO  State of operation 17901429 : EXECUTING
+2022-04-28 12:14:42,688 INFO  State of operation 17901429 : EXECUTING
+2022-04-28 12:14:44,939 INFO  State of operation 17901429 : EXECUTING
+2022-04-28 12:14:47,167 INFO  State of operation 17901429 : EXECUTING
+2022-04-28 12:14:49,385 INFO  State of operation 17901429 : EXECUTING
+2022-04-28 12:14:51,607 INFO  State of operation 17901429 : EXECUTING
+2022-04-28 12:14:53,818 INFO  State of operation 17901429 : EXECUTING
+2022-04-28 12:14:56,030 INFO  State of operation 17901429 : EXECUTING
+2022-04-28 12:14:58,237 INFO  State of operation 17901429 : FAILED
+2022-04-28 12:14:58,238 ERROR Stopping as the operation has failed
+2022-04-28 12:14:58,239 WARN  SystemError occurred while running test - The operation has failed
+Traceback (most recent call last):
+  File "/home/pi/env-pysys/lib/python3.7/site-packages/pysys/baserunner.py", line 1294, in __call__
+    self.testObj.execute()
+  File "/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/sm_mixed_install_remove_multiple/run.py", line 95, in execute
+    self.wait_until_succcess()
+  File "/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/environment_sm_management.py", line 324, in wait_until_succcess
+    self.wait_until_status("SUCCESSFUL")
+  File "/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/environment_sm_management.py", line 361, in wait_until_status
+    raise SystemError("The operation has failed")
+SystemError: The operation has failed
+2022-04-28 12:14:58,258 WARN  SystemError: The operation has failed ... blocked 
+2022-04-28 12:14:58,259 INFO  
+2022-04-28 12:14:58,260 INFO  cleanup:
+2022-04-28 12:15:02,292 INFO  Executed sudo<tedge_disconnect_c8y>, exit status 0
+2022-04-28 12:15:02,855 INFO  Executed systemctl<serv_mapper5>, exit status 3
+2022-04-28 12:15:02,859 INFO  
+2022-04-28 12:15:02,860 INFO  Test duration: 69.05 secs
+2022-04-28 12:15:02,861 INFO  Test final outcome:  BLOCKED
+2022-04-28 12:15:02,862 INFO  Test outcome reason: SystemError: The operation has failed (+1 other failures)
+2022-04-28 12:15:02,863 INFO  

@@ -1,0 +1,23 @@
+2022-04-28 11:53:00,983 INFO  ==============================================================
+2022-04-28 11:53:00,984 INFO  Id:    docker_plugin_install_with_version
+2022-04-28 11:53:00,985 INFO  Dir:   plugin_docker/
+2022-04-28 11:53:00,986 INFO  Title: Validate docker plugin install
+2022-04-28 11:53:00,987 INFO  ==============================================================
+2022-04-28 11:53:01,804 INFO  Executed sudo<docker_images>, exit status 0
+2022-04-28 11:53:01,809 INFO  Grep on file /home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/plugin_docker/docker_plugin_install_with_version/Output/linux/docker_images.out ... passed
+2022-04-28 11:53:04,179 WARN  Executed sudo<plugin_install>, exit status 2
+2022-04-28 11:53:04,199 WARN  sudo<plugin_install> returned non-zero exit code 2 ... blocked [environment_docker_plugin.py:136,environment_docker_plugin.py:144,run.py:24]
+2022-04-28 11:53:05,011 INFO  Executed sudo<docker_ps_latest>, exit status 0
+2022-04-28 11:53:05,828 INFO  Executed sudo<docker_ps>, exit status 0
+2022-04-28 11:53:05,852 WARN  Grep on /home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/plugin_docker/docker_plugin_install_with_version/Output/linux/docker_ps.out contains "registry:2.7.1" ... failed [environment_docker_plugin.py:49,run.py:28]
+2022-04-28 11:53:05,858 INFO  
+2022-04-28 11:53:05,859 INFO  cleanup:
+2022-04-28 11:53:05,860 INFO  Removing containers scheduled to be cleaned up: ['', '']
+2022-04-28 11:53:06,673 WARN  Executed sudo<containers_for_cleanup>, exit status 1
+2022-04-28 11:53:06,674 INFO  Removing images scheduled to be cleaned up: ['registry', 'registry:2.7.1']
+2022-04-28 11:53:07,487 INFO  Executed sudo<containers_for_cleanup>, exit status 0
+2022-04-28 11:53:07,491 INFO  
+2022-04-28 11:53:07,492 INFO  Test duration: 6.51 secs
+2022-04-28 11:53:07,493 INFO  Test final outcome:  BLOCKED
+2022-04-28 11:53:07,494 INFO  Test outcome reason: sudo<plugin_install> returned non-zero exit code 2 (+1 other failures)
+2022-04-28 11:53:07,495 INFO  

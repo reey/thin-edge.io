@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testsuite failures="1" name="docker_plugin_remove_with_version" skipped="0" tests="1" time="4.63" timestamp="2022-04-28T11:53:29">
+	<testcase classname="DockerPluginRemoveWithVersionTest" name="docker_plugin_remove_with_version">
+		<failure message="BLOCKED: sudo&lt;docker_run&gt; returned non-zero exit code 125" type="BLOCKED"/>
+		<system-out>11:53:24 INFO  ==============================================================
+11:53:24 INFO  Id:    docker_plugin_remove_with_version
+11:53:24 INFO  Dir:   plugin_docker/
+11:53:24 INFO  Title: Validate docker plugin remove with version
+11:53:24 INFO  ==============================================================
+11:53:25 INFO  Executed sudo&lt;docker_images&gt;, exit status 0
+11:53:25 INFO  Grep on file /home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/plugin_docker/docker_plugin_remove_with_version/Output/linux/docker_images.out ... passed
+11:53:27 WARN  Executed sudo&lt;docker_run&gt;, exit status 125
+11:53:27 INFO  Contents of docker_run.err: 
+  Unable to find image 'registry:2.7.1' locally
+  docker: Error response from daemon: toomanyrequests: You have reached your pull rate limit. You may increase the limit by authenticating and upgrading: https://www.docker.com/increase-rate-limit.
+  See 'docker run --help'.
+  -----
+
+11:53:27 WARN  sudo&lt;docker_run&gt; returned non-zero exit code 125 ... blocked 
+11:53:27 WARN  Aborted test due to BLOCKED outcome
+11:53:27 INFO  
+11:53:27 INFO  cleanup:
+11:53:27 INFO  Removing containers scheduled to be cleaned up: ['', '']
+11:53:28 WARN  Executed sudo&lt;containers_for_cleanup&gt;, exit status 1
+11:53:28 INFO  Removing images scheduled to be cleaned up: ['registry', 'registry:2.7.1']
+11:53:29 INFO  Executed sudo&lt;containers_for_cleanup&gt;, exit status 0
+11:53:29 INFO  
+11:53:29 INFO  Test duration: 4.63 secs
+11:53:29 INFO  Test final outcome:  BLOCKED
+11:53:29 INFO  Test outcome reason: sudo&lt;docker_run&gt; returned non-zero exit code 125
+11:53:29 INFO  
+</system-out>
+	</testcase>
+</testsuite>

@@ -1,0 +1,27 @@
+2022-04-28 11:53:07,528 INFO  ==============================================================
+2022-04-28 11:53:07,532 INFO  Id:    docker_plugin_remove
+2022-04-28 11:53:07,533 INFO  Dir:   plugin_docker/
+2022-04-28 11:53:07,534 INFO  Title: Validate docker plugin remove
+2022-04-28 11:53:07,535 INFO  ==============================================================
+2022-04-28 11:53:08,301 INFO  Executed sudo<docker_images>, exit status 0
+2022-04-28 11:53:08,309 INFO  Grep on file /home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/plugin_docker/docker_plugin_remove/Output/linux/docker_images.out ... passed
+2022-04-28 11:53:10,379 WARN  Executed sudo<docker_run>, exit status 125
+2022-04-28 11:53:10,383 INFO  Contents of docker_run.err: 
+2022-04-28 11:53:10,384 INFO    Unable to find image 'registry:latest' locally
+2022-04-28 11:53:10,385 INFO    docker: Error response from daemon: toomanyrequests: You have reached your pull rate limit. You may increase the limit by authenticating and upgrading: https://www.docker.com/increase-rate-limit.
+2022-04-28 11:53:10,386 INFO    See 'docker run --help'.
+2022-04-28 11:53:10,386 INFO    -----
+2022-04-28 11:53:10,387 INFO  
+2022-04-28 11:53:10,438 WARN  sudo<docker_run> returned non-zero exit code 125 ... blocked 
+2022-04-28 11:53:10,439 WARN  Aborted test due to BLOCKED outcome
+2022-04-28 11:53:10,444 INFO  
+2022-04-28 11:53:10,445 INFO  cleanup:
+2022-04-28 11:53:10,446 INFO  Removing containers scheduled to be cleaned up: ['', '']
+2022-04-28 11:53:11,208 WARN  Executed sudo<containers_for_cleanup>, exit status 1
+2022-04-28 11:53:11,212 INFO  Removing images scheduled to be cleaned up: ['registry', 'registry:2.7.1']
+2022-04-28 11:53:12,025 INFO  Executed sudo<containers_for_cleanup>, exit status 0
+2022-04-28 11:53:12,029 INFO  
+2022-04-28 11:53:12,030 INFO  Test duration: 4.51 secs
+2022-04-28 11:53:12,031 INFO  Test final outcome:  BLOCKED
+2022-04-28 11:53:12,032 INFO  Test outcome reason: sudo<docker_run> returned non-zero exit code 125
+2022-04-28 11:53:12,032 INFO  
