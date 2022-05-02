@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testsuite failures="1" name="docker_plugin_update" skipped="0" tests="1" time="38.41" timestamp="2022-05-02T11:21:12">
+	<testcase classname="DockerPluginUpdateTest" name="docker_plugin_update">
+		<failure message="BLOCKED: sudo&lt;plugin_install&gt; returned non-zero exit code 2 (+1 other failures)" type="BLOCKED"/>
+		<system-out>11:20:34 INFO  ==============================================================
+11:20:34 INFO  Id:    docker_plugin_update
+11:20:34 INFO  Dir:   plugin_docker/
+11:20:34 INFO  Title: Validate docker plugin install updates existing containers
+11:20:34 INFO  ==============================================================
+11:20:35 INFO  Executed sudo&lt;docker_images&gt;, exit status 0
+11:20:35 INFO  Grep on file /home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/plugin_docker/docker_plugin_update/Output/linux/docker_images.out ... passed
+11:20:58 INFO  Executed sudo&lt;docker_run&gt;, exit status 0, duration 23 secs
+11:20:59 INFO  Executed sudo&lt;docker_ps&gt;, exit status 0
+11:20:59 INFO  Grep on file /home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/plugin_docker/docker_plugin_update/Output/linux/docker_ps.out ... passed
+11:21:05 WARN  Executed sudo&lt;plugin_install&gt;, exit status 2
+11:21:05 WARN  sudo&lt;plugin_install&gt; returned non-zero exit code 2 ... blocked [environment_docker_plugin.py:136,environment_docker_plugin.py:144,run.py:30]
+11:21:06 INFO  Executed sudo&lt;docker_ps_latest&gt;, exit status 0
+11:21:07 INFO  Executed sudo&lt;docker_ps&gt;, exit status 0
+11:21:07 INFO  Grep on file /home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/plugin_docker/docker_plugin_update/Output/linux/docker_ps.out ... passed
+11:21:08 INFO  Executed sudo&lt;docker_ps&gt;, exit status 0
+11:21:08 WARN  Grep on /home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/plugin_docker/docker_plugin_update/Output/linux/docker_ps.out contains &quot;registry:2.7.1&quot; ... failed [environment_docker_plugin.py:49,run.py:39]
+11:21:08 INFO  
+11:21:08 INFO  cleanup:
+11:21:08 INFO  Removing containers scheduled to be cleaned up: ['f133209a1b27', 'be91eb581d16', '20f1395c1f1da9ffb2043b8087d5ddf6b169d7f279a3ed237894d27b7d223fa0\n', '5f769f93ebf60b2ee225f9ff4379a2f2069c75c617d3fe918db75e95a6be61d4\n', '4fa45b80cee608d793aa60cf5430f576c6370841c5bee5a3ed3d3d2cebed424c\n', '']
+11:21:09 WARN  Executed sudo&lt;containers_for_cleanup&gt;, exit status 1
+11:21:09 INFO  Removing images scheduled to be cleaned up: ['registry', 'registry', 'registry:2.7.1', 'registry', 'registry:2.7.1', 'registry:2.6.2', 'registry:2.7.1']
+11:21:12 INFO  Executed sudo&lt;containers_for_cleanup&gt;, exit status 0
+11:21:12 INFO  
+11:21:12 INFO  Test duration: 38.41 secs
+11:21:12 INFO  Test final outcome:  BLOCKED
+11:21:12 INFO  Test outcome reason: sudo&lt;plugin_install&gt; returned non-zero exit code 2 (+1 other failures)
+11:21:12 INFO  
+</system-out>
+	</testcase>
+</testsuite>

@@ -1,0 +1,64 @@
+2022-05-02 11:25:50,254 INFO  ==============================================================
+2022-05-02 11:25:50,255 INFO  Id:    SoftwareManagement.sm_apt_install_fail
+2022-05-02 11:25:50,256 INFO  Dir:   software_management_end_to_end/
+2022-05-02 11:25:50,257 INFO  Title: Validate end to end behaviour for a failing installation
+2022-05-02 11:25:50,258 INFO  ==============================================================
+2022-05-02 11:25:50,263 INFO  Using sw id database: {'asciijump': '5475369', 'robotfindskitten': '5474869', 'squirrel3': '5475279', 'rolldice': '5152439', 'moon-buggy': '5439204', 'apple': '5495053', 'banana': '5494888', 'cherry': '5495382', 'watermelon': '5494510', 'registry': '8018911', 'hello-world': '8021526', 'docker/getting-started': '8021973', 'alpine': '7991792'}
+2022-05-02 11:25:50,264 INFO  EnvironmentC8y Setup
+2022-05-02 11:25:50,825 INFO  Executed systemctl<serv_mapper1>, exit status 3
+2022-05-02 11:25:50,932 INFO  Restarting mosquitto too frequently in the last 10 seconds. It was only up for 4 seconds
+2022-05-02 11:25:50,934 INFO  Delaying execution by 7 seconds
+2022-05-02 11:26:12,694 INFO  Executed sudo<tedge_connect_c8y>, exit status 0, duration 14 secs
+2022-05-02 11:26:13,361 INFO  Executed sudo<tedge_connect_c8y_test>, exit status 0
+2022-05-02 11:26:13,823 INFO  Executed systemctl<serv_mosq2>, exit status 0
+2022-05-02 11:26:14,294 INFO  Executed systemctl<serv_mapper3>, exit status 0
+2022-05-02 11:26:16,521 INFO  State of current operation: FAILED
+2022-05-02 11:26:16,742 INFO  Response status: 201
+2022-05-02 11:26:16,744 INFO  Response to action: {
+    "delivery": {
+        "time": "2022-05-02T11:26:16.716Z",
+        "log": [],
+        "status": "PENDING"
+    },
+    "creationTime": "2022-05-02T11:26:16.703Z",
+    "deviceName": "m32sd10a",
+    "deviceId": "18123767",
+    "self": "https://t493319102.eu-latest.cumulocity.com/devicecontrol/operations/18153067",
+    "id": "18153067",
+    "status": "PENDING",
+    "description": "Apply software changes, triggered from PySys: [{'name': 'does_not_exist', 'id': '5446165', 'version': '::apt', 'url': '', 'action': 'install'}]",
+    "c8y_SoftwareUpdate": [
+        {
+            "name": "does_not_exist",
+            "action": "install",
+            "id": "5446165",
+            "version": "::apt",
+            "url": ""
+        }
+    ]
+}
+2022-05-02 11:26:16,745 INFO  Started operation: {'delivery': {'time': '2022-05-02T11:26:16.716Z', 'log': [], 'status': 'PENDING'}, 'creationTime': '2022-05-02T11:26:16.703Z', 'deviceName': 'm32sd10a', 'deviceId': '18123767', 'self': 'https://t493319102.eu-latest.cumulocity.com/devicecontrol/operations/18153067', 'id': '18153067', 'status': 'PENDING', 'description': "Apply software changes, triggered from PySys: [{'name': 'does_not_exist', 'id': '5446165', 'version': '::apt', 'url': '', 'action': 'install'}]", 'c8y_SoftwareUpdate': [{'name': 'does_not_exist', 'action': 'install', 'id': '5446165', 'version': '::apt', 'url': ''}]}
+2022-05-02 11:26:18,957 INFO  State of operation 18153067 : PENDING
+2022-05-02 11:26:21,175 INFO  State of operation 18153067 : EXECUTING
+2022-05-02 11:26:23,389 INFO  State of operation 18153067 : EXECUTING
+2022-05-02 11:26:25,813 INFO  State of operation 18153067 : EXECUTING
+2022-05-02 11:26:28,028 INFO  State of operation 18153067 : EXECUTING
+2022-05-02 11:26:30,242 INFO  State of operation 18153067 : EXECUTING
+2022-05-02 11:26:32,836 INFO  State of operation 18153067 : EXECUTING
+2022-05-02 11:26:36,912 INFO  State of operation 18153067 : EXECUTING
+2022-05-02 11:26:39,577 INFO  State of operation 18153067 : EXECUTING
+2022-05-02 11:26:41,788 INFO  State of operation 18153067 : EXECUTING
+2022-05-02 11:26:44,002 INFO  State of operation 18153067 : EXECUTING
+2022-05-02 11:26:46,234 INFO  State of operation 18153067 : EXECUTING
+2022-05-02 11:26:48,468 INFO  State of operation 18153067 : EXECUTING
+2022-05-02 11:26:50,695 INFO  State of operation 18153067 : EXECUTING
+2022-05-02 11:26:52,902 INFO  State of operation 18153067 : FAILED
+2022-05-02 11:26:53,174 INFO  Assert that (False == value) with value=False ... passed
+2022-05-02 11:26:53,186 INFO  
+2022-05-02 11:26:53,187 INFO  cleanup:
+2022-05-02 11:26:57,547 INFO  Executed sudo<tedge_disconnect_c8y>, exit status 0
+2022-05-02 11:26:58,110 INFO  Executed systemctl<serv_mapper5>, exit status 3
+2022-05-02 11:26:58,114 INFO  
+2022-05-02 11:26:58,117 INFO  Test duration: 67.87 secs
+2022-05-02 11:26:58,118 INFO  Test final outcome:  PASSED
+2022-05-02 11:26:58,119 INFO  

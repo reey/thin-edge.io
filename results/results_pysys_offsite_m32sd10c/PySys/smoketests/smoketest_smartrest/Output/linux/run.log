@@ -1,0 +1,36 @@
+2022-05-02 10:30:00,691 INFO  ==============================================================
+2022-05-02 10:30:00,691 INFO  Id:    smoketest_smartrest
+2022-05-02 10:30:00,693 INFO  Dir:   smoketests/
+2022-05-02 10:30:00,693 INFO  Title: Smoketest SmartREST
+2022-05-02 10:30:00,694 INFO  ==============================================================
+2022-05-02 10:30:00,698 INFO  EnvironmentC8y Setup
+2022-05-02 10:30:01,260 INFO  Executed systemctl<serv_mapper1>, exit status 3
+2022-05-02 10:30:01,366 INFO  Restarting mosquitto too frequently in the last 10 seconds. It was only up for 4 seconds
+2022-05-02 10:30:01,368 INFO  Delaying execution by 7 seconds
+2022-05-02 10:30:22,579 INFO  Executed sudo<tedge_connect_c8y>, exit status 0, duration 14 secs
+2022-05-02 10:30:23,149 INFO  Executed sudo<tedge_connect_c8y_test>, exit status 0
+2022-05-02 10:30:23,612 INFO  Executed systemctl<serv_mosq2>, exit status 0
+2022-05-02 10:30:24,075 INFO  Executed systemctl<serv_mapper3>, exit status 0
+2022-05-02 10:30:44,745 WARN  Executed python3<stdout>, exit status 1
+2022-05-02 10:30:44,752 INFO  Contents of stdout.out: 
+2022-05-02 10:30:44,754 INFO    Act: Publishing values with tedge pub
+2022-05-02 10:30:44,754 INFO    Waiting 3s for values to arrive in C8y
+2022-05-02 10:30:44,755 INFO    Assert: Retrieving data via REST interface
+2022-05-02 10:30:44,756 INFO    Gathering values from 2022-05-02 10:30:34+00:00 to 2022-05-02 10:30:44+00:00
+2022-05-02 10:30:44,756 INFO    Found 0 recorded values:
+2022-05-02 10:30:44,757 INFO    Retrieved values:
+2022-05-02 10:30:44,758 INFO    Expected:  0.0  ...  19.0
+2022-05-02 10:30:44,758 INFO    Data verification FAILED
+2022-05-02 10:30:44,759 INFO    -----
+2022-05-02 10:30:44,760 INFO  
+2022-05-02 10:30:44,798 WARN  python3<stdout> returned non-zero exit code 1 ... blocked 
+2022-05-02 10:30:44,799 WARN  Aborted test due to BLOCKED outcome
+2022-05-02 10:30:44,805 INFO  
+2022-05-02 10:30:44,806 INFO  cleanup:
+2022-05-02 10:30:48,713 INFO  Executed sudo<tedge_disconnect_c8y>, exit status 0
+2022-05-02 10:30:49,276 INFO  Executed systemctl<serv_mapper5>, exit status 3
+2022-05-02 10:30:49,280 INFO  
+2022-05-02 10:30:49,280 INFO  Test duration: 48.59 secs
+2022-05-02 10:30:49,281 INFO  Test final outcome:  BLOCKED
+2022-05-02 10:30:49,282 INFO  Test outcome reason: python3<stdout> returned non-zero exit code 1
+2022-05-02 10:30:49,283 INFO  

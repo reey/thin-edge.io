@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testsuite failures="1" name="smoketest_json" skipped="0" tests="1" time="45.09" timestamp="2022-05-02T10:28:00">
+	<testcase classname="SmokeTestJson" name="smoketest_json">
+		<failure message="BLOCKED: python3&lt;stdout&gt; returned non-zero exit code 1" type="BLOCKED"/>
+		<system-out>10:27:15 INFO  ==============================================================
+10:27:15 INFO  Id:    smoketest_json
+10:27:15 INFO  Dir:   smoketests/
+10:27:15 INFO  Title: Smoke Test Json
+10:27:15 INFO  ==============================================================
+10:27:15 INFO  EnvironmentC8y Setup
+10:27:16 INFO  Executed systemctl&lt;serv_mapper1&gt;, exit status 3
+10:27:16 INFO  Restarting mosquitto too frequently in the last 10 seconds. It was only up for 5 seconds
+10:27:16 INFO  Delaying execution by 6 seconds
+10:27:36 INFO  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 0, duration 14 secs
+10:27:37 INFO  Executed sudo&lt;tedge_connect_c8y_test&gt;, exit status 0
+10:27:37 INFO  Executed systemctl&lt;serv_mosq2&gt;, exit status 0
+10:27:38 INFO  Executed systemctl&lt;serv_mapper3&gt;, exit status 0
+10:27:56 WARN  Executed python3&lt;stdout&gt;, exit status 1
+10:27:56 INFO  Contents of stdout.out: 
+  Publishing sawtooth with delay 100ms height 20 iterations 1 template flux will cause 20 publishs.
+  Iteraton: 0
+  Execution took 2 s 2005 ms
+  Publish rate: 100.250 ms/pub
+  Publish per second: 9.975 pub/s
+  Act: Publishing values with temperature_publisher
+  Waiting 3s for values to arrive in C8y
+  Assert: Retrieving data via REST interface
+  Gathering values from 2022-05-02 10:27:45+00:00 to 2022-05-02 10:27:55+00:00
+  Found 0 recorded values:
+  Retrieved values:
+  Expected:  0.0  ...  19.0
+  Data verification FAILED
+  -----
+
+10:27:56 WARN  python3&lt;stdout&gt; returned non-zero exit code 1 ... blocked 
+10:27:56 WARN  Aborted test due to BLOCKED outcome
+10:27:56 INFO  
+10:27:56 INFO  cleanup:
+10:28:00 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
+10:28:00 INFO  Executed systemctl&lt;serv_mapper5&gt;, exit status 3
+10:28:00 INFO  
+10:28:00 INFO  Test duration: 45.09 secs
+10:28:00 INFO  Test final outcome:  BLOCKED
+10:28:00 INFO  Test outcome reason: python3&lt;stdout&gt; returned non-zero exit code 1
+10:28:00 INFO  
+</system-out>
+	</testcase>
+</testsuite>
