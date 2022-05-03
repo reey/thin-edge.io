@@ -1,0 +1,27 @@
+2022-05-03 19:18:27,707 INFO  ==============================================================
+2022-05-03 19:18:27,708 INFO  Id:    docker_plugin_remove
+2022-05-03 19:18:27,709 INFO  Dir:   plugin_docker/
+2022-05-03 19:18:27,710 INFO  Title: Validate docker plugin remove
+2022-05-03 19:18:27,711 INFO  ==============================================================
+2022-05-03 19:18:28,529 INFO  Executed sudo<docker_images>, exit status 0
+2022-05-03 19:18:28,534 INFO  Grep on file /home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/plugin_docker/docker_plugin_remove/Output/linux/docker_images.out ... passed
+2022-05-03 19:18:30,620 WARN  Executed sudo<docker_run>, exit status 125
+2022-05-03 19:18:30,624 INFO  Contents of docker_run.err: 
+2022-05-03 19:18:30,625 INFO    Unable to find image 'registry:latest' locally
+2022-05-03 19:18:30,626 INFO    docker: Error response from daemon: toomanyrequests: You have reached your pull rate limit. You may increase the limit by authenticating and upgrading: https://www.docker.com/increase-rate-limit.
+2022-05-03 19:18:30,627 INFO    See 'docker run --help'.
+2022-05-03 19:18:30,628 INFO    -----
+2022-05-03 19:18:30,628 INFO  
+2022-05-03 19:18:30,957 WARN  sudo<docker_run> returned non-zero exit code 125 ... blocked 
+2022-05-03 19:18:30,958 WARN  Aborted test due to BLOCKED outcome
+2022-05-03 19:18:30,962 INFO  
+2022-05-03 19:18:30,963 INFO  cleanup:
+2022-05-03 19:18:30,964 INFO  Removing containers scheduled to be cleaned up: ['7727249a9b22', '64e0cf83563e']
+2022-05-03 19:18:31,729 WARN  Executed sudo<containers_for_cleanup>, exit status 1
+2022-05-03 19:18:31,732 INFO  Removing images scheduled to be cleaned up: ['registry', 'registry', 'registry:2.7.1']
+2022-05-03 19:18:32,546 INFO  Executed sudo<containers_for_cleanup>, exit status 0
+2022-05-03 19:18:32,549 INFO  
+2022-05-03 19:18:32,550 INFO  Test duration: 4.85 secs
+2022-05-03 19:18:32,551 INFO  Test final outcome:  BLOCKED
+2022-05-03 19:18:32,552 INFO  Test outcome reason: sudo<docker_run> returned non-zero exit code 125
+2022-05-03 19:18:32,553 INFO  

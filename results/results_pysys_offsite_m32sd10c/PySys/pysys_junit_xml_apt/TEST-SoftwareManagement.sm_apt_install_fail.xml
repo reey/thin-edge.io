@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testsuite failures="1" name="SoftwareManagement.sm_apt_install_fail" skipped="0" tests="1" time="76.2" timestamp="2022-05-03T19:00:13">
+	<testcase classname="PySysTest" name="SoftwareManagement.sm_apt_install_fail">
+		<failure message="BLOCKED: SystemError: The Sofware list is empty !!!" type="BLOCKED"/>
+		<system-out>18:58:57 INFO  ==============================================================
+18:58:57 INFO  Id:    SoftwareManagement.sm_apt_install_fail
+18:58:57 INFO  Dir:   software_management_end_to_end/
+18:58:57 INFO  Title: Validate end to end behaviour for a failing installation
+18:58:57 INFO  ==============================================================
+18:58:57 INFO  Using sw id database: {'asciijump': '5475369', 'robotfindskitten': '5474869', 'squirrel3': '5475279', 'rolldice': '5152439', 'moon-buggy': '5439204', 'apple': '5495053', 'banana': '5494888', 'cherry': '5495382', 'watermelon': '5494510', 'registry': '8018911', 'hello-world': '8021526', 'docker/getting-started': '8021973', 'alpine': '7991792'}
+18:58:57 INFO  EnvironmentC8y Setup
+18:58:57 INFO  Executed systemctl&lt;serv_mapper1&gt;, exit status 3
+18:58:57 INFO  Restarting mosquitto too frequently in the last 10 seconds. It was only up for 5 seconds
+18:58:57 INFO  Delaying execution by 6 seconds
+18:59:17 INFO  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 0, duration 13 secs
+18:59:18 INFO  Executed sudo&lt;tedge_connect_c8y_test&gt;, exit status 0
+18:59:18 INFO  Executed systemctl&lt;serv_mosq2&gt;, exit status 0
+18:59:19 INFO  Executed systemctl&lt;serv_mapper3&gt;, exit status 0
+18:59:21 INFO  State of current operation: SUCCESSFUL
+18:59:21 INFO  Response status: 201
+18:59:21 INFO  Response to action: {
+    &quot;creationTime&quot;: &quot;2022-05-03T18:59:21.753Z&quot;,
+    &quot;deviceName&quot;: &quot;m32sd10c&quot;,
+    &quot;deviceId&quot;: &quot;18323234&quot;,
+    &quot;self&quot;: &quot;https://t493319102.eu-latest.cumulocity.com/devicecontrol/operations/18334209&quot;,
+    &quot;id&quot;: &quot;18334209&quot;,
+    &quot;status&quot;: &quot;PENDING&quot;,
+    &quot;description&quot;: &quot;Apply software changes, triggered from PySys: [{'name': 'does_not_exist', 'id': '5446165', 'version': '::apt', 'url': '', 'action': 'install'}]&quot;,
+    &quot;c8y_SoftwareUpdate&quot;: [
+        {
+            &quot;name&quot;: &quot;does_not_exist&quot;,
+            &quot;action&quot;: &quot;install&quot;,
+            &quot;id&quot;: &quot;5446165&quot;,
+            &quot;version&quot;: &quot;::apt&quot;,
+            &quot;url&quot;: &quot;&quot;
+        }
+    ]
+}
+18:59:21 INFO  Started operation: {'creationTime': '2022-05-03T18:59:21.753Z', 'deviceName': 'm32sd10c', 'deviceId': '18323234', 'self': 'https://t493319102.eu-latest.cumulocity.com/devicecontrol/operations/18334209', 'id': '18334209', 'status': 'PENDING', 'description': &quot;Apply software changes, triggered from PySys: [{'name': 'does_not_exist', 'id': '5446165', 'version': '::apt', 'url': '', 'action': 'install'}]&quot;, 'c8y_SoftwareUpdate': [{'name': 'does_not_exist', 'action': 'install', 'id': '5446165', 'version': '::apt', 'url': ''}]}
+18:59:24 INFO  State of operation 18334209 : PENDING
+18:59:26 INFO  State of operation 18334209 : EXECUTING
+18:59:28 INFO  State of operation 18334209 : EXECUTING
+18:59:30 INFO  State of operation 18334209 : EXECUTING
+18:59:32 INFO  State of operation 18334209 : EXECUTING
+18:59:35 INFO  State of operation 18334209 : EXECUTING
+18:59:37 INFO  State of operation 18334209 : EXECUTING
+18:59:40 INFO  State of operation 18334209 : EXECUTING
+18:59:43 INFO  State of operation 18334209 : EXECUTING
+18:59:45 INFO  State of operation 18334209 : EXECUTING
+18:59:47 INFO  State of operation 18334209 : EXECUTING
+18:59:49 INFO  State of operation 18334209 : EXECUTING
+18:59:52 INFO  State of operation 18334209 : EXECUTING
+18:59:54 INFO  State of operation 18334209 : EXECUTING
+18:59:56 INFO  State of operation 18334209 : EXECUTING
+18:59:58 INFO  State of operation 18334209 : EXECUTING
+19:00:01 INFO  State of operation 18334209 : EXECUTING
+19:00:04 INFO  State of operation 18334209 : EXECUTING
+19:00:06 INFO  State of operation 18334209 : EXECUTING
+19:00:08 INFO  State of operation 18334209 : FAILED
+19:00:08 WARN  SystemError occurred while running test - The Sofware list is empty !!!
+Traceback (most recent call last):
+  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/pysys/baserunner.py&quot;, line 1296, in __call__
+    self.testObj.validate()
+  File &quot;/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/sm_apt_install_fail/run.py&quot;, line 31, in validate
+    &quot;False == value&quot;, value=self.check_is_installed(&quot;does_not_exist&quot;)
+  File &quot;/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/environment_sm_management.py&quot;, line 399, in check_is_installed
+    raise SystemError(&quot;The Sofware list is empty !!!&quot;)
+SystemError: The Sofware list is empty !!!
+19:00:09 WARN  SystemError: The Sofware list is empty !!! ... blocked 
+19:00:09 INFO  
+19:00:09 INFO  cleanup:
+19:00:12 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
+19:00:13 INFO  Executed systemctl&lt;serv_mapper5&gt;, exit status 3
+19:00:13 INFO  
+19:00:13 INFO  Test duration: 76.20 secs
+19:00:13 INFO  Test final outcome:  BLOCKED
+19:00:13 INFO  Test outcome reason: SystemError: The Sofware list is empty !!!
+19:00:13 INFO  
+</system-out>
+	</testcase>
+</testsuite>
