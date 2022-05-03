@@ -1,0 +1,23 @@
+2022-05-03 09:44:46,376 INFO  ==============================================================
+2022-05-03 09:44:46,377 INFO  Id:    docker_plugin_install_with_version
+2022-05-03 09:44:46,378 INFO  Dir:   plugin_docker/
+2022-05-03 09:44:46,379 INFO  Title: Validate docker plugin install
+2022-05-03 09:44:46,380 INFO  ==============================================================
+2022-05-03 09:44:47,311 INFO  Executed sudo<docker_images>, exit status 0
+2022-05-03 09:44:47,316 INFO  Grep on file /home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/plugin_docker/docker_plugin_install_with_version/Output/linux/docker_images.out ... passed
+2022-05-03 09:44:49,940 WARN  Executed sudo<plugin_install>, exit status 2
+2022-05-03 09:44:49,965 WARN  sudo<plugin_install> returned non-zero exit code 2 ... blocked [environment_docker_plugin.py:136,environment_docker_plugin.py:144,run.py:24]
+2022-05-03 09:44:50,728 INFO  Executed sudo<docker_ps_latest>, exit status 0
+2022-05-03 09:44:51,545 INFO  Executed sudo<docker_ps>, exit status 0
+2022-05-03 09:44:51,566 WARN  Grep on /home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/plugin_docker/docker_plugin_install_with_version/Output/linux/docker_ps.out contains "registry:2.7.1" ... failed [environment_docker_plugin.py:49,run.py:28]
+2022-05-03 09:44:51,572 INFO  
+2022-05-03 09:44:51,573 INFO  cleanup:
+2022-05-03 09:44:51,573 INFO  Removing containers scheduled to be cleaned up: ['', '']
+2022-05-03 09:44:52,336 WARN  Executed sudo<containers_for_cleanup>, exit status 1
+2022-05-03 09:44:52,338 INFO  Removing images scheduled to be cleaned up: ['registry', 'registry', 'registry:2.7.1']
+2022-05-03 09:44:53,162 INFO  Executed sudo<containers_for_cleanup>, exit status 0
+2022-05-03 09:44:53,166 INFO  
+2022-05-03 09:44:53,167 INFO  Test duration: 6.80 secs
+2022-05-03 09:44:53,168 INFO  Test final outcome:  BLOCKED
+2022-05-03 09:44:53,169 INFO  Test outcome reason: sudo<plugin_install> returned non-zero exit code 2 (+1 other failures)
+2022-05-03 09:44:53,170 INFO  

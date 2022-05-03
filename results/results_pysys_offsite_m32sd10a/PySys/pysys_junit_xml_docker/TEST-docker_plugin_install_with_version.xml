@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testsuite failures="1" name="docker_plugin_install_with_version" skipped="0" tests="1" time="6.53" timestamp="2022-05-03T09:44:45">
+	<testcase classname="DockerPluginInstallWithVersionTest" name="docker_plugin_install_with_version">
+		<failure message="BLOCKED: sudo&lt;plugin_install&gt; returned non-zero exit code 2 (+1 other failures)" type="BLOCKED"/>
+		<system-out>09:44:39 INFO  ==============================================================
+09:44:39 INFO  Id:    docker_plugin_install_with_version
+09:44:39 INFO  Dir:   plugin_docker/
+09:44:39 INFO  Title: Validate docker plugin install
+09:44:39 INFO  ==============================================================
+09:44:39 INFO  Executed sudo&lt;docker_images&gt;, exit status 0
+09:44:39 INFO  Grep on file /home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/plugin_docker/docker_plugin_install_with_version/Output/linux/docker_images.out ... passed
+09:44:42 WARN  Executed sudo&lt;plugin_install&gt;, exit status 2
+09:44:42 WARN  sudo&lt;plugin_install&gt; returned non-zero exit code 2 ... blocked [environment_docker_plugin.py:136,environment_docker_plugin.py:144,run.py:24]
+09:44:43 INFO  Executed sudo&lt;docker_ps_latest&gt;, exit status 0
+09:44:43 INFO  Executed sudo&lt;docker_ps&gt;, exit status 0
+09:44:43 WARN  Grep on /home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/plugin_docker/docker_plugin_install_with_version/Output/linux/docker_ps.out contains &quot;registry:2.7.1&quot; ... failed [environment_docker_plugin.py:49,run.py:28]
+09:44:43 INFO  
+09:44:43 INFO  cleanup:
+09:44:43 INFO  Removing containers scheduled to be cleaned up: ['', '']
+09:44:44 WARN  Executed sudo&lt;containers_for_cleanup&gt;, exit status 1
+09:44:44 INFO  Removing images scheduled to be cleaned up: ['registry', 'registry', 'registry:2.7.1']
+09:44:45 INFO  Executed sudo&lt;containers_for_cleanup&gt;, exit status 0
+09:44:45 INFO  
+09:44:45 INFO  Test duration: 6.53 secs
+09:44:45 INFO  Test final outcome:  BLOCKED
+09:44:45 INFO  Test outcome reason: sudo&lt;plugin_install&gt; returned non-zero exit code 2 (+1 other failures)
+09:44:45 INFO  
+</system-out>
+	</testcase>
+</testsuite>

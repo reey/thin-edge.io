@@ -1,0 +1,27 @@
+2022-05-03 09:44:45,623 INFO  ==============================================================
+2022-05-03 09:44:45,624 INFO  Id:    docker_plugin_remove
+2022-05-03 09:44:45,625 INFO  Dir:   plugin_docker/
+2022-05-03 09:44:45,626 INFO  Title: Validate docker plugin remove
+2022-05-03 09:44:45,627 INFO  ==============================================================
+2022-05-03 09:44:46,447 INFO  Executed sudo<docker_images>, exit status 0
+2022-05-03 09:44:46,452 INFO  Grep on file /home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/plugin_docker/docker_plugin_remove/Output/linux/docker_images.out ... passed
+2022-05-03 09:44:48,524 WARN  Executed sudo<docker_run>, exit status 125
+2022-05-03 09:44:48,541 INFO  Contents of docker_run.err: 
+2022-05-03 09:44:48,542 INFO    Unable to find image 'registry:latest' locally
+2022-05-03 09:44:48,543 INFO    docker: Error response from daemon: toomanyrequests: You have reached your pull rate limit. You may increase the limit by authenticating and upgrading: https://www.docker.com/increase-rate-limit.
+2022-05-03 09:44:48,543 INFO    See 'docker run --help'.
+2022-05-03 09:44:48,544 INFO    -----
+2022-05-03 09:44:48,545 INFO  
+2022-05-03 09:44:48,633 WARN  sudo<docker_run> returned non-zero exit code 125 ... blocked 
+2022-05-03 09:44:48,634 WARN  Aborted test due to BLOCKED outcome
+2022-05-03 09:44:48,639 INFO  
+2022-05-03 09:44:48,640 INFO  cleanup:
+2022-05-03 09:44:48,641 INFO  Removing containers scheduled to be cleaned up: ['', '']
+2022-05-03 09:44:49,404 WARN  Executed sudo<containers_for_cleanup>, exit status 1
+2022-05-03 09:44:49,406 INFO  Removing images scheduled to be cleaned up: ['registry', 'registry', 'registry:2.7.1']
+2022-05-03 09:44:50,219 INFO  Executed sudo<containers_for_cleanup>, exit status 0
+2022-05-03 09:44:50,223 INFO  
+2022-05-03 09:44:50,224 INFO  Test duration: 4.61 secs
+2022-05-03 09:44:50,225 INFO  Test final outcome:  BLOCKED
+2022-05-03 09:44:50,225 INFO  Test outcome reason: sudo<docker_run> returned non-zero exit code 125
+2022-05-03 09:44:50,226 INFO  

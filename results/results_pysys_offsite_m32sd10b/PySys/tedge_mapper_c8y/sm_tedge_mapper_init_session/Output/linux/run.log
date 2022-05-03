@@ -1,0 +1,33 @@
+2022-05-03 09:05:49,985 INFO  ==============================================================
+2022-05-03 09:05:49,986 INFO  Id:    sm_tedge_mapper_init_session
+2022-05-03 09:05:49,988 INFO  Dir:   tedge_mapper_c8y/
+2022-05-03 09:05:49,988 INFO  Title: Validate tedge_mapper_sm_c8y init session feature
+2022-05-03 09:05:49,989 INFO  ==============================================================
+2022-05-03 09:05:49,997 INFO  EnvironmentC8y Setup
+2022-05-03 09:05:50,622 INFO  Executed systemctl<serv_mapper1>, exit status 3
+2022-05-03 09:06:04,937 INFO  Executed sudo<tedge_connect_c8y>, exit status 0, duration 14 secs
+2022-05-03 09:06:05,558 INFO  Executed sudo<tedge_connect_c8y_test>, exit status 0
+2022-05-03 09:06:06,021 INFO  Executed systemctl<serv_mosq2>, exit status 0
+2022-05-03 09:06:06,485 INFO  Executed systemctl<serv_mapper3>, exit status 0
+2022-05-03 09:06:07,049 INFO  Executed sudo<stop_tedge_mapper>, exit status 0
+2022-05-03 09:06:07,563 INFO  Executed sudo<remove_lock>, exit status 0
+2022-05-03 09:06:08,076 INFO  Executed sudo<mapper_drop>, exit status 0
+2022-05-03 09:06:08,639 INFO  Executed sudo<mapper_init>, exit status 0
+2022-05-03 09:06:09,153 INFO  Executed sudo<pub_req>, exit status 0
+2022-05-03 09:06:09,163 INFO  Started sudo<sub_resp> with process id 17288
+2022-05-03 09:06:09,731 INFO  Executed sudo<start_mapper>, exit status 0
+2022-05-03 09:06:09,733 INFO  Waiting for 2.0 seconds
+2022-05-03 09:06:12,252 INFO  Executed sudo<sub_stop>, exit status 0
+2022-05-03 09:06:12,260 INFO  Grep on file sub_resp.out ... passed
+2022-05-03 09:06:12,271 INFO  
+2022-05-03 09:06:12,272 INFO  cleanup:
+2022-05-03 09:06:16,250 INFO  Executed sudo<tedge_disconnect_c8y>, exit status 0
+2022-05-03 09:06:16,814 INFO  Executed systemctl<serv_mapper5>, exit status 3
+2022-05-03 09:06:16,919 INFO  Restarting mosquitto too frequently in the last 10 seconds. It was only up for 4 seconds
+2022-05-03 09:06:16,920 INFO  Delaying execution by 7 seconds
+2022-05-03 09:06:24,441 INFO  Executed sudo<tedge_disconnect_c8y>, exit status 0
+2022-05-03 09:06:25,005 INFO  Executed systemctl<serv_mapper5>, exit status 3
+2022-05-03 09:06:25,010 INFO  
+2022-05-03 09:06:25,010 INFO  Test duration: 35.03 secs
+2022-05-03 09:06:25,012 INFO  Test final outcome:  PASSED
+2022-05-03 09:06:25,013 INFO  
