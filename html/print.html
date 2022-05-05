@@ -316,6 +316,17 @@ See this <a href="tutorials/connect-azure.html">tutorial</a>, if you want to con
 <p>This will set the root certificate path of the Cumulocity IoT.
 In most of the Linux flavors, the certificate will be present in /etc/ssl/certs.
 If not found download it from <a href="https://www.identrust.com/dst-root-ca-x3">here</a>.</p>
+<h2 id="connecting-to-cumulocity-server-signed-with-self-signed-certificate"><a class="header" href="#connecting-to-cumulocity-server-signed-with-self-signed-certificate">Connecting to Cumulocity server signed with self-signed certificate</a></h2>
+<p>If the Cumulocity IoT instance that you're connecting to, is signed with a self-signed certificate(eg: Cumulocity IoT Edge instance),
+then the path to that server certificate must be set as the c8y.root.cert.path as follows:</p>
+<pre><code>$ sudo tedge config set c8y.root.cert.path /path/to/the/self-signed/certificate
+</code></pre>
+<blockquote>
+<p>Note: This is the certificate chain of the server and not the device's certificate kept at /etc/tedge/device-certs directory.</p>
+</blockquote>
+<p>If the Cumulocity server's certificate chain file isn't available locally, it can be downloaded using a web browser or using some other
+third-party tools like openssl command as follows (to be adjusted based on your env):</p>
+<p><code>openssl s_client -connect &lt;hostname&gt;:&lt;port&gt; &lt; /dev/null 2&gt;/dev/null | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p'</code></p>
 <h2 id="create-the-certificate"><a class="header" href="#create-the-certificate">Create the certificate</a></h2>
 <p>The <code>tedge cert create</code> command creates a self-signed certificate which can be used for testing purpose.</p>
 <p>A single argument is required: an identifier for the device.
