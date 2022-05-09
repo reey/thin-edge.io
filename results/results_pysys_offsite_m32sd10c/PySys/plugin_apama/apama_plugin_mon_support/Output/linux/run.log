@@ -1,0 +1,36 @@
+2022-05-09 15:37:24,177 INFO  ==============================================================
+2022-05-09 15:37:24,178 INFO  Id:    SoftwareManagement.Plugin.apama_plugin_mon_support
+2022-05-09 15:37:24,179 INFO  Dir:   plugin_apama/
+2022-05-09 15:37:24,180 INFO  Title: Validate mon file support of apama plugin
+2022-05-09 15:37:24,181 INFO  ==============================================================
+2022-05-09 15:37:24,190 INFO  Assertion that path exists=False for "/etc/tedge/apama/project" ... passed
+2022-05-09 15:37:24,701 INFO  Executed sudo<create_project_dir>, exit status 0
+2022-05-09 15:37:25,262 INFO  Executed sudo<unzip_apama_project>, exit status 0
+2022-05-09 15:37:25,773 INFO  Executed sudo<move_apama_project>, exit status 0
+2022-05-09 15:37:26,636 INFO  Executed sudo<restart_apama_service>, exit status 0
+2022-05-09 15:37:27,352 INFO  Executed sudo<apama_correlator_wait>, exit status 0
+2022-05-09 15:37:28,066 INFO  Executed sudo<apama_list_monitors>, exit status 0
+2022-05-09 15:37:28,072 INFO  Grep on file /home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/plugin_apama/apama_plugin_mon_support/Output/linux/apama_list_monitors.out ... passed
+2022-05-09 15:37:28,784 INFO  Executed sudo<plugin_list_before_install>, exit status 0
+2022-05-09 15:37:29,848 INFO  Executed sudo<plugin_install>, exit status 0
+2022-05-09 15:37:30,561 INFO  Executed sudo<apama_correlator_wait>, exit status 0
+2022-05-09 15:37:31,273 INFO  Executed sudo<plugin_list_after_install>, exit status 0
+2022-05-09 15:37:32,488 INFO  Executed sudo<plugin_update>, exit status 0
+2022-05-09 15:37:33,201 INFO  Executed sudo<apama_correlator_wait>, exit status 0
+2022-05-09 15:37:33,937 INFO  Executed sudo<plugin_list_after_update>, exit status 0
+2022-05-09 15:37:34,699 INFO  Executed sudo<plugin_remove>, exit status 0
+2022-05-09 15:37:35,411 INFO  Executed sudo<plugin_list_after_remove>, exit status 0
+2022-05-09 15:37:35,416 INFO  Grep on file plugin_list_before_install.out ... passed
+2022-05-09 15:37:35,421 INFO  Grep on file plugin_list_after_install.out ... passed
+2022-05-09 15:37:35,425 INFO  Grep on file plugin_list_after_update.out ... passed
+2022-05-09 15:37:35,429 INFO  Grep on file plugin_list_after_remove.out ... passed
+2022-05-09 15:37:35,438 INFO  
+2022-05-09 15:37:35,438 INFO  cleanup:
+2022-05-09 15:37:35,439 INFO  Removing apama project
+2022-05-09 15:37:50,233 INFO  Executed sudo<stop_apama_service>, exit status 0, duration 14 secs
+2022-05-09 15:37:50,798 INFO  Executed sudo<remove_apama_project>, exit status 0
+2022-05-09 15:37:51,315 INFO  Executed sudo<remove_apama_tmp_dir>, exit status 0
+2022-05-09 15:37:51,319 INFO  
+2022-05-09 15:37:51,320 INFO  Test duration: 27.16 secs
+2022-05-09 15:37:51,321 INFO  Test final outcome:  PASSED
+2022-05-09 15:37:51,322 INFO  
