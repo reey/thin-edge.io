@@ -1,0 +1,32 @@
+2022-05-11 11:10:21,831 INFO  ==============================================================
+2022-05-11 11:10:21,832 INFO  Id:    SoftwareManagement.Plugin.apama_plugin_update
+2022-05-11 11:10:21,833 INFO  Dir:   plugin_apama/
+2022-05-11 11:10:21,834 INFO  Title: Validate apama plugin updating one project with another
+2022-05-11 11:10:21,835 INFO  ==============================================================
+2022-05-11 11:10:21,842 INFO  Assertion that path exists=False for "/etc/tedge/apama/project" ... passed
+2022-05-11 11:10:22,353 INFO  Executed sudo<create_project_dir>, exit status 0
+2022-05-11 11:10:22,965 INFO  Executed sudo<unzip_apama_project>, exit status 0
+2022-05-11 11:10:23,476 INFO  Executed sudo<move_apama_project>, exit status 0
+2022-05-11 11:10:24,341 INFO  Executed sudo<restart_apama_service>, exit status 0
+2022-05-11 11:10:25,117 INFO  Executed sudo<apama_correlator_wait>, exit status 0
+2022-05-11 11:10:25,119 INFO  Assertion that path exists=True for "/etc/tedge/apama/project" ... passed
+2022-05-11 11:10:25,870 INFO  Executed sudo<apama_list_monitors>, exit status 0
+2022-05-11 11:10:25,875 INFO  Grep on file /home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/plugin_apama/apama_plugin_update/Output/linux/apama_list_monitors.out ... passed
+2022-05-11 11:10:26,486 WARN  Executed sudo<plugin_install>, exit status 2
+2022-05-11 11:10:26,490 INFO  Contents of plugin_install.err: 
+2022-05-11 11:10:26,492 INFO    ERROR: Directory not empty (os error 39)
+2022-05-11 11:10:26,493 INFO    -----
+2022-05-11 11:10:26,493 INFO  
+2022-05-11 11:10:26,857 WARN  sudo<plugin_install> returned non-zero exit code 2 ... blocked [run.py:35]
+2022-05-11 11:10:26,859 WARN  Aborted test due to BLOCKED outcome
+2022-05-11 11:10:26,865 INFO  
+2022-05-11 11:10:26,866 INFO  cleanup:
+2022-05-11 11:10:26,867 INFO  Removing apama project
+2022-05-11 11:10:42,227 INFO  Executed sudo<stop_apama_service>, exit status 0, duration 15 secs
+2022-05-11 11:10:42,739 INFO  Executed sudo<remove_apama_project>, exit status 0
+2022-05-11 11:10:43,301 INFO  Executed sudo<remove_apama_tmp_dir>, exit status 0
+2022-05-11 11:10:43,305 INFO  
+2022-05-11 11:10:43,306 INFO  Test duration: 21.49 secs
+2022-05-11 11:10:43,307 INFO  Test final outcome:  BLOCKED
+2022-05-11 11:10:43,308 INFO  Test outcome reason: sudo<plugin_install> returned non-zero exit code 2
+2022-05-11 11:10:43,309 INFO  

@@ -1,0 +1,100 @@
+2022-05-11 10:23:47,315 INFO  ==============================================================
+2022-05-11 10:23:47,316 INFO  Id:    tedge_mapper_c8y_alarms
+2022-05-11 10:23:47,317 INFO  Dir:   tedge_mapper_c8y/
+2022-05-11 10:23:47,317 INFO  Title: Validate that alarms sent to tedge/alarms topic \ gets mapped as alarms in Cumulocity
+2022-05-11 10:23:47,318 INFO  ==============================================================
+2022-05-11 10:23:47,327 INFO  EnvironmentC8y Setup
+2022-05-11 10:23:47,890 INFO  Executed systemctl<serv_mapper1>, exit status 3
+2022-05-11 10:24:01,737 INFO  Executed sudo<tedge_connect_c8y>, exit status 0, duration 13 secs
+2022-05-11 10:24:02,368 INFO  Executed sudo<tedge_connect_c8y_test>, exit status 0
+2022-05-11 10:24:02,833 INFO  Executed systemctl<serv_mosq2>, exit status 0
+2022-05-11 10:24:03,304 INFO  Executed systemctl<serv_mapper3>, exit status 0
+2022-05-11 10:24:03,717 INFO  Executed tedge, exit status 0
+2022-05-11 10:24:04,180 INFO  Executed tedge, exit status 0
+2022-05-11 10:24:04,595 INFO  Executed tedge, exit status 0
+2022-05-11 10:24:05,007 INFO  Executed tedge, exit status 0
+2022-05-11 10:24:05,469 INFO  Executed tedge, exit status 0
+2022-05-11 10:24:06,693 INFO  {
+    "severity": "CRITICAL",
+    "creationTime": "2022-05-11T10:24:04.600Z",
+    "count": 1,
+    "history": {
+        "auditRecords": [],
+        "self": "https://t493319102.eu-latest.cumulocity.com/audit/auditRecords"
+    },
+    "source": {
+        "name": "m32sd10b",
+        "self": "https://t493319102.eu-latest.cumulocity.com/inventory/managedObjects/18764684",
+        "id": "18764684"
+    },
+    "type": "temperature_dangerous",
+    "lastUpdated": "2022-05-11T10:24:04.600Z",
+    "self": "https://t493319102.eu-latest.cumulocity.com/alarm/alarms/18805271",
+    "time": "2022-05-11T10:24:04.587Z",
+    "id": "18805271",
+    "text": "temperature is dangerously high",
+    "status": "ACTIVE"
+}
+2022-05-11 10:24:06,695 INFO  Assert that (actual == expected) with actual="temperature_dangerous", expected="temperature_dangerous" ... passed
+2022-05-11 10:24:06,696 INFO  Assert that (actual == expected) with actual="CRITICAL", expected="CRITICAL" ... passed
+2022-05-11 10:24:06,698 INFO  Assert that (actual == expected) with actual="temperature is dangerously high", expected="temperature is dangerously high" ... passed
+2022-05-11 10:24:06,700 INFO  {
+    "severity": "MAJOR",
+    "creationTime": "2022-05-11T10:24:04.160Z",
+    "count": 1,
+    "history": {
+        "auditRecords": [],
+        "self": "https://t493319102.eu-latest.cumulocity.com/audit/auditRecords"
+    },
+    "source": {
+        "name": "m32sd10b",
+        "self": "https://t493319102.eu-latest.cumulocity.com/inventory/managedObjects/18764684",
+        "id": "18764684"
+    },
+    "type": "temperature_very_high",
+    "lastUpdated": "2022-05-11T10:24:04.160Z",
+    "self": "https://t493319102.eu-latest.cumulocity.com/alarm/alarms/18805269",
+    "time": "2022-05-11T10:24:04.144Z",
+    "id": "18805269",
+    "text": "temperature is very high",
+    "status": "ACTIVE"
+}
+2022-05-11 10:24:06,701 INFO  Assert that (actual == expected) with actual="temperature_very_high", expected="temperature_very_high" ... passed
+2022-05-11 10:24:06,703 INFO  Assert that (actual == expected) with actual="MAJOR", expected="MAJOR" ... passed
+2022-05-11 10:24:06,704 INFO  Assert that (actual == expected) with actual="temperature is very high", expected="temperature is very high" ... passed
+2022-05-11 10:24:06,706 INFO  {
+    "severity": "WARNING",
+    "creationTime": "2022-05-11T10:24:03.712Z",
+    "count": 1,
+    "history": {
+        "auditRecords": [],
+        "self": "https://t493319102.eu-latest.cumulocity.com/audit/auditRecords"
+    },
+    "source": {
+        "name": "m32sd10b",
+        "self": "https://t493319102.eu-latest.cumulocity.com/inventory/managedObjects/18764684",
+        "id": "18764684"
+    },
+    "type": "temperature_high",
+    "lastUpdated": "2022-05-11T10:24:03.712Z",
+    "self": "https://t493319102.eu-latest.cumulocity.com/alarm/alarms/18805267",
+    "time": "2021-12-15T15:22:06.464+05:30",
+    "id": "18805267",
+    "text": "temperature is high",
+    "status": "ACTIVE"
+}
+2022-05-11 10:24:06,707 INFO  Assert that (actual == expected) with actual="temperature_high", expected="temperature_high" ... passed
+2022-05-11 10:24:06,708 INFO  Assert that (actual == expected) with actual="WARNING", expected="WARNING" ... passed
+2022-05-11 10:24:06,710 INFO  Assert that (actual == expected) with actual="temperature is high", expected="temperature is high" ... passed
+2022-05-11 10:24:06,711 INFO  Assert that (actual == expected) with actual="temperature_high", expected="temperature_high" ... passed
+2022-05-11 10:24:06,718 INFO  
+2022-05-11 10:24:06,719 INFO  cleanup:
+2022-05-11 10:24:07,130 INFO  Executed tedge, exit status 0
+2022-05-11 10:24:07,542 INFO  Executed tedge, exit status 0
+2022-05-11 10:24:08,004 INFO  Executed tedge, exit status 0
+2022-05-11 10:24:12,476 INFO  Executed sudo<tedge_disconnect_c8y>, exit status 0
+2022-05-11 10:24:13,089 INFO  Executed systemctl<serv_mapper5>, exit status 3
+2022-05-11 10:24:13,093 INFO  
+2022-05-11 10:24:13,094 INFO  Test duration: 25.78 secs
+2022-05-11 10:24:13,095 INFO  Test final outcome:  PASSED
+2022-05-11 10:24:13,096 INFO  
