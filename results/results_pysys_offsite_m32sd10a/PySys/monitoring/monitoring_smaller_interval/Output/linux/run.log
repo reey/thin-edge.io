@@ -1,0 +1,52 @@
+2022-05-12 08:54:15,508 INFO  ==============================================================
+2022-05-12 08:54:15,509 INFO  Id:    monitoring_smaller_interval
+2022-05-12 08:54:15,511 INFO  Dir:   monitoring/
+2022-05-12 08:54:15,512 INFO  Title: Validate the tedge dm agent messages that are produced with smaller sampling interval than the batching window. Here the simulated collectd messages are used
+2022-05-12 08:54:15,512 INFO  ==============================================================
+2022-05-12 08:54:16,289 INFO  Executed sudo<collectd>, exit status 0
+2022-05-12 08:54:16,903 INFO  Executed sudo<collectd_mapper>, exit status 0
+2022-05-12 08:54:16,914 INFO  Started sudo<tedge_sub> with process id 29608
+2022-05-12 08:54:17,534 INFO  Executed sudo<tedge_temp>, exit status 0
+2022-05-12 08:54:18,054 INFO  Executed sudo<tedge_pres>, exit status 0
+2022-05-12 08:54:18,668 INFO  Executed sudo<tedge_temp>, exit status 0
+2022-05-12 08:54:19,180 INFO  Executed sudo<tedge_pres>, exit status 0
+2022-05-12 08:54:19,801 INFO  Executed sudo<tedge_temp>, exit status 0
+2022-05-12 08:54:20,315 INFO  Executed sudo<tedge_pres>, exit status 0
+2022-05-12 08:54:20,931 INFO  Executed sudo<tedge_temp>, exit status 0
+2022-05-12 08:54:21,447 INFO  Executed sudo<tedge_pres>, exit status 0
+2022-05-12 08:54:22,060 INFO  Executed sudo<tedge_temp>, exit status 0
+2022-05-12 08:54:22,573 INFO  Executed sudo<tedge_pres>, exit status 0
+2022-05-12 08:54:23,198 INFO  Executed sudo<tedge_temp>, exit status 0
+2022-05-12 08:54:23,711 INFO  Executed sudo<tedge_pres>, exit status 0
+2022-05-12 08:54:24,325 INFO  Executed sudo<tedge_temp>, exit status 0
+2022-05-12 08:54:24,838 INFO  Executed sudo<tedge_pres>, exit status 0
+2022-05-12 08:54:25,451 INFO  Executed sudo<tedge_temp>, exit status 0
+2022-05-12 08:54:25,963 INFO  Executed sudo<tedge_pres>, exit status 0
+2022-05-12 08:54:26,576 INFO  Executed sudo<tedge_temp>, exit status 0
+2022-05-12 08:54:27,089 INFO  Executed sudo<tedge_pres>, exit status 0
+2022-05-12 08:54:27,702 INFO  Executed sudo<tedge_temp>, exit status 0
+2022-05-12 08:54:28,215 INFO  Executed sudo<tedge_pres>, exit status 0
+2022-05-12 08:54:29,829 INFO  Executed sudo<kill_out>, exit status 0
+2022-05-12 08:54:29,832 INFO  0
+
+2022-05-12 08:54:29,834 WARN  TypeError occurred while running test - 'int' object is not subscriptable
+Traceback (most recent call last):
+  File "/home/pi/env-pysys/lib/python3.7/site-packages/pysys/baserunner.py", line 1296, in __call__
+    self.testObj.validate()
+  File "/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/monitoring/monitoring_smaller_interval/run.py", line 104, in validate
+    collectd_msg_validation_result=self.validate_json(),
+  File "/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/monitoring/monitoring_smaller_interval/run.py", line 114, in validate_json
+    if not self.validate_time():
+  File "/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/monitoring/monitoring_smaller_interval/run.py", line 134, in validate_time
+    if self.js_msg["time"]:
+TypeError: 'int' object is not subscriptable
+2022-05-12 08:54:29,860 WARN  TypeError: 'int' object is not subscriptable ... blocked 
+2022-05-12 08:54:29,862 INFO  
+2022-05-12 08:54:29,862 INFO  cleanup:
+2022-05-12 08:54:29,863 INFO  monitoring_cleanup
+2022-05-12 08:54:30,475 INFO  Executed sudo<collectd_mapper>, exit status 0
+2022-05-12 08:54:30,479 INFO  
+2022-05-12 08:54:30,480 INFO  Test duration: 15.00 secs
+2022-05-12 08:54:30,482 INFO  Test final outcome:  BLOCKED
+2022-05-12 08:54:30,483 INFO  Test outcome reason: TypeError: 'int' object is not subscriptable
+2022-05-12 08:54:30,484 INFO  
