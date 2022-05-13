@@ -1,21 +1,23 @@
-2022-05-12 09:46:28,383 INFO  ==============================================================
-2022-05-12 09:46:28,384 INFO  Id:    docker_plugin_install_with_version
-2022-05-12 09:46:28,385 INFO  Dir:   plugin_docker/
-2022-05-12 09:46:28,385 INFO  Title: Validate docker plugin install
-2022-05-12 09:46:28,386 INFO  ==============================================================
-2022-05-12 09:46:29,154 INFO  Executed sudo<docker_images>, exit status 0
-2022-05-12 09:46:29,159 INFO  Grep on file /home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/plugin_docker/docker_plugin_install_with_version/Output/linux/docker_images.out ... passed
-2022-05-12 09:46:53,213 INFO  Executed sudo<plugin_install>, exit status 0, duration 24 secs
-2022-05-12 09:46:54,184 INFO  Executed sudo<docker_ps_latest>, exit status 0
-2022-05-12 09:46:54,999 INFO  Executed sudo<docker_ps>, exit status 0
-2022-05-12 09:46:55,005 INFO  Grep on file /home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/plugin_docker/docker_plugin_install_with_version/Output/linux/docker_ps.out ... passed
-2022-05-12 09:46:55,011 INFO  
-2022-05-12 09:46:55,012 INFO  cleanup:
-2022-05-12 09:46:55,013 INFO  Removing containers scheduled to be cleaned up: ['3555e91d644b', '49c92fd1462e']
-2022-05-12 09:46:57,948 WARN  Executed sudo<containers_for_cleanup>, exit status 1
-2022-05-12 09:46:57,949 INFO  Removing images scheduled to be cleaned up: ['registry', 'registry', 'registry:2.7.1']
-2022-05-12 09:47:01,607 INFO  Executed sudo<containers_for_cleanup>, exit status 0
-2022-05-12 09:47:01,611 INFO  
-2022-05-12 09:47:01,613 INFO  Test duration: 33.24 secs
-2022-05-12 09:47:01,614 INFO  Test final outcome:  PASSED
-2022-05-12 09:47:01,615 INFO  
+2022-05-13 11:57:59,432 INFO  ==============================================================
+2022-05-13 11:57:59,433 INFO  Id:    docker_plugin_install_with_version
+2022-05-13 11:57:59,434 INFO  Dir:   plugin_docker/
+2022-05-13 11:57:59,435 INFO  Title: Validate docker plugin install
+2022-05-13 11:57:59,436 INFO  ==============================================================
+2022-05-13 11:58:00,256 INFO  Executed sudo<docker_images>, exit status 0
+2022-05-13 11:58:00,262 INFO  Grep on file /home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/plugin_docker/docker_plugin_install_with_version/Output/linux/docker_images.out ... passed
+2022-05-13 11:58:02,697 WARN  Executed sudo<plugin_install>, exit status 2
+2022-05-13 11:58:02,717 WARN  sudo<plugin_install> returned non-zero exit code 2 ... blocked [environment_docker_plugin.py:136,environment_docker_plugin.py:144,run.py:24]
+2022-05-13 11:58:03,530 INFO  Executed sudo<docker_ps_latest>, exit status 0
+2022-05-13 11:58:04,350 INFO  Executed sudo<docker_ps>, exit status 0
+2022-05-13 11:58:04,370 WARN  Grep on /home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/plugin_docker/docker_plugin_install_with_version/Output/linux/docker_ps.out contains "registry:2.7.1" ... failed [environment_docker_plugin.py:49,run.py:28]
+2022-05-13 11:58:04,376 INFO  
+2022-05-13 11:58:04,377 INFO  cleanup:
+2022-05-13 11:58:04,378 INFO  Removing containers scheduled to be cleaned up: ['', '']
+2022-05-13 11:58:05,140 WARN  Executed sudo<containers_for_cleanup>, exit status 1
+2022-05-13 11:58:05,141 INFO  Removing images scheduled to be cleaned up: ['registry', 'registry:2.7.1']
+2022-05-13 11:58:05,945 INFO  Executed sudo<containers_for_cleanup>, exit status 0
+2022-05-13 11:58:05,948 INFO  
+2022-05-13 11:58:05,949 INFO  Test duration: 6.52 secs
+2022-05-13 11:58:05,950 INFO  Test final outcome:  BLOCKED
+2022-05-13 11:58:05,952 INFO  Test outcome reason: sudo<plugin_install> returned non-zero exit code 2 (+1 other failures)
+2022-05-13 11:58:05,952 INFO  

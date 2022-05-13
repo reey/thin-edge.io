@@ -1,4 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<testsuite failures="0" name="SoftwareManagement.sm_apt_install_remove_default" skipped="0" tests="1" time="159.09" timestamp="2022-05-12T10:02:06">
-	<testcase classname="PySysTest" name="SoftwareManagement.sm_apt_install_remove_default"/>
+<testsuite failures="1" name="SoftwareManagement.sm_apt_install_remove_default" skipped="0" tests="1" time="30.12" timestamp="2022-05-13T11:54:18">
+	<testcase classname="PySysTest" name="SoftwareManagement.sm_apt_install_remove_default">
+		<failure message="BLOCKED: SystemError: The Sofware list is empty !!!" type="BLOCKED"/>
+		<system-out>11:53:48 INFO  ==============================================================
+11:53:48 INFO  Id:    SoftwareManagement.sm_apt_install_remove_default
+11:53:48 INFO  Dir:   software_management_end_to_end/
+11:53:48 INFO  Title: Validate end to end behaviour for the default plugin for installation and removal of packages
+11:53:48 INFO  ==============================================================
+11:53:48 INFO  Using sw id database: {'asciijump': '5475369', 'robotfindskitten': '5474869', 'squirrel3': '5475279', 'rolldice': '5152439', 'moon-buggy': '5439204', 'apple': '5495053', 'banana': '5494888', 'cherry': '5495382', 'watermelon': '5494510', 'registry': '8018911', 'hello-world': '8021526', 'docker/getting-started': '8021973', 'alpine': '7991792'}
+11:53:48 INFO  EnvironmentC8y Setup
+11:53:49 INFO  Executed systemctl&lt;serv_mapper1&gt;, exit status 3
+11:53:49 INFO  Restarting mosquitto too frequently in the last 10 seconds. It was only up for 4 seconds
+11:53:49 INFO  Delaying execution by 7 seconds
+11:54:10 INFO  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 0, duration 13 secs
+11:54:10 INFO  Executed sudo&lt;tedge_connect_c8y_test&gt;, exit status 0
+11:54:11 INFO  Executed systemctl&lt;serv_mosq2&gt;, exit status 0
+11:54:11 INFO  Executed systemctl&lt;serv_mapper3&gt;, exit status 0
+11:54:13 INFO  State of current operation: FAILED
+11:54:14 WARN  SystemError occurred while running test - The Sofware list is empty !!!
+Traceback (most recent call last):
+  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/pysys/baserunner.py&quot;, line 1292, in __call__
+    self.testObj.setup()
+  File &quot;/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/sm_apt_install_remove_default/run.py&quot;, line 27, in setup
+    self.assertThat(&quot;False == value&quot;, value=self.check_is_installed(&quot;rolldice&quot;))
+  File &quot;/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/environment_sm_management.py&quot;, line 399, in check_is_installed
+    raise SystemError(&quot;The Sofware list is empty !!!&quot;)
+SystemError: The Sofware list is empty !!!
+11:54:14 WARN  SystemError: The Sofware list is empty !!! ... blocked 
+11:54:14 INFO  
+11:54:14 INFO  cleanup:
+11:54:18 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
+11:54:18 INFO  Executed systemctl&lt;serv_mapper5&gt;, exit status 3
+11:54:18 INFO  
+11:54:18 INFO  Test duration: 30.12 secs
+11:54:18 INFO  Test final outcome:  BLOCKED
+11:54:18 INFO  Test outcome reason: SystemError: The Sofware list is empty !!!
+11:54:18 INFO  
+</system-out>
+	</testcase>
 </testsuite>

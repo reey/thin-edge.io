@@ -1,4 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<testsuite failures="0" name="docker_plugin_update" skipped="0" tests="1" time="63.87" timestamp="2022-05-12T09:49:24">
-	<testcase classname="DockerPluginUpdateTest" name="docker_plugin_update"/>
+<testsuite failures="1" name="docker_plugin_update" skipped="0" tests="1" time="4.99" timestamp="2022-05-13T11:48:30">
+	<testcase classname="DockerPluginUpdateTest" name="docker_plugin_update">
+		<failure message="BLOCKED: sudo&lt;docker_run&gt; returned non-zero exit code 125" type="BLOCKED"/>
+		<system-out>11:48:25 INFO  ==============================================================
+11:48:25 INFO  Id:    docker_plugin_update
+11:48:25 INFO  Dir:   plugin_docker/
+11:48:25 INFO  Title: Validate docker plugin install updates existing containers
+11:48:25 INFO  ==============================================================
+11:48:26 INFO  Executed sudo&lt;docker_images&gt;, exit status 0
+11:48:26 INFO  Grep on file /home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/plugin_docker/docker_plugin_update/Output/linux/docker_images.out ... passed
+11:48:28 WARN  Executed sudo&lt;docker_run&gt;, exit status 125
+11:48:28 INFO  Contents of docker_run.err: 
+  Unable to find image 'registry:2.6.2' locally
+  docker: Error response from daemon: toomanyrequests: You have reached your pull rate limit. You may increase the limit by authenticating and upgrading: https://www.docker.com/increase-rate-limit.
+  See 'docker run --help'.
+  -----
+
+11:48:28 WARN  sudo&lt;docker_run&gt; returned non-zero exit code 125 ... blocked 
+11:48:28 WARN  Aborted test due to BLOCKED outcome
+11:48:28 INFO  
+11:48:28 INFO  cleanup:
+11:48:28 INFO  Removing containers scheduled to be cleaned up: ['da41f8e4638e', '056afe6ee369', '50fccbefa91142e3aa267bf2d4fee2b02c6d713e07780e57780b6976e470bead\n', '3668b2dd9938c2a632e8643c3c4f6ad5c4f4fbb463ae3371f1c0dae331f50cd7\n']
+11:48:29 WARN  Executed sudo&lt;containers_for_cleanup&gt;, exit status 1
+11:48:29 INFO  Removing images scheduled to be cleaned up: ['registry', 'registry', 'registry:2.7.1', 'registry', 'registry:2.7.1']
+11:48:30 INFO  Executed sudo&lt;containers_for_cleanup&gt;, exit status 0
+11:48:30 INFO  
+11:48:30 INFO  Test duration: 4.99 secs
+11:48:30 INFO  Test final outcome:  BLOCKED
+11:48:30 INFO  Test outcome reason: sudo&lt;docker_run&gt; returned non-zero exit code 125
+11:48:30 INFO  
+</system-out>
+	</testcase>
 </testsuite>
