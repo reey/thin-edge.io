@@ -1,38 +1,81 @@
-2022-05-13 11:51:18,932 INFO  ==============================================================
-2022-05-13 11:51:18,933 INFO  Id:    SoftwareManagement.sm_apt_install_download_path
-2022-05-13 11:51:18,934 INFO  Dir:   software_management_end_to_end/
-2022-05-13 11:51:18,935 INFO  Title: Install package to directory specified in tedge config set tmp.path
-2022-05-13 11:51:18,936 INFO  ==============================================================
-2022-05-13 11:51:20,145 INFO  Using sw id database: {'asciijump': '5475369', 'robotfindskitten': '5474869', 'squirrel3': '5475279', 'rolldice': '5152439', 'moon-buggy': '5439204', 'apple': '5495053', 'banana': '5494888', 'cherry': '5495382', 'watermelon': '5494510', 'registry': '8018911', 'hello-world': '8021526', 'docker/getting-started': '8021973', 'alpine': '7991792'}
-2022-05-13 11:51:20,146 INFO  EnvironmentC8y Setup
-2022-05-13 11:51:20,708 INFO  Executed systemctl<serv_mapper1>, exit status 3
-2022-05-13 11:51:34,983 INFO  Executed sudo<tedge_connect_c8y>, exit status 0, duration 14 secs
-2022-05-13 11:51:35,600 INFO  Executed sudo<tedge_connect_c8y_test>, exit status 0
-2022-05-13 11:51:36,063 INFO  Executed systemctl<serv_mosq2>, exit status 0
-2022-05-13 11:51:36,594 INFO  Executed systemctl<serv_mapper3>, exit status 0
-2022-05-13 11:51:38,830 INFO  State of current operation: FAILED
-2022-05-13 11:51:39,039 WARN  SystemError occurred while running test - The Sofware list is empty !!!
+2022-05-13 15:56:55,828 INFO  ==============================================================
+2022-05-13 15:56:55,829 INFO  Id:    SoftwareManagement.sm_apt_install_download_path
+2022-05-13 15:56:55,830 INFO  Dir:   software_management_end_to_end/
+2022-05-13 15:56:55,831 INFO  Title: Install package to directory specified in tedge config set tmp.path
+2022-05-13 15:56:55,832 INFO  ==============================================================
+2022-05-13 15:56:57,048 INFO  Using sw id database: {'asciijump': '5475369', 'robotfindskitten': '5474869', 'squirrel3': '5475279', 'rolldice': '5152439', 'moon-buggy': '5439204', 'apple': '5495053', 'banana': '5494888', 'cherry': '5495382', 'watermelon': '5494510', 'registry': '8018911', 'hello-world': '8021526', 'docker/getting-started': '8021973', 'alpine': '7991792'}
+2022-05-13 15:56:57,049 INFO  EnvironmentC8y Setup
+2022-05-13 15:56:57,611 INFO  Executed systemctl<serv_mapper1>, exit status 3
+2022-05-13 15:57:11,656 INFO  Executed sudo<tedge_connect_c8y>, exit status 0, duration 13 secs
+2022-05-13 15:57:12,273 INFO  Executed sudo<tedge_connect_c8y_test>, exit status 0
+2022-05-13 15:57:12,736 INFO  Executed systemctl<serv_mosq2>, exit status 0
+2022-05-13 15:57:13,198 INFO  Executed systemctl<serv_mapper3>, exit status 0
+2022-05-13 15:57:15,448 INFO  State of current operation: FAILED
+2022-05-13 15:57:15,670 INFO  Assert that (False == value) with value=False ... passed
+2022-05-13 15:57:16,182 INFO  Executed sudo, exit status 0
+2022-05-13 15:57:16,681 INFO  Executed sudo, exit status 0
+2022-05-13 15:57:17,338 INFO  Executed sudo, exit status 0
+2022-05-13 15:57:21,418 INFO  Executed sudo<tedge_disconnect_c8y>, exit status 0
+2022-05-13 15:57:21,527 INFO  Restarting mosquitto too frequently in the last 10 seconds. It was only up for 4 seconds
+2022-05-13 15:57:21,529 INFO  Delaying execution by 7 seconds
+2022-05-13 15:57:42,371 INFO  Executed sudo<tedge_connect_c8y>, exit status 0, duration 13 secs
+2022-05-13 15:57:42,626 INFO  Response status: 201
+2022-05-13 15:57:42,628 INFO  Response to action: {
+    "creationTime": "2022-05-13T15:57:42.583Z",
+    "deviceId": "19035650",
+    "deviceName": "m32sd10b",
+    "self": "https://t493319102.eu-latest.cumulocity.com/devicecontrol/operations/19054249",
+    "id": "19054249",
+    "status": "PENDING",
+    "description": "Apply software changes, triggered from PySys: [{'name': 'rolldice', 'id': '5152439', 'version': '::apt', 'url': 'https://thin-edge-io.eu-latest.cumulocity.com/inventory/binaries/12435463', 'action': 'install'}]",
+    "c8y_SoftwareUpdate": [
+        {
+            "name": "rolldice",
+            "action": "install",
+            "id": "5152439",
+            "version": "::apt",
+            "url": "https://thin-edge-io.eu-latest.cumulocity.com/inventory/binaries/12435463"
+        }
+    ]
+}
+2022-05-13 15:57:42,629 INFO  Started operation: {'creationTime': '2022-05-13T15:57:42.583Z', 'deviceId': '19035650', 'deviceName': 'm32sd10b', 'self': 'https://t493319102.eu-latest.cumulocity.com/devicecontrol/operations/19054249', 'id': '19054249', 'status': 'PENDING', 'description': "Apply software changes, triggered from PySys: [{'name': 'rolldice', 'id': '5152439', 'version': '::apt', 'url': 'https://thin-edge-io.eu-latest.cumulocity.com/inventory/binaries/12435463', 'action': 'install'}]", 'c8y_SoftwareUpdate': [{'name': 'rolldice', 'action': 'install', 'id': '5152439', 'version': '::apt', 'url': 'https://thin-edge-io.eu-latest.cumulocity.com/inventory/binaries/12435463'}]}
+2022-05-13 15:57:42,633 WARN  , retrying in 0.5 seconds...
+2022-05-13 15:57:43,137 WARN  , retrying in 0.5 seconds...
+2022-05-13 15:57:43,640 WARN  , retrying in 0.5 seconds...
+2022-05-13 15:57:44,143 WARN  , retrying in 0.5 seconds...
+2022-05-13 15:57:44,645 WARN  , retrying in 0.5 seconds...
+2022-05-13 15:57:45,149 WARN  , retrying in 0.5 seconds...
+2022-05-13 15:57:45,652 WARN  , retrying in 0.5 seconds...
+2022-05-13 15:57:46,155 WARN  , retrying in 0.5 seconds...
+2022-05-13 15:57:46,658 WARN  , retrying in 0.5 seconds...
+2022-05-13 15:57:47,161 WARN  AssertionError occurred while running test - 
 Traceback (most recent call last):
-  File "/home/pi/env-pysys/lib/python3.7/site-packages/pysys/baserunner.py", line 1292, in __call__
-    self.testObj.setup()
-  File "/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/sm_apt_install_download_path/run.py", line 49, in setup
-    self.assertThat("False == value", value=self.check_is_installed("rolldice"))
-  File "/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/environment_sm_management.py", line 399, in check_is_installed
-    raise SystemError("The Sofware list is empty !!!")
-SystemError: The Sofware list is empty !!!
-2022-05-13 11:51:39,057 WARN  SystemError: The Sofware list is empty !!! ... blocked 
-2022-05-13 11:51:39,058 INFO  
-2022-05-13 11:51:39,059 INFO  cleanup:
-2022-05-13 11:51:39,532 INFO  Executed sudo, exit status 0
-2022-05-13 11:51:40,044 INFO  Executed sudo, exit status 0
-2022-05-13 11:51:44,096 INFO  Executed sudo<tedge_disconnect_c8y>, exit status 0
-2022-05-13 11:51:44,204 INFO  Restarting mosquitto too frequently in the last 10 seconds. It was only up for 3 seconds
-2022-05-13 11:51:44,206 INFO  Delaying execution by 8 seconds
-2022-05-13 11:52:06,744 INFO  Executed sudo<tedge_connect_c8y>, exit status 0, duration 14 secs
-2022-05-13 11:52:11,214 INFO  Executed sudo<tedge_disconnect_c8y>, exit status 0
-2022-05-13 11:52:11,777 INFO  Executed systemctl<serv_mapper5>, exit status 3
-2022-05-13 11:52:11,783 INFO  
-2022-05-13 11:52:11,784 INFO  Test duration: 52.86 secs
-2022-05-13 11:52:11,785 INFO  Test final outcome:  BLOCKED
-2022-05-13 11:52:11,786 INFO  Test outcome reason: SystemError: The Sofware list is empty !!!
-2022-05-13 11:52:11,787 INFO  
+  File "/home/pi/env-pysys/lib/python3.7/site-packages/pysys/baserunner.py", line 1294, in __call__
+    self.testObj.execute()
+  File "/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/sm_apt_install_download_path/run.py", line 83, in execute
+    assert_install_in_download_path(install_directory=self.DOWNLOAD_DIR)
+  File "/home/pi/env-pysys/lib/python3.7/site-packages/decorator.py", line 232, in fun
+    return caller(func, *(extras + args), **kw)
+  File "/home/pi/env-pysys/lib/python3.7/site-packages/retry/api.py", line 74, in retry_decorator
+    logger)
+  File "/home/pi/env-pysys/lib/python3.7/site-packages/retry/api.py", line 33, in __retry_internal
+    return f()
+  File "/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/sm_apt_install_download_path/run.py", line 28, in assert_install_in_download_path
+    assert "rolldice" in os.listdir(f"{install_directory}")
+AssertionError
+2022-05-13 15:57:47,194 WARN  AssertionError: ... blocked 
+2022-05-13 15:57:47,196 INFO  
+2022-05-13 15:57:47,197 INFO  cleanup:
+2022-05-13 15:57:47,713 INFO  Executed sudo, exit status 0
+2022-05-13 15:57:48,336 INFO  Executed sudo, exit status 0
+2022-05-13 15:57:52,928 INFO  Executed sudo<tedge_disconnect_c8y>, exit status 0
+2022-05-13 15:57:53,036 INFO  Restarting mosquitto too frequently in the last 10 seconds. It was only up for 4 seconds
+2022-05-13 15:57:53,037 INFO  Delaying execution by 7 seconds
+2022-05-13 15:58:14,065 INFO  Executed sudo<tedge_connect_c8y>, exit status 0, duration 14 secs
+2022-05-13 15:58:18,233 INFO  Executed sudo<tedge_disconnect_c8y>, exit status 0
+2022-05-13 15:58:18,796 INFO  Executed systemctl<serv_mapper5>, exit status 3
+2022-05-13 15:58:18,800 INFO  
+2022-05-13 15:58:18,801 INFO  Test duration: 82.98 secs
+2022-05-13 15:58:18,802 INFO  Test final outcome:  BLOCKED
+2022-05-13 15:58:18,803 INFO  Test outcome reason: AssertionError:
+2022-05-13 15:58:18,804 INFO  

@@ -1,4 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<testsuite failures="0" name="docker_plugin_remove_with_version" skipped="0" tests="1" time="34.51" timestamp="2022-05-13T11:48:25">
-	<testcase classname="DockerPluginRemoveWithVersionTest" name="docker_plugin_remove_with_version"/>
+<testsuite failures="1" name="docker_plugin_remove_with_version" skipped="0" tests="1" time="4.94" timestamp="2022-05-13T15:54:03">
+	<testcase classname="DockerPluginRemoveWithVersionTest" name="docker_plugin_remove_with_version">
+		<failure message="BLOCKED: sudo&lt;docker_run&gt; returned non-zero exit code 125" type="BLOCKED"/>
+		<system-out>15:53:58 INFO  ==============================================================
+15:53:58 INFO  Id:    docker_plugin_remove_with_version
+15:53:58 INFO  Dir:   plugin_docker/
+15:53:58 INFO  Title: Validate docker plugin remove with version
+15:53:58 INFO  ==============================================================
+15:53:59 INFO  Executed sudo&lt;docker_images&gt;, exit status 0
+15:53:59 INFO  Grep on file /home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/plugin_docker/docker_plugin_remove_with_version/Output/linux/docker_images.out ... passed
+15:54:01 WARN  Executed sudo&lt;docker_run&gt;, exit status 125
+15:54:01 INFO  Contents of docker_run.err: 
+  Unable to find image 'registry:2.7.1' locally
+  docker: Error response from daemon: toomanyrequests: You have reached your pull rate limit. You may increase the limit by authenticating and upgrading: https://www.docker.com/increase-rate-limit.
+  See 'docker run --help'.
+  -----
+
+15:54:01 WARN  sudo&lt;docker_run&gt; returned non-zero exit code 125 ... blocked 
+15:54:01 WARN  Aborted test due to BLOCKED outcome
+15:54:01 INFO  
+15:54:01 INFO  cleanup:
+15:54:01 INFO  Removing containers scheduled to be cleaned up: ['0fcb14829b93', 'fff60c1d4530', 'd0ecaccda3f4c17a6b629256cf6dea073ca49b10fed832bc0c47a9154d55769e\n']
+15:54:02 WARN  Executed sudo&lt;containers_for_cleanup&gt;, exit status 1
+15:54:02 INFO  Removing images scheduled to be cleaned up: ['registry', 'registry', 'registry:2.7.1', 'registry']
+15:54:03 INFO  Executed sudo&lt;containers_for_cleanup&gt;, exit status 0
+15:54:03 INFO  
+15:54:03 INFO  Test duration: 4.94 secs
+15:54:03 INFO  Test final outcome:  BLOCKED
+15:54:03 INFO  Test outcome reason: sudo&lt;docker_run&gt; returned non-zero exit code 125
+15:54:03 INFO  
+</system-out>
+	</testcase>
 </testsuite>
