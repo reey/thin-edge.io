@@ -1,4 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<testsuite failures="0" name="docker_plugin_remove" skipped="0" tests="1" time="32.99" timestamp="2022-05-20T10:28:52">
-	<testcase classname="DockerPluginRemoveTest" name="docker_plugin_remove"/>
+<testsuite failures="1" name="docker_plugin_remove" skipped="0" tests="1" time="4.94" timestamp="2022-05-20T12:07:54">
+	<testcase classname="DockerPluginRemoveTest" name="docker_plugin_remove">
+		<failure message="BLOCKED: sudo&lt;docker_run&gt; returned non-zero exit code 125" type="BLOCKED"/>
+		<system-out>12:07:49 INFO  ==============================================================
+12:07:49 INFO  Id:    docker_plugin_remove
+12:07:49 INFO  Dir:   plugin_docker/
+12:07:49 INFO  Title: Validate docker plugin remove
+12:07:49 INFO  ==============================================================
+12:07:50 INFO  Executed sudo&lt;docker_images&gt;, exit status 0
+12:07:50 INFO  Grep on file /home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/plugin_docker/docker_plugin_remove/Output/linux/docker_images.out ... passed
+12:07:52 WARN  Executed sudo&lt;docker_run&gt;, exit status 125
+12:07:52 INFO  Contents of docker_run.err: 
+  Unable to find image 'registry:latest' locally
+  docker: Error response from daemon: toomanyrequests: You have reached your pull rate limit. You may increase the limit by authenticating and upgrading: https://www.docker.com/increase-rate-limit.
+  See 'docker run --help'.
+  -----
+
+12:07:53 WARN  sudo&lt;docker_run&gt; returned non-zero exit code 125 ... blocked 
+12:07:53 WARN  Aborted test due to BLOCKED outcome
+12:07:53 INFO  
+12:07:53 INFO  cleanup:
+12:07:53 INFO  Removing containers scheduled to be cleaned up: ['6f6b8e6b2413', '3810cc1b1cb5']
+12:07:53 WARN  Executed sudo&lt;containers_for_cleanup&gt;, exit status 1
+12:07:53 INFO  Removing images scheduled to be cleaned up: ['registry', 'registry', 'registry:2.7.1']
+12:07:54 INFO  Executed sudo&lt;containers_for_cleanup&gt;, exit status 0
+12:07:54 INFO  
+12:07:54 INFO  Test duration: 4.94 secs
+12:07:54 INFO  Test final outcome:  BLOCKED
+12:07:54 INFO  Test outcome reason: sudo&lt;docker_run&gt; returned non-zero exit code 125
+12:07:54 INFO  
+</system-out>
+	</testcase>
 </testsuite>
