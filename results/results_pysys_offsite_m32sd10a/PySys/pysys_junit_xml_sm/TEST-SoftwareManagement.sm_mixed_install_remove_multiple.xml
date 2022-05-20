@@ -1,38 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<testsuite failures="1" name="SoftwareManagement.sm_mixed_install_remove_multiple" skipped="0" tests="1" time="70.74" timestamp="2022-05-13T16:16:02">
+<testsuite failures="1" name="SoftwareManagement.sm_mixed_install_remove_multiple" skipped="0" tests="1" time="165.43" timestamp="2022-05-20T10:58:31">
 	<testcase classname="PySysTest" name="SoftwareManagement.sm_mixed_install_remove_multiple">
-		<failure message="BLOCKED: SystemError: The operation has failed (+1 other failures)" type="BLOCKED"/>
-		<system-out>16:14:51 INFO  ==============================================================
-16:14:51 INFO  Id:    SoftwareManagement.sm_mixed_install_remove_multiple
-16:14:51 INFO  Dir:   software_management_end_to_end/
-16:14:51 INFO  Title: Validate end to end behaviour for the dummy-plugin for multiple packages with mixed versions
-16:14:51 INFO  ==============================================================
-16:14:51 INFO  Using sw id database: {'asciijump': '5475369', 'robotfindskitten': '5474869', 'squirrel3': '5475279', 'rolldice': '5152439', 'moon-buggy': '5439204', 'apple': '5495053', 'banana': '5494888', 'cherry': '5495382', 'watermelon': '5494510', 'registry': '8018911', 'hello-world': '8021526', 'docker/getting-started': '8021973', 'alpine': '7991792'}
-16:14:51 INFO  EnvironmentC8y Setup
-16:14:51 INFO  Executed systemctl&lt;serv_mapper1&gt;, exit status 3
-16:14:51 INFO  Restarting mosquitto too frequently in the last 10 seconds. It was only up for 4 seconds
-16:14:51 INFO  Delaying execution by 7 seconds
-16:15:13 INFO  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 0, duration 14 secs
-16:15:13 INFO  Executed sudo&lt;tedge_connect_c8y_test&gt;, exit status 0
-16:15:14 INFO  Executed systemctl&lt;serv_mosq2&gt;, exit status 0
-16:15:14 INFO  Executed systemctl&lt;serv_mapper3&gt;, exit status 0
-16:15:17 INFO  State of current operation: SUCCESSFUL
-16:15:17 INFO  Package apple is installed
-16:15:17 INFO  Assert that (True == value) with value=True ... passed
-16:15:17 INFO  Package banana is installed
-16:15:17 INFO  Assert that (True == value) with value=True ... passed
-16:15:17 INFO  Package cherry is installed
-16:15:17 INFO  Assert that (True == value) with value=True ... passed
-16:15:17 INFO  Package asciijump is installed
-16:15:17 WARN  Assert that (False == value) with value=True ... failed 
-16:15:18 INFO  Assert that (False == value) with value=False ... passed
-16:15:18 INFO  Response status: 201
-16:15:18 INFO  Response to action: {
-    &quot;creationTime&quot;: &quot;2022-05-13T16:15:18.384Z&quot;,
-    &quot;deviceId&quot;: &quot;19039121&quot;,
+		<failure message="FAILED: Assert that (False == value) with value=True" type="FAILED"/>
+		<system-out>10:55:46 INFO  ==============================================================
+10:55:46 INFO  Id:    SoftwareManagement.sm_mixed_install_remove_multiple
+10:55:46 INFO  Dir:   software_management_end_to_end/
+10:55:46 INFO  Title: Validate end to end behaviour for the dummy-plugin for multiple packages with mixed versions
+10:55:46 INFO  ==============================================================
+10:55:46 INFO  Using sw id database: {'asciijump': '5475369', 'robotfindskitten': '5474869', 'squirrel3': '5475279', 'rolldice': '5152439', 'moon-buggy': '5439204', 'apple': '5495053', 'banana': '5494888', 'cherry': '5495382', 'watermelon': '5494510', 'registry': '8018911', 'hello-world': '8021526', 'docker/getting-started': '8021973', 'alpine': '7991792'}
+10:55:46 INFO  EnvironmentC8y Setup
+10:55:46 INFO  Executed systemctl&lt;serv_mapper1&gt;, exit status 3
+10:55:46 INFO  Restarting mosquitto too frequently in the last 10 seconds. It was only up for 4 seconds
+10:55:46 INFO  Delaying execution by 7 seconds
+10:56:08 INFO  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 0, duration 14 secs
+10:56:08 INFO  Executed sudo&lt;tedge_connect_c8y_test&gt;, exit status 0
+10:56:09 INFO  Executed systemctl&lt;serv_mosq2&gt;, exit status 0
+10:56:09 INFO  Executed systemctl&lt;serv_mapper3&gt;, exit status 0
+10:56:12 INFO  State of current operation: SUCCESSFUL
+10:56:12 INFO  Package apple is installed
+10:56:12 INFO  Assert that (True == value) with value=True ... passed
+10:56:12 INFO  Package banana is installed
+10:56:12 INFO  Assert that (True == value) with value=True ... passed
+10:56:12 INFO  Package cherry is installed
+10:56:12 INFO  Assert that (True == value) with value=True ... passed
+10:56:12 INFO  Package asciijump is installed
+10:56:12 WARN  Assert that (False == value) with value=True ... failed 
+10:56:13 INFO  Assert that (False == value) with value=False ... passed
+10:56:13 INFO  Response status: 201
+10:56:13 INFO  Response to action: {
+    &quot;creationTime&quot;: &quot;2022-05-20T10:56:13.385Z&quot;,
+    &quot;deviceId&quot;: &quot;19297808&quot;,
     &quot;deviceName&quot;: &quot;m32sd10a&quot;,
-    &quot;self&quot;: &quot;https://t493319102.eu-latest.cumulocity.com/devicecontrol/operations/19054500&quot;,
-    &quot;id&quot;: &quot;19054500&quot;,
+    &quot;self&quot;: &quot;https://t493319102.eu-latest.cumulocity.com/devicecontrol/operations/19394829&quot;,
+    &quot;id&quot;: &quot;19394829&quot;,
     &quot;status&quot;: &quot;PENDING&quot;,
     &quot;description&quot;: &quot;Apply software changes, triggered from PySys: [{'action': 'install', 'id': '5495053', 'name': 'apple', 'url': ' ', 'version': '::fruits'}, {'action': 'install', 'id': '5494888', 'name': 'banana', 'url': ' ', 'version': '::fruits'}, {'action': 'install', 'id': '5475369', 'name': 'asciijump', 'url': ' ', 'version': '::apt'}, {'action': 'install', 'id': '5495382', 'name': 'cherry', 'url': ' ', 'version': '::fruits'}, {'action': 'install', 'id': '8018911', 'name': 'registry', 'url': ' ', 'version': '::docker'}]&quot;,
     &quot;c8y_SoftwareUpdate&quot;: [
@@ -73,46 +73,138 @@
         }
     ]
 }
-16:15:18 INFO  Started operation: {'creationTime': '2022-05-13T16:15:18.384Z', 'deviceId': '19039121', 'deviceName': 'm32sd10a', 'self': 'https://t493319102.eu-latest.cumulocity.com/devicecontrol/operations/19054500', 'id': '19054500', 'status': 'PENDING', 'description': &quot;Apply software changes, triggered from PySys: [{'action': 'install', 'id': '5495053', 'name': 'apple', 'url': ' ', 'version': '::fruits'}, {'action': 'install', 'id': '5494888', 'name': 'banana', 'url': ' ', 'version': '::fruits'}, {'action': 'install', 'id': '5475369', 'name': 'asciijump', 'url': ' ', 'version': '::apt'}, {'action': 'install', 'id': '5495382', 'name': 'cherry', 'url': ' ', 'version': '::fruits'}, {'action': 'install', 'id': '8018911', 'name': 'registry', 'url': ' ', 'version': '::docker'}]&quot;, 'c8y_SoftwareUpdate': [{'name': 'apple', 'action': 'install', 'id': '5495053', 'version': '::fruits', 'url': ' '}, {'name': 'banana', 'action': 'install', 'id': '5494888', 'version': '::fruits', 'url': ' '}, {'name': 'asciijump', 'action': 'install', 'id': '5475369', 'version': '::apt', 'url': ' '}, {'name': 'cherry', 'action': 'install', 'id': '5495382', 'version': '::fruits', 'url': ' '}, {'name': 'registry', 'action': 'install', 'id': '8018911', 'version': '::docker', 'url': ' '}]}
-16:15:20 INFO  State of operation 19054500 : PENDING
-16:15:22 INFO  State of operation 19054500 : EXECUTING
-16:15:25 INFO  State of operation 19054500 : EXECUTING
-16:15:27 INFO  State of operation 19054500 : EXECUTING
-16:15:29 INFO  State of operation 19054500 : EXECUTING
-16:15:31 INFO  State of operation 19054500 : EXECUTING
-16:15:34 INFO  State of operation 19054500 : EXECUTING
-16:15:37 INFO  State of operation 19054500 : EXECUTING
-16:15:39 INFO  State of operation 19054500 : EXECUTING
-16:15:41 INFO  State of operation 19054500 : EXECUTING
-16:15:44 INFO  State of operation 19054500 : EXECUTING
-16:15:46 INFO  State of operation 19054500 : EXECUTING
-16:15:48 INFO  State of operation 19054500 : EXECUTING
-16:15:50 INFO  State of operation 19054500 : EXECUTING
-16:15:52 INFO  State of operation 19054500 : EXECUTING
-16:15:55 INFO  State of operation 19054500 : EXECUTING
-16:15:57 INFO  State of operation 19054500 : FAILED
-16:15:57 ERROR Stopping as the operation has failed
-16:15:57 WARN  SystemError occurred while running test - The operation has failed
-Traceback (most recent call last):
-  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/pysys/baserunner.py&quot;, line 1294, in __call__
-    self.testObj.execute()
-  File &quot;/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/sm_mixed_install_remove_multiple/run.py&quot;, line 95, in execute
-    self.wait_until_succcess()
-  File &quot;/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/environment_sm_management.py&quot;, line 324, in wait_until_succcess
-    self.wait_until_status(&quot;SUCCESSFUL&quot;)
-  File &quot;/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/environment_sm_management.py&quot;, line 361, in wait_until_status
-    raise SystemError(&quot;The operation has failed&quot;)
-SystemError: The operation has failed
-16:15:57 WARN  SystemError: The operation has failed ... blocked 
-16:15:57 INFO  
-16:15:57 INFO  cleanup:
-16:16:01 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
-16:16:02 INFO  Executed systemctl&lt;serv_mapper5&gt;, exit status 3
-16:16:02 INFO  
-16:16:02 INFO  Test duration: 70.74 secs
-16:16:02 INFO  Test final outcome:  BLOCKED
-16:16:02 INFO  Test outcome reason: SystemError: The operation has failed (+1 other failures)
-16:16:02 INFO  
+10:56:13 INFO  Started operation: {'creationTime': '2022-05-20T10:56:13.385Z', 'deviceId': '19297808', 'deviceName': 'm32sd10a', 'self': 'https://t493319102.eu-latest.cumulocity.com/devicecontrol/operations/19394829', 'id': '19394829', 'status': 'PENDING', 'description': &quot;Apply software changes, triggered from PySys: [{'action': 'install', 'id': '5495053', 'name': 'apple', 'url': ' ', 'version': '::fruits'}, {'action': 'install', 'id': '5494888', 'name': 'banana', 'url': ' ', 'version': '::fruits'}, {'action': 'install', 'id': '5475369', 'name': 'asciijump', 'url': ' ', 'version': '::apt'}, {'action': 'install', 'id': '5495382', 'name': 'cherry', 'url': ' ', 'version': '::fruits'}, {'action': 'install', 'id': '8018911', 'name': 'registry', 'url': ' ', 'version': '::docker'}]&quot;, 'c8y_SoftwareUpdate': [{'name': 'apple', 'action': 'install', 'id': '5495053', 'version': '::fruits', 'url': ' '}, {'name': 'banana', 'action': 'install', 'id': '5494888', 'version': '::fruits', 'url': ' '}, {'name': 'asciijump', 'action': 'install', 'id': '5475369', 'version': '::apt', 'url': ' '}, {'name': 'cherry', 'action': 'install', 'id': '5495382', 'version': '::fruits', 'url': ' '}, {'name': 'registry', 'action': 'install', 'id': '8018911', 'version': '::docker', 'url': ' '}]}
+10:56:15 INFO  State of operation 19394829 : PENDING
+10:56:17 INFO  State of operation 19394829 : EXECUTING
+10:56:20 INFO  State of operation 19394829 : EXECUTING
+10:56:22 INFO  State of operation 19394829 : EXECUTING
+10:56:24 INFO  State of operation 19394829 : EXECUTING
+10:56:26 INFO  State of operation 19394829 : EXECUTING
+10:56:29 INFO  State of operation 19394829 : EXECUTING
+10:56:32 INFO  State of operation 19394829 : EXECUTING
+10:56:34 INFO  State of operation 19394829 : EXECUTING
+10:56:37 INFO  State of operation 19394829 : EXECUTING
+10:56:39 INFO  State of operation 19394829 : EXECUTING
+10:56:41 INFO  State of operation 19394829 : EXECUTING
+10:56:43 INFO  State of operation 19394829 : EXECUTING
+10:56:46 INFO  State of operation 19394829 : EXECUTING
+10:56:48 INFO  State of operation 19394829 : EXECUTING
+10:56:50 INFO  State of operation 19394829 : EXECUTING
+10:56:52 INFO  State of operation 19394829 : EXECUTING
+10:56:55 INFO  State of operation 19394829 : EXECUTING
+10:56:57 INFO  State of operation 19394829 : EXECUTING
+10:56:59 INFO  State of operation 19394829 : EXECUTING
+10:57:01 INFO  State of operation 19394829 : EXECUTING
+10:57:04 INFO  State of operation 19394829 : EXECUTING
+10:57:06 INFO  State of operation 19394829 : EXECUTING
+10:57:08 INFO  State of operation 19394829 : EXECUTING
+10:57:10 INFO  State of operation 19394829 : EXECUTING
+10:57:13 INFO  State of operation 19394829 : SUCCESSFUL
+10:57:13 INFO  Package apple is installed
+10:57:13 INFO  Assert that (True == value) with value=True ... passed
+10:57:13 INFO  Package banana is installed
+10:57:13 INFO  Assert that (True == value) with value=True ... passed
+10:57:13 INFO  Package cherry is installed
+10:57:13 INFO  Assert that (True == value) with value=True ... passed
+10:57:14 INFO  Package asciijump is installed
+10:57:14 INFO  Assert that (True == value) with value=True ... passed
+10:57:14 INFO  Package registry is installed
+10:57:14 INFO  Assert that (True == value) with value=True ... passed
+10:57:14 INFO  Response status: 201
+10:57:14 INFO  Response to action: {
+    &quot;creationTime&quot;: &quot;2022-05-20T10:57:14.465Z&quot;,
+    &quot;deviceId&quot;: &quot;19297808&quot;,
+    &quot;deviceName&quot;: &quot;m32sd10a&quot;,
+    &quot;self&quot;: &quot;https://t493319102.eu-latest.cumulocity.com/devicecontrol/operations/19394839&quot;,
+    &quot;id&quot;: &quot;19394839&quot;,
+    &quot;status&quot;: &quot;PENDING&quot;,
+    &quot;description&quot;: &quot;Apply software changes, triggered from PySys: [{'action': 'delete', 'id': '5495053', 'name': 'apple', 'url': ' ', 'version': '::fruits'}, {'action': 'delete', 'id': '5494888', 'name': 'banana', 'url': ' ', 'version': '::fruits'}, {'action': 'delete', 'id': '5475369', 'name': 'asciijump', 'url': ' ', 'version': '::apt'}, {'action': 'delete', 'id': '5495382', 'name': 'cherry', 'url': ' ', 'version': '::fruits'}, {'action': 'delete', 'id': '8018911', 'name': 'registry', 'url': ' ', 'version': '::docker'}]&quot;,
+    &quot;c8y_SoftwareUpdate&quot;: [
+        {
+            &quot;name&quot;: &quot;apple&quot;,
+            &quot;action&quot;: &quot;delete&quot;,
+            &quot;id&quot;: &quot;5495053&quot;,
+            &quot;version&quot;: &quot;::fruits&quot;,
+            &quot;url&quot;: &quot; &quot;
+        },
+        {
+            &quot;name&quot;: &quot;banana&quot;,
+            &quot;action&quot;: &quot;delete&quot;,
+            &quot;id&quot;: &quot;5494888&quot;,
+            &quot;version&quot;: &quot;::fruits&quot;,
+            &quot;url&quot;: &quot; &quot;
+        },
+        {
+            &quot;name&quot;: &quot;asciijump&quot;,
+            &quot;action&quot;: &quot;delete&quot;,
+            &quot;id&quot;: &quot;5475369&quot;,
+            &quot;version&quot;: &quot;::apt&quot;,
+            &quot;url&quot;: &quot; &quot;
+        },
+        {
+            &quot;name&quot;: &quot;cherry&quot;,
+            &quot;action&quot;: &quot;delete&quot;,
+            &quot;id&quot;: &quot;5495382&quot;,
+            &quot;version&quot;: &quot;::fruits&quot;,
+            &quot;url&quot;: &quot; &quot;
+        },
+        {
+            &quot;name&quot;: &quot;registry&quot;,
+            &quot;action&quot;: &quot;delete&quot;,
+            &quot;id&quot;: &quot;8018911&quot;,
+            &quot;version&quot;: &quot;::docker&quot;,
+            &quot;url&quot;: &quot; &quot;
+        }
+    ]
+}
+10:57:14 INFO  Started operation: {'creationTime': '2022-05-20T10:57:14.465Z', 'deviceId': '19297808', 'deviceName': 'm32sd10a', 'self': 'https://t493319102.eu-latest.cumulocity.com/devicecontrol/operations/19394839', 'id': '19394839', 'status': 'PENDING', 'description': &quot;Apply software changes, triggered from PySys: [{'action': 'delete', 'id': '5495053', 'name': 'apple', 'url': ' ', 'version': '::fruits'}, {'action': 'delete', 'id': '5494888', 'name': 'banana', 'url': ' ', 'version': '::fruits'}, {'action': 'delete', 'id': '5475369', 'name': 'asciijump', 'url': ' ', 'version': '::apt'}, {'action': 'delete', 'id': '5495382', 'name': 'cherry', 'url': ' ', 'version': '::fruits'}, {'action': 'delete', 'id': '8018911', 'name': 'registry', 'url': ' ', 'version': '::docker'}]&quot;, 'c8y_SoftwareUpdate': [{'name': 'apple', 'action': 'delete', 'id': '5495053', 'version': '::fruits', 'url': ' '}, {'name': 'banana', 'action': 'delete', 'id': '5494888', 'version': '::fruits', 'url': ' '}, {'name': 'asciijump', 'action': 'delete', 'id': '5475369', 'version': '::apt', 'url': ' '}, {'name': 'cherry', 'action': 'delete', 'id': '5495382', 'version': '::fruits', 'url': ' '}, {'name': 'registry', 'action': 'delete', 'id': '8018911', 'version': '::docker', 'url': ' '}]}
+10:57:16 INFO  State of operation 19394839 : PENDING
+10:57:18 INFO  State of operation 19394839 : EXECUTING
+10:57:21 INFO  State of operation 19394839 : EXECUTING
+10:57:23 INFO  State of operation 19394839 : EXECUTING
+10:57:25 INFO  State of operation 19394839 : EXECUTING
+10:57:27 INFO  State of operation 19394839 : EXECUTING
+10:57:30 INFO  State of operation 19394839 : EXECUTING
+10:57:33 INFO  State of operation 19394839 : EXECUTING
+10:57:35 INFO  State of operation 19394839 : EXECUTING
+10:57:37 INFO  State of operation 19394839 : EXECUTING
+10:57:40 INFO  State of operation 19394839 : EXECUTING
+10:57:42 INFO  State of operation 19394839 : EXECUTING
+10:57:44 INFO  State of operation 19394839 : EXECUTING
+10:57:46 INFO  State of operation 19394839 : EXECUTING
+10:57:49 INFO  State of operation 19394839 : EXECUTING
+10:57:51 INFO  State of operation 19394839 : EXECUTING
+10:57:55 INFO  State of operation 19394839 : EXECUTING
+10:57:57 INFO  State of operation 19394839 : EXECUTING
+10:58:00 INFO  State of operation 19394839 : EXECUTING
+10:58:02 INFO  State of operation 19394839 : EXECUTING
+10:58:04 INFO  State of operation 19394839 : EXECUTING
+10:58:06 INFO  State of operation 19394839 : EXECUTING
+10:58:09 INFO  State of operation 19394839 : EXECUTING
+10:58:12 INFO  State of operation 19394839 : EXECUTING
+10:58:14 INFO  State of operation 19394839 : EXECUTING
+10:58:16 INFO  State of operation 19394839 : EXECUTING
+10:58:18 INFO  State of operation 19394839 : EXECUTING
+10:58:21 INFO  State of operation 19394839 : EXECUTING
+10:58:23 INFO  State of operation 19394839 : EXECUTING
+10:58:25 INFO  State of operation 19394839 : SUCCESSFUL
+10:58:25 INFO  Package apple is installed
+10:58:25 INFO  Assert that (True == value) with value=True ... passed
+10:58:26 INFO  Package banana is installed
+10:58:26 INFO  Assert that (True == value) with value=True ... passed
+10:58:26 INFO  Package cherry is installed
+10:58:26 INFO  Assert that (True == value) with value=True ... passed
+10:58:26 INFO  Assert that (False == value) with value=False ... passed
+10:58:26 INFO  Assert that (False == value) with value=False ... passed
+10:58:26 INFO  
+10:58:26 INFO  cleanup:
+10:58:31 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
+10:58:31 INFO  Executed systemctl&lt;serv_mapper5&gt;, exit status 3
+10:58:31 INFO  
+10:58:31 INFO  Test duration: 165.43 secs
+10:58:31 INFO  Test final outcome:  FAILED
+10:58:31 INFO  Test outcome reason: Assert that (False == value) with value=True
+10:58:31 INFO  
 </system-out>
 	</testcase>
 </testsuite>
