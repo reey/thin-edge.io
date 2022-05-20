@@ -3302,8 +3302,9 @@ i.e. supporting the same kind of configuration files.</li>
 that will be managed from the cloud tenant.</li>
 <li>Notably, <strong>the plugin configuration itself is managed from the cloud</strong>,
 meaning, the device owner can update from the cloud the list of files to be managed.</li>
-<li>By default, <strong>the managed files are represented on the cloud by their full path on the device</strong>.
-Optionally, the device owner can assign an alias to each target path.</li>
+<li>Cumulocity manages the configuration files accordingly to their type,
+a name that is chosen by the device owner to categorise each configuration.
+By default, the full path of a configuration file on the device is used as its type.</li>
 <li>When files are downloaded from the cloud to the device,
 <strong>these files are stored in a temporary directory first</strong>.
 They are atomically moved to their target path, only after a fully successful download.
@@ -3363,19 +3364,25 @@ $ ls -l /etc/tedge/operations/c8y/c8y_DownloadConfigFile
 Each configuration file is defined by a record with:</p>
 <ul>
 <li>The full <code>path</code> to the file.</li>
+<li>An optional configuration <code>type</code>. If not provided, the <code>path</code> is used as <code>type</code>.</li>
+<li>Optional unix file ownership: <code>user</code>, <code>group</code> and octal <code>mode</code>.<br />
+These are only used when a configuration file pushed from the cloud doesn't exist on the device.
+When a configuration file is already present on the device, this plugin never changes file ownership,
+ignoring these parameters.</li>
 </ul>
 <pre><code class="language-shell">$ cat /etc/tedge/c8y/c8y-configuration-plugin.toml
 files = [
-    { path = '/etc/tedge/tedge.toml' },
+    { path = '/etc/tedge/tedge.toml', type = 'tedge.toml' },
     { path = '/etc/tedge/mosquitto-conf/c8y-bridge.conf' },
     { path = '/etc/tedge/mosquitto-conf/tedge-mosquitto.conf' },
-    { path = '/etc/mosquitto/mosquitto.conf' }
+    { path = '/etc/mosquitto/mosquitto.conf', type = 'mosquitto', user = 'mosquitto', group = 'mosquitto', mode = 0o644 }
   ]
 </code></pre>
 <p>Note that:</p>
 <ul>
 <li>The file <code>/etc/tedge/c8y/c8y-configuration-plugin.toml</code> itself doesn't need to be listed.
-This is implied, so the list can <em>always</em> be configured from the cloud.</li>
+This is implied, so the list can <em>always</em> be configured from the cloud.
+The <code>type</code> for this self configuration file is <code>c8y-configuration-plugin</code>.</li>
 <li>If the file <code>/etc/tedge/c8y/c8y-configuration-plugin.toml</code>
 is not found, empty, ill-formed or not-readable
 then only <code>c8y-configuration-plugin.toml</code> is managed from the cloud.</li>
@@ -3429,14 +3436,19 @@ with one line per file.</li>
 <p>When a configuration file is successfully downloaded from the cloud,
 the <code>c8y_configuration_plugin</code> service notifies this update over MQTT.</p>
 <ul>
-<li>Each message provides the path to the freshly updated file as in <code>{ &quot;changedFile&quot;: &quot;/etc/tedge/tedge.toml&quot; }</code>.</li>
-<li>The messages are published on <code>tedge/configuration_change</code>.</li>
+<li>The notification messages are published on the topic <code>tedge/configuration_change/{type}</code>,
+where <code>{type}</code> is the type of the configuration file that have been updated,
+for instance <code>tedge/configuration_change/tedge.toml</code></li>
+<li>Each message provides the path to the freshly updated file as in <code>{ &quot;path&quot;: &quot;/etc/tedge/tedge.toml&quot; }</code>.</li>
 </ul>
-<h2 id="internals"><a class="header" href="#internals">Internals</a></h2>
-<p>Points that still need to be addressed:</p>
+<p>Note that:</p>
 <ul>
-<li>Ability to give a type name to a configuration file.</li>
-<li>What if the target file doesn't exist? Is this is an error? If not what user, group and mod are to be used?</li>
+<li>If no specific type has been assigned to a configuration file, then the path to this file is used as its type.
+Update notifications for that file are then published on the topic <code>tedge/configuration_change/{path}</code>,
+for instance <code>tedge/configuration_change//etc/tedge/mosquitto-conf/c8y-bridge.conf</code>.</li>
+<li>Since the type of configuration file is used as an MQTT topic name, the characters <code>#</code> and <code>+</code> cannot be used in a type name.
+If such a character is used in a type name (or in the path of a configuration file without explicit type),
+then the whole plugin configuration <code>/etc/tedge/c8y/c8y-configuration-plugin.toml</code> is considered ill-formed.</li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="apis"><a class="header" href="#apis">APIs</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="the-bridged-topics"><a class="header" href="#the-bridged-topics">The bridged topics</a></h1>
