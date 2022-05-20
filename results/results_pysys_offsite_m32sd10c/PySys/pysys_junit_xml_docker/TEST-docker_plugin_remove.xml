@@ -1,34 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<testsuite failures="1" name="docker_plugin_remove" skipped="0" tests="1" time="4.87" timestamp="2022-05-20T12:07:33">
+<testsuite failures="1" name="docker_plugin_remove" skipped="0" tests="1" time="4.61" timestamp="2022-05-20T14:12:40">
 	<testcase classname="DockerPluginRemoveTest" name="docker_plugin_remove">
 		<failure message="BLOCKED: sudo&lt;docker_run&gt; returned non-zero exit code 125" type="BLOCKED"/>
-		<system-out>12:07:28 INFO  ==============================================================
-12:07:28 INFO  Id:    docker_plugin_remove
-12:07:28 INFO  Dir:   plugin_docker/
-12:07:28 INFO  Title: Validate docker plugin remove
-12:07:28 INFO  ==============================================================
-12:07:29 INFO  Executed sudo&lt;docker_images&gt;, exit status 0
-12:07:29 INFO  Grep on file /home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/plugin_docker/docker_plugin_remove/Output/linux/docker_images.out ... passed
-12:07:31 WARN  Executed sudo&lt;docker_run&gt;, exit status 125
-12:07:31 INFO  Contents of docker_run.err: 
+		<system-out>14:12:35 INFO  ==============================================================
+14:12:35 INFO  Id:    docker_plugin_remove
+14:12:35 INFO  Dir:   plugin_docker/
+14:12:35 INFO  Title: Validate docker plugin remove
+14:12:35 INFO  ==============================================================
+14:12:36 INFO  Executed sudo&lt;docker_images&gt;, exit status 0
+14:12:36 INFO  Grep on file /home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/plugin_docker/docker_plugin_remove/Output/linux/docker_images.out ... passed
+14:12:38 WARN  Executed sudo&lt;docker_run&gt;, exit status 125
+14:12:38 INFO  Contents of docker_run.err: 
   Unable to find image 'registry:latest' locally
   docker: Error response from daemon: toomanyrequests: You have reached your pull rate limit. You may increase the limit by authenticating and upgrading: https://www.docker.com/increase-rate-limit.
   See 'docker run --help'.
   -----
 
-12:07:31 WARN  sudo&lt;docker_run&gt; returned non-zero exit code 125 ... blocked 
-12:07:31 WARN  Aborted test due to BLOCKED outcome
-12:07:31 INFO  
-12:07:31 INFO  cleanup:
-12:07:31 INFO  Removing containers scheduled to be cleaned up: ['8ef2e963d571', 'e47c0fedc1ee']
-12:07:32 WARN  Executed sudo&lt;containers_for_cleanup&gt;, exit status 1
-12:07:32 INFO  Removing images scheduled to be cleaned up: ['registry', 'registry', 'registry:2.7.1']
-12:07:33 INFO  Executed sudo&lt;containers_for_cleanup&gt;, exit status 0
-12:07:33 INFO  
-12:07:33 INFO  Test duration: 4.87 secs
-12:07:33 INFO  Test final outcome:  BLOCKED
-12:07:33 INFO  Test outcome reason: sudo&lt;docker_run&gt; returned non-zero exit code 125
-12:07:33 INFO  
+14:12:38 WARN  sudo&lt;docker_run&gt; returned non-zero exit code 125 ... blocked 
+14:12:38 WARN  Aborted test due to BLOCKED outcome
+14:12:38 INFO  
+14:12:38 INFO  cleanup:
+14:12:38 INFO  Removing containers scheduled to be cleaned up: ['', '']
+14:12:39 WARN  Executed sudo&lt;containers_for_cleanup&gt;, exit status 1
+14:12:39 INFO  Removing images scheduled to be cleaned up: ['registry', 'registry:2.7.1']
+14:12:40 INFO  Executed sudo&lt;containers_for_cleanup&gt;, exit status 0
+14:12:40 INFO  
+14:12:40 INFO  Test duration: 4.61 secs
+14:12:40 INFO  Test final outcome:  BLOCKED
+14:12:40 INFO  Test outcome reason: sudo&lt;docker_run&gt; returned non-zero exit code 125
+14:12:40 INFO  
 </system-out>
 	</testcase>
 </testsuite>

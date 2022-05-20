@@ -1,22 +1,21 @@
-2022-05-20 12:06:49,623 INFO  ==============================================================
-2022-05-20 12:06:49,624 INFO  Id:    docker_plugin_finalize
-2022-05-20 12:06:49,627 INFO  Dir:   plugin_docker/
-2022-05-20 12:06:49,628 INFO  Title: Validate docker plugin finalize command
-2022-05-20 12:06:49,629 INFO  ==============================================================
-2022-05-20 12:06:52,032 INFO  Executed sudo<docker_images>, exit status 0
-2022-05-20 12:06:52,043 INFO  Grep on file /home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/plugin_docker/docker_plugin_finalize/Output/linux/docker_images.out ... passed
-2022-05-20 12:07:14,727 INFO  Executed sudo<docker_pull>, exit status 0, duration 22 secs
-2022-05-20 12:07:16,025 INFO  Executed sudo<docker_images>, exit status 0
-2022-05-20 12:07:16,030 INFO  Grep on file /home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/plugin_docker/docker_plugin_finalize/Output/linux/docker_images.out ... passed
-2022-05-20 12:07:19,730 INFO  Executed sudo<plugin_finalize>, exit status 0
-2022-05-20 12:07:20,544 INFO  Executed sudo<docker_ps_latest>, exit status 0
-2022-05-20 12:07:21,363 INFO  Executed sudo<docker_images>, exit status 0
-2022-05-20 12:07:21,367 INFO  Grep on file /home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/plugin_docker/docker_plugin_finalize/Output/linux/docker_images.out ... passed
-2022-05-20 12:07:21,374 INFO  
-2022-05-20 12:07:21,375 INFO  cleanup:
-2022-05-20 12:07:21,376 INFO  Removing images scheduled to be cleaned up: ['registry']
-2022-05-20 12:07:22,138 INFO  Executed sudo<containers_for_cleanup>, exit status 0
-2022-05-20 12:07:22,142 INFO  
-2022-05-20 12:07:22,143 INFO  Test duration: 32.53 secs
-2022-05-20 12:07:22,144 INFO  Test final outcome:  PASSED
-2022-05-20 12:07:22,145 INFO  
+2022-05-20 14:12:40,173 INFO  ==============================================================
+2022-05-20 14:12:40,174 INFO  Id:    docker_plugin_finalize
+2022-05-20 14:12:40,177 INFO  Dir:   plugin_docker/
+2022-05-20 14:12:40,178 INFO  Title: Validate docker plugin finalize command
+2022-05-20 14:12:40,179 INFO  ==============================================================
+2022-05-20 14:12:41,519 INFO  Executed sudo<docker_images>, exit status 0
+2022-05-20 14:12:41,530 INFO  Grep on file /home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/plugin_docker/docker_plugin_finalize/Output/linux/docker_images.out ... passed
+2022-05-20 14:12:43,901 WARN  Executed sudo<docker_pull>, exit status 1
+2022-05-20 14:12:43,906 INFO  Contents of docker_pull.err: 
+2022-05-20 14:12:43,907 INFO    Error response from daemon: toomanyrequests: You have reached your pull rate limit. You may increase the limit by authenticating and upgrading: https://www.docker.com/increase-rate-limit
+2022-05-20 14:12:43,908 INFO    -----
+2022-05-20 14:12:43,908 INFO  
+2022-05-20 14:12:44,096 WARN  sudo<docker_pull> returned non-zero exit code 1 ... blocked 
+2022-05-20 14:12:44,098 WARN  Aborted test due to BLOCKED outcome
+2022-05-20 14:12:44,103 INFO  
+2022-05-20 14:12:44,104 INFO  cleanup:
+2022-05-20 14:12:44,107 INFO  
+2022-05-20 14:12:44,108 INFO  Test duration: 3.94 secs
+2022-05-20 14:12:44,109 INFO  Test final outcome:  BLOCKED
+2022-05-20 14:12:44,110 INFO  Test outcome reason: sudo<docker_pull> returned non-zero exit code 1
+2022-05-20 14:12:44,111 INFO  
