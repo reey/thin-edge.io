@@ -1,27 +1,26 @@
-2022-05-23 15:54:54,596 INFO  ==============================================================
-2022-05-23 15:54:54,597 INFO  Id:    docker_plugin_update
-2022-05-23 15:54:54,598 INFO  Dir:   plugin_docker/
-2022-05-23 15:54:54,599 INFO  Title: Validate docker plugin install updates existing containers
-2022-05-23 15:54:54,600 INFO  ==============================================================
-2022-05-23 15:54:55,586 INFO  Executed sudo<docker_images>, exit status 0
-2022-05-23 15:54:55,591 INFO  Grep on file /home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/plugin_docker/docker_plugin_update/Output/linux/docker_images.out ... passed
-2022-05-23 15:54:57,709 WARN  Executed sudo<docker_run>, exit status 125
-2022-05-23 15:54:57,714 INFO  Contents of docker_run.err: 
-2022-05-23 15:54:57,715 INFO    Unable to find image 'registry:2.6.2' locally
-2022-05-23 15:54:57,716 INFO    docker: Error response from daemon: toomanyrequests: You have reached your pull rate limit. You may increase the limit by authenticating and upgrading: https://www.docker.com/increase-rate-limit.
-2022-05-23 15:54:57,716 INFO    See 'docker run --help'.
-2022-05-23 15:54:57,717 INFO    -----
-2022-05-23 15:54:57,718 INFO  
-2022-05-23 15:54:57,768 WARN  sudo<docker_run> returned non-zero exit code 125 ... blocked 
-2022-05-23 15:54:57,769 WARN  Aborted test due to BLOCKED outcome
-2022-05-23 15:54:57,774 INFO  
-2022-05-23 15:54:57,775 INFO  cleanup:
-2022-05-23 15:54:57,776 INFO  Removing containers scheduled to be cleaned up: ['d61ddda46480', '508e8573549f', '21be483a1849382060dee50ddad18035cc8a9733b549151c6a53678d68a6a7bf\n']
-2022-05-23 15:54:58,588 WARN  Executed sudo<containers_for_cleanup>, exit status 1
-2022-05-23 15:54:58,590 INFO  Removing images scheduled to be cleaned up: ['registry', 'registry', 'registry:2.7.1', 'registry']
-2022-05-23 15:54:59,402 INFO  Executed sudo<containers_for_cleanup>, exit status 0
-2022-05-23 15:54:59,406 INFO  
-2022-05-23 15:54:59,407 INFO  Test duration: 4.82 secs
-2022-05-23 15:54:59,409 INFO  Test final outcome:  BLOCKED
-2022-05-23 15:54:59,410 INFO  Test outcome reason: sudo<docker_run> returned non-zero exit code 125
-2022-05-23 15:54:59,410 INFO  
+2022-05-23 17:44:48,581 INFO  ==============================================================
+2022-05-23 17:44:48,582 INFO  Id:    docker_plugin_update
+2022-05-23 17:44:48,583 INFO  Dir:   plugin_docker/
+2022-05-23 17:44:48,584 INFO  Title: Validate docker plugin install updates existing containers
+2022-05-23 17:44:48,584 INFO  ==============================================================
+2022-05-23 17:44:49,741 INFO  Executed sudo<docker_images>, exit status 0
+2022-05-23 17:44:49,747 INFO  Grep on file /home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/plugin_docker/docker_plugin_update/Output/linux/docker_images.out ... passed
+2022-05-23 17:45:12,967 INFO  Executed sudo<docker_run>, exit status 0, duration 23 secs
+2022-05-23 17:45:13,838 INFO  Executed sudo<docker_ps>, exit status 0
+2022-05-23 17:45:13,848 INFO  Grep on file /home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/plugin_docker/docker_plugin_update/Output/linux/docker_ps.out ... passed
+2022-05-23 17:45:40,241 INFO  Executed sudo<plugin_install>, exit status 0, duration 26 secs
+2022-05-23 17:45:41,116 INFO  Executed sudo<docker_ps_latest>, exit status 0
+2022-05-23 17:45:41,934 INFO  Executed sudo<docker_ps>, exit status 0
+2022-05-23 17:45:41,938 INFO  Grep on file /home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/plugin_docker/docker_plugin_update/Output/linux/docker_ps.out ... passed
+2022-05-23 17:45:42,751 INFO  Executed sudo<docker_ps>, exit status 0
+2022-05-23 17:45:42,755 INFO  Grep on file /home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/plugin_docker/docker_plugin_update/Output/linux/docker_ps.out ... passed
+2022-05-23 17:45:42,761 INFO  
+2022-05-23 17:45:42,762 INFO  cleanup:
+2022-05-23 17:45:42,763 INFO  Removing containers scheduled to be cleaned up: ['be7da43e25f4', '51f57a3d0c5a', '31d1cf2abacec4729ef81ea16958aec9f6014d135cd3c447539e8800fd686aaf\n', '4b5b4e57bc85618deb94765d2323cd6b1743f9c57ce49ea6c0f76f6694555362\n', '1e2c5cabaa2dbbb4263c7deb2a23c298ce2c9e2f564a3af2a2f373b11e9e3e4c\n', '6681ee76341e']
+2022-05-23 17:45:45,857 WARN  Executed sudo<containers_for_cleanup>, exit status 1
+2022-05-23 17:45:45,859 INFO  Removing images scheduled to be cleaned up: ['registry', 'registry', 'registry:2.7.1', 'registry', 'registry:2.7.1', 'registry:2.6.2', 'registry:2.7.1']
+2022-05-23 17:45:52,554 INFO  Executed sudo<containers_for_cleanup>, exit status 0
+2022-05-23 17:45:52,558 INFO  
+2022-05-23 17:45:52,558 INFO  Test duration: 63.98 secs
+2022-05-23 17:45:52,559 INFO  Test final outcome:  PASSED
+2022-05-23 17:45:52,560 INFO  
