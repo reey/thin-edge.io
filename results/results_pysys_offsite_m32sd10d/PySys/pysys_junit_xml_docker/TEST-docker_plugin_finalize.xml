@@ -1,4 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<testsuite failures="0" name="docker_plugin_finalize" skipped="0" tests="1" time="33.68" timestamp="2022-05-23T09:22:58">
-	<testcase classname="DockerPluginFinalizeTest" name="docker_plugin_finalize"/>
+<testsuite failures="1" name="docker_plugin_finalize" skipped="0" tests="1" time="6.44" timestamp="2022-05-23T12:03:34">
+	<testcase classname="DockerPluginFinalizeTest" name="docker_plugin_finalize">
+		<failure message="BLOCKED: sudo&lt;docker_pull&gt; returned non-zero exit code 1" type="BLOCKED"/>
+		<system-out>12:03:27 INFO  ==============================================================
+12:03:27 INFO  Id:    docker_plugin_finalize
+12:03:27 INFO  Dir:   plugin_docker/
+12:03:27 INFO  Title: Validate docker plugin finalize command
+12:03:27 INFO  ==============================================================
+12:03:31 INFO  Executed sudo&lt;docker_images&gt;, exit status 0
+12:03:31 INFO  Grep on file /home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/plugin_docker/docker_plugin_finalize/Output/linux/docker_images.out ... passed
+12:03:34 WARN  Executed sudo&lt;docker_pull&gt;, exit status 1
+12:03:34 INFO  Contents of docker_pull.err: 
+  Error response from daemon: toomanyrequests: You have reached your pull rate limit. You may increase the limit by authenticating and upgrading: https://www.docker.com/increase-rate-limit
+  -----
+
+12:03:34 WARN  sudo&lt;docker_pull&gt; returned non-zero exit code 1 ... blocked 
+12:03:34 WARN  Aborted test due to BLOCKED outcome
+12:03:34 INFO  
+12:03:34 INFO  cleanup:
+12:03:34 INFO  
+12:03:34 INFO  Test duration: 6.44 secs
+12:03:34 INFO  Test final outcome:  BLOCKED
+12:03:34 INFO  Test outcome reason: sudo&lt;docker_pull&gt; returned non-zero exit code 1
+12:03:34 INFO  
+</system-out>
+	</testcase>
 </testsuite>
