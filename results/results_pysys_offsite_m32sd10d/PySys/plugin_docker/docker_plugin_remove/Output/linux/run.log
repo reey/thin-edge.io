@@ -1,27 +1,24 @@
-2022-05-23 14:13:56,542 INFO  ==============================================================
-2022-05-23 14:13:56,546 INFO  Id:    docker_plugin_remove
-2022-05-23 14:13:56,547 INFO  Dir:   plugin_docker/
-2022-05-23 14:13:56,548 INFO  Title: Validate docker plugin remove
-2022-05-23 14:13:56,548 INFO  ==============================================================
-2022-05-23 14:13:57,317 INFO  Executed sudo<docker_images>, exit status 0
-2022-05-23 14:13:57,347 INFO  Grep on file /home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/plugin_docker/docker_plugin_remove/Output/linux/docker_images.out ... passed
-2022-05-23 14:13:59,473 WARN  Executed sudo<docker_run>, exit status 125
-2022-05-23 14:13:59,478 INFO  Contents of docker_run.err: 
-2022-05-23 14:13:59,479 INFO    Unable to find image 'registry:latest' locally
-2022-05-23 14:13:59,480 INFO    docker: Error response from daemon: toomanyrequests: You have reached your pull rate limit. You may increase the limit by authenticating and upgrading: https://www.docker.com/increase-rate-limit.
-2022-05-23 14:13:59,480 INFO    See 'docker run --help'.
-2022-05-23 14:13:59,481 INFO    -----
-2022-05-23 14:13:59,482 INFO  
-2022-05-23 14:13:59,531 WARN  sudo<docker_run> returned non-zero exit code 125 ... blocked 
-2022-05-23 14:13:59,533 WARN  Aborted test due to BLOCKED outcome
-2022-05-23 14:13:59,538 INFO  
-2022-05-23 14:13:59,538 INFO  cleanup:
-2022-05-23 14:13:59,539 INFO  Removing containers scheduled to be cleaned up: ['', '']
-2022-05-23 14:14:00,351 WARN  Executed sudo<containers_for_cleanup>, exit status 1
-2022-05-23 14:14:00,353 INFO  Removing images scheduled to be cleaned up: ['registry', 'registry:2.7.1']
-2022-05-23 14:14:01,167 INFO  Executed sudo<containers_for_cleanup>, exit status 0
-2022-05-23 14:14:01,171 INFO  
-2022-05-23 14:14:01,172 INFO  Test duration: 4.63 secs
-2022-05-23 14:14:01,173 INFO  Test final outcome:  BLOCKED
-2022-05-23 14:14:01,174 INFO  Test outcome reason: sudo<docker_run> returned non-zero exit code 125
-2022-05-23 14:14:01,175 INFO  
+2022-05-23 15:53:21,134 INFO  ==============================================================
+2022-05-23 15:53:21,135 INFO  Id:    docker_plugin_remove
+2022-05-23 15:53:21,136 INFO  Dir:   plugin_docker/
+2022-05-23 15:53:21,137 INFO  Title: Validate docker plugin remove
+2022-05-23 15:53:21,138 INFO  ==============================================================
+2022-05-23 15:53:21,955 INFO  Executed sudo<docker_images>, exit status 0
+2022-05-23 15:53:21,961 INFO  Grep on file /home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/plugin_docker/docker_plugin_remove/Output/linux/docker_images.out ... passed
+2022-05-23 15:53:43,917 INFO  Executed sudo<docker_run>, exit status 0, duration 21 secs
+2022-05-23 15:53:44,742 INFO  Executed sudo<docker_ps>, exit status 0
+2022-05-23 15:53:44,747 INFO  Grep on file /home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/plugin_docker/docker_plugin_remove/Output/linux/docker_ps.out ... passed
+2022-05-23 15:53:48,334 INFO  Executed sudo<plugin_remove>, exit status 0
+2022-05-23 15:53:49,148 INFO  Executed sudo<docker_ps_latest>, exit status 0
+2022-05-23 15:53:49,965 INFO  Executed sudo<docker_ps>, exit status 0
+2022-05-23 15:53:49,969 INFO  Grep on file /home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/plugin_docker/docker_plugin_remove/Output/linux/docker_ps.out ... passed
+2022-05-23 15:53:49,975 INFO  
+2022-05-23 15:53:49,976 INFO  cleanup:
+2022-05-23 15:53:49,977 INFO  Removing containers scheduled to be cleaned up: ['ba57f6c14b7a', 'e14c8d7a1575', 'f6dab23f3e4808ac53bba77af97c4337444c2b4ba6ac03198fdb1a2ce2070ade\n']
+2022-05-23 15:53:50,790 WARN  Executed sudo<containers_for_cleanup>, exit status 1
+2022-05-23 15:53:50,792 INFO  Removing images scheduled to be cleaned up: ['registry', 'registry', 'registry:2.7.1', 'registry']
+2022-05-23 15:53:54,343 INFO  Executed sudo<containers_for_cleanup>, exit status 0
+2022-05-23 15:53:54,347 INFO  
+2022-05-23 15:53:54,348 INFO  Test duration: 33.22 secs
+2022-05-23 15:53:54,349 INFO  Test final outcome:  PASSED
+2022-05-23 15:53:54,350 INFO  
