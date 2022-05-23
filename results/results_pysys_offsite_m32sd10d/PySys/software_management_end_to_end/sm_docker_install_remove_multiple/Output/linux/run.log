@@ -1,69 +1,98 @@
-2022-05-20 14:31:36,576 INFO  ==============================================================
-2022-05-20 14:31:36,577 INFO  Id:    SoftwareManagement.sm_docker_install_remove_multiple
-2022-05-20 14:31:36,578 INFO  Dir:   software_management_end_to_end/
-2022-05-20 14:31:36,579 INFO  Title: Validate end to end behaviour for the docker plugin for multiple docker images with mixed versions
-2022-05-20 14:31:36,579 INFO  ==============================================================
-2022-05-20 14:31:36,589 INFO  Using sw id database: {'asciijump': '5475369', 'robotfindskitten': '5474869', 'squirrel3': '5475279', 'rolldice': '5152439', 'moon-buggy': '5439204', 'apple': '5495053', 'banana': '5494888', 'cherry': '5495382', 'watermelon': '5494510', 'registry': '8018911', 'hello-world': '8021526', 'docker/getting-started': '8021973', 'alpine': '7991792'}
-2022-05-20 14:31:36,590 INFO  EnvironmentC8y Setup
-2022-05-20 14:31:37,152 INFO  Executed systemctl<serv_mapper1>, exit status 3
-2022-05-20 14:31:37,256 INFO  Restarting mosquitto too frequently in the last 10 seconds. It was only up for 5 seconds
-2022-05-20 14:31:37,257 INFO  Delaying execution by 6 seconds
-2022-05-20 14:31:57,187 INFO  Executed sudo<tedge_connect_c8y>, exit status 0, duration 13 secs
-2022-05-20 14:31:57,826 INFO  Executed sudo<tedge_connect_c8y_test>, exit status 0
-2022-05-20 14:31:58,305 INFO  Executed systemctl<serv_mosq2>, exit status 0
-2022-05-20 14:31:58,769 INFO  Executed systemctl<serv_mapper3>, exit status 0
-2022-05-20 14:32:00,994 INFO  State of current operation: SUCCESSFUL
-2022-05-20 14:32:01,228 INFO  Response status: 201
-2022-05-20 14:32:01,230 INFO  Response to action: {
-    "creationTime": "2022-05-20T14:32:01.182Z",
-    "deviceId": "19409620",
-    "deviceName": "m32sd10d",
-    "self": "https://t493319102.eu-latest.cumulocity.com/devicecontrol/operations/19426373",
-    "id": "19426373",
-    "status": "PENDING",
-    "description": "Apply software changes, triggered from PySys: [{'action': 'install', 'id': '8021526', 'name': 'hello-world', 'url': '', 'version': '::docker'}, {'action': 'install', 'id': '8018911', 'name': 'registry', 'url': '', 'version': '2.6.2::docker'}]",
-    "c8y_SoftwareUpdate": [
-        {
-            "name": "hello-world",
-            "action": "install",
-            "id": "8021526",
-            "version": "::docker",
-            "url": ""
-        },
-        {
-            "name": "registry",
-            "action": "install",
-            "id": "8018911",
-            "version": "2.6.2::docker",
-            "url": ""
-        }
-    ]
-}
-2022-05-20 14:32:01,230 INFO  Started operation: {'creationTime': '2022-05-20T14:32:01.182Z', 'deviceId': '19409620', 'deviceName': 'm32sd10d', 'self': 'https://t493319102.eu-latest.cumulocity.com/devicecontrol/operations/19426373', 'id': '19426373', 'status': 'PENDING', 'description': "Apply software changes, triggered from PySys: [{'action': 'install', 'id': '8021526', 'name': 'hello-world', 'url': '', 'version': '::docker'}, {'action': 'install', 'id': '8018911', 'name': 'registry', 'url': '', 'version': '2.6.2::docker'}]", 'c8y_SoftwareUpdate': [{'name': 'hello-world', 'action': 'install', 'id': '8021526', 'version': '::docker', 'url': ''}, {'name': 'registry', 'action': 'install', 'id': '8018911', 'version': '2.6.2::docker', 'url': ''}]}
-2022-05-20 14:32:03,435 INFO  State of operation 19426373 : PENDING
-2022-05-20 14:32:05,645 INFO  State of operation 19426373 : EXECUTING
-2022-05-20 14:32:07,855 INFO  State of operation 19426373 : EXECUTING
-2022-05-20 14:32:10,081 INFO  State of operation 19426373 : EXECUTING
-2022-05-20 14:32:12,299 INFO  State of operation 19426373 : FAILED
-2022-05-20 14:32:12,300 ERROR Stopping as the operation has failed
-2022-05-20 14:32:12,301 WARN  SystemError occurred while running test - The operation has failed
+2022-05-23 09:51:02,227 INFO  ==============================================================
+2022-05-23 09:51:02,228 INFO  Id:    SoftwareManagement.sm_docker_install_remove_multiple
+2022-05-23 09:51:02,229 INFO  Dir:   software_management_end_to_end/
+2022-05-23 09:51:02,230 INFO  Title: Validate end to end behaviour for the docker plugin for multiple docker images with mixed versions
+2022-05-23 09:51:02,231 INFO  ==============================================================
+2022-05-23 09:51:02,241 INFO  Using sw id database: {'asciijump': '5475369', 'robotfindskitten': '5474869', 'squirrel3': '5475279', 'rolldice': '5152439', 'moon-buggy': '5439204', 'apple': '5495053', 'banana': '5494888', 'cherry': '5495382', 'watermelon': '5494510', 'registry': '8018911', 'hello-world': '8021526', 'docker/getting-started': '8021973', 'alpine': '7991792'}
+2022-05-23 09:51:02,242 INFO  EnvironmentC8y Setup
+2022-05-23 09:51:02,855 INFO  Executed systemctl<serv_mapper1>, exit status 3
+2022-05-23 09:51:02,966 INFO  Restarting mosquitto too frequently in the last 10 seconds. It was only up for 4 seconds
+2022-05-23 09:51:02,968 INFO  Delaying execution by 7 seconds
+2022-05-23 09:51:24,212 INFO  Executed sudo<tedge_connect_c8y>, exit status 0, duration 14 secs
+2022-05-23 09:51:24,832 INFO  Executed sudo<tedge_connect_c8y_test>, exit status 0
+2022-05-23 09:51:25,345 INFO  Executed systemctl<serv_mosq2>, exit status 0
+2022-05-23 09:51:25,819 INFO  Executed systemctl<serv_mapper3>, exit status 0
+2022-05-23 09:51:28,055 INFO  State of current operation: PENDING
+2022-05-23 09:51:30,282 INFO  State of current operation: PENDING
+2022-05-23 09:51:32,566 INFO  State of current operation: PENDING
+2022-05-23 09:51:34,798 INFO  State of current operation: PENDING
+2022-05-23 09:51:37,027 INFO  State of current operation: PENDING
+2022-05-23 09:51:39,259 INFO  State of current operation: PENDING
+2022-05-23 09:51:41,492 INFO  State of current operation: PENDING
+2022-05-23 09:51:43,724 INFO  State of current operation: PENDING
+2022-05-23 09:51:45,954 INFO  State of current operation: PENDING
+2022-05-23 09:51:48,184 INFO  State of current operation: PENDING
+2022-05-23 09:51:50,412 INFO  State of current operation: PENDING
+2022-05-23 09:51:52,650 INFO  State of current operation: PENDING
+2022-05-23 09:51:54,884 INFO  State of current operation: PENDING
+2022-05-23 09:51:57,120 INFO  State of current operation: PENDING
+2022-05-23 09:51:59,366 INFO  State of current operation: PENDING
+2022-05-23 09:52:01,601 INFO  State of current operation: PENDING
+2022-05-23 09:52:03,837 INFO  State of current operation: PENDING
+2022-05-23 09:52:06,070 INFO  State of current operation: PENDING
+2022-05-23 09:52:08,301 INFO  State of current operation: PENDING
+2022-05-23 09:52:10,534 INFO  State of current operation: PENDING
+2022-05-23 09:52:12,768 INFO  State of current operation: PENDING
+2022-05-23 09:52:15,001 INFO  State of current operation: PENDING
+2022-05-23 09:52:17,233 INFO  State of current operation: PENDING
+2022-05-23 09:52:19,466 INFO  State of current operation: PENDING
+2022-05-23 09:52:21,697 INFO  State of current operation: PENDING
+2022-05-23 09:52:23,951 INFO  State of current operation: PENDING
+2022-05-23 09:52:26,183 INFO  State of current operation: PENDING
+2022-05-23 09:52:28,418 INFO  State of current operation: PENDING
+2022-05-23 09:52:30,680 INFO  State of current operation: PENDING
+2022-05-23 09:52:33,018 INFO  State of current operation: PENDING
+2022-05-23 09:52:35,253 INFO  State of current operation: PENDING
+2022-05-23 09:52:37,484 INFO  State of current operation: PENDING
+2022-05-23 09:52:39,718 INFO  State of current operation: PENDING
+2022-05-23 09:52:41,968 INFO  State of current operation: PENDING
+2022-05-23 09:52:44,210 INFO  State of current operation: PENDING
+2022-05-23 09:52:46,439 INFO  State of current operation: PENDING
+2022-05-23 09:52:48,674 INFO  State of current operation: PENDING
+2022-05-23 09:52:50,906 INFO  State of current operation: PENDING
+2022-05-23 09:52:53,229 INFO  State of current operation: PENDING
+2022-05-23 09:52:55,465 INFO  State of current operation: PENDING
+2022-05-23 09:52:57,715 INFO  State of current operation: PENDING
+2022-05-23 09:52:59,946 INFO  State of current operation: PENDING
+2022-05-23 09:53:02,181 INFO  State of current operation: PENDING
+2022-05-23 09:53:04,410 INFO  State of current operation: PENDING
+2022-05-23 09:53:06,646 INFO  State of current operation: PENDING
+2022-05-23 09:53:08,881 INFO  State of current operation: PENDING
+2022-05-23 09:53:11,396 INFO  State of current operation: PENDING
+2022-05-23 09:53:13,625 INFO  State of current operation: PENDING
+2022-05-23 09:53:15,864 INFO  State of current operation: PENDING
+2022-05-23 09:53:18,095 INFO  State of current operation: PENDING
+2022-05-23 09:53:20,326 INFO  State of current operation: PENDING
+2022-05-23 09:53:22,559 INFO  State of current operation: PENDING
+2022-05-23 09:53:24,793 INFO  State of current operation: PENDING
+2022-05-23 09:53:27,025 INFO  State of current operation: PENDING
+2022-05-23 09:53:29,256 INFO  State of current operation: PENDING
+2022-05-23 09:53:31,487 INFO  State of current operation: PENDING
+2022-05-23 09:53:33,714 INFO  State of current operation: PENDING
+2022-05-23 09:53:35,963 INFO  State of current operation: PENDING
+2022-05-23 09:53:38,191 INFO  State of current operation: PENDING
+2022-05-23 09:53:40,424 INFO  State of current operation: PENDING
+2022-05-23 09:53:42,655 INFO  State of current operation: PENDING
+2022-05-23 09:53:44,667 WARN  SystemError occurred while running test - Timeout while waiting for status FAILED or SUCCESSFUL
 Traceback (most recent call last):
   File "/home/pi/env-pysys/lib/python3.7/site-packages/pysys/baserunner.py", line 1292, in __call__
     self.testObj.setup()
-  File "/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/sm_docker_install_remove_multiple/run.py", line 55, in setup
-    self.wait_until_succcess()
-  File "/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/environment_sm_management.py", line 324, in wait_until_succcess
-    self.wait_until_status("SUCCESSFUL")
-  File "/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/environment_sm_management.py", line 361, in wait_until_status
-    raise SystemError("The operation has failed")
-SystemError: The operation has failed
-2022-05-20 14:32:12,324 WARN  SystemError: The operation has failed ... blocked 
-2022-05-20 14:32:12,326 INFO  
-2022-05-20 14:32:12,326 INFO  cleanup:
-2022-05-20 14:32:16,173 INFO  Executed sudo<tedge_disconnect_c8y>, exit status 0
-2022-05-20 14:32:16,736 INFO  Executed systemctl<serv_mapper5>, exit status 3
-2022-05-20 14:32:16,740 INFO  
-2022-05-20 14:32:16,741 INFO  Test duration: 40.18 secs
-2022-05-20 14:32:16,742 INFO  Test final outcome:  BLOCKED
-2022-05-20 14:32:16,743 INFO  Test outcome reason: SystemError: The operation has failed
-2022-05-20 14:32:16,744 INFO  
+  File "/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/sm_docker_install_remove_multiple/run.py", line 29, in setup
+    super().setup()
+  File "/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/environment_sm_management.py", line 151, in setup
+    self.wait_until_end()
+  File "/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/environment_sm_management.py", line 332, in wait_until_end
+    self.wait_until_status("FAILED", "SUCCESSFUL")
+  File "/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/environment_sm_management.py", line 381, in wait_until_status
+    "Timeout while waiting for status %s or %s" % (status, status2)
+SystemError: Timeout while waiting for status FAILED or SUCCESSFUL
+2022-05-23 09:53:44,697 WARN  SystemError: Timeout while waiting for status FAILED or SUCCESSFUL ... blocked 
+2022-05-23 09:53:44,698 INFO  
+2022-05-23 09:53:44,699 INFO  cleanup:
+2022-05-23 09:53:48,768 INFO  Executed sudo<tedge_disconnect_c8y>, exit status 0
+2022-05-23 09:53:49,331 INFO  Executed systemctl<serv_mapper5>, exit status 3
+2022-05-23 09:53:49,335 INFO  
+2022-05-23 09:53:49,336 INFO  Test duration: 167.12 secs
+2022-05-23 09:53:49,337 INFO  Test final outcome:  BLOCKED
+2022-05-23 09:53:49,338 INFO  Test outcome reason: SystemError: Timeout while waiting for status FAILED or SUCCESSFUL
+2022-05-23 09:53:49,339 INFO  

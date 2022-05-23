@@ -1,39 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
-<testsuite failures="1" name="log_request_num_lines" skipped="0" tests="1" time="32.87" timestamp="2022-05-20T13:19:37">
+<testsuite failures="1" name="log_request_num_lines" skipped="0" tests="1" time="54.11" timestamp="2022-05-23T08:25:33">
 	<testcase classname="LogRequestVerifyNumberOfLines" name="log_request_num_lines">
-		<failure message="FAILED: Assert that (True == value) with value=False" type="FAILED"/>
-		<system-out>13:19:04 INFO  ==============================================================
-13:19:04 INFO  Id:    log_request_num_lines
-13:19:04 INFO  Dir:   log_request_end_to_end/
-13:19:04 INFO  Title: Validate end to end behaviour for the log request operation check for number of lines
-13:19:04 INFO  ==============================================================
-13:19:04 INFO  EnvironmentC8y Setup
-13:19:05 INFO  Executed systemctl&lt;serv_mapper1&gt;, exit status 3
-13:19:05 INFO  Restarting mosquitto too frequently in the last 10 seconds. It was only up for 5 seconds
-13:19:05 INFO  Delaying execution by 6 seconds
-13:19:26 INFO  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 0, duration 14 secs
-13:19:26 INFO  Executed sudo&lt;tedge_connect_c8y_test&gt;, exit status 0
-13:19:27 INFO  Executed systemctl&lt;serv_mosq2&gt;, exit status 0
-13:19:27 INFO  Executed systemctl&lt;serv_mapper3&gt;, exit status 0
-13:19:28 INFO  Executed sudo&lt;rm_logs&gt;, exit status 0
-13:19:28 INFO  Executed sudo&lt;move_logs&gt;, exit status 0
-13:19:29 INFO  log response None
-13:19:29 WARN  retry, retrying in 1 seconds...
-13:19:30 INFO  log response https://thin-edge-io.eu-latest.cumulocity.com/event/events/19408354/binaries
-13:19:30 INFO  nlines 0
-13:19:30 WARN  Assert that (True == value) with value=False ... failed [run.py:44]
-13:19:30 INFO  
-13:19:30 INFO  cleanup:
-13:19:31 INFO  Executed sudo&lt;rm_logs&gt;, exit status 0
-13:19:31 INFO  Executed sudo&lt;rm_tmp_logs&gt;, exit status 0
-13:19:32 INFO  Executed sudo&lt;send_failed&gt;, exit status 0
-13:19:36 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
-13:19:37 INFO  Executed systemctl&lt;serv_mapper5&gt;, exit status 3
-13:19:37 INFO  
-13:19:37 INFO  Test duration: 32.87 secs
-13:19:37 INFO  Test final outcome:  FAILED
-13:19:37 INFO  Test outcome reason: Assert that (True == value) with value=False
-13:19:37 INFO  
+		<failure message="BLOCKED: Exception: retry" type="BLOCKED"/>
+		<system-out>08:24:39 INFO  ==============================================================
+08:24:39 INFO  Id:    log_request_num_lines
+08:24:39 INFO  Dir:   log_request_end_to_end/
+08:24:39 INFO  Title: Validate end to end behaviour for the log request operation check for number of lines
+08:24:39 INFO  ==============================================================
+08:24:39 INFO  EnvironmentC8y Setup
+08:24:40 INFO  Executed systemctl&lt;serv_mapper1&gt;, exit status 3
+08:24:40 INFO  Restarting mosquitto too frequently in the last 10 seconds. It was only up for 5 seconds
+08:24:40 INFO  Delaying execution by 6 seconds
+08:25:00 INFO  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 0, duration 14 secs
+08:25:01 INFO  Executed sudo&lt;tedge_connect_c8y_test&gt;, exit status 0
+08:25:01 INFO  Executed systemctl&lt;serv_mosq2&gt;, exit status 0
+08:25:02 INFO  Executed systemctl&lt;serv_mapper3&gt;, exit status 0
+08:25:02 INFO  Executed sudo&lt;rm_logs&gt;, exit status 0
+08:25:03 INFO  Executed sudo&lt;move_logs&gt;, exit status 0
+08:25:03 INFO  log response None
+08:25:03 WARN  retry, retrying in 1 seconds...
+08:25:05 INFO  log response None
+08:25:05 WARN  retry, retrying in 1 seconds...
+08:25:06 INFO  log response None
+08:25:06 WARN  retry, retrying in 1 seconds...
+08:25:07 INFO  log response None
+08:25:07 WARN  retry, retrying in 1 seconds...
+08:25:08 INFO  log response None
+08:25:08 WARN  retry, retrying in 1 seconds...
+08:25:10 INFO  log response None
+08:25:10 WARN  retry, retrying in 1 seconds...
+08:25:11 INFO  log response None
+08:25:11 WARN  retry, retrying in 1 seconds...
+08:25:12 INFO  log response None
+08:25:12 WARN  retry, retrying in 1 seconds...
+08:25:13 INFO  log response None
+08:25:13 WARN  retry, retrying in 1 seconds...
+08:25:15 INFO  log response None
+08:25:15 WARN  retry, retrying in 1 seconds...
+08:25:16 INFO  log response None
+08:25:16 WARN  retry, retrying in 1 seconds...
+08:25:17 INFO  log response None
+08:25:17 WARN  retry, retrying in 1 seconds...
+08:25:18 INFO  log response None
+08:25:18 WARN  retry, retrying in 1 seconds...
+08:25:19 INFO  log response None
+08:25:19 WARN  retry, retrying in 1 seconds...
+08:25:21 INFO  log response None
+08:25:21 WARN  retry, retrying in 1 seconds...
+08:25:22 INFO  log response None
+08:25:22 WARN  retry, retrying in 1 seconds...
+08:25:23 INFO  log response None
+08:25:23 WARN  retry, retrying in 1 seconds...
+08:25:24 INFO  log response None
+08:25:24 WARN  retry, retrying in 1 seconds...
+08:25:25 INFO  log response None
+08:25:25 WARN  retry, retrying in 1 seconds...
+08:25:27 INFO  log response None
+08:25:27 WARN  Exception occurred while running test - retry
+Traceback (most recent call last):
+  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/pysys/baserunner.py&quot;, line 1296, in __call__
+    self.testObj.validate()
+  File &quot;/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/log_request_end_to_end/log_request_num_lines/run.py&quot;, line 44, in validate
+    self.assertThat(&quot;True == value&quot;, value=self.wait_until_logs_retrieved())
+  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/decorator.py&quot;, line 232, in fun
+    return caller(func, *(extras + args), **kw)
+  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/retry/api.py&quot;, line 74, in retry_decorator
+    logger)
+  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/retry/api.py&quot;, line 33, in __retry_internal
+    return f()
+  File &quot;/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/log_request_end_to_end/log_request_num_lines/run.py&quot;, line 52, in wait_until_logs_retrieved
+    raise Exception(&quot;retry&quot;)
+Exception: retry
+08:25:27 WARN  Exception: retry ... blocked 
+08:25:27 INFO  
+08:25:27 INFO  cleanup:
+08:25:27 INFO  Executed sudo&lt;rm_logs&gt;, exit status 0
+08:25:28 INFO  Executed sudo&lt;rm_tmp_logs&gt;, exit status 0
+08:25:28 INFO  Executed sudo&lt;send_failed&gt;, exit status 0
+08:25:33 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
+08:25:33 INFO  Executed systemctl&lt;serv_mapper5&gt;, exit status 3
+08:25:33 INFO  
+08:25:33 INFO  Test duration: 54.11 secs
+08:25:33 INFO  Test final outcome:  BLOCKED
+08:25:33 INFO  Test outcome reason: Exception: retry
+08:25:33 INFO  
 </system-out>
 	</testcase>
 </testsuite>

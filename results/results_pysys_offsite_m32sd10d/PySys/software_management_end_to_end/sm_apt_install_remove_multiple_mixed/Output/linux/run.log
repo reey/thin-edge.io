@@ -1,158 +1,98 @@
-2022-05-20 14:26:00,915 INFO  ==============================================================
-2022-05-20 14:26:00,916 INFO  Id:    SoftwareManagement.sm_apt_install_remove_multiple_mixed
-2022-05-20 14:26:00,917 INFO  Dir:   software_management_end_to_end/
-2022-05-20 14:26:00,918 INFO  Title: Validate end to end behaviour for the apt plugin for multiple packages with mixed versions
-2022-05-20 14:26:00,919 INFO  ==============================================================
-2022-05-20 14:26:00,928 INFO  Using sw id database: {'asciijump': '5475369', 'robotfindskitten': '5474869', 'squirrel3': '5475279', 'rolldice': '5152439', 'moon-buggy': '5439204', 'apple': '5495053', 'banana': '5494888', 'cherry': '5495382', 'watermelon': '5494510', 'registry': '8018911', 'hello-world': '8021526', 'docker/getting-started': '8021973', 'alpine': '7991792'}
-2022-05-20 14:26:00,929 INFO  EnvironmentC8y Setup
-2022-05-20 14:26:01,500 INFO  Executed systemctl<serv_mapper1>, exit status 3
-2022-05-20 14:26:01,627 INFO  Restarting mosquitto too frequently in the last 10 seconds. It was only up for 5 seconds
-2022-05-20 14:26:01,628 INFO  Delaying execution by 6 seconds
-2022-05-20 14:26:21,501 INFO  Executed sudo<tedge_connect_c8y>, exit status 0, duration 13 secs
-2022-05-20 14:26:22,123 INFO  Executed sudo<tedge_connect_c8y_test>, exit status 0
-2022-05-20 14:26:22,591 INFO  Executed systemctl<serv_mosq2>, exit status 0
-2022-05-20 14:26:23,054 INFO  Executed systemctl<serv_mapper3>, exit status 0
-2022-05-20 14:26:25,290 INFO  State of current operation: SUCCESSFUL
-2022-05-20 14:26:25,513 INFO  Assert that (False == value) with value=False ... passed
-2022-05-20 14:26:25,756 INFO  Assert that (False == value) with value=False ... passed
-2022-05-20 14:26:26,097 INFO  Assert that (False == value) with value=False ... passed
-2022-05-20 14:26:26,329 INFO  Assert that (False == value) with value=False ... passed
-2022-05-20 14:26:26,569 INFO  Package moon-buggy is installed
-2022-05-20 14:26:26,604 WARN  Assert that (False == value) with value=True ... failed 
-2022-05-20 14:26:27,853 INFO  Response status: 201
-2022-05-20 14:26:27,856 INFO  Response to action: {
-    "creationTime": "2022-05-20T14:26:27.806Z",
-    "deviceId": "19409620",
-    "deviceName": "m32sd10d",
-    "self": "https://t493319102.eu-latest.cumulocity.com/devicecontrol/operations/19426318",
-    "id": "19426318",
-    "status": "PENDING",
-    "description": "Apply software changes, triggered from PySys: [{'action': 'install', 'id': '5475369', 'name': 'asciijump', 'url': ' ', 'version': '::apt'}, {'action': 'install', 'id': '5474869', 'name': 'robotfindskitten', 'url': ' ', 'version': ' '}, {'action': 'install', 'id': '5475279', 'name': 'squirrel3', 'url': ' ', 'version': '3.1-7::apt'}, {'action': 'install', 'id': '5152439', 'name': 'rolldice', 'url': ' ', 'version': '1.16-1+b1'}, {'action': 'install', 'id': '5439204', 'name': 'moon-buggy', 'url': ' ', 'version': '1:1.0.51-12'}, {'action': 'install', 'id': '5475369', 'name': 'asciijump', 'url': ' ', 'version': '::apt'}]",
-    "c8y_SoftwareUpdate": [
-        {
-            "name": "asciijump",
-            "action": "install",
-            "id": "5475369",
-            "version": "::apt",
-            "url": " "
-        },
-        {
-            "name": "robotfindskitten",
-            "action": "install",
-            "id": "5474869",
-            "version": " ",
-            "url": " "
-        },
-        {
-            "name": "squirrel3",
-            "action": "install",
-            "id": "5475279",
-            "version": "3.1-7::apt",
-            "url": " "
-        },
-        {
-            "name": "rolldice",
-            "action": "install",
-            "id": "5152439",
-            "version": "1.16-1+b1",
-            "url": " "
-        },
-        {
-            "name": "moon-buggy",
-            "action": "install",
-            "id": "5439204",
-            "version": "1:1.0.51-12",
-            "url": " "
-        },
-        {
-            "name": "asciijump",
-            "action": "install",
-            "id": "5475369",
-            "version": "::apt",
-            "url": " "
-        }
-    ]
-}
-2022-05-20 14:26:27,857 INFO  Started operation: {'creationTime': '2022-05-20T14:26:27.806Z', 'deviceId': '19409620', 'deviceName': 'm32sd10d', 'self': 'https://t493319102.eu-latest.cumulocity.com/devicecontrol/operations/19426318', 'id': '19426318', 'status': 'PENDING', 'description': "Apply software changes, triggered from PySys: [{'action': 'install', 'id': '5475369', 'name': 'asciijump', 'url': ' ', 'version': '::apt'}, {'action': 'install', 'id': '5474869', 'name': 'robotfindskitten', 'url': ' ', 'version': ' '}, {'action': 'install', 'id': '5475279', 'name': 'squirrel3', 'url': ' ', 'version': '3.1-7::apt'}, {'action': 'install', 'id': '5152439', 'name': 'rolldice', 'url': ' ', 'version': '1.16-1+b1'}, {'action': 'install', 'id': '5439204', 'name': 'moon-buggy', 'url': ' ', 'version': '1:1.0.51-12'}, {'action': 'install', 'id': '5475369', 'name': 'asciijump', 'url': ' ', 'version': '::apt'}]", 'c8y_SoftwareUpdate': [{'name': 'asciijump', 'action': 'install', 'id': '5475369', 'version': '::apt', 'url': ' '}, {'name': 'robotfindskitten', 'action': 'install', 'id': '5474869', 'version': ' ', 'url': ' '}, {'name': 'squirrel3', 'action': 'install', 'id': '5475279', 'version': '3.1-7::apt', 'url': ' '}, {'name': 'rolldice', 'action': 'install', 'id': '5152439', 'version': '1.16-1+b1', 'url': ' '}, {'name': 'moon-buggy', 'action': 'install', 'id': '5439204', 'version': '1:1.0.51-12', 'url': ' '}, {'name': 'asciijump', 'action': 'install', 'id': '5475369', 'version': '::apt', 'url': ' '}]}
-2022-05-20 14:26:30,073 INFO  State of operation 19426318 : PENDING
-2022-05-20 14:26:32,296 INFO  State of operation 19426318 : EXECUTING
-2022-05-20 14:26:34,510 INFO  State of operation 19426318 : EXECUTING
-2022-05-20 14:26:36,720 INFO  State of operation 19426318 : EXECUTING
-2022-05-20 14:26:38,939 INFO  State of operation 19426318 : EXECUTING
-2022-05-20 14:26:41,160 INFO  State of operation 19426318 : EXECUTING
-2022-05-20 14:26:43,911 INFO  State of operation 19426318 : EXECUTING
-2022-05-20 14:26:46,734 INFO  State of operation 19426318 : EXECUTING
-2022-05-20 14:26:49,240 INFO  State of operation 19426318 : EXECUTING
-2022-05-20 14:26:51,635 INFO  State of operation 19426318 : EXECUTING
-2022-05-20 14:26:53,847 INFO  State of operation 19426318 : EXECUTING
-2022-05-20 14:26:56,071 INFO  State of operation 19426318 : EXECUTING
-2022-05-20 14:26:58,302 INFO  State of operation 19426318 : EXECUTING
-2022-05-20 14:27:00,532 INFO  State of operation 19426318 : EXECUTING
-2022-05-20 14:27:02,859 INFO  State of operation 19426318 : EXECUTING
-2022-05-20 14:27:05,222 INFO  State of operation 19426318 : EXECUTING
-2022-05-20 14:27:07,711 INFO  State of operation 19426318 : EXECUTING
-2022-05-20 14:27:10,742 INFO  State of operation 19426318 : EXECUTING
-2022-05-20 14:27:12,957 INFO  State of operation 19426318 : EXECUTING
-2022-05-20 14:27:15,175 INFO  State of operation 19426318 : EXECUTING
-2022-05-20 14:27:17,386 INFO  State of operation 19426318 : EXECUTING
-2022-05-20 14:27:20,101 INFO  State of operation 19426318 : EXECUTING
-2022-05-20 14:27:22,314 INFO  State of operation 19426318 : EXECUTING
-2022-05-20 14:27:25,040 INFO  State of operation 19426318 : EXECUTING
-2022-05-20 14:27:27,320 INFO  State of operation 19426318 : EXECUTING
-2022-05-20 14:27:29,617 INFO  State of operation 19426318 : EXECUTING
-2022-05-20 14:27:32,014 INFO  State of operation 19426318 : EXECUTING
-2022-05-20 14:27:34,259 INFO  State of operation 19426318 : EXECUTING
-2022-05-20 14:27:36,479 INFO  State of operation 19426318 : EXECUTING
-2022-05-20 14:27:38,852 INFO  State of operation 19426318 : EXECUTING
-2022-05-20 14:27:41,186 INFO  State of operation 19426318 : EXECUTING
-2022-05-20 14:27:43,406 INFO  State of operation 19426318 : EXECUTING
-2022-05-20 14:27:45,663 INFO  State of operation 19426318 : EXECUTING
-2022-05-20 14:27:47,905 INFO  State of operation 19426318 : EXECUTING
-2022-05-20 14:27:50,119 INFO  State of operation 19426318 : EXECUTING
-2022-05-20 14:27:52,332 INFO  State of operation 19426318 : EXECUTING
-2022-05-20 14:27:54,545 INFO  State of operation 19426318 : EXECUTING
-2022-05-20 14:27:57,306 INFO  State of operation 19426318 : EXECUTING
-2022-05-20 14:27:59,857 INFO  State of operation 19426318 : EXECUTING
-2022-05-20 14:28:02,345 INFO  State of operation 19426318 : EXECUTING
-2022-05-20 14:28:04,807 INFO  State of operation 19426318 : EXECUTING
-2022-05-20 14:28:07,028 INFO  State of operation 19426318 : EXECUTING
-2022-05-20 14:28:09,244 INFO  State of operation 19426318 : EXECUTING
-2022-05-20 14:28:11,458 INFO  State of operation 19426318 : EXECUTING
-2022-05-20 14:28:13,737 INFO  State of operation 19426318 : EXECUTING
-2022-05-20 14:28:15,969 INFO  State of operation 19426318 : EXECUTING
-2022-05-20 14:28:18,413 INFO  State of operation 19426318 : EXECUTING
-2022-05-20 14:28:20,741 INFO  State of operation 19426318 : EXECUTING
-2022-05-20 14:28:23,675 INFO  State of operation 19426318 : EXECUTING
-2022-05-20 14:28:25,926 INFO  State of operation 19426318 : EXECUTING
-2022-05-20 14:28:28,160 INFO  State of operation 19426318 : EXECUTING
-2022-05-20 14:28:31,104 INFO  State of operation 19426318 : EXECUTING
-2022-05-20 14:28:33,309 INFO  State of operation 19426318 : EXECUTING
-2022-05-20 14:28:35,535 INFO  State of operation 19426318 : EXECUTING
-2022-05-20 14:28:37,745 INFO  State of operation 19426318 : EXECUTING
-2022-05-20 14:28:39,965 INFO  State of operation 19426318 : EXECUTING
-2022-05-20 14:28:42,676 INFO  State of operation 19426318 : EXECUTING
-2022-05-20 14:28:44,903 INFO  State of operation 19426318 : EXECUTING
-2022-05-20 14:28:47,291 INFO  State of operation 19426318 : EXECUTING
-2022-05-20 14:28:49,509 INFO  State of operation 19426318 : EXECUTING
-2022-05-20 14:28:51,936 INFO  State of operation 19426318 : EXECUTING
-2022-05-20 14:28:53,940 WARN  SystemError occurred while running test - Timeout while waiting for status SUCCESSFUL or False
+2022-05-23 09:45:29,931 INFO  ==============================================================
+2022-05-23 09:45:29,932 INFO  Id:    SoftwareManagement.sm_apt_install_remove_multiple_mixed
+2022-05-23 09:45:29,934 INFO  Dir:   software_management_end_to_end/
+2022-05-23 09:45:29,934 INFO  Title: Validate end to end behaviour for the apt plugin for multiple packages with mixed versions
+2022-05-23 09:45:29,935 INFO  ==============================================================
+2022-05-23 09:45:29,945 INFO  Using sw id database: {'asciijump': '5475369', 'robotfindskitten': '5474869', 'squirrel3': '5475279', 'rolldice': '5152439', 'moon-buggy': '5439204', 'apple': '5495053', 'banana': '5494888', 'cherry': '5495382', 'watermelon': '5494510', 'registry': '8018911', 'hello-world': '8021526', 'docker/getting-started': '8021973', 'alpine': '7991792'}
+2022-05-23 09:45:29,946 INFO  EnvironmentC8y Setup
+2022-05-23 09:45:30,514 INFO  Executed systemctl<serv_mapper1>, exit status 3
+2022-05-23 09:45:30,620 INFO  Restarting mosquitto too frequently in the last 10 seconds. It was only up for 5 seconds
+2022-05-23 09:45:30,621 INFO  Delaying execution by 6 seconds
+2022-05-23 09:45:50,535 INFO  Executed sudo<tedge_connect_c8y>, exit status 0, duration 13 secs
+2022-05-23 09:45:51,132 INFO  Executed sudo<tedge_connect_c8y_test>, exit status 0
+2022-05-23 09:45:51,595 INFO  Executed systemctl<serv_mosq2>, exit status 0
+2022-05-23 09:45:52,058 INFO  Executed systemctl<serv_mapper3>, exit status 0
+2022-05-23 09:45:54,290 INFO  State of current operation: PENDING
+2022-05-23 09:45:56,534 INFO  State of current operation: PENDING
+2022-05-23 09:45:58,764 INFO  State of current operation: PENDING
+2022-05-23 09:46:00,999 INFO  State of current operation: PENDING
+2022-05-23 09:46:03,231 INFO  State of current operation: PENDING
+2022-05-23 09:46:05,460 INFO  State of current operation: PENDING
+2022-05-23 09:46:07,810 INFO  State of current operation: PENDING
+2022-05-23 09:46:10,051 INFO  State of current operation: PENDING
+2022-05-23 09:46:12,296 INFO  State of current operation: PENDING
+2022-05-23 09:46:14,527 INFO  State of current operation: PENDING
+2022-05-23 09:46:16,751 INFO  State of current operation: PENDING
+2022-05-23 09:46:18,996 INFO  State of current operation: PENDING
+2022-05-23 09:46:21,235 INFO  State of current operation: PENDING
+2022-05-23 09:46:23,468 INFO  State of current operation: PENDING
+2022-05-23 09:46:25,695 INFO  State of current operation: PENDING
+2022-05-23 09:46:27,922 INFO  State of current operation: PENDING
+2022-05-23 09:46:30,152 INFO  State of current operation: PENDING
+2022-05-23 09:46:32,383 INFO  State of current operation: PENDING
+2022-05-23 09:46:34,625 INFO  State of current operation: PENDING
+2022-05-23 09:46:36,906 INFO  State of current operation: PENDING
+2022-05-23 09:46:39,136 INFO  State of current operation: PENDING
+2022-05-23 09:46:41,360 INFO  State of current operation: PENDING
+2022-05-23 09:46:43,590 INFO  State of current operation: PENDING
+2022-05-23 09:46:45,821 INFO  State of current operation: PENDING
+2022-05-23 09:46:48,065 INFO  State of current operation: PENDING
+2022-05-23 09:46:50,301 INFO  State of current operation: PENDING
+2022-05-23 09:46:52,533 INFO  State of current operation: PENDING
+2022-05-23 09:46:54,770 INFO  State of current operation: PENDING
+2022-05-23 09:46:56,999 INFO  State of current operation: PENDING
+2022-05-23 09:46:59,231 INFO  State of current operation: PENDING
+2022-05-23 09:47:01,468 INFO  State of current operation: PENDING
+2022-05-23 09:47:03,702 INFO  State of current operation: PENDING
+2022-05-23 09:47:05,935 INFO  State of current operation: PENDING
+2022-05-23 09:47:08,162 INFO  State of current operation: PENDING
+2022-05-23 09:47:10,396 INFO  State of current operation: PENDING
+2022-05-23 09:47:12,624 INFO  State of current operation: PENDING
+2022-05-23 09:47:14,866 INFO  State of current operation: PENDING
+2022-05-23 09:47:17,105 INFO  State of current operation: PENDING
+2022-05-23 09:47:19,336 INFO  State of current operation: PENDING
+2022-05-23 09:47:21,568 INFO  State of current operation: PENDING
+2022-05-23 09:47:23,799 INFO  State of current operation: PENDING
+2022-05-23 09:47:26,033 INFO  State of current operation: PENDING
+2022-05-23 09:47:28,266 INFO  State of current operation: PENDING
+2022-05-23 09:47:30,496 INFO  State of current operation: PENDING
+2022-05-23 09:47:32,724 INFO  State of current operation: PENDING
+2022-05-23 09:47:34,955 INFO  State of current operation: PENDING
+2022-05-23 09:47:37,185 INFO  State of current operation: PENDING
+2022-05-23 09:47:39,420 INFO  State of current operation: PENDING
+2022-05-23 09:47:41,648 INFO  State of current operation: PENDING
+2022-05-23 09:47:43,880 INFO  State of current operation: PENDING
+2022-05-23 09:47:46,114 INFO  State of current operation: PENDING
+2022-05-23 09:47:48,348 INFO  State of current operation: PENDING
+2022-05-23 09:47:50,585 INFO  State of current operation: PENDING
+2022-05-23 09:47:52,825 INFO  State of current operation: PENDING
+2022-05-23 09:47:55,062 INFO  State of current operation: PENDING
+2022-05-23 09:47:57,312 INFO  State of current operation: PENDING
+2022-05-23 09:47:59,545 INFO  State of current operation: PENDING
+2022-05-23 09:48:01,851 INFO  State of current operation: PENDING
+2022-05-23 09:48:04,084 INFO  State of current operation: PENDING
+2022-05-23 09:48:06,315 INFO  State of current operation: PENDING
+2022-05-23 09:48:08,545 INFO  State of current operation: PENDING
+2022-05-23 09:48:10,556 WARN  SystemError occurred while running test - Timeout while waiting for status FAILED or SUCCESSFUL
 Traceback (most recent call last):
-  File "/home/pi/env-pysys/lib/python3.7/site-packages/pysys/baserunner.py", line 1294, in __call__
-    self.testObj.execute()
-  File "/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/sm_apt_install_remove_multiple_mixed/run.py", line 89, in execute
-    self.wait_until_succcess()
-  File "/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/environment_sm_management.py", line 324, in wait_until_succcess
-    self.wait_until_status("SUCCESSFUL")
+  File "/home/pi/env-pysys/lib/python3.7/site-packages/pysys/baserunner.py", line 1292, in __call__
+    self.testObj.setup()
+  File "/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/sm_apt_install_remove_multiple_mixed/run.py", line 73, in setup
+    super().setup()
+  File "/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/environment_sm_management.py", line 151, in setup
+    self.wait_until_end()
+  File "/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/environment_sm_management.py", line 332, in wait_until_end
+    self.wait_until_status("FAILED", "SUCCESSFUL")
   File "/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/environment_sm_management.py", line 381, in wait_until_status
     "Timeout while waiting for status %s or %s" % (status, status2)
-SystemError: Timeout while waiting for status SUCCESSFUL or False
-2022-05-20 14:28:53,968 WARN  SystemError: Timeout while waiting for status SUCCESSFUL or False ... blocked 
-2022-05-20 14:28:53,970 INFO  
-2022-05-20 14:28:53,970 INFO  cleanup:
-2022-05-20 14:28:58,341 INFO  Executed sudo<tedge_disconnect_c8y>, exit status 0
-2022-05-20 14:28:58,904 INFO  Executed systemctl<serv_mapper5>, exit status 3
-2022-05-20 14:28:58,908 INFO  
-2022-05-20 14:28:58,909 INFO  Test duration: 178.01 secs
-2022-05-20 14:28:58,910 INFO  Test final outcome:  BLOCKED
-2022-05-20 14:28:58,911 INFO  Test outcome reason: SystemError: Timeout while waiting for status SUCCESSFUL or False (+1 other failures)
-2022-05-20 14:28:58,912 INFO  
+SystemError: Timeout while waiting for status FAILED or SUCCESSFUL
+2022-05-23 09:48:10,589 WARN  SystemError: Timeout while waiting for status FAILED or SUCCESSFUL ... blocked 
+2022-05-23 09:48:10,591 INFO  
+2022-05-23 09:48:10,592 INFO  cleanup:
+2022-05-23 09:48:14,669 INFO  Executed sudo<tedge_disconnect_c8y>, exit status 0
+2022-05-23 09:48:15,281 INFO  Executed systemctl<serv_mapper5>, exit status 3
+2022-05-23 09:48:15,286 INFO  
+2022-05-23 09:48:15,286 INFO  Test duration: 165.37 secs
+2022-05-23 09:48:15,287 INFO  Test final outcome:  BLOCKED
+2022-05-23 09:48:15,288 INFO  Test outcome reason: SystemError: Timeout while waiting for status FAILED or SUCCESSFUL
+2022-05-23 09:48:15,289 INFO  

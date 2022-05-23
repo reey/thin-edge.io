@@ -1,88 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
-<testsuite failures="1" name="SoftwareManagement.sm_apt_install_download_path" skipped="0" tests="1" time="85.37" timestamp="2022-05-20T14:17:08">
+<testsuite failures="1" name="SoftwareManagement.sm_apt_install_download_path" skipped="0" tests="1" time="187.2" timestamp="2022-05-23T09:34:04">
 	<testcase classname="AptInstallWithDownloadPath" name="SoftwareManagement.sm_apt_install_download_path">
-		<failure message="BLOCKED: AssertionError:" type="BLOCKED"/>
-		<system-out>14:15:43 INFO  ==============================================================
-14:15:43 INFO  Id:    SoftwareManagement.sm_apt_install_download_path
-14:15:43 INFO  Dir:   software_management_end_to_end/
-14:15:43 INFO  Title: Install package to directory specified in tedge config set tmp.path
-14:15:43 INFO  ==============================================================
-14:15:44 INFO  Using sw id database: {'asciijump': '5475369', 'robotfindskitten': '5474869', 'squirrel3': '5475279', 'rolldice': '5152439', 'moon-buggy': '5439204', 'apple': '5495053', 'banana': '5494888', 'cherry': '5495382', 'watermelon': '5494510', 'registry': '8018911', 'hello-world': '8021526', 'docker/getting-started': '8021973', 'alpine': '7991792'}
-14:15:44 INFO  EnvironmentC8y Setup
-14:15:45 INFO  Executed systemctl&lt;serv_mapper1&gt;, exit status 3
-14:15:59 INFO  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 0, duration 14 secs
-14:15:59 INFO  Executed sudo&lt;tedge_connect_c8y_test&gt;, exit status 0
-14:16:00 INFO  Executed systemctl&lt;serv_mosq2&gt;, exit status 0
-14:16:00 INFO  Executed systemctl&lt;serv_mapper3&gt;, exit status 0
-14:16:03 INFO  State of current operation: FAILED
-14:16:03 INFO  Assert that (False == value) with value=False ... passed
-14:16:03 INFO  Executed sudo, exit status 0
-14:16:04 INFO  Executed sudo, exit status 0
-14:16:05 INFO  Executed sudo, exit status 0
-14:16:09 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
-14:16:09 INFO  Restarting mosquitto too frequently in the last 10 seconds. It was only up for 3 seconds
-14:16:09 INFO  Delaying execution by 8 seconds
-14:16:30 INFO  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 0, duration 13 secs
-14:16:31 INFO  Response status: 201
-14:16:31 INFO  Response to action: {
-    &quot;creationTime&quot;: &quot;2022-05-20T14:16:31.199Z&quot;,
-    &quot;deviceId&quot;: &quot;19408350&quot;,
-    &quot;deviceName&quot;: &quot;m32sd10b&quot;,
-    &quot;self&quot;: &quot;https://t493319102.eu-latest.cumulocity.com/devicecontrol/operations/19426199&quot;,
-    &quot;id&quot;: &quot;19426199&quot;,
-    &quot;status&quot;: &quot;PENDING&quot;,
-    &quot;description&quot;: &quot;Apply software changes, triggered from PySys: [{'name': 'rolldice', 'id': '5152439', 'version': '::apt', 'url': 'https://thin-edge-io.eu-latest.cumulocity.com/inventory/binaries/12435463', 'action': 'install'}]&quot;,
-    &quot;c8y_SoftwareUpdate&quot;: [
-        {
-            &quot;name&quot;: &quot;rolldice&quot;,
-            &quot;action&quot;: &quot;install&quot;,
-            &quot;id&quot;: &quot;5152439&quot;,
-            &quot;version&quot;: &quot;::apt&quot;,
-            &quot;url&quot;: &quot;https://thin-edge-io.eu-latest.cumulocity.com/inventory/binaries/12435463&quot;
-        }
-    ]
-}
-14:16:31 INFO  Started operation: {'creationTime': '2022-05-20T14:16:31.199Z', 'deviceId': '19408350', 'deviceName': 'm32sd10b', 'self': 'https://t493319102.eu-latest.cumulocity.com/devicecontrol/operations/19426199', 'id': '19426199', 'status': 'PENDING', 'description': &quot;Apply software changes, triggered from PySys: [{'name': 'rolldice', 'id': '5152439', 'version': '::apt', 'url': 'https://thin-edge-io.eu-latest.cumulocity.com/inventory/binaries/12435463', 'action': 'install'}]&quot;, 'c8y_SoftwareUpdate': [{'name': 'rolldice', 'action': 'install', 'id': '5152439', 'version': '::apt', 'url': 'https://thin-edge-io.eu-latest.cumulocity.com/inventory/binaries/12435463'}]}
-14:16:31 WARN  , retrying in 0.5 seconds...
-14:16:31 WARN  , retrying in 0.5 seconds...
-14:16:32 WARN  , retrying in 0.5 seconds...
-14:16:32 WARN  , retrying in 0.5 seconds...
-14:16:33 WARN  , retrying in 0.5 seconds...
-14:16:33 WARN  , retrying in 0.5 seconds...
-14:16:34 WARN  , retrying in 0.5 seconds...
-14:16:34 WARN  , retrying in 0.5 seconds...
-14:16:35 WARN  , retrying in 0.5 seconds...
-14:16:35 WARN  AssertionError occurred while running test - 
+		<failure message="BLOCKED: SystemError: Timeout while waiting for status FAILED or SUCCESSFUL" type="BLOCKED"/>
+		<system-out>09:30:57 INFO  ==============================================================
+09:30:57 INFO  Id:    SoftwareManagement.sm_apt_install_download_path
+09:30:57 INFO  Dir:   software_management_end_to_end/
+09:30:57 INFO  Title: Install package to directory specified in tedge config set tmp.path
+09:30:57 INFO  ==============================================================
+09:30:58 INFO  Using sw id database: {'asciijump': '5475369', 'robotfindskitten': '5474869', 'squirrel3': '5475279', 'rolldice': '5152439', 'moon-buggy': '5439204', 'apple': '5495053', 'banana': '5494888', 'cherry': '5495382', 'watermelon': '5494510', 'registry': '8018911', 'hello-world': '8021526', 'docker/getting-started': '8021973', 'alpine': '7991792'}
+09:30:58 INFO  EnvironmentC8y Setup
+09:30:59 INFO  Executed systemctl&lt;serv_mapper1&gt;, exit status 3
+09:31:13 INFO  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 0, duration 14 secs
+09:31:14 INFO  Executed sudo&lt;tedge_connect_c8y_test&gt;, exit status 0
+09:31:14 INFO  Executed systemctl&lt;serv_mosq2&gt;, exit status 0
+09:31:15 INFO  Executed systemctl&lt;serv_mapper3&gt;, exit status 0
+09:31:17 INFO  State of current operation: PENDING
+09:31:19 INFO  State of current operation: PENDING
+09:31:21 INFO  State of current operation: PENDING
+09:31:24 INFO  State of current operation: PENDING
+09:31:26 INFO  State of current operation: PENDING
+09:31:28 INFO  State of current operation: PENDING
+09:31:30 INFO  State of current operation: PENDING
+09:31:33 INFO  State of current operation: PENDING
+09:31:35 INFO  State of current operation: PENDING
+09:31:37 INFO  State of current operation: PENDING
+09:31:39 INFO  State of current operation: PENDING
+09:31:41 INFO  State of current operation: PENDING
+09:31:44 INFO  State of current operation: PENDING
+09:31:46 INFO  State of current operation: PENDING
+09:31:48 INFO  State of current operation: PENDING
+09:31:50 INFO  State of current operation: PENDING
+09:31:53 INFO  State of current operation: PENDING
+09:31:55 INFO  State of current operation: PENDING
+09:31:57 INFO  State of current operation: PENDING
+09:31:59 INFO  State of current operation: PENDING
+09:32:02 INFO  State of current operation: PENDING
+09:32:04 INFO  State of current operation: PENDING
+09:32:06 INFO  State of current operation: PENDING
+09:32:08 INFO  State of current operation: PENDING
+09:32:10 INFO  State of current operation: PENDING
+09:32:13 INFO  State of current operation: PENDING
+09:32:15 INFO  State of current operation: PENDING
+09:32:17 INFO  State of current operation: PENDING
+09:32:19 INFO  State of current operation: PENDING
+09:32:22 INFO  State of current operation: PENDING
+09:32:24 INFO  State of current operation: PENDING
+09:32:26 INFO  State of current operation: PENDING
+09:32:28 INFO  State of current operation: PENDING
+09:32:31 INFO  State of current operation: PENDING
+09:32:33 INFO  State of current operation: PENDING
+09:32:35 INFO  State of current operation: PENDING
+09:32:37 INFO  State of current operation: PENDING
+09:32:40 INFO  State of current operation: PENDING
+09:32:42 INFO  State of current operation: PENDING
+09:32:44 INFO  State of current operation: PENDING
+09:32:46 INFO  State of current operation: PENDING
+09:32:48 INFO  State of current operation: PENDING
+09:32:51 INFO  State of current operation: PENDING
+09:32:53 INFO  State of current operation: PENDING
+09:32:55 INFO  State of current operation: PENDING
+09:32:57 INFO  State of current operation: PENDING
+09:33:00 INFO  State of current operation: PENDING
+09:33:02 INFO  State of current operation: PENDING
+09:33:04 INFO  State of current operation: PENDING
+09:33:06 INFO  State of current operation: PENDING
+09:33:09 INFO  State of current operation: PENDING
+09:33:11 INFO  State of current operation: PENDING
+09:33:13 INFO  State of current operation: PENDING
+09:33:15 INFO  State of current operation: PENDING
+09:33:17 INFO  State of current operation: PENDING
+09:33:20 INFO  State of current operation: PENDING
+09:33:22 INFO  State of current operation: PENDING
+09:33:24 INFO  State of current operation: PENDING
+09:33:26 INFO  State of current operation: PENDING
+09:33:29 INFO  State of current operation: PENDING
+09:33:31 INFO  State of current operation: PENDING
+09:33:33 WARN  SystemError occurred while running test - Timeout while waiting for status FAILED or SUCCESSFUL
 Traceback (most recent call last):
-  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/pysys/baserunner.py&quot;, line 1294, in __call__
-    self.testObj.execute()
-  File &quot;/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/sm_apt_install_download_path/run.py&quot;, line 83, in execute
-    assert_install_in_download_path(install_directory=self.DOWNLOAD_DIR)
-  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/decorator.py&quot;, line 232, in fun
-    return caller(func, *(extras + args), **kw)
-  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/retry/api.py&quot;, line 74, in retry_decorator
-    logger)
-  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/retry/api.py&quot;, line 33, in __retry_internal
-    return f()
-  File &quot;/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/sm_apt_install_download_path/run.py&quot;, line 28, in assert_install_in_download_path
-    assert &quot;rolldice&quot; in os.listdir(f&quot;{install_directory}&quot;)
-AssertionError
-14:16:35 WARN  AssertionError: ... blocked 
-14:16:35 INFO  
-14:16:35 INFO  cleanup:
-14:16:36 INFO  Executed sudo, exit status 0
-14:16:36 INFO  Executed sudo, exit status 0
-14:16:41 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
-14:16:41 INFO  Restarting mosquitto too frequently in the last 10 seconds. It was only up for 3 seconds
-14:16:41 INFO  Delaying execution by 8 seconds
-14:17:03 INFO  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 0, duration 14 secs
-14:17:08 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
-14:17:08 INFO  Executed systemctl&lt;serv_mapper5&gt;, exit status 3
-14:17:08 INFO  
-14:17:08 INFO  Test duration: 85.37 secs
-14:17:08 INFO  Test final outcome:  BLOCKED
-14:17:08 INFO  Test outcome reason: AssertionError:
-14:17:08 INFO  
+  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/pysys/baserunner.py&quot;, line 1292, in __call__
+    self.testObj.setup()
+  File &quot;/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/sm_apt_install_download_path/run.py&quot;, line 48, in setup
+    super().setup()
+  File &quot;/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/environment_sm_management.py&quot;, line 151, in setup
+    self.wait_until_end()
+  File &quot;/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/environment_sm_management.py&quot;, line 332, in wait_until_end
+    self.wait_until_status(&quot;FAILED&quot;, &quot;SUCCESSFUL&quot;)
+  File &quot;/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/environment_sm_management.py&quot;, line 381, in wait_until_status
+    &quot;Timeout while waiting for status %s or %s&quot; % (status, status2)
+SystemError: Timeout while waiting for status FAILED or SUCCESSFUL
+09:33:33 WARN  SystemError: Timeout while waiting for status FAILED or SUCCESSFUL ... blocked 
+09:33:33 INFO  
+09:33:33 INFO  cleanup:
+09:33:33 INFO  Executed sudo, exit status 0
+09:33:34 INFO  Executed sudo, exit status 0
+09:33:38 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
+09:33:38 INFO  Restarting mosquitto too frequently in the last 10 seconds. It was only up for 4 seconds
+09:33:38 INFO  Delaying execution by 7 seconds
+09:33:59 INFO  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 0, duration 14 secs
+09:34:03 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
+09:34:04 INFO  Executed systemctl&lt;serv_mapper5&gt;, exit status 3
+09:34:04 INFO  
+09:34:04 INFO  Test duration: 187.20 secs
+09:34:04 INFO  Test final outcome:  BLOCKED
+09:34:04 INFO  Test outcome reason: SystemError: Timeout while waiting for status FAILED or SUCCESSFUL
+09:34:04 INFO  
 </system-out>
 	</testcase>
 </testsuite>

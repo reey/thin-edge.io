@@ -1,161 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
-<testsuite failures="1" name="SoftwareManagement.sm_apt_install_remove_multiple" skipped="0" tests="1" time="134.71" timestamp="2022-05-20T14:25:31">
+<testsuite failures="1" name="SoftwareManagement.sm_apt_install_remove_multiple" skipped="0" tests="1" time="165.98" timestamp="2022-05-23T09:44:31">
 	<testcase classname="PySysTest" name="SoftwareManagement.sm_apt_install_remove_multiple">
-		<failure message="FAILED: Assert that (False == value) with value=True (+2 other failures)" type="FAILED"/>
-		<system-out>14:23:17 INFO  ==============================================================
-14:23:17 INFO  Id:    SoftwareManagement.sm_apt_install_remove_multiple
-14:23:17 INFO  Dir:   software_management_end_to_end/
-14:23:17 INFO  Title: Validate end to end behaviour for the apt plugin for multiple packages
-14:23:17 INFO  ==============================================================
-14:23:17 INFO  Using sw id database: {'asciijump': '5475369', 'robotfindskitten': '5474869', 'squirrel3': '5475279', 'rolldice': '5152439', 'moon-buggy': '5439204', 'apple': '5495053', 'banana': '5494888', 'cherry': '5495382', 'watermelon': '5494510', 'registry': '8018911', 'hello-world': '8021526', 'docker/getting-started': '8021973', 'alpine': '7991792'}
-14:23:17 INFO  EnvironmentC8y Setup
-14:23:17 INFO  Executed systemctl&lt;serv_mapper1&gt;, exit status 3
-14:23:17 INFO  Restarting mosquitto too frequently in the last 10 seconds. It was only up for 5 seconds
-14:23:17 INFO  Delaying execution by 6 seconds
-14:23:37 INFO  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 0, duration 14 secs
-14:23:38 INFO  Executed sudo&lt;tedge_connect_c8y_test&gt;, exit status 0
-14:23:39 INFO  Executed systemctl&lt;serv_mosq2&gt;, exit status 0
-14:23:39 INFO  Executed systemctl&lt;serv_mapper3&gt;, exit status 0
-14:23:41 INFO  State of current operation: SUCCESSFUL
-14:23:42 INFO  Assert that (False == value) with value=False ... passed
-14:23:42 INFO  Package asciijump is installed
-14:23:42 WARN  Assert that (False == value) with value=True ... failed 
-14:23:42 INFO  Package squirrel3 is installed
-14:23:42 WARN  Assert that (False == value) with value=True ... failed 
-14:23:43 INFO  Package robotfindskitten is installed
-14:23:43 WARN  Assert that (False == value) with value=True ... failed 
-14:23:43 INFO  Response status: 201
-14:23:43 INFO  Response to action: {
-    &quot;creationTime&quot;: &quot;2022-05-20T14:23:43.235Z&quot;,
-    &quot;deviceId&quot;: &quot;19412358&quot;,
-    &quot;deviceName&quot;: &quot;m32sd10c&quot;,
-    &quot;self&quot;: &quot;https://t493319102.eu-latest.cumulocity.com/devicecontrol/operations/19426278&quot;,
-    &quot;id&quot;: &quot;19426278&quot;,
-    &quot;status&quot;: &quot;PENDING&quot;,
-    &quot;description&quot;: &quot;Apply software changes, triggered from PySys: [{'action': 'install', 'id': '5475369', 'name': 'asciijump', 'url': ' ', 'version': '::apt'}, {'action': 'install', 'id': '5474869', 'name': 'robotfindskitten', 'url': ' ', 'version': '::apt'}, {'action': 'install', 'id': '5475279', 'name': 'squirrel3', 'url': ' ', 'version': '::apt'}]&quot;,
-    &quot;c8y_SoftwareUpdate&quot;: [
-        {
-            &quot;name&quot;: &quot;asciijump&quot;,
-            &quot;action&quot;: &quot;install&quot;,
-            &quot;id&quot;: &quot;5475369&quot;,
-            &quot;version&quot;: &quot;::apt&quot;,
-            &quot;url&quot;: &quot; &quot;
-        },
-        {
-            &quot;name&quot;: &quot;robotfindskitten&quot;,
-            &quot;action&quot;: &quot;install&quot;,
-            &quot;id&quot;: &quot;5474869&quot;,
-            &quot;version&quot;: &quot;::apt&quot;,
-            &quot;url&quot;: &quot; &quot;
-        },
-        {
-            &quot;name&quot;: &quot;squirrel3&quot;,
-            &quot;action&quot;: &quot;install&quot;,
-            &quot;id&quot;: &quot;5475279&quot;,
-            &quot;version&quot;: &quot;::apt&quot;,
-            &quot;url&quot;: &quot; &quot;
-        }
-    ]
-}
-14:23:43 INFO  Started operation: {'creationTime': '2022-05-20T14:23:43.235Z', 'deviceId': '19412358', 'deviceName': 'm32sd10c', 'self': 'https://t493319102.eu-latest.cumulocity.com/devicecontrol/operations/19426278', 'id': '19426278', 'status': 'PENDING', 'description': &quot;Apply software changes, triggered from PySys: [{'action': 'install', 'id': '5475369', 'name': 'asciijump', 'url': ' ', 'version': '::apt'}, {'action': 'install', 'id': '5474869', 'name': 'robotfindskitten', 'url': ' ', 'version': '::apt'}, {'action': 'install', 'id': '5475279', 'name': 'squirrel3', 'url': ' ', 'version': '::apt'}]&quot;, 'c8y_SoftwareUpdate': [{'name': 'asciijump', 'action': 'install', 'id': '5475369', 'version': '::apt', 'url': ' '}, {'name': 'robotfindskitten', 'action': 'install', 'id': '5474869', 'version': '::apt', 'url': ' '}, {'name': 'squirrel3', 'action': 'install', 'id': '5475279', 'version': '::apt', 'url': ' '}]}
-14:23:45 INFO  State of operation 19426278 : PENDING
-14:23:47 INFO  State of operation 19426278 : EXECUTING
-14:23:49 INFO  State of operation 19426278 : EXECUTING
-14:23:52 INFO  State of operation 19426278 : EXECUTING
-14:23:54 INFO  State of operation 19426278 : EXECUTING
-14:23:56 INFO  State of operation 19426278 : EXECUTING
-14:23:59 INFO  State of operation 19426278 : EXECUTING
-14:24:02 INFO  State of operation 19426278 : EXECUTING
-14:24:04 INFO  State of operation 19426278 : EXECUTING
-14:24:06 INFO  State of operation 19426278 : EXECUTING
-14:24:08 INFO  State of operation 19426278 : EXECUTING
-14:24:11 INFO  State of operation 19426278 : EXECUTING
-14:24:13 INFO  State of operation 19426278 : EXECUTING
-14:24:15 INFO  State of operation 19426278 : EXECUTING
-14:24:17 INFO  State of operation 19426278 : EXECUTING
-14:24:19 INFO  State of operation 19426278 : SUCCESSFUL
-14:24:20 INFO  Assert that (False == value) with value=False ... passed
-14:24:20 INFO  Package asciijump is installed
-14:24:20 INFO  Assert that (True == value) with value=True ... passed
-14:24:20 INFO  Package squirrel3 is installed
-14:24:20 INFO  Assert that (True == value) with value=True ... passed
-14:24:20 INFO  Package robotfindskitten is installed
-14:24:20 INFO  Assert that (True == value) with value=True ... passed
-14:24:21 INFO  Response status: 201
-14:24:21 INFO  Response to action: {
-    &quot;creationTime&quot;: &quot;2022-05-20T14:24:21.091Z&quot;,
-    &quot;deviceId&quot;: &quot;19412358&quot;,
-    &quot;deviceName&quot;: &quot;m32sd10c&quot;,
-    &quot;self&quot;: &quot;https://t493319102.eu-latest.cumulocity.com/devicecontrol/operations/19426294&quot;,
-    &quot;id&quot;: &quot;19426294&quot;,
-    &quot;status&quot;: &quot;PENDING&quot;,
-    &quot;description&quot;: &quot;Apply software changes, triggered from PySys: [{'action': 'delete', 'id': '5475369', 'name': 'asciijump', 'url': ' ', 'version': '::apt'}, {'action': 'delete', 'id': '5474869', 'name': 'robotfindskitten', 'url': ' ', 'version': '::apt'}, {'action': 'delete', 'id': '5475279', 'name': 'squirrel3', 'url': ' ', 'version': '::apt'}]&quot;,
-    &quot;c8y_SoftwareUpdate&quot;: [
-        {
-            &quot;name&quot;: &quot;asciijump&quot;,
-            &quot;action&quot;: &quot;delete&quot;,
-            &quot;id&quot;: &quot;5475369&quot;,
-            &quot;version&quot;: &quot;::apt&quot;,
-            &quot;url&quot;: &quot; &quot;
-        },
-        {
-            &quot;name&quot;: &quot;robotfindskitten&quot;,
-            &quot;action&quot;: &quot;delete&quot;,
-            &quot;id&quot;: &quot;5474869&quot;,
-            &quot;version&quot;: &quot;::apt&quot;,
-            &quot;url&quot;: &quot; &quot;
-        },
-        {
-            &quot;name&quot;: &quot;squirrel3&quot;,
-            &quot;action&quot;: &quot;delete&quot;,
-            &quot;id&quot;: &quot;5475279&quot;,
-            &quot;version&quot;: &quot;::apt&quot;,
-            &quot;url&quot;: &quot; &quot;
-        }
-    ]
-}
-14:24:21 INFO  Started operation: {'creationTime': '2022-05-20T14:24:21.091Z', 'deviceId': '19412358', 'deviceName': 'm32sd10c', 'self': 'https://t493319102.eu-latest.cumulocity.com/devicecontrol/operations/19426294', 'id': '19426294', 'status': 'PENDING', 'description': &quot;Apply software changes, triggered from PySys: [{'action': 'delete', 'id': '5475369', 'name': 'asciijump', 'url': ' ', 'version': '::apt'}, {'action': 'delete', 'id': '5474869', 'name': 'robotfindskitten', 'url': ' ', 'version': '::apt'}, {'action': 'delete', 'id': '5475279', 'name': 'squirrel3', 'url': ' ', 'version': '::apt'}]&quot;, 'c8y_SoftwareUpdate': [{'name': 'asciijump', 'action': 'delete', 'id': '5475369', 'version': '::apt', 'url': ' '}, {'name': 'robotfindskitten', 'action': 'delete', 'id': '5474869', 'version': '::apt', 'url': ' '}, {'name': 'squirrel3', 'action': 'delete', 'id': '5475279', 'version': '::apt', 'url': ' '}]}
-14:24:23 INFO  State of operation 19426294 : PENDING
-14:24:25 INFO  State of operation 19426294 : EXECUTING
-14:24:27 INFO  State of operation 19426294 : EXECUTING
-14:24:30 INFO  State of operation 19426294 : EXECUTING
-14:24:32 INFO  State of operation 19426294 : EXECUTING
-14:24:34 INFO  State of operation 19426294 : EXECUTING
-14:24:37 INFO  State of operation 19426294 : EXECUTING
-14:24:39 INFO  State of operation 19426294 : EXECUTING
-14:24:42 INFO  State of operation 19426294 : EXECUTING
-14:24:44 INFO  State of operation 19426294 : EXECUTING
-14:24:46 INFO  State of operation 19426294 : EXECUTING
-14:24:48 INFO  State of operation 19426294 : EXECUTING
-14:24:51 INFO  State of operation 19426294 : EXECUTING
-14:24:53 INFO  State of operation 19426294 : EXECUTING
-14:24:55 INFO  State of operation 19426294 : EXECUTING
-14:24:58 INFO  State of operation 19426294 : EXECUTING
-14:25:00 INFO  State of operation 19426294 : EXECUTING
-14:25:03 INFO  State of operation 19426294 : EXECUTING
-14:25:05 INFO  State of operation 19426294 : EXECUTING
-14:25:07 INFO  State of operation 19426294 : EXECUTING
-14:25:10 INFO  State of operation 19426294 : EXECUTING
-14:25:12 INFO  State of operation 19426294 : EXECUTING
-14:25:14 INFO  State of operation 19426294 : EXECUTING
-14:25:16 INFO  State of operation 19426294 : EXECUTING
-14:25:19 INFO  State of operation 19426294 : EXECUTING
-14:25:21 INFO  State of operation 19426294 : EXECUTING
-14:25:24 INFO  State of operation 19426294 : EXECUTING
-14:25:26 INFO  State of operation 19426294 : SUCCESSFUL
-14:25:26 INFO  Assert that (False == value) with value=False ... passed
-14:25:26 INFO  Assert that (False == value) with value=False ... passed
-14:25:27 INFO  Assert that (False == value) with value=False ... passed
-14:25:27 INFO  Assert that (False == value) with value=False ... passed
-14:25:27 INFO  
-14:25:27 INFO  cleanup:
-14:25:31 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
-14:25:31 INFO  Executed systemctl&lt;serv_mapper5&gt;, exit status 3
-14:25:31 INFO  
-14:25:31 INFO  Test duration: 134.71 secs
-14:25:31 INFO  Test final outcome:  FAILED
-14:25:31 INFO  Test outcome reason: Assert that (False == value) with value=True (+2 other failures)
-14:25:31 INFO  
+		<failure message="BLOCKED: SystemError: Timeout while waiting for status FAILED or SUCCESSFUL" type="BLOCKED"/>
+		<system-out>09:41:45 INFO  ==============================================================
+09:41:45 INFO  Id:    SoftwareManagement.sm_apt_install_remove_multiple
+09:41:45 INFO  Dir:   software_management_end_to_end/
+09:41:45 INFO  Title: Validate end to end behaviour for the apt plugin for multiple packages
+09:41:45 INFO  ==============================================================
+09:41:45 INFO  Using sw id database: {'asciijump': '5475369', 'robotfindskitten': '5474869', 'squirrel3': '5475279', 'rolldice': '5152439', 'moon-buggy': '5439204', 'apple': '5495053', 'banana': '5494888', 'cherry': '5495382', 'watermelon': '5494510', 'registry': '8018911', 'hello-world': '8021526', 'docker/getting-started': '8021973', 'alpine': '7991792'}
+09:41:45 INFO  EnvironmentC8y Setup
+09:41:46 INFO  Executed systemctl&lt;serv_mapper1&gt;, exit status 3
+09:41:46 INFO  Restarting mosquitto too frequently in the last 10 seconds. It was only up for 5 seconds
+09:41:46 INFO  Delaying execution by 6 seconds
+09:42:06 INFO  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 0, duration 14 secs
+09:42:06 INFO  Executed sudo&lt;tedge_connect_c8y_test&gt;, exit status 0
+09:42:07 INFO  Executed systemctl&lt;serv_mosq2&gt;, exit status 0
+09:42:07 INFO  Executed systemctl&lt;serv_mapper3&gt;, exit status 0
+09:42:10 INFO  State of current operation: PENDING
+09:42:12 INFO  State of current operation: PENDING
+09:42:14 INFO  State of current operation: PENDING
+09:42:16 INFO  State of current operation: PENDING
+09:42:19 INFO  State of current operation: PENDING
+09:42:21 INFO  State of current operation: PENDING
+09:42:23 INFO  State of current operation: PENDING
+09:42:25 INFO  State of current operation: PENDING
+09:42:28 INFO  State of current operation: PENDING
+09:42:30 INFO  State of current operation: PENDING
+09:42:32 INFO  State of current operation: PENDING
+09:42:34 INFO  State of current operation: PENDING
+09:42:37 INFO  State of current operation: PENDING
+09:42:39 INFO  State of current operation: PENDING
+09:42:41 INFO  State of current operation: PENDING
+09:42:43 INFO  State of current operation: PENDING
+09:42:45 INFO  State of current operation: PENDING
+09:42:48 INFO  State of current operation: PENDING
+09:42:50 INFO  State of current operation: PENDING
+09:42:52 INFO  State of current operation: PENDING
+09:42:54 INFO  State of current operation: PENDING
+09:42:57 INFO  State of current operation: PENDING
+09:42:59 INFO  State of current operation: PENDING
+09:43:01 INFO  State of current operation: PENDING
+09:43:03 INFO  State of current operation: PENDING
+09:43:06 INFO  State of current operation: PENDING
+09:43:08 INFO  State of current operation: PENDING
+09:43:10 INFO  State of current operation: PENDING
+09:43:12 INFO  State of current operation: PENDING
+09:43:14 INFO  State of current operation: PENDING
+09:43:17 INFO  State of current operation: PENDING
+09:43:19 INFO  State of current operation: PENDING
+09:43:21 INFO  State of current operation: PENDING
+09:43:23 INFO  State of current operation: PENDING
+09:43:26 INFO  State of current operation: PENDING
+09:43:28 INFO  State of current operation: PENDING
+09:43:30 INFO  State of current operation: PENDING
+09:43:32 INFO  State of current operation: PENDING
+09:43:35 INFO  State of current operation: PENDING
+09:43:37 INFO  State of current operation: PENDING
+09:43:39 INFO  State of current operation: PENDING
+09:43:41 INFO  State of current operation: PENDING
+09:43:44 INFO  State of current operation: PENDING
+09:43:46 INFO  State of current operation: PENDING
+09:43:48 INFO  State of current operation: PENDING
+09:43:50 INFO  State of current operation: PENDING
+09:43:53 INFO  State of current operation: PENDING
+09:43:55 INFO  State of current operation: PENDING
+09:43:57 INFO  State of current operation: PENDING
+09:43:59 INFO  State of current operation: PENDING
+09:44:02 INFO  State of current operation: PENDING
+09:44:04 INFO  State of current operation: PENDING
+09:44:06 INFO  State of current operation: PENDING
+09:44:08 INFO  State of current operation: PENDING
+09:44:11 INFO  State of current operation: PENDING
+09:44:13 INFO  State of current operation: PENDING
+09:44:15 INFO  State of current operation: PENDING
+09:44:17 INFO  State of current operation: PENDING
+09:44:20 INFO  State of current operation: PENDING
+09:44:22 INFO  State of current operation: PENDING
+09:44:24 INFO  State of current operation: PENDING
+09:44:26 WARN  SystemError occurred while running test - Timeout while waiting for status FAILED or SUCCESSFUL
+Traceback (most recent call last):
+  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/pysys/baserunner.py&quot;, line 1292, in __call__
+    self.testObj.setup()
+  File &quot;/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/sm_apt_install_remove_multiple/run.py&quot;, line 52, in setup
+    super().setup()
+  File &quot;/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/environment_sm_management.py&quot;, line 151, in setup
+    self.wait_until_end()
+  File &quot;/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/environment_sm_management.py&quot;, line 332, in wait_until_end
+    self.wait_until_status(&quot;FAILED&quot;, &quot;SUCCESSFUL&quot;)
+  File &quot;/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/environment_sm_management.py&quot;, line 381, in wait_until_status
+    &quot;Timeout while waiting for status %s or %s&quot; % (status, status2)
+SystemError: Timeout while waiting for status FAILED or SUCCESSFUL
+09:44:26 WARN  SystemError: Timeout while waiting for status FAILED or SUCCESSFUL ... blocked 
+09:44:26 INFO  
+09:44:26 INFO  cleanup:
+09:44:30 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
+09:44:31 INFO  Executed systemctl&lt;serv_mapper5&gt;, exit status 3
+09:44:31 INFO  
+09:44:31 INFO  Test duration: 165.98 secs
+09:44:31 INFO  Test final outcome:  BLOCKED
+09:44:31 INFO  Test outcome reason: SystemError: Timeout while waiting for status FAILED or SUCCESSFUL
+09:44:31 INFO  
 </system-out>
 	</testcase>
 </testsuite>

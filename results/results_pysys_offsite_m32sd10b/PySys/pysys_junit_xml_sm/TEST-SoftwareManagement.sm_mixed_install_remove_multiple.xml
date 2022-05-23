@@ -1,118 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
-<testsuite failures="1" name="SoftwareManagement.sm_mixed_install_remove_multiple" skipped="0" tests="1" time="69.7" timestamp="2022-05-20T14:34:49">
+<testsuite failures="1" name="SoftwareManagement.sm_mixed_install_remove_multiple" skipped="0" tests="1" time="166.2" timestamp="2022-05-23T10:01:47">
 	<testcase classname="PySysTest" name="SoftwareManagement.sm_mixed_install_remove_multiple">
-		<failure message="BLOCKED: SystemError: The operation has failed (+1 other failures)" type="BLOCKED"/>
-		<system-out>14:33:40 INFO  ==============================================================
-14:33:40 INFO  Id:    SoftwareManagement.sm_mixed_install_remove_multiple
-14:33:40 INFO  Dir:   software_management_end_to_end/
-14:33:40 INFO  Title: Validate end to end behaviour for the dummy-plugin for multiple packages with mixed versions
-14:33:40 INFO  ==============================================================
-14:33:40 INFO  Using sw id database: {'asciijump': '5475369', 'robotfindskitten': '5474869', 'squirrel3': '5475279', 'rolldice': '5152439', 'moon-buggy': '5439204', 'apple': '5495053', 'banana': '5494888', 'cherry': '5495382', 'watermelon': '5494510', 'registry': '8018911', 'hello-world': '8021526', 'docker/getting-started': '8021973', 'alpine': '7991792'}
-14:33:40 INFO  EnvironmentC8y Setup
-14:33:40 INFO  Executed systemctl&lt;serv_mapper1&gt;, exit status 3
-14:33:40 INFO  Restarting mosquitto too frequently in the last 10 seconds. It was only up for 5 seconds
-14:33:40 INFO  Delaying execution by 6 seconds
-14:34:00 INFO  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 0, duration 14 secs
-14:34:01 INFO  Executed sudo&lt;tedge_connect_c8y_test&gt;, exit status 0
-14:34:01 INFO  Executed systemctl&lt;serv_mosq2&gt;, exit status 0
-14:34:02 INFO  Executed systemctl&lt;serv_mapper3&gt;, exit status 0
-14:34:04 INFO  State of current operation: SUCCESSFUL
-14:34:04 INFO  Package apple is installed
-14:34:04 INFO  Assert that (True == value) with value=True ... passed
-14:34:04 INFO  Package banana is installed
-14:34:04 INFO  Assert that (True == value) with value=True ... passed
-14:34:05 INFO  Package cherry is installed
-14:34:05 INFO  Assert that (True == value) with value=True ... passed
-14:34:05 INFO  Package asciijump is installed
-14:34:05 WARN  Assert that (False == value) with value=True ... failed 
-14:34:05 INFO  Assert that (False == value) with value=False ... passed
-14:34:05 INFO  Response status: 201
-14:34:05 INFO  Response to action: {
-    &quot;creationTime&quot;: &quot;2022-05-20T14:34:05.862Z&quot;,
-    &quot;deviceId&quot;: &quot;19408350&quot;,
-    &quot;deviceName&quot;: &quot;m32sd10b&quot;,
-    &quot;self&quot;: &quot;https://t493319102.eu-latest.cumulocity.com/devicecontrol/operations/19426440&quot;,
-    &quot;id&quot;: &quot;19426440&quot;,
-    &quot;status&quot;: &quot;PENDING&quot;,
-    &quot;description&quot;: &quot;Apply software changes, triggered from PySys: [{'action': 'install', 'id': '5495053', 'name': 'apple', 'url': ' ', 'version': '::fruits'}, {'action': 'install', 'id': '5494888', 'name': 'banana', 'url': ' ', 'version': '::fruits'}, {'action': 'install', 'id': '5475369', 'name': 'asciijump', 'url': ' ', 'version': '::apt'}, {'action': 'install', 'id': '5495382', 'name': 'cherry', 'url': ' ', 'version': '::fruits'}, {'action': 'install', 'id': '8018911', 'name': 'registry', 'url': ' ', 'version': '::docker'}]&quot;,
-    &quot;c8y_SoftwareUpdate&quot;: [
-        {
-            &quot;name&quot;: &quot;apple&quot;,
-            &quot;action&quot;: &quot;install&quot;,
-            &quot;id&quot;: &quot;5495053&quot;,
-            &quot;version&quot;: &quot;::fruits&quot;,
-            &quot;url&quot;: &quot; &quot;
-        },
-        {
-            &quot;name&quot;: &quot;banana&quot;,
-            &quot;action&quot;: &quot;install&quot;,
-            &quot;id&quot;: &quot;5494888&quot;,
-            &quot;version&quot;: &quot;::fruits&quot;,
-            &quot;url&quot;: &quot; &quot;
-        },
-        {
-            &quot;name&quot;: &quot;asciijump&quot;,
-            &quot;action&quot;: &quot;install&quot;,
-            &quot;id&quot;: &quot;5475369&quot;,
-            &quot;version&quot;: &quot;::apt&quot;,
-            &quot;url&quot;: &quot; &quot;
-        },
-        {
-            &quot;name&quot;: &quot;cherry&quot;,
-            &quot;action&quot;: &quot;install&quot;,
-            &quot;id&quot;: &quot;5495382&quot;,
-            &quot;version&quot;: &quot;::fruits&quot;,
-            &quot;url&quot;: &quot; &quot;
-        },
-        {
-            &quot;name&quot;: &quot;registry&quot;,
-            &quot;action&quot;: &quot;install&quot;,
-            &quot;id&quot;: &quot;8018911&quot;,
-            &quot;version&quot;: &quot;::docker&quot;,
-            &quot;url&quot;: &quot; &quot;
-        }
-    ]
-}
-14:34:05 INFO  Started operation: {'creationTime': '2022-05-20T14:34:05.862Z', 'deviceId': '19408350', 'deviceName': 'm32sd10b', 'self': 'https://t493319102.eu-latest.cumulocity.com/devicecontrol/operations/19426440', 'id': '19426440', 'status': 'PENDING', 'description': &quot;Apply software changes, triggered from PySys: [{'action': 'install', 'id': '5495053', 'name': 'apple', 'url': ' ', 'version': '::fruits'}, {'action': 'install', 'id': '5494888', 'name': 'banana', 'url': ' ', 'version': '::fruits'}, {'action': 'install', 'id': '5475369', 'name': 'asciijump', 'url': ' ', 'version': '::apt'}, {'action': 'install', 'id': '5495382', 'name': 'cherry', 'url': ' ', 'version': '::fruits'}, {'action': 'install', 'id': '8018911', 'name': 'registry', 'url': ' ', 'version': '::docker'}]&quot;, 'c8y_SoftwareUpdate': [{'name': 'apple', 'action': 'install', 'id': '5495053', 'version': '::fruits', 'url': ' '}, {'name': 'banana', 'action': 'install', 'id': '5494888', 'version': '::fruits', 'url': ' '}, {'name': 'asciijump', 'action': 'install', 'id': '5475369', 'version': '::apt', 'url': ' '}, {'name': 'cherry', 'action': 'install', 'id': '5495382', 'version': '::fruits', 'url': ' '}, {'name': 'registry', 'action': 'install', 'id': '8018911', 'version': '::docker', 'url': ' '}]}
-14:34:08 INFO  State of operation 19426440 : PENDING
-14:34:10 INFO  State of operation 19426440 : EXECUTING
-14:34:12 INFO  State of operation 19426440 : EXECUTING
-14:34:14 INFO  State of operation 19426440 : EXECUTING
-14:34:17 INFO  State of operation 19426440 : EXECUTING
-14:34:19 INFO  State of operation 19426440 : EXECUTING
-14:34:21 INFO  State of operation 19426440 : EXECUTING
-14:34:24 INFO  State of operation 19426440 : EXECUTING
-14:34:27 INFO  State of operation 19426440 : EXECUTING
-14:34:29 INFO  State of operation 19426440 : EXECUTING
-14:34:31 INFO  State of operation 19426440 : EXECUTING
-14:34:33 INFO  State of operation 19426440 : EXECUTING
-14:34:36 INFO  State of operation 19426440 : EXECUTING
-14:34:38 INFO  State of operation 19426440 : EXECUTING
-14:34:40 INFO  State of operation 19426440 : EXECUTING
-14:34:42 INFO  State of operation 19426440 : EXECUTING
-14:34:45 INFO  State of operation 19426440 : FAILED
-14:34:45 ERROR Stopping as the operation has failed
-14:34:45 WARN  SystemError occurred while running test - The operation has failed
+		<failure message="BLOCKED: SystemError: Timeout while waiting for status FAILED or SUCCESSFUL" type="BLOCKED"/>
+		<system-out>09:59:01 INFO  ==============================================================
+09:59:01 INFO  Id:    SoftwareManagement.sm_mixed_install_remove_multiple
+09:59:01 INFO  Dir:   software_management_end_to_end/
+09:59:01 INFO  Title: Validate end to end behaviour for the dummy-plugin for multiple packages with mixed versions
+09:59:01 INFO  ==============================================================
+09:59:01 INFO  Using sw id database: {'asciijump': '5475369', 'robotfindskitten': '5474869', 'squirrel3': '5475279', 'rolldice': '5152439', 'moon-buggy': '5439204', 'apple': '5495053', 'banana': '5494888', 'cherry': '5495382', 'watermelon': '5494510', 'registry': '8018911', 'hello-world': '8021526', 'docker/getting-started': '8021973', 'alpine': '7991792'}
+09:59:01 INFO  EnvironmentC8y Setup
+09:59:01 INFO  Executed systemctl&lt;serv_mapper1&gt;, exit status 3
+09:59:01 INFO  Restarting mosquitto too frequently in the last 10 seconds. It was only up for 5 seconds
+09:59:01 INFO  Delaying execution by 6 seconds
+09:59:22 INFO  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 0, duration 14 secs
+09:59:22 INFO  Executed sudo&lt;tedge_connect_c8y_test&gt;, exit status 0
+09:59:23 INFO  Executed systemctl&lt;serv_mosq2&gt;, exit status 0
+09:59:23 INFO  Executed systemctl&lt;serv_mapper3&gt;, exit status 0
+09:59:25 INFO  State of current operation: PENDING
+09:59:28 INFO  State of current operation: PENDING
+09:59:30 INFO  State of current operation: PENDING
+09:59:32 INFO  State of current operation: PENDING
+09:59:34 INFO  State of current operation: PENDING
+09:59:37 INFO  State of current operation: PENDING
+09:59:39 INFO  State of current operation: PENDING
+09:59:41 INFO  State of current operation: PENDING
+09:59:43 INFO  State of current operation: PENDING
+09:59:46 INFO  State of current operation: PENDING
+09:59:48 INFO  State of current operation: PENDING
+09:59:50 INFO  State of current operation: PENDING
+09:59:52 INFO  State of current operation: PENDING
+09:59:54 INFO  State of current operation: PENDING
+09:59:57 INFO  State of current operation: PENDING
+09:59:59 INFO  State of current operation: PENDING
+10:00:01 INFO  State of current operation: PENDING
+10:00:03 INFO  State of current operation: PENDING
+10:00:06 INFO  State of current operation: PENDING
+10:00:08 INFO  State of current operation: PENDING
+10:00:10 INFO  State of current operation: PENDING
+10:00:12 INFO  State of current operation: PENDING
+10:00:15 INFO  State of current operation: PENDING
+10:00:17 INFO  State of current operation: PENDING
+10:00:19 INFO  State of current operation: PENDING
+10:00:21 INFO  State of current operation: PENDING
+10:00:24 INFO  State of current operation: PENDING
+10:00:26 INFO  State of current operation: PENDING
+10:00:28 INFO  State of current operation: PENDING
+10:00:30 INFO  State of current operation: PENDING
+10:00:33 INFO  State of current operation: PENDING
+10:00:35 INFO  State of current operation: PENDING
+10:00:37 INFO  State of current operation: PENDING
+10:00:39 INFO  State of current operation: PENDING
+10:00:42 INFO  State of current operation: PENDING
+10:00:44 INFO  State of current operation: PENDING
+10:00:46 INFO  State of current operation: PENDING
+10:00:48 INFO  State of current operation: PENDING
+10:00:51 INFO  State of current operation: PENDING
+10:00:53 INFO  State of current operation: PENDING
+10:00:55 INFO  State of current operation: PENDING
+10:00:57 INFO  State of current operation: PENDING
+10:01:00 INFO  State of current operation: PENDING
+10:01:02 INFO  State of current operation: PENDING
+10:01:04 INFO  State of current operation: PENDING
+10:01:06 INFO  State of current operation: PENDING
+10:01:09 INFO  State of current operation: PENDING
+10:01:11 INFO  State of current operation: PENDING
+10:01:13 INFO  State of current operation: PENDING
+10:01:16 INFO  State of current operation: PENDING
+10:01:18 INFO  State of current operation: PENDING
+10:01:20 INFO  State of current operation: PENDING
+10:01:22 INFO  State of current operation: PENDING
+10:01:24 INFO  State of current operation: PENDING
+10:01:27 INFO  State of current operation: PENDING
+10:01:29 INFO  State of current operation: PENDING
+10:01:31 INFO  State of current operation: PENDING
+10:01:33 INFO  State of current operation: PENDING
+10:01:36 INFO  State of current operation: PENDING
+10:01:38 INFO  State of current operation: PENDING
+10:01:40 INFO  State of current operation: PENDING
+10:01:42 WARN  SystemError occurred while running test - Timeout while waiting for status FAILED or SUCCESSFUL
 Traceback (most recent call last):
-  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/pysys/baserunner.py&quot;, line 1294, in __call__
-    self.testObj.execute()
-  File &quot;/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/sm_mixed_install_remove_multiple/run.py&quot;, line 95, in execute
-    self.wait_until_succcess()
-  File &quot;/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/environment_sm_management.py&quot;, line 324, in wait_until_succcess
-    self.wait_until_status(&quot;SUCCESSFUL&quot;)
-  File &quot;/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/environment_sm_management.py&quot;, line 361, in wait_until_status
-    raise SystemError(&quot;The operation has failed&quot;)
-SystemError: The operation has failed
-14:34:45 WARN  SystemError: The operation has failed ... blocked 
-14:34:45 INFO  
-14:34:45 INFO  cleanup:
-14:34:49 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
-14:34:49 INFO  Executed systemctl&lt;serv_mapper5&gt;, exit status 3
-14:34:49 INFO  
-14:34:49 INFO  Test duration: 69.70 secs
-14:34:49 INFO  Test final outcome:  BLOCKED
-14:34:49 INFO  Test outcome reason: SystemError: The operation has failed (+1 other failures)
-14:34:49 INFO  
+  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/pysys/baserunner.py&quot;, line 1292, in __call__
+    self.testObj.setup()
+  File &quot;/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/sm_mixed_install_remove_multiple/run.py&quot;, line 83, in setup
+    super().setup()
+  File &quot;/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/environment_sm_management.py&quot;, line 151, in setup
+    self.wait_until_end()
+  File &quot;/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/environment_sm_management.py&quot;, line 332, in wait_until_end
+    self.wait_until_status(&quot;FAILED&quot;, &quot;SUCCESSFUL&quot;)
+  File &quot;/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/environment_sm_management.py&quot;, line 381, in wait_until_status
+    &quot;Timeout while waiting for status %s or %s&quot; % (status, status2)
+SystemError: Timeout while waiting for status FAILED or SUCCESSFUL
+10:01:42 WARN  SystemError: Timeout while waiting for status FAILED or SUCCESSFUL ... blocked 
+10:01:42 INFO  
+10:01:42 INFO  cleanup:
+10:01:46 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
+10:01:47 INFO  Executed systemctl&lt;serv_mapper5&gt;, exit status 3
+10:01:47 INFO  
+10:01:47 INFO  Test duration: 166.20 secs
+10:01:47 INFO  Test final outcome:  BLOCKED
+10:01:47 INFO  Test outcome reason: SystemError: Timeout while waiting for status FAILED or SUCCESSFUL
+10:01:47 INFO  
 </system-out>
 	</testcase>
 </testsuite>
