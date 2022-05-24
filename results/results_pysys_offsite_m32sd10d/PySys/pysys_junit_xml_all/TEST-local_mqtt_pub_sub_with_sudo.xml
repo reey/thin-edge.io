@@ -1,4 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<testsuite failures="0" name="local_mqtt_pub_sub_with_sudo" skipped="0" tests="1" time="2.68" timestamp="2022-05-23T19:03:59">
-	<testcase classname="PySysTest" name="local_mqtt_pub_sub_with_sudo"/>
+<testsuite failures="1" name="local_mqtt_pub_sub_with_sudo" skipped="0" tests="1" time="2.71" timestamp="2022-05-24T10:39:54">
+	<testcase classname="PySysTest" name="local_mqtt_pub_sub_with_sudo">
+		<failure message="FAILED: Grep on tedge_sub.out contains &quot;amessage&quot;" type="FAILED"/>
+		<system-out>10:39:52 INFO  ==============================================================
+10:39:52 INFO  Id:    local_mqtt_pub_sub_with_sudo
+10:39:52 INFO  Dir:   local_mqtt/
+10:39:52 INFO  Title: Validate local publishing and subscribing
+10:39:52 INFO  ==============================================================
+10:39:52 INFO  Started sudo&lt;tedge_sub&gt; with process id 9853
+10:39:52 INFO  Executed sudo&lt;tedge_pub2&gt;, exit status 0
+10:39:53 INFO  Executed sudo&lt;tedge_pub3&gt;, exit status 0
+10:39:54 INFO  Executed sudo&lt;kill_out&gt;, exit status 0
+10:39:54 WARN  Grep on tedge_sub.out contains &quot;amessage&quot; ... failed [run.py:61]
+10:39:54 INFO  Grep on file tedge_sub.out ... passed
+10:39:54 INFO  
+10:39:54 INFO  Test duration: 2.71 secs
+10:39:54 INFO  Test final outcome:  FAILED
+10:39:54 INFO  Test outcome reason: Grep on tedge_sub.out contains &quot;amessage&quot;
+10:39:54 INFO  
+</system-out>
+	</testcase>
 </testsuite>
