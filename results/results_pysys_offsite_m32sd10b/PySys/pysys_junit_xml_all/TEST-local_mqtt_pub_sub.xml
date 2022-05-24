@@ -1,4 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<testsuite failures="0" name="local_mqtt_pub_sub" skipped="0" tests="1" time="2.05" timestamp="2022-05-24T10:39:47">
-	<testcase classname="PySysTest" name="local_mqtt_pub_sub"/>
+<testsuite failures="1" name="local_mqtt_pub_sub" skipped="0" tests="1" time="2.58" timestamp="2022-05-24T15:34:08">
+	<testcase classname="PySysTest" name="local_mqtt_pub_sub">
+		<failure message="FAILED: Grep on tedge_sub.out contains &quot;\[atopic\] amessage&quot;" type="FAILED"/>
+		<system-out>15:34:06 INFO  ==============================================================
+15:34:06 INFO  Id:    local_mqtt_pub_sub
+15:34:06 INFO  Dir:   local_mqtt/
+15:34:06 INFO  Title: Validate local publishing and subscribing
+15:34:06 INFO  ==============================================================
+15:34:06 INFO  Started tedge_sub with process id 1617
+15:34:06 INFO  Started tedge_sub_no_topic with process id 1618
+15:34:06 INFO  Executed tedge_pub2, exit status 0
+15:34:07 INFO  Executed tedge_pub3, exit status 0
+15:34:08 INFO  Executed sudo&lt;kill_out&gt;, exit status 0
+15:34:08 INFO  Executed sudo&lt;kill_out&gt;, exit status 0
+15:34:08 WARN  Grep on tedge_sub.out contains &quot;\[atopic\] amessage&quot; ... failed [run.py:75]
+15:34:08 INFO  Grep on file tedge_sub.out ... passed
+15:34:08 INFO  Grep on file tedge_sub_no_topic.out ... passed
+15:34:08 INFO  
+15:34:08 INFO  Test duration: 2.58 secs
+15:34:08 INFO  Test final outcome:  FAILED
+15:34:08 INFO  Test outcome reason: Grep on tedge_sub.out contains &quot;\[atopic\] amessage&quot;
+15:34:08 INFO  
+</system-out>
+	</testcase>
 </testsuite>
