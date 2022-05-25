@@ -2409,12 +2409,12 @@ If the service fails to send that notification within a time threshold, then sys
 using the <code>systemd</code> is a two-step process.</p>
 <h3 id="step-1-enable-the-watchdog-feature-in-the-systemd-service-file"><a class="header" href="#step-1-enable-the-watchdog-feature-in-the-systemd-service-file">Step 1: Enable the <code>watchdog</code> feature in the <code>systemd</code> service file</a></h3>
 <p>For example to enable the <code>watchdog</code> feature for <code>tedge-mapper-c8y</code> service, update systemd service file as shown below.</p>
-<p>Add <code>tedge_watchdog.service</code> in  <code>After</code> under <code>[Unit]</code> section.
+<p>Add <code>tedge-watchdog.service</code> in  <code>After</code> under <code>[Unit]</code> section.
 Add <code>WatchdogSec=5</code> under <code>[Service]</code> section.</p>
 <p>The sample service file after updating looks as below.</p>
 <pre><code class="language-shell">[Unit]
 Description=tedge-mapper-c8y converts Thin Edge JSON measurements to Cumulocity JSON format.
-After=syslog.target network.target mosquitto.service tedge_watchdog.service
+After=syslog.target network.target mosquitto.service tedge-watchdog.service
 
 [Service]
 User=tedge-mapper
