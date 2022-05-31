@@ -2400,18 +2400,25 @@ The health check messages published by these clients are just numeric values <co
 Since the health status messages are sent as retained messages, just subscribing to these health topics is sufficient to get the latest status.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="enabling-systemd-watchdog-for-thin-edge-services"><a class="header" href="#enabling-systemd-watchdog-for-thin-edge-services">Enabling systemd watchdog for thin-edge services</a></h1>
 <h2 id="introduction"><a class="header" href="#introduction">Introduction</a></h2>
-<p>The systemd watchdog feature enables systemd to detect when a service is unhealthy or unresponsive and attempt to fix it by restarting that service.
+<p>The systemd watchdog feature enables systemd to detect when a service is unhealthy or unresponsive and 
+attempt to fix it by restarting that service.
 To detect if a service is healthy or not, systemd relies on periodic health notifications from that service at regular intervals.
-If the service fails to send that notification within a time threshold, then systemd will assume that service to be unhealthy and restart it.</p>
+If the service fails to send that notification within a time threshold,
+then systemd will assume that service to be unhealthy and restart it.</p>
 <p>This document describes how the systemd watchdog mechanism can be enabled for thin-edge services.</p>
-<h2 id="enabling-the-watchdog-feature-in-systemd"><a class="header" href="#enabling-the-watchdog-feature-in-systemd">Enabling the <code>watchdog</code> feature in <code>systemd</code></a></h2>
-<p>Enabling systemd <code>watchdog</code> for a <code>thin-edge.io</code> service (tedge_agent, tedge_mapper_c8y/az/collectd)
-using the <code>systemd</code> is a two-step process.</p>
-<h3 id="step-1-enable-the-watchdog-feature-in-the-systemd-service-file"><a class="header" href="#step-1-enable-the-watchdog-feature-in-the-systemd-service-file">Step 1: Enable the <code>watchdog</code> feature in the <code>systemd</code> service file</a></h3>
-<p>For example to enable the <code>watchdog</code> feature for <code>tedge-mapper-c8y</code> service, update systemd service file as shown below.</p>
-<p>Add <code>tedge-watchdog.service</code> in  <code>After</code> under <code>[Unit]</code> section.
-Add <code>WatchdogSec=5</code> under <code>[Service]</code> section.</p>
-<p>The sample service file after updating looks as below.</p>
+<h2 id="enabling-the-systemd-watchdog-feature-for-a-tedge-service"><a class="header" href="#enabling-the-systemd-watchdog-feature-for-a-tedge-service">Enabling the systemd watchdog feature for a tedge service</a></h2>
+<p>Enabling systemd watchdog for a <code>thin-edge.io</code> service (tedge-agent, tedge-mapper-c8y/az/collectd) is a two-step process.</p>
+<h3 id="step-1-enable-the-watchdog-feature-in-the-systemd-service-file"><a class="header" href="#step-1-enable-the-watchdog-feature-in-the-systemd-service-file">Step 1: Enable the watchdog feature in the systemd service file</a></h3>
+<p>For example, to enable the watchdog feature for <code>tedge-mapper-c8y</code> service,
+update the systemd service file as shown below:</p>
+<blockquote>
+<p>Note: The systemd service file for tedge services are usually present in <code>/lib/systemd/system</code> directory, 
+like <code>/lib/systemd/system/tedge-mapper-c8y.service</code>.</p>
+</blockquote>
+<p>Add <code>tedge-watchdog.service</code> as an <code>After</code> service dependency under <code>[Unit]</code> section.
+Add the watchdog interval as <code>WatchdogSec=30</code> under <code>[Service]</code> section.
+Update the restart condition as <code>Restart=always</code> under <code>[Service]</code> section.</p>
+<p>Here is the updated service file for <code>tedge-mapper-c8y</code> service:</p>
 <pre><code class="language-shell">[Unit]
 Description=tedge-mapper-c8y converts Thin Edge JSON measurements to Cumulocity JSON format.
 After=syslog.target network.target mosquitto.service tedge-watchdog.service
@@ -2419,30 +2426,31 @@ After=syslog.target network.target mosquitto.service tedge-watchdog.service
 [Service]
 User=tedge-mapper
 ExecStart=/usr/bin/tedge_mapper c8y
-Restart=on-failure
+Restart=always
 RestartPreventExitStatus=255
-WatchdogSec=5
+WatchdogSec=30
 </code></pre>
-<blockquote>
-<p>Note: The systemd service file for tedge services are usually present
-in <code>/lib/systemd/system</code> directory, like <code>/lib/systemd/system/tedge-mapper-c8y.service</code>.</p>
-</blockquote>
 <h3 id="step-2-start-the-tedge-watchdog-service"><a class="header" href="#step-2-start-the-tedge-watchdog-service">Step 2: Start the <code>tedge-watchdog</code> service</a></h3>
 <p>The <code>tedge-watchdog</code> service is responsible for periodically checking the health of
-all tedge services for which the watchdog feature is enabled, and send systemd
-watchdog notifications on their behalf to systemd.</p>
+all tedge services for which the watchdog feature is enabled,
+and send systemd watchdog notifications on their behalf to systemd.</p>
 <p>Start and enable the <code>tedge-watchdog</code> service as follows:</p>
 <pre><code class="language-shell">systemctl start tedge-watchdog.service
 systemctl enable tedge-watchdog.service
 </code></pre>
-<p>Now, the <code>tedge-watchdog</code> service will be keep sending health check messages to the monitored services periodically within their configured <code>WatchdogSec</code> interval.</p>
-<p>The health check request for service is published to <code>tedge/health-check/&lt;service-name&gt;</code> topic and the health status response from that service is expected on <code>tedge/health/&lt;service-name&gt;</code> topic.</p>
-<p>Once the health status response is received from a particular service, the <code>tedge-watchdog</code> service will send the watchdog notification on behalf of that service to systemd.</p>
+<p>Once started, the <code>tedge-watchdog</code> service will keep checking the health of the monitored tedge services
+by periodically sending health check messages to them within their configured <code>WatchdogSec</code> interval.</p>
+<p>The health check request for service is published to <code>tedge/health-check/&lt;service-name&gt;</code> topic and
+the health status response from that service is expected on <code>tedge/health/&lt;service-name&gt;</code> topic.</p>
+<p>Once the health status response is received from a particular service,
+the <code>tedge-watchdog</code> service will send the <a href="https://www.freedesktop.org/software/systemd/man/sd_notify.html#">systemd notification</a> to systemd on behalf of that monitored service.</p>
 <h2 id="debugging"><a class="header" href="#debugging">Debugging</a></h2>
-<p>One can observe the message exchange between the <code>service</code> and the <code>watchdog</code> by subscribing to <code>tedge/health/#</code> and <code>tedge/health-check/#</code> topics.
+<p>One can observe the message exchange between the <code>service</code> and the <code>watchdog</code>
+by subscribing to <code>tedge/health/#</code> and <code>tedge/health-check/#</code> topics.
 For more info check <a href="howto-guides/./020_monitor_tedge_health.html">here</a></p>
 <blockquote>
-<p>Note: If the watchdog service did not send the notification to the systemd within <code>WatchdogSec</code>, then the systemd will kill the existing service process and restarts it.</p>
+<p>Note: If the watchdog service does not send the notification to the systemd within <code>WatchdogSec</code> interval for a service,
+then systemd restarts that service by killing the old process and spawning a new one to replace it.</p>
 </blockquote>
 <blockquote>
 <p>Note: <a href="https://www.medo64.com/2019/01/systemd-watchdog-for-any-service/">Here</a> is an example about using <code>systemd watchdog</code> feature.</p>
