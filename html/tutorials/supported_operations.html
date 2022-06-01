@@ -212,11 +212,12 @@ This operation will do the reboot of our device when we receive trigger from the
 <blockquote>
 <p>Note: We are using <code>sudo -u</code> to create the file because we want to make sure that the file is owned by <code>tedge</code> user.</p>
 </blockquote>
-<p>Now we just need to reboot the <code>tedge-mapper-c8y</code> so it picks new operations and it will automatically add it to the list and send it to the cloud.</p>
+<p>Now the new operation will be automatically added to the list and the list will be sent to the cloud.</p>
 <h3 id="removing-supported-operations"><a class="header" href="#removing-supported-operations">Removing supported operations</a></h3>
-<p>To remove supported operation we can remove the file from <code>/etc/tedge/operations/c8y</code> directory and restart the <code>tedge-mapper-c8y</code> to pick up the new list of supported operations. eg:</p>
+<p>To remove supported operation we can remove the file from <code>/etc/tedge/operations/c8y</code> directory. eg:</p>
 <pre><code class="language-shell">sudo rm /etc/tedge/operations/c8y/c8y_Restart
 </code></pre>
+<p>Now the operation will be automatically removed from the list and the list will be sent to the cloud.</p>
 <h2 id="working-with-custom-operations"><a class="header" href="#working-with-custom-operations">Working with custom operations</a></h2>
 <p>We will use the <code>thin-edge.io</code> Supported Operations API to add custom operations. Our new operation is going to be capability to execute shell commands on the device.
 Let's create the operation configuration file:</p>
