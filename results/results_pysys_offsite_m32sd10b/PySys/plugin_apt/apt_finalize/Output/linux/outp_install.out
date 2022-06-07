@@ -35,7 +35,21 @@ Restarting the system to load the new kernel will not be handled automatically, 
 
 Failed to check for processor microcode upgrades.
 
-No services need to be restarted.
+Services to be restarted:
+ systemctl restart actions.runner.thin-edge-thin-edge.io.m32sd10b.service
+ systemctl restart cron.service
+ systemctl restart exim4.service
+ systemctl restart rsyslog.service
+ systemctl restart ssh.service
+ systemctl restart systemd-journald.service
+ systemctl restart systemd-timesyncd.service
+ systemctl restart systemd-udevd.service
+
+Service restarts being deferred:
+ /etc/needrestart/restart.d/dbus.service
+ systemctl restart docker.service
+ systemctl restart systemd-logind.service
+ systemctl restart unattended-upgrades.service
 
 No containers need to be restarted.
 

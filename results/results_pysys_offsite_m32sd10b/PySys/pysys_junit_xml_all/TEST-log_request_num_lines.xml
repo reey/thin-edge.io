@@ -1,89 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<testsuite failures="1" name="log_request_num_lines" skipped="0" tests="1" time="53.96" timestamp="2022-06-02T08:33:23">
+<testsuite failures="1" name="log_request_num_lines" skipped="0" tests="1" time="32.06" timestamp="2022-06-07T11:26:17">
 	<testcase classname="LogRequestVerifyNumberOfLines" name="log_request_num_lines">
-		<failure message="BLOCKED: Exception: retry" type="BLOCKED"/>
-		<system-out>08:32:29 INFO  ==============================================================
-08:32:29 INFO  Id:    log_request_num_lines
-08:32:29 INFO  Dir:   log_request_end_to_end/
-08:32:29 INFO  Title: Validate end to end behaviour for the log request operation check for number of lines
-08:32:29 INFO  ==============================================================
-08:32:29 INFO  EnvironmentC8y Setup
-08:32:29 INFO  Executed systemctl&lt;serv_mapper1&gt;, exit status 3
-08:32:29 INFO  Restarting mosquitto too frequently in the last 10 seconds. It was only up for 5 seconds
-08:32:30 INFO  Delaying execution by 6 seconds
-08:32:50 INFO  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 0, duration 14 secs
-08:32:51 INFO  Executed sudo&lt;tedge_connect_c8y_test&gt;, exit status 0
-08:32:51 INFO  Executed systemctl&lt;serv_mosq2&gt;, exit status 0
-08:32:52 INFO  Executed systemctl&lt;serv_mapper3&gt;, exit status 0
-08:32:52 INFO  Executed sudo&lt;rm_logs&gt;, exit status 0
-08:32:53 INFO  Executed sudo&lt;move_logs&gt;, exit status 0
-08:32:53 INFO  log response None
-08:32:53 WARN  retry, retrying in 1 seconds...
-08:32:54 INFO  log response None
-08:32:54 WARN  retry, retrying in 1 seconds...
-08:32:56 INFO  log response None
-08:32:56 WARN  retry, retrying in 1 seconds...
-08:32:57 INFO  log response None
-08:32:57 WARN  retry, retrying in 1 seconds...
-08:32:58 INFO  log response None
-08:32:58 WARN  retry, retrying in 1 seconds...
-08:32:59 INFO  log response None
-08:32:59 WARN  retry, retrying in 1 seconds...
-08:33:00 INFO  log response None
-08:33:00 WARN  retry, retrying in 1 seconds...
-08:33:02 INFO  log response None
-08:33:02 WARN  retry, retrying in 1 seconds...
-08:33:03 INFO  log response None
-08:33:03 WARN  retry, retrying in 1 seconds...
-08:33:04 INFO  log response None
-08:33:04 WARN  retry, retrying in 1 seconds...
-08:33:05 INFO  log response None
-08:33:05 WARN  retry, retrying in 1 seconds...
-08:33:07 INFO  log response None
-08:33:07 WARN  retry, retrying in 1 seconds...
-08:33:08 INFO  log response None
-08:33:08 WARN  retry, retrying in 1 seconds...
-08:33:09 INFO  log response None
-08:33:09 WARN  retry, retrying in 1 seconds...
-08:33:10 INFO  log response None
-08:33:10 WARN  retry, retrying in 1 seconds...
-08:33:11 INFO  log response None
-08:33:11 WARN  retry, retrying in 1 seconds...
-08:33:13 INFO  log response None
-08:33:13 WARN  retry, retrying in 1 seconds...
-08:33:14 INFO  log response None
-08:33:14 WARN  retry, retrying in 1 seconds...
-08:33:15 INFO  log response None
-08:33:15 WARN  retry, retrying in 1 seconds...
-08:33:16 INFO  log response None
-08:33:16 WARN  Exception occurred while running test - retry
+		<failure message="BLOCKED: TypeError: 'NoneType' object is not subscriptable" type="BLOCKED"/>
+		<system-out>11:25:45 INFO  ==============================================================
+11:25:45 INFO  Id:    log_request_num_lines
+11:25:45 INFO  Dir:   log_request_end_to_end/
+11:25:45 INFO  Title: Validate end to end behaviour for the log request operation check for number of lines
+11:25:45 INFO  ==============================================================
+11:25:45 INFO  EnvironmentC8y Setup
+11:25:45 INFO  Executed systemctl&lt;serv_mapper1&gt;, exit status 3
+11:25:45 INFO  Restarting mosquitto too frequently in the last 10 seconds. It was only up for 5 seconds
+11:25:45 INFO  Delaying execution by 6 seconds
+11:26:06 INFO  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 0, duration 14 secs
+11:26:06 INFO  Executed sudo&lt;tedge_connect_c8y_test&gt;, exit status 0
+11:26:07 INFO  Executed systemctl&lt;serv_mosq2&gt;, exit status 0
+11:26:07 INFO  Executed systemctl&lt;serv_mapper3&gt;, exit status 0
+11:26:08 INFO  Executed sudo&lt;rm_logs&gt;, exit status 0
+11:26:09 INFO  Executed sudo&lt;move_logs&gt;, exit status 0
+11:26:09 INFO  Executed sudo&lt;log_file_daemon&gt;, exit status 0
+11:26:10 WARN  TypeError occurred while running test - 'NoneType' object is not subscriptable
 Traceback (most recent call last):
-  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/pysys/baserunner.py&quot;, line 1296, in __call__
-    self.testObj.validate()
-  File &quot;/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/log_request_end_to_end/log_request_num_lines/run.py&quot;, line 44, in validate
-    self.assertThat(&quot;True == value&quot;, value=self.wait_until_logs_retrieved())
-  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/decorator.py&quot;, line 232, in fun
-    return caller(func, *(extras + args), **kw)
-  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/retry/api.py&quot;, line 74, in retry_decorator
-    logger)
-  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/retry/api.py&quot;, line 33, in __retry_internal
-    return f()
-  File &quot;/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/log_request_end_to_end/log_request_num_lines/run.py&quot;, line 52, in wait_until_logs_retrieved
-    raise Exception(&quot;retry&quot;)
-Exception: retry
-08:33:16 WARN  Exception: retry ... blocked 
-08:33:16 INFO  
-08:33:16 INFO  cleanup:
-08:33:17 INFO  Executed sudo&lt;rm_logs&gt;, exit status 0
-08:33:17 INFO  Executed sudo&lt;rm_tmp_logs&gt;, exit status 0
-08:33:18 INFO  Executed sudo&lt;send_failed&gt;, exit status 0
-08:33:22 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
-08:33:23 INFO  Executed systemctl&lt;serv_mapper5&gt;, exit status 3
-08:33:23 INFO  
-08:33:23 INFO  Test duration: 53.96 secs
-08:33:23 INFO  Test final outcome:  BLOCKED
-08:33:23 INFO  Test outcome reason: Exception: retry
-08:33:23 INFO  
+  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/pysys/baserunner.py&quot;, line 1294, in __call__
+    self.testObj.execute()
+  File &quot;/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/log_request_end_to_end/log_request_num_lines/run.py&quot;, line 46, in execute
+    log_file_request_payload, self.project.deviceid
+  File &quot;/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/environments/cumulocity.py&quot;, line 101, in trigger_log_request
+    &quot;deviceId&quot;: self.device_fragment[&quot;id&quot;],
+TypeError: 'NoneType' object is not subscriptable
+11:26:10 WARN  TypeError: 'NoneType' object is not subscriptable ... blocked 
+11:26:10 INFO  
+11:26:10 INFO  cleanup:
+11:26:11 INFO  Executed sudo&lt;rm_logs&gt;, exit status 0
+11:26:11 INFO  Executed sudo&lt;rm_tmp_logs&gt;, exit status 0
+11:26:12 INFO  Executed sudo&lt;send_failed&gt;, exit status 0
+11:26:12 INFO  Executed sudo&lt;log_file_daemon&gt;, exit status 0
+11:26:16 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
+11:26:17 INFO  Executed systemctl&lt;serv_mapper5&gt;, exit status 3
+11:26:17 INFO  
+11:26:17 INFO  Test duration: 32.06 secs
+11:26:17 INFO  Test final outcome:  BLOCKED
+11:26:17 INFO  Test outcome reason: TypeError: 'NoneType' object is not subscriptable
+11:26:17 INFO  
 </system-out>
 	</testcase>
 </testsuite>

@@ -1,80 +1,37 @@
-2022-06-02 08:31:35,514 INFO  ==============================================================
-2022-06-02 08:31:35,515 INFO  Id:    log_request_error_messages
-2022-06-02 08:31:35,516 INFO  Dir:   log_request_end_to_end/
-2022-06-02 08:31:35,517 INFO  Title: Validate end to end behaviour for the log request operation check for error messages
-2022-06-02 08:31:35,518 INFO  ==============================================================
-2022-06-02 08:31:37,080 INFO  EnvironmentC8y Setup
-2022-06-02 08:31:37,893 INFO  Executed systemctl<serv_mapper1>, exit status 3
-2022-06-02 08:31:52,217 INFO  Executed sudo<tedge_connect_c8y>, exit status 0, duration 14 secs
-2022-06-02 08:31:52,833 INFO  Executed sudo<tedge_connect_c8y_test>, exit status 0
-2022-06-02 08:31:53,497 INFO  Executed systemctl<serv_mosq2>, exit status 0
-2022-06-02 08:31:53,959 INFO  Executed systemctl<serv_mapper3>, exit status 0
-2022-06-02 08:31:54,472 INFO  Executed sudo<rm_logs>, exit status 0
-2022-06-02 08:31:55,005 INFO  Executed sudo<move_logs>, exit status 0
-2022-06-02 08:31:55,554 INFO  log response None
-2022-06-02 08:31:55,555 WARN  retry, retrying in 1 seconds...
-2022-06-02 08:31:56,795 INFO  log response None
-2022-06-02 08:31:56,796 WARN  retry, retrying in 1 seconds...
-2022-06-02 08:31:58,022 INFO  log response None
-2022-06-02 08:31:58,023 WARN  retry, retrying in 1 seconds...
-2022-06-02 08:31:59,244 INFO  log response None
-2022-06-02 08:31:59,245 WARN  retry, retrying in 1 seconds...
-2022-06-02 08:32:00,460 INFO  log response None
-2022-06-02 08:32:00,461 WARN  retry, retrying in 1 seconds...
-2022-06-02 08:32:01,676 INFO  log response None
-2022-06-02 08:32:01,679 WARN  retry, retrying in 1 seconds...
-2022-06-02 08:32:02,899 INFO  log response None
-2022-06-02 08:32:02,900 WARN  retry, retrying in 1 seconds...
-2022-06-02 08:32:04,116 INFO  log response None
-2022-06-02 08:32:04,118 WARN  retry, retrying in 1 seconds...
-2022-06-02 08:32:05,332 INFO  log response None
-2022-06-02 08:32:05,334 WARN  retry, retrying in 1 seconds...
-2022-06-02 08:32:06,545 INFO  log response None
-2022-06-02 08:32:06,546 WARN  retry, retrying in 1 seconds...
-2022-06-02 08:32:07,750 INFO  log response None
-2022-06-02 08:32:07,751 WARN  retry, retrying in 1 seconds...
-2022-06-02 08:32:08,969 INFO  log response None
-2022-06-02 08:32:08,970 WARN  retry, retrying in 1 seconds...
-2022-06-02 08:32:10,212 INFO  log response None
-2022-06-02 08:32:10,213 WARN  retry, retrying in 1 seconds...
-2022-06-02 08:32:11,437 INFO  log response None
-2022-06-02 08:32:11,438 WARN  retry, retrying in 1 seconds...
-2022-06-02 08:32:12,650 INFO  log response None
-2022-06-02 08:32:12,651 WARN  retry, retrying in 1 seconds...
-2022-06-02 08:32:13,860 INFO  log response None
-2022-06-02 08:32:13,861 WARN  retry, retrying in 1 seconds...
-2022-06-02 08:32:15,067 INFO  log response None
-2022-06-02 08:32:15,068 WARN  retry, retrying in 1 seconds...
-2022-06-02 08:32:16,287 INFO  log response None
-2022-06-02 08:32:16,288 WARN  retry, retrying in 1 seconds...
-2022-06-02 08:32:17,501 INFO  log response None
-2022-06-02 08:32:17,502 WARN  retry, retrying in 1 seconds...
-2022-06-02 08:32:18,718 INFO  log response None
-2022-06-02 08:32:18,720 WARN  Exception occurred while running test - retry
+2022-06-07 11:25:19,233 INFO  ==============================================================
+2022-06-07 11:25:19,234 INFO  Id:    log_request_error_messages
+2022-06-07 11:25:19,235 INFO  Dir:   log_request_end_to_end/
+2022-06-07 11:25:19,236 INFO  Title: Validate end to end behaviour for the log request operation check for error messages
+2022-06-07 11:25:19,237 INFO  ==============================================================
+2022-06-07 11:25:20,660 INFO  EnvironmentC8y Setup
+2022-06-07 11:25:21,525 INFO  Executed systemctl<serv_mapper1>, exit status 3
+2022-06-07 11:25:36,273 INFO  Executed sudo<tedge_connect_c8y>, exit status 0, duration 14 secs
+2022-06-07 11:25:36,957 INFO  Executed sudo<tedge_connect_c8y_test>, exit status 0
+2022-06-07 11:25:37,520 INFO  Executed systemctl<serv_mosq2>, exit status 0
+2022-06-07 11:25:37,996 INFO  Executed systemctl<serv_mapper3>, exit status 0
+2022-06-07 11:25:38,527 INFO  Executed sudo<rm_logs>, exit status 0
+2022-06-07 11:25:39,111 INFO  Executed sudo<move_logs>, exit status 0
+2022-06-07 11:25:39,726 INFO  Executed sudo<log_file_daemon>, exit status 0
+2022-06-07 11:25:40,583 WARN  TypeError occurred while running test - 'NoneType' object is not subscriptable
 Traceback (most recent call last):
-  File "/home/pi/env-pysys/lib/python3.7/site-packages/pysys/baserunner.py", line 1296, in __call__
-    self.testObj.validate()
-  File "/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/log_request_end_to_end/log_request_error_messages/run.py", line 43, in validate
-    self.assertThat("True == value", value=self.wait_until_logs_retrieved())
-  File "/home/pi/env-pysys/lib/python3.7/site-packages/decorator.py", line 232, in fun
-    return caller(func, *(extras + args), **kw)
-  File "/home/pi/env-pysys/lib/python3.7/site-packages/retry/api.py", line 74, in retry_decorator
-    logger)
-  File "/home/pi/env-pysys/lib/python3.7/site-packages/retry/api.py", line 33, in __retry_internal
-    return f()
-  File "/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/log_request_end_to_end/log_request_error_messages/run.py", line 52, in wait_until_logs_retrieved
-    raise Exception("retry")
-Exception: retry
-2022-06-02 08:32:19,366 WARN  Exception: retry ... blocked 
-2022-06-02 08:32:19,372 INFO  
-2022-06-02 08:32:19,378 INFO  cleanup:
-2022-06-02 08:32:19,957 INFO  Executed sudo<rm_logs>, exit status 0
-2022-06-02 08:32:20,478 INFO  Executed sudo<rm_tmp_logs>, exit status 0
-2022-06-02 08:32:21,000 INFO  Executed sudo<send_failed>, exit status 0
-2022-06-02 08:32:25,006 INFO  Executed sudo<tedge_disconnect_c8y>, exit status 0
-2022-06-02 08:32:25,569 INFO  Executed systemctl<serv_mapper5>, exit status 3
-2022-06-02 08:32:25,574 INFO  
-2022-06-02 08:32:25,575 INFO  Test duration: 50.06 secs
-2022-06-02 08:32:25,576 INFO  Test final outcome:  BLOCKED
-2022-06-02 08:32:25,577 INFO  Test outcome reason: Exception: retry
-2022-06-02 08:32:25,578 INFO  
+  File "/home/pi/env-pysys/lib/python3.7/site-packages/pysys/baserunner.py", line 1294, in __call__
+    self.testObj.execute()
+  File "/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/log_request_end_to_end/log_request_error_messages/run.py", line 47, in execute
+    log_file_request_payload, self.project.deviceid
+  File "/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/environments/cumulocity.py", line 101, in trigger_log_request
+    "deviceId": self.device_fragment["id"],
+TypeError: 'NoneType' object is not subscriptable
+2022-06-07 11:25:40,609 WARN  TypeError: 'NoneType' object is not subscriptable ... blocked 
+2022-06-07 11:25:40,610 INFO  
+2022-06-07 11:25:40,611 INFO  cleanup:
+2022-06-07 11:25:41,136 INFO  Executed sudo<rm_logs>, exit status 0
+2022-06-07 11:25:41,648 INFO  Executed sudo<rm_tmp_logs>, exit status 0
+2022-06-07 11:25:42,212 INFO  Executed sudo<send_failed>, exit status 0
+2022-06-07 11:25:42,881 INFO  Executed sudo<log_file_daemon>, exit status 0
+2022-06-07 11:25:46,904 INFO  Executed sudo<tedge_disconnect_c8y>, exit status 0
+2022-06-07 11:25:47,470 INFO  Executed systemctl<serv_mapper5>, exit status 3
+2022-06-07 11:25:47,474 INFO  
+2022-06-07 11:25:47,475 INFO  Test duration: 28.24 secs
+2022-06-07 11:25:47,476 INFO  Test final outcome:  BLOCKED
+2022-06-07 11:25:47,477 INFO  Test outcome reason: TypeError: 'NoneType' object is not subscriptable
+2022-06-07 11:25:47,478 INFO  

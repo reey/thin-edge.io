@@ -1,87 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<testsuite failures="1" name="log_request_error_messages" skipped="0" tests="1" time="50.0" timestamp="2022-06-02T08:32:29">
+<testsuite failures="1" name="log_request_error_messages" skipped="0" tests="1" time="29.11" timestamp="2022-06-07T11:25:45">
 	<testcase classname="LogRequestVerifySearchTextError" name="log_request_error_messages">
-		<failure message="BLOCKED: Exception: retry" type="BLOCKED"/>
-		<system-out>08:31:39 INFO  ==============================================================
-08:31:39 INFO  Id:    log_request_error_messages
-08:31:39 INFO  Dir:   log_request_end_to_end/
-08:31:39 INFO  Title: Validate end to end behaviour for the log request operation check for error messages
-08:31:39 INFO  ==============================================================
-08:31:40 INFO  EnvironmentC8y Setup
-08:31:41 INFO  Executed systemctl&lt;serv_mapper1&gt;, exit status 3
-08:31:55 INFO  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 0, duration 14 secs
-08:31:56 INFO  Executed sudo&lt;tedge_connect_c8y_test&gt;, exit status 0
-08:31:57 INFO  Executed systemctl&lt;serv_mosq2&gt;, exit status 0
-08:31:57 INFO  Executed systemctl&lt;serv_mapper3&gt;, exit status 0
-08:31:58 INFO  Executed sudo&lt;rm_logs&gt;, exit status 0
-08:31:58 INFO  Executed sudo&lt;move_logs&gt;, exit status 0
-08:31:59 INFO  log response None
-08:31:59 WARN  retry, retrying in 1 seconds...
-08:32:00 INFO  log response None
-08:32:00 WARN  retry, retrying in 1 seconds...
-08:32:01 INFO  log response None
-08:32:01 WARN  retry, retrying in 1 seconds...
-08:32:02 INFO  log response None
-08:32:02 WARN  retry, retrying in 1 seconds...
-08:32:04 INFO  log response None
-08:32:04 WARN  retry, retrying in 1 seconds...
-08:32:05 INFO  log response None
-08:32:05 WARN  retry, retrying in 1 seconds...
-08:32:06 INFO  log response None
-08:32:06 WARN  retry, retrying in 1 seconds...
-08:32:07 INFO  log response None
-08:32:07 WARN  retry, retrying in 1 seconds...
-08:32:08 INFO  log response None
-08:32:08 WARN  retry, retrying in 1 seconds...
-08:32:10 INFO  log response None
-08:32:10 WARN  retry, retrying in 1 seconds...
-08:32:11 INFO  log response None
-08:32:11 WARN  retry, retrying in 1 seconds...
-08:32:12 INFO  log response None
-08:32:12 WARN  retry, retrying in 1 seconds...
-08:32:13 INFO  log response None
-08:32:13 WARN  retry, retrying in 1 seconds...
-08:32:15 INFO  log response None
-08:32:15 WARN  retry, retrying in 1 seconds...
-08:32:16 INFO  log response None
-08:32:16 WARN  retry, retrying in 1 seconds...
-08:32:17 INFO  log response None
-08:32:17 WARN  retry, retrying in 1 seconds...
-08:32:18 INFO  log response None
-08:32:18 WARN  retry, retrying in 1 seconds...
-08:32:20 INFO  log response None
-08:32:20 WARN  retry, retrying in 1 seconds...
-08:32:21 INFO  log response None
-08:32:21 WARN  retry, retrying in 1 seconds...
-08:32:22 INFO  log response None
-08:32:22 WARN  Exception occurred while running test - retry
+		<failure message="BLOCKED: TypeError: 'NoneType' object is not subscriptable" type="BLOCKED"/>
+		<system-out>11:25:16 INFO  ==============================================================
+11:25:16 INFO  Id:    log_request_error_messages
+11:25:16 INFO  Dir:   log_request_end_to_end/
+11:25:16 INFO  Title: Validate end to end behaviour for the log request operation check for error messages
+11:25:16 INFO  ==============================================================
+11:25:18 INFO  EnvironmentC8y Setup
+11:25:19 INFO  Executed systemctl&lt;serv_mapper1&gt;, exit status 3
+11:25:33 INFO  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 0, duration 14 secs
+11:25:34 INFO  Executed sudo&lt;tedge_connect_c8y_test&gt;, exit status 0
+11:25:34 INFO  Executed systemctl&lt;serv_mosq2&gt;, exit status 0
+11:25:35 INFO  Executed systemctl&lt;serv_mapper3&gt;, exit status 0
+11:25:35 INFO  Executed sudo&lt;rm_logs&gt;, exit status 0
+11:25:36 INFO  Executed sudo&lt;move_logs&gt;, exit status 0
+11:25:36 INFO  Executed sudo&lt;log_file_daemon&gt;, exit status 0
+11:25:37 WARN  TypeError occurred while running test - 'NoneType' object is not subscriptable
 Traceback (most recent call last):
-  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/pysys/baserunner.py&quot;, line 1296, in __call__
-    self.testObj.validate()
-  File &quot;/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/log_request_end_to_end/log_request_error_messages/run.py&quot;, line 43, in validate
-    self.assertThat(&quot;True == value&quot;, value=self.wait_until_logs_retrieved())
-  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/decorator.py&quot;, line 232, in fun
-    return caller(func, *(extras + args), **kw)
-  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/retry/api.py&quot;, line 74, in retry_decorator
-    logger)
-  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/retry/api.py&quot;, line 33, in __retry_internal
-    return f()
-  File &quot;/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/log_request_end_to_end/log_request_error_messages/run.py&quot;, line 52, in wait_until_logs_retrieved
-    raise Exception(&quot;retry&quot;)
-Exception: retry
-08:32:23 WARN  Exception: retry ... blocked 
-08:32:23 INFO  
-08:32:23 INFO  cleanup:
-08:32:23 INFO  Executed sudo&lt;rm_logs&gt;, exit status 0
-08:32:24 INFO  Executed sudo&lt;rm_tmp_logs&gt;, exit status 0
-08:32:24 INFO  Executed sudo&lt;send_failed&gt;, exit status 0
-08:32:28 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
-08:32:29 INFO  Executed systemctl&lt;serv_mapper5&gt;, exit status 3
-08:32:29 INFO  
-08:32:29 INFO  Test duration: 50.00 secs
-08:32:29 INFO  Test final outcome:  BLOCKED
-08:32:29 INFO  Test outcome reason: Exception: retry
-08:32:29 INFO  
+  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/pysys/baserunner.py&quot;, line 1294, in __call__
+    self.testObj.execute()
+  File &quot;/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/log_request_end_to_end/log_request_error_messages/run.py&quot;, line 47, in execute
+    log_file_request_payload, self.project.deviceid
+  File &quot;/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/environments/cumulocity.py&quot;, line 101, in trigger_log_request
+    &quot;deviceId&quot;: self.device_fragment[&quot;id&quot;],
+TypeError: 'NoneType' object is not subscriptable
+11:25:38 WARN  TypeError: 'NoneType' object is not subscriptable ... blocked 
+11:25:38 INFO  
+11:25:38 INFO  cleanup:
+11:25:39 INFO  Executed sudo&lt;rm_logs&gt;, exit status 0
+11:25:39 INFO  Executed sudo&lt;rm_tmp_logs&gt;, exit status 0
+11:25:40 INFO  Executed sudo&lt;send_failed&gt;, exit status 0
+11:25:40 INFO  Executed sudo&lt;log_file_daemon&gt;, exit status 0
+11:25:44 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
+11:25:45 INFO  Executed systemctl&lt;serv_mapper5&gt;, exit status 3
+11:25:45 INFO  
+11:25:45 INFO  Test duration: 29.11 secs
+11:25:45 INFO  Test final outcome:  BLOCKED
+11:25:45 INFO  Test outcome reason: TypeError: 'NoneType' object is not subscriptable
+11:25:45 INFO  
 </system-out>
 	</testcase>
 </testsuite>
