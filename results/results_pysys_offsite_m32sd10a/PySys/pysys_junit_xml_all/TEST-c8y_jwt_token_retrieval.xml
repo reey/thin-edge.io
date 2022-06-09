@@ -1,4 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<testsuite failures="0" name="c8y_jwt_token_retrieval" skipped="0" tests="1" time="23.5" timestamp="2022-06-09T06:55:10">
-	<testcase classname="ValidateJWTTokenRetrieval" name="c8y_jwt_token_retrieval"/>
+<testsuite failures="1" name="c8y_jwt_token_retrieval" skipped="0" tests="1" time="23.13" timestamp="2022-06-09T16:30:30">
+	<testcase classname="ValidateJWTTokenRetrieval" name="c8y_jwt_token_retrieval">
+		<failure message="FAILED: Grep on resp_jwt.out contains &quot;\[c8y/s/dat\] 71,&quot;" type="FAILED"/>
+		<system-out>16:30:07 INFO  ==============================================================
+16:30:07 INFO  Id:    c8y_jwt_token_retrieval
+16:30:07 INFO  Dir:   cloud_c8y/
+16:30:07 INFO  Title: Validate the Cumulocity JWT Token Retrieval feature
+16:30:07 INFO  ==============================================================
+16:30:08 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
+16:30:22 INFO  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 0, duration 14 secs
+16:30:22 INFO  Started sudo&lt;resp_jwt&gt; with process id 14534
+16:30:24 INFO  Executed sudo&lt;req_jwt&gt;, exit status 0
+16:30:26 INFO  Executed sudo&lt;kill_out&gt;, exit status 0
+16:30:26 WARN  Grep on resp_jwt.out contains &quot;\[c8y/s/dat\] 71,&quot; ... failed [run.py:60]
+16:30:26 INFO  
+16:30:26 INFO  cleanup:
+16:30:30 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
+16:30:30 INFO  
+16:30:30 INFO  Test duration: 23.13 secs
+16:30:30 INFO  Test final outcome:  FAILED
+16:30:30 INFO  Test outcome reason: Grep on resp_jwt.out contains &quot;\[c8y/s/dat\] 71,&quot;
+16:30:30 INFO  
+</system-out>
+	</testcase>
 </testsuite>
