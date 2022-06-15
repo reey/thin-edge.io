@@ -1,26 +1,42 @@
-2022-06-10 13:04:04,134 INFO  ==============================================================
-2022-06-10 13:04:04,135 INFO  Id:    smoketest_json
-2022-06-10 13:04:04,136 INFO  Dir:   smoketests/
-2022-06-10 13:04:04,137 INFO  Title: Smoke Test Json
-2022-06-10 13:04:04,138 INFO  ==============================================================
-2022-06-10 13:04:04,159 INFO  EnvironmentC8y Setup
-2022-06-10 13:04:04,724 INFO  Executed systemctl<serv_mapper1>, exit status 3
-2022-06-10 13:04:04,831 INFO  Restarting mosquitto too frequently in the last 10 seconds. It was only up for 4 seconds
-2022-06-10 13:04:04,832 INFO  Delaying execution by 7 seconds
-2022-06-10 13:04:25,820 INFO  Executed sudo<tedge_connect_c8y>, exit status 0, duration 13 secs
-2022-06-10 13:04:26,487 INFO  Executed sudo<tedge_connect_c8y_test>, exit status 0
-2022-06-10 13:04:26,950 INFO  Executed systemctl<serv_mosq2>, exit status 0
-2022-06-10 13:04:27,415 INFO  Executed systemctl<serv_mapper3>, exit status 0
-2022-06-10 13:04:44,716 INFO  Executed python3<stdout>, exit status 0
-2022-06-10 13:04:45,178 INFO  Executed systemctl<serv_mosq>, exit status 0
-2022-06-10 13:04:45,641 INFO  Executed systemctl<serv_mapper4>, exit status 0
-2022-06-10 13:04:45,647 INFO  Grep on file stdout.out ... passed
-2022-06-10 13:04:45,652 INFO  Grep on file stdout.out ... passed
-2022-06-10 13:04:45,660 INFO  
-2022-06-10 13:04:45,661 INFO  cleanup:
-2022-06-10 13:04:49,559 INFO  Executed sudo<tedge_disconnect_c8y>, exit status 0
-2022-06-10 13:04:50,128 INFO  Executed systemctl<serv_mapper5>, exit status 3
-2022-06-10 13:04:50,132 INFO  
-2022-06-10 13:04:50,133 INFO  Test duration: 46.00 secs
-2022-06-10 13:04:50,134 INFO  Test final outcome:  PASSED
-2022-06-10 13:04:50,135 INFO  
+2022-06-15 10:57:14,785 INFO  ==============================================================
+2022-06-15 10:57:14,786 INFO  Id:    smoketest_json
+2022-06-15 10:57:14,787 INFO  Dir:   smoketests/
+2022-06-15 10:57:14,788 INFO  Title: Smoke Test Json
+2022-06-15 10:57:14,789 INFO  ==============================================================
+2022-06-15 10:57:14,826 INFO  EnvironmentC8y Setup
+2022-06-15 10:57:15,388 INFO  Executed systemctl<serv_mapper1>, exit status 3
+2022-06-15 10:57:15,491 INFO  Restarting mosquitto too frequently in the last 10 seconds. It was only up for 5 seconds
+2022-06-15 10:57:15,493 INFO  Delaying execution by 6 seconds
+2022-06-15 10:57:35,598 INFO  Executed sudo<tedge_connect_c8y>, exit status 0, duration 14 secs
+2022-06-15 10:57:36,165 INFO  Executed sudo<tedge_connect_c8y_test>, exit status 0
+2022-06-15 10:57:36,629 INFO  Executed systemctl<serv_mosq2>, exit status 0
+2022-06-15 10:57:37,092 INFO  Executed systemctl<serv_mapper3>, exit status 0
+2022-06-15 10:57:54,443 WARN  Executed python3<stdout>, exit status 1
+2022-06-15 10:57:54,450 INFO  Contents of stdout.out: 
+2022-06-15 10:57:54,451 INFO    Publishing sawtooth with delay 100ms height 20 iterations 1 template flux will cause 20 publishs.
+2022-06-15 10:57:54,452 INFO    Iteraton: 0
+2022-06-15 10:57:54,452 INFO    Execution took 2 s 2005 ms
+2022-06-15 10:57:54,453 INFO    Publish rate: 100.250 ms/pub
+2022-06-15 10:57:54,454 INFO    Publish per second: 9.975 pub/s
+2022-06-15 10:57:54,454 INFO    Act: Publishing values with temperature_publisher
+2022-06-15 10:57:54,455 INFO    Waiting 3s for values to arrive in C8y
+2022-06-15 10:57:54,456 INFO    Assert: Retrieving data via REST interface
+2022-06-15 10:57:54,456 INFO    Gathering values from 2022-06-15 10:57:44+00:00 to 2022-06-15 10:57:54+00:00
+2022-06-15 10:57:54,457 INFO    Found 16 recorded values:
+2022-06-15 10:57:54,460 INFO    Retrieved values:
+2022-06-15 10:57:54,460 INFO      0.0   1.0   2.0   3.0   4.0   5.0   6.0   7.0   8.0   9.0  10.0  11.0  12.0  13.0  14.0  15.0
+2022-06-15 10:57:54,461 INFO    Expected:  0.0  ...  19.0
+2022-06-15 10:57:54,461 INFO    Data verification FAILED
+2022-06-15 10:57:54,462 INFO    -----
+2022-06-15 10:57:54,463 INFO  
+2022-06-15 10:57:54,520 WARN  python3<stdout> returned non-zero exit code 1 ... blocked 
+2022-06-15 10:57:54,521 WARN  Aborted test due to BLOCKED outcome
+2022-06-15 10:57:54,527 INFO  
+2022-06-15 10:57:54,528 INFO  cleanup:
+2022-06-15 10:57:58,368 INFO  Executed sudo<tedge_disconnect_c8y>, exit status 0
+2022-06-15 10:57:58,932 INFO  Executed systemctl<serv_mapper5>, exit status 3
+2022-06-15 10:57:58,936 INFO  
+2022-06-15 10:57:58,937 INFO  Test duration: 44.16 secs
+2022-06-15 10:57:58,938 INFO  Test final outcome:  BLOCKED
+2022-06-15 10:57:58,939 INFO  Test outcome reason: python3<stdout> returned non-zero exit code 1
+2022-06-15 10:57:58,940 INFO  
