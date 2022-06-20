@@ -1,40 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<testsuite failures="1" name="SoftwareManagement.sm_apt_install_remove_multiple_mixed" skipped="0" tests="1" time="178.13" timestamp="2022-06-20T16:12:19">
+<testsuite failures="1" name="SoftwareManagement.sm_apt_install_remove_multiple_mixed" skipped="0" tests="1" time="100.26" timestamp="2022-06-20T17:50:47">
 	<testcase classname="PySysTest" name="SoftwareManagement.sm_apt_install_remove_multiple_mixed">
-		<failure message="BLOCKED: SystemError: Timeout while waiting for status SUCCESSFUL or False (+1 other failures)" type="BLOCKED"/>
-		<system-out>16:09:21 INFO  ==============================================================
-16:09:21 INFO  Id:    SoftwareManagement.sm_apt_install_remove_multiple_mixed
-16:09:21 INFO  Dir:   software_management_end_to_end/
-16:09:21 INFO  Title: Validate end to end behaviour for the apt plugin for multiple packages with mixed versions
-16:09:21 INFO  ==============================================================
-16:09:21 INFO  Using sw id database: {'asciijump': '5475369', 'robotfindskitten': '5474869', 'squirrel3': '5475279', 'rolldice': '5152439', 'moon-buggy': '5439204', 'apple': '5495053', 'banana': '5494888', 'cherry': '5495382', 'watermelon': '5494510', 'registry': '8018911', 'hello-world': '8021526', 'docker/getting-started': '8021973', 'alpine': '7991792'}
-16:09:21 INFO  EnvironmentC8y Setup
-16:09:22 INFO  Executed systemctl&lt;serv_mapper1&gt;, exit status 3
-16:09:22 INFO  Restarting mosquitto too frequently in the last 10 seconds. It was only up for 4 seconds
-16:09:22 INFO  Delaying execution by 7 seconds
-16:09:43 INFO  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 0, duration 13 secs
-16:09:43 INFO  Executed sudo&lt;tedge_connect_c8y_test&gt;, exit status 0
-16:09:44 INFO  Executed systemctl&lt;serv_mosq2&gt;, exit status 0
-16:09:44 INFO  Executed systemctl&lt;serv_mapper3&gt;, exit status 0
-16:09:46 INFO  State of current operation: SUCCESSFUL
-16:09:47 INFO  Assert that (False == value) with value=False ... passed
-16:09:47 INFO  Assert that (False == value) with value=False ... passed
-16:09:47 INFO  Assert that (False == value) with value=False ... passed
-16:09:47 INFO  Assert that (False == value) with value=False ... passed
-16:09:47 INFO  Package moon-buggy is installed
-16:09:48 WARN  Assert that (False == value) with value=True ... failed 
-16:09:49 INFO  Response status: 201
-16:09:49 INFO  Response to action: {
-    &quot;delivery&quot;: {
-        &quot;log&quot;: [],
-        &quot;time&quot;: &quot;2022-06-20T16:09:49.264Z&quot;,
-        &quot;status&quot;: &quot;PENDING&quot;
-    },
-    &quot;creationTime&quot;: &quot;2022-06-20T16:09:49.245Z&quot;,
+		<failure message="BLOCKED: ConnectionError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer')) (+1 other failures)" type="BLOCKED"/>
+		<system-out>17:49:06 INFO  ==============================================================
+17:49:06 INFO  Id:    SoftwareManagement.sm_apt_install_remove_multiple_mixed
+17:49:06 INFO  Dir:   software_management_end_to_end/
+17:49:06 INFO  Title: Validate end to end behaviour for the apt plugin for multiple packages with mixed versions
+17:49:06 INFO  ==============================================================
+17:49:07 INFO  Using sw id database: {'asciijump': '5475369', 'robotfindskitten': '5474869', 'squirrel3': '5475279', 'rolldice': '5152439', 'moon-buggy': '5439204', 'apple': '5495053', 'banana': '5494888', 'cherry': '5495382', 'watermelon': '5494510', 'registry': '8018911', 'hello-world': '8021526', 'docker/getting-started': '8021973', 'alpine': '7991792'}
+17:49:07 INFO  EnvironmentC8y Setup
+17:49:07 INFO  Executed systemctl&lt;serv_mapper1&gt;, exit status 3
+17:49:08 INFO  Restarting mosquitto too frequently in the last 10 seconds. It was only up for 5 seconds
+17:49:08 INFO  Delaying execution by 6 seconds
+17:49:27 INFO  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 0, duration 13 secs
+17:49:28 INFO  Executed sudo&lt;tedge_connect_c8y_test&gt;, exit status 0
+17:49:29 INFO  Executed systemctl&lt;serv_mosq2&gt;, exit status 0
+17:49:29 INFO  Executed systemctl&lt;serv_mapper3&gt;, exit status 0
+17:49:31 INFO  State of current operation: SUCCESSFUL
+17:49:32 INFO  Assert that (False == value) with value=False ... passed
+17:49:32 INFO  Assert that (False == value) with value=False ... passed
+17:49:32 INFO  Assert that (False == value) with value=False ... passed
+17:49:32 INFO  Assert that (False == value) with value=False ... passed
+17:49:33 INFO  Package moon-buggy is installed
+17:49:33 WARN  Assert that (False == value) with value=True ... failed 
+17:49:34 INFO  Response status: 201
+17:49:34 INFO  Response to action: {
+    &quot;creationTime&quot;: &quot;2022-06-20T17:49:34.399Z&quot;,
     &quot;deviceName&quot;: &quot;m32sd10a&quot;,
-    &quot;deviceId&quot;: &quot;20281698&quot;,
-    &quot;self&quot;: &quot;https://t493319102.eu-latest.cumulocity.com/devicecontrol/operations/20349876&quot;,
-    &quot;id&quot;: &quot;20349876&quot;,
+    &quot;deviceId&quot;: &quot;20354757&quot;,
+    &quot;self&quot;: &quot;https://t493319102.eu-latest.cumulocity.com/devicecontrol/operations/20362872&quot;,
+    &quot;id&quot;: &quot;20362872&quot;,
     &quot;status&quot;: &quot;PENDING&quot;,
     &quot;description&quot;: &quot;Apply software changes, triggered from PySys: [{'action': 'install', 'id': '5475369', 'name': 'asciijump', 'url': ' ', 'version': '::apt'}, {'action': 'install', 'id': '5474869', 'name': 'robotfindskitten', 'url': ' ', 'version': ' '}, {'action': 'install', 'id': '5475279', 'name': 'squirrel3', 'url': ' ', 'version': '3.1-7::apt'}, {'action': 'install', 'id': '5152439', 'name': 'rolldice', 'url': ' ', 'version': '1.16-1+b1'}, {'action': 'install', 'id': '5439204', 'name': 'moon-buggy', 'url': ' ', 'version': '1:1.0.51-12'}, {'action': 'install', 'id': '5475369', 'name': 'asciijump', 'url': ' ', 'version': '::apt'}]&quot;,
     &quot;c8y_SoftwareUpdate&quot;: [
@@ -82,69 +77,91 @@
         }
     ]
 }
-16:09:49 INFO  Started operation: {'delivery': {'log': [], 'time': '2022-06-20T16:09:49.264Z', 'status': 'PENDING'}, 'creationTime': '2022-06-20T16:09:49.245Z', 'deviceName': 'm32sd10a', 'deviceId': '20281698', 'self': 'https://t493319102.eu-latest.cumulocity.com/devicecontrol/operations/20349876', 'id': '20349876', 'status': 'PENDING', 'description': &quot;Apply software changes, triggered from PySys: [{'action': 'install', 'id': '5475369', 'name': 'asciijump', 'url': ' ', 'version': '::apt'}, {'action': 'install', 'id': '5474869', 'name': 'robotfindskitten', 'url': ' ', 'version': ' '}, {'action': 'install', 'id': '5475279', 'name': 'squirrel3', 'url': ' ', 'version': '3.1-7::apt'}, {'action': 'install', 'id': '5152439', 'name': 'rolldice', 'url': ' ', 'version': '1.16-1+b1'}, {'action': 'install', 'id': '5439204', 'name': 'moon-buggy', 'url': ' ', 'version': '1:1.0.51-12'}, {'action': 'install', 'id': '5475369', 'name': 'asciijump', 'url': ' ', 'version': '::apt'}]&quot;, 'c8y_SoftwareUpdate': [{'name': 'asciijump', 'action': 'install', 'id': '5475369', 'version': '::apt', 'url': ' '}, {'name': 'robotfindskitten', 'action': 'install', 'id': '5474869', 'version': ' ', 'url': ' '}, {'name': 'squirrel3', 'action': 'install', 'id': '5475279', 'version': '3.1-7::apt', 'url': ' '}, {'name': 'rolldice', 'action': 'install', 'id': '5152439', 'version': '1.16-1+b1', 'url': ' '}, {'name': 'moon-buggy', 'action': 'install', 'id': '5439204', 'version': '1:1.0.51-12', 'url': ' '}, {'name': 'asciijump', 'action': 'install', 'id': '5475369', 'version': '::apt', 'url': ' '}]}
-16:09:51 INFO  State of operation 20349876 : PENDING
-16:09:53 INFO  State of operation 20349876 : EXECUTING
-16:09:55 INFO  State of operation 20349876 : EXECUTING
-16:09:58 INFO  State of operation 20349876 : EXECUTING
-16:10:00 INFO  State of operation 20349876 : EXECUTING
-16:10:02 INFO  State of operation 20349876 : EXECUTING
-16:10:05 INFO  State of operation 20349876 : EXECUTING
-16:10:08 INFO  State of operation 20349876 : EXECUTING
-16:10:10 INFO  State of operation 20349876 : EXECUTING
-16:10:13 INFO  State of operation 20349876 : EXECUTING
-16:10:15 INFO  State of operation 20349876 : EXECUTING
-16:10:17 INFO  State of operation 20349876 : EXECUTING
-16:10:19 INFO  State of operation 20349876 : EXECUTING
-16:10:22 INFO  State of operation 20349876 : EXECUTING
-16:10:24 INFO  State of operation 20349876 : EXECUTING
-16:10:26 INFO  State of operation 20349876 : EXECUTING
-16:10:28 INFO  State of operation 20349876 : EXECUTING
-16:10:31 INFO  State of operation 20349876 : EXECUTING
-16:10:33 INFO  State of operation 20349876 : EXECUTING
-16:10:36 INFO  State of operation 20349876 : EXECUTING
-16:10:38 INFO  State of operation 20349876 : EXECUTING
-16:10:40 INFO  State of operation 20349876 : EXECUTING
-16:10:43 INFO  State of operation 20349876 : EXECUTING
-16:10:45 INFO  State of operation 20349876 : EXECUTING
-16:10:47 INFO  State of operation 20349876 : EXECUTING
-16:10:50 INFO  State of operation 20349876 : EXECUTING
-16:10:52 INFO  State of operation 20349876 : EXECUTING
-16:10:54 INFO  State of operation 20349876 : EXECUTING
-16:10:57 INFO  State of operation 20349876 : EXECUTING
-16:10:59 INFO  State of operation 20349876 : EXECUTING
-16:11:01 INFO  State of operation 20349876 : EXECUTING
-16:11:04 INFO  State of operation 20349876 : EXECUTING
-16:11:06 INFO  State of operation 20349876 : EXECUTING
-16:11:08 INFO  State of operation 20349876 : EXECUTING
-16:11:10 INFO  State of operation 20349876 : EXECUTING
-16:11:13 INFO  State of operation 20349876 : EXECUTING
-16:11:15 INFO  State of operation 20349876 : EXECUTING
-16:11:17 INFO  State of operation 20349876 : EXECUTING
-16:11:20 INFO  State of operation 20349876 : EXECUTING
-16:11:22 INFO  State of operation 20349876 : EXECUTING
-16:11:25 INFO  State of operation 20349876 : EXECUTING
-16:11:27 INFO  State of operation 20349876 : EXECUTING
-16:11:29 INFO  State of operation 20349876 : EXECUTING
-16:11:32 INFO  State of operation 20349876 : EXECUTING
-16:11:34 INFO  State of operation 20349876 : EXECUTING
-16:11:36 INFO  State of operation 20349876 : EXECUTING
-16:11:38 INFO  State of operation 20349876 : EXECUTING
-16:11:41 INFO  State of operation 20349876 : EXECUTING
-16:11:44 INFO  State of operation 20349876 : EXECUTING
-16:11:46 INFO  State of operation 20349876 : EXECUTING
-16:11:48 INFO  State of operation 20349876 : EXECUTING
-16:11:50 INFO  State of operation 20349876 : EXECUTING
-16:11:53 INFO  State of operation 20349876 : EXECUTING
-16:11:55 INFO  State of operation 20349876 : EXECUTING
-16:11:57 INFO  State of operation 20349876 : EXECUTING
-16:12:00 INFO  State of operation 20349876 : EXECUTING
-16:12:02 INFO  State of operation 20349876 : EXECUTING
-16:12:05 INFO  State of operation 20349876 : EXECUTING
-16:12:07 INFO  State of operation 20349876 : EXECUTING
-16:12:09 INFO  State of operation 20349876 : EXECUTING
-16:12:12 INFO  State of operation 20349876 : EXECUTING
-16:12:14 WARN  SystemError occurred while running test - Timeout while waiting for status SUCCESSFUL or False
+17:49:34 INFO  Started operation: {'creationTime': '2022-06-20T17:49:34.399Z', 'deviceName': 'm32sd10a', 'deviceId': '20354757', 'self': 'https://t493319102.eu-latest.cumulocity.com/devicecontrol/operations/20362872', 'id': '20362872', 'status': 'PENDING', 'description': &quot;Apply software changes, triggered from PySys: [{'action': 'install', 'id': '5475369', 'name': 'asciijump', 'url': ' ', 'version': '::apt'}, {'action': 'install', 'id': '5474869', 'name': 'robotfindskitten', 'url': ' ', 'version': ' '}, {'action': 'install', 'id': '5475279', 'name': 'squirrel3', 'url': ' ', 'version': '3.1-7::apt'}, {'action': 'install', 'id': '5152439', 'name': 'rolldice', 'url': ' ', 'version': '1.16-1+b1'}, {'action': 'install', 'id': '5439204', 'name': 'moon-buggy', 'url': ' ', 'version': '1:1.0.51-12'}, {'action': 'install', 'id': '5475369', 'name': 'asciijump', 'url': ' ', 'version': '::apt'}]&quot;, 'c8y_SoftwareUpdate': [{'name': 'asciijump', 'action': 'install', 'id': '5475369', 'version': '::apt', 'url': ' '}, {'name': 'robotfindskitten', 'action': 'install', 'id': '5474869', 'version': ' ', 'url': ' '}, {'name': 'squirrel3', 'action': 'install', 'id': '5475279', 'version': '3.1-7::apt', 'url': ' '}, {'name': 'rolldice', 'action': 'install', 'id': '5152439', 'version': '1.16-1+b1', 'url': ' '}, {'name': 'moon-buggy', 'action': 'install', 'id': '5439204', 'version': '1:1.0.51-12', 'url': ' '}, {'name': 'asciijump', 'action': 'install', 'id': '5475369', 'version': '::apt', 'url': ' '}]}
+17:49:36 INFO  State of operation 20362872 : PENDING
+17:49:38 INFO  State of operation 20362872 : EXECUTING
+17:49:41 INFO  State of operation 20362872 : EXECUTING
+17:49:43 INFO  State of operation 20362872 : EXECUTING
+17:49:45 INFO  State of operation 20362872 : EXECUTING
+17:49:47 INFO  State of operation 20362872 : EXECUTING
+17:49:50 INFO  State of operation 20362872 : EXECUTING
+17:49:53 INFO  State of operation 20362872 : EXECUTING
+17:49:55 INFO  State of operation 20362872 : EXECUTING
+17:49:58 INFO  State of operation 20362872 : EXECUTING
+17:50:00 INFO  State of operation 20362872 : EXECUTING
+17:50:02 INFO  State of operation 20362872 : EXECUTING
+17:50:04 INFO  State of operation 20362872 : EXECUTING
+17:50:07 INFO  State of operation 20362872 : EXECUTING
+17:50:09 INFO  State of operation 20362872 : EXECUTING
+17:50:11 INFO  State of operation 20362872 : EXECUTING
+17:50:14 INFO  State of operation 20362872 : EXECUTING
+17:50:16 INFO  State of operation 20362872 : EXECUTING
+17:50:19 INFO  State of operation 20362872 : EXECUTING
+17:50:21 INFO  State of operation 20362872 : EXECUTING
+17:50:23 INFO  State of operation 20362872 : EXECUTING
+17:50:25 INFO  State of operation 20362872 : EXECUTING
+17:50:28 INFO  State of operation 20362872 : EXECUTING
+17:50:30 INFO  State of operation 20362872 : EXECUTING
+17:50:33 INFO  State of operation 20362872 : EXECUTING
+17:50:35 INFO  State of operation 20362872 : EXECUTING
+17:50:37 INFO  State of operation 20362872 : EXECUTING
+17:50:40 WARN  ConnectionError occurred while running test - ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
+Traceback (most recent call last):
+  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/urllib3/connectionpool.py&quot;, line 710, in urlopen
+    chunked=chunked,
+  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/urllib3/connectionpool.py&quot;, line 449, in _make_request
+    six.raise_from(e, None)
+  File &quot;&lt;string&gt;&quot;, line 3, in raise_from
+  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/urllib3/connectionpool.py&quot;, line 444, in _make_request
+    httplib_response = conn.getresponse()
+  File &quot;/usr/lib/python3.7/http/client.py&quot;, line 1352, in getresponse
+    response.begin()
+  File &quot;/usr/lib/python3.7/http/client.py&quot;, line 310, in begin
+    version, status, reason = self._read_status()
+  File &quot;/usr/lib/python3.7/http/client.py&quot;, line 271, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), &quot;iso-8859-1&quot;)
+  File &quot;/usr/lib/python3.7/socket.py&quot;, line 589, in readinto
+    return self._sock.recv_into(b)
+  File &quot;/usr/lib/python3.7/ssl.py&quot;, line 1052, in recv_into
+    return self.read(nbytes, buffer)
+  File &quot;/usr/lib/python3.7/ssl.py&quot;, line 911, in read
+    return self._sslobj.read(len, buffer)
+ConnectionResetError: [Errno 104] Connection reset by peer
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/requests/adapters.py&quot;, line 449, in send
+    timeout=timeout
+  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/urllib3/connectionpool.py&quot;, line 786, in urlopen
+    method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/urllib3/util/retry.py&quot;, line 550, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/urllib3/packages/six.py&quot;, line 769, in reraise
+    raise value.with_traceback(tb)
+  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/urllib3/connectionpool.py&quot;, line 710, in urlopen
+    chunked=chunked,
+  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/urllib3/connectionpool.py&quot;, line 449, in _make_request
+    six.raise_from(e, None)
+  File &quot;&lt;string&gt;&quot;, line 3, in raise_from
+  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/urllib3/connectionpool.py&quot;, line 444, in _make_request
+    httplib_response = conn.getresponse()
+  File &quot;/usr/lib/python3.7/http/client.py&quot;, line 1352, in getresponse
+    response.begin()
+  File &quot;/usr/lib/python3.7/http/client.py&quot;, line 310, in begin
+    version, status, reason = self._read_status()
+  File &quot;/usr/lib/python3.7/http/client.py&quot;, line 271, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), &quot;iso-8859-1&quot;)
+  File &quot;/usr/lib/python3.7/socket.py&quot;, line 589, in readinto
+    return self._sock.recv_into(b)
+  File &quot;/usr/lib/python3.7/ssl.py&quot;, line 1052, in recv_into
+    return self.read(nbytes, buffer)
+  File &quot;/usr/lib/python3.7/ssl.py&quot;, line 911, in read
+    return self._sslobj.read(len, buffer)
+urllib3.exceptions.ProtocolError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
+
+During handling of the above exception, another exception occurred:
+
 Traceback (most recent call last):
   File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/pysys/baserunner.py&quot;, line 1294, in __call__
     self.testObj.execute()
@@ -152,19 +169,31 @@ Traceback (most recent call last):
     self.wait_until_succcess()
   File &quot;/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/environment_sm_management.py&quot;, line 324, in wait_until_succcess
     self.wait_until_status(&quot;SUCCESSFUL&quot;)
-  File &quot;/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/environment_sm_management.py&quot;, line 381, in wait_until_status
-    &quot;Timeout while waiting for status %s or %s&quot; % (status, status2)
-SystemError: Timeout while waiting for status SUCCESSFUL or False
-16:12:14 WARN  SystemError: Timeout while waiting for status SUCCESSFUL or False ... blocked 
-16:12:14 INFO  
-16:12:14 INFO  cleanup:
-16:12:19 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
-16:12:19 INFO  Executed systemctl&lt;serv_mapper5&gt;, exit status 3
-16:12:19 INFO  
-16:12:19 INFO  Test duration: 178.13 secs
-16:12:19 INFO  Test final outcome:  BLOCKED
-16:12:19 INFO  Test outcome reason: SystemError: Timeout while waiting for status SUCCESSFUL or False (+1 other failures)
-16:12:19 INFO  
+  File &quot;/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/environment_sm_management.py&quot;, line 354, in wait_until_status
+    current_status = self.get_status_of_operation()
+  File &quot;/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/environment_sm_management.py&quot;, line 300, in get_status_of_operation
+    req = requests.get(url, headers=self.header, timeout=self.timeout_req)
+  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/requests/api.py&quot;, line 76, in get
+    return request('get', url, params=params, **kwargs)
+  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/requests/api.py&quot;, line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/requests/sessions.py&quot;, line 542, in request
+    resp = self.send(prep, **send_kwargs)
+  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/requests/sessions.py&quot;, line 655, in send
+    r = adapter.send(request, **kwargs)
+  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/requests/adapters.py&quot;, line 498, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
+17:50:40 WARN  ConnectionError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer')) ... blocked 
+17:50:40 INFO  
+17:50:40 INFO  cleanup:
+17:50:46 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
+17:50:47 INFO  Executed systemctl&lt;serv_mapper5&gt;, exit status 3
+17:50:47 INFO  
+17:50:47 INFO  Test duration: 100.26 secs
+17:50:47 INFO  Test final outcome:  BLOCKED
+17:50:47 INFO  Test outcome reason: ConnectionError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer')) (+1 other failures)
+17:50:47 INFO  
 </system-out>
 	</testcase>
 </testsuite>
