@@ -1,4 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<testsuite failures="0" name="docker_plugin_install_with_version" skipped="0" tests="1" time="32.76" timestamp="2022-06-22T18:13:22">
-	<testcase classname="DockerPluginInstallWithVersionTest" name="docker_plugin_install_with_version"/>
+<testsuite failures="1" name="docker_plugin_install_with_version" skipped="0" tests="1" time="7.03" timestamp="2022-06-22T19:37:49">
+	<testcase classname="DockerPluginInstallWithVersionTest" name="docker_plugin_install_with_version">
+		<failure message="BLOCKED: sudo&lt;plugin_install&gt; returned non-zero exit code 2 (+1 other failures)" type="BLOCKED"/>
+		<system-out>19:37:41 INFO  ==============================================================
+19:37:41 INFO  Id:    docker_plugin_install_with_version
+19:37:41 INFO  Dir:   plugin_docker/
+19:37:41 INFO  Title: Validate docker plugin install
+19:37:41 INFO  ==============================================================
+19:37:42 INFO  Executed sudo&lt;docker_images&gt;, exit status 0
+19:37:42 INFO  Grep on file /home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/plugin_docker/docker_plugin_install_with_version/Output/linux/docker_images.out ... passed
+19:37:45 WARN  Executed sudo&lt;plugin_install&gt;, exit status 2
+19:37:45 WARN  sudo&lt;plugin_install&gt; returned non-zero exit code 2 ... blocked [environment_docker_plugin.py:136,environment_docker_plugin.py:144,run.py:24]
+19:37:46 INFO  Executed sudo&lt;docker_ps_latest&gt;, exit status 0
+19:37:47 INFO  Executed sudo&lt;docker_ps&gt;, exit status 0
+19:37:47 WARN  Grep on /home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/plugin_docker/docker_plugin_install_with_version/Output/linux/docker_ps.out contains &quot;registry:2.7.1&quot; ... failed [environment_docker_plugin.py:49,run.py:28]
+19:37:47 INFO  
+19:37:47 INFO  cleanup:
+19:37:47 INFO  Removing containers scheduled to be cleaned up: ['9ad923d446e9', '']
+19:37:48 WARN  Executed sudo&lt;containers_for_cleanup&gt;, exit status 1
+19:37:48 INFO  Removing images scheduled to be cleaned up: ['registry', 'registry:2.7.1']
+19:37:49 INFO  Executed sudo&lt;containers_for_cleanup&gt;, exit status 0
+19:37:49 INFO  
+19:37:49 INFO  Test duration: 7.03 secs
+19:37:49 INFO  Test final outcome:  BLOCKED
+19:37:49 INFO  Test outcome reason: sudo&lt;plugin_install&gt; returned non-zero exit code 2 (+1 other failures)
+19:37:49 INFO  
+</system-out>
+	</testcase>
 </testsuite>

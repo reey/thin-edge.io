@@ -1,24 +1,28 @@
-2022-06-22 18:13:22,916 INFO  ==============================================================
-2022-06-22 18:13:22,917 INFO  Id:    docker_plugin_remove
-2022-06-22 18:13:22,918 INFO  Dir:   plugin_docker/
-2022-06-22 18:13:22,919 INFO  Title: Validate docker plugin remove
-2022-06-22 18:13:22,919 INFO  ==============================================================
-2022-06-22 18:13:23,690 INFO  Executed sudo<docker_images>, exit status 0
-2022-06-22 18:13:23,696 INFO  Grep on file /home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/plugin_docker/docker_plugin_remove/Output/linux/docker_images.out ... passed
-2022-06-22 18:13:45,517 INFO  Executed sudo<docker_run>, exit status 0, duration 21 secs
-2022-06-22 18:13:46,788 INFO  Executed sudo<docker_ps>, exit status 0
-2022-06-22 18:13:46,793 INFO  Grep on file /home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/plugin_docker/docker_plugin_remove/Output/linux/docker_ps.out ... passed
-2022-06-22 18:13:50,403 INFO  Executed sudo<plugin_remove>, exit status 0
-2022-06-22 18:13:51,227 INFO  Executed sudo<docker_ps_latest>, exit status 0
-2022-06-22 18:13:52,045 INFO  Executed sudo<docker_ps>, exit status 0
-2022-06-22 18:13:52,050 INFO  Grep on file /home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/plugin_docker/docker_plugin_remove/Output/linux/docker_ps.out ... passed
-2022-06-22 18:13:52,056 INFO  
-2022-06-22 18:13:52,057 INFO  cleanup:
-2022-06-22 18:13:52,058 INFO  Removing containers scheduled to be cleaned up: ['f0df999ea503', 'c3c70e11f236', '00e2d2c2167fbbfdc3e6b5b1f27566f619af472847e9208d17a73f41af001f05\n']
-2022-06-22 18:13:52,922 WARN  Executed sudo<containers_for_cleanup>, exit status 1
-2022-06-22 18:13:52,924 INFO  Removing images scheduled to be cleaned up: ['registry', 'registry', 'registry:2.7.1', 'registry']
-2022-06-22 18:13:56,657 INFO  Executed sudo<containers_for_cleanup>, exit status 0
-2022-06-22 18:13:56,661 INFO  
-2022-06-22 18:13:56,662 INFO  Test duration: 33.75 secs
-2022-06-22 18:13:56,663 INFO  Test final outcome:  PASSED
-2022-06-22 18:13:56,664 INFO  
+2022-06-22 19:37:49,048 INFO  ==============================================================
+2022-06-22 19:37:49,049 INFO  Id:    docker_plugin_remove
+2022-06-22 19:37:49,050 INFO  Dir:   plugin_docker/
+2022-06-22 19:37:49,051 INFO  Title: Validate docker plugin remove
+2022-06-22 19:37:49,051 INFO  ==============================================================
+2022-06-22 19:37:49,871 INFO  Executed sudo<docker_images>, exit status 0
+2022-06-22 19:37:49,876 INFO  Grep on file /home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/plugin_docker/docker_plugin_remove/Output/linux/docker_images.out ... passed
+2022-06-22 19:37:52,369 WARN  Executed sudo<docker_run>, exit status 125
+2022-06-22 19:37:52,377 INFO  Contents of docker_run.err: 
+2022-06-22 19:37:52,378 INFO    Unable to find image 'registry:latest' locally
+2022-06-22 19:37:52,379 INFO    latest: Pulling from library/registry
+2022-06-22 19:37:52,380 INFO    docker: toomanyrequests: You have reached your pull rate limit. You may increase the limit by authenticating and upgrading: https://www.docker.com/increase-rate-limit.
+2022-06-22 19:37:52,380 INFO    See 'docker run --help'.
+2022-06-22 19:37:52,381 INFO    -----
+2022-06-22 19:37:52,382 INFO  
+2022-06-22 19:37:52,432 WARN  sudo<docker_run> returned non-zero exit code 125 ... blocked 
+2022-06-22 19:37:52,433 WARN  Aborted test due to BLOCKED outcome
+2022-06-22 19:37:52,439 INFO  
+2022-06-22 19:37:52,439 INFO  cleanup:
+2022-06-22 19:37:52,440 INFO  Removing containers scheduled to be cleaned up: ['9ad923d446e9', '']
+2022-06-22 19:37:53,233 WARN  Executed sudo<containers_for_cleanup>, exit status 1
+2022-06-22 19:37:53,235 INFO  Removing images scheduled to be cleaned up: ['registry', 'registry:2.7.1']
+2022-06-22 19:37:54,051 INFO  Executed sudo<containers_for_cleanup>, exit status 0
+2022-06-22 19:37:54,055 INFO  
+2022-06-22 19:37:54,056 INFO  Test duration: 5.01 secs
+2022-06-22 19:37:54,057 INFO  Test final outcome:  BLOCKED
+2022-06-22 19:37:54,058 INFO  Test outcome reason: sudo<docker_run> returned non-zero exit code 125
+2022-06-22 19:37:54,059 INFO  
