@@ -1,28 +1,24 @@
-2022-06-22 19:38:36,463 INFO  ==============================================================
-2022-06-22 19:38:36,464 INFO  Id:    docker_plugin_remove
-2022-06-22 19:38:36,465 INFO  Dir:   plugin_docker/
-2022-06-22 19:38:36,466 INFO  Title: Validate docker plugin remove
-2022-06-22 19:38:36,467 INFO  ==============================================================
-2022-06-22 19:38:37,284 INFO  Executed sudo<docker_images>, exit status 0
-2022-06-22 19:38:37,288 INFO  Grep on file /home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/plugin_docker/docker_plugin_remove/Output/linux/docker_images.out ... passed
-2022-06-22 19:38:39,912 WARN  Executed sudo<docker_run>, exit status 125
-2022-06-22 19:38:39,917 INFO  Contents of docker_run.err: 
-2022-06-22 19:38:39,918 INFO    Unable to find image 'registry:latest' locally
-2022-06-22 19:38:39,918 INFO    latest: Pulling from library/registry
-2022-06-22 19:38:39,919 INFO    docker: toomanyrequests: You have reached your pull rate limit. You may increase the limit by authenticating and upgrading: https://www.docker.com/increase-rate-limit.
-2022-06-22 19:38:39,920 INFO    See 'docker run --help'.
-2022-06-22 19:38:39,921 INFO    -----
-2022-06-22 19:38:39,921 INFO  
-2022-06-22 19:38:39,972 WARN  sudo<docker_run> returned non-zero exit code 125 ... blocked 
-2022-06-22 19:38:39,973 WARN  Aborted test due to BLOCKED outcome
-2022-06-22 19:38:39,978 INFO  
-2022-06-22 19:38:39,979 INFO  cleanup:
-2022-06-22 19:38:39,979 INFO  Removing containers scheduled to be cleaned up: ['0105c1e0a54a', '']
-2022-06-22 19:38:40,794 WARN  Executed sudo<containers_for_cleanup>, exit status 1
-2022-06-22 19:38:40,795 INFO  Removing images scheduled to be cleaned up: ['registry', 'registry', 'registry:2.7.1']
-2022-06-22 19:38:41,608 INFO  Executed sudo<containers_for_cleanup>, exit status 0
-2022-06-22 19:38:41,612 INFO  
-2022-06-22 19:38:41,613 INFO  Test duration: 5.16 secs
-2022-06-22 19:38:41,614 INFO  Test final outcome:  BLOCKED
-2022-06-22 19:38:41,615 INFO  Test outcome reason: sudo<docker_run> returned non-zero exit code 125
-2022-06-22 19:38:41,616 INFO  
+2022-06-29 12:48:01,611 INFO  ==============================================================
+2022-06-29 12:48:01,612 INFO  Id:    docker_plugin_remove
+2022-06-29 12:48:01,613 INFO  Dir:   plugin_docker/
+2022-06-29 12:48:01,614 INFO  Title: Validate docker plugin remove
+2022-06-29 12:48:01,615 INFO  ==============================================================
+2022-06-29 12:48:02,434 INFO  Executed sudo<docker_images>, exit status 0
+2022-06-29 12:48:02,439 INFO  Grep on file /home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/plugin_docker/docker_plugin_remove/Output/linux/docker_images.out ... passed
+2022-06-29 12:48:23,991 INFO  Executed sudo<docker_run>, exit status 0, duration 21 secs
+2022-06-29 12:48:24,809 INFO  Executed sudo<docker_ps>, exit status 0
+2022-06-29 12:48:24,814 INFO  Grep on file /home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/plugin_docker/docker_plugin_remove/Output/linux/docker_ps.out ... passed
+2022-06-29 12:48:28,435 INFO  Executed sudo<plugin_remove>, exit status 0
+2022-06-29 12:48:29,248 INFO  Executed sudo<docker_ps_latest>, exit status 0
+2022-06-29 12:48:30,063 INFO  Executed sudo<docker_ps>, exit status 0
+2022-06-29 12:48:30,067 INFO  Grep on file /home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/plugin_docker/docker_plugin_remove/Output/linux/docker_ps.out ... passed
+2022-06-29 12:48:30,073 INFO  
+2022-06-29 12:48:30,074 INFO  cleanup:
+2022-06-29 12:48:30,075 INFO  Removing containers scheduled to be cleaned up: ['890e0f9c260b', 'ccc7d2fd0f33', 'dce29f72d0d3f7e262816f30f66b294abd17d83d13f271f213c4e397ffd719db\n']
+2022-06-29 12:48:30,887 WARN  Executed sudo<containers_for_cleanup>, exit status 1
+2022-06-29 12:48:30,889 INFO  Removing images scheduled to be cleaned up: ['registry', 'registry', 'registry:2.7.1', 'registry']
+2022-06-29 12:48:34,618 INFO  Executed sudo<containers_for_cleanup>, exit status 0
+2022-06-29 12:48:34,622 INFO  
+2022-06-29 12:48:34,623 INFO  Test duration: 33.02 secs
+2022-06-29 12:48:34,624 INFO  Test final outcome:  PASSED
+2022-06-29 12:48:34,625 INFO  
