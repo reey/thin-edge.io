@@ -1,4 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<testsuite failures="0" name="valid_device_id" skipped="0" tests="1" time="26.59" timestamp="2022-06-29T16:56:08">
-	<testcase classname="ValidateValidDeviceId" name="valid_device_id"/>
+<testsuite failures="1" name="valid_device_id" skipped="0" tests="1" time="9.42" timestamp="2022-07-01T06:51:11">
+	<testcase classname="ValidateValidDeviceId" name="valid_device_id">
+		<failure message="BLOCKED: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1" type="BLOCKED"/>
+		<system-out>06:51:02 INFO  ==============================================================
+06:51:02 INFO  Id:    valid_device_id
+06:51:02 INFO  Dir:   misc_features/
+06:51:02 INFO  Title: Valid device ID
+06:51:02 INFO  ==============================================================
+06:51:02 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
+06:51:03 INFO  Executed sudo&lt;create_cert_dir&gt;, exit status 0
+06:51:03 INFO  Executed sudo&lt;change_owner_of_dir&gt;, exit status 0
+06:51:04 INFO  Executed sudo&lt;set_cert_path&gt;, exit status 0
+06:51:04 INFO  Executed sudo&lt;set_key_path&gt;, exit status 0
+06:51:05 INFO  Executed sudo&lt;cert_create&gt;, exit status 0
+06:51:06 INFO  Executed sudo&lt;cert_upload&gt;, exit status 0
+06:51:09 WARN  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 1
+06:51:09 INFO  Contents of tedge_connect_c8y.err: 
+  ERROR: MqttState(Io(Custom { kind: ConnectionAborted, error: &quot;connection closed by peer&quot; }))
+  Error: failed to connect Cumulocity cloud.
+  Caused by:
+      Connection check failed
+  -----
+
+06:51:09 WARN  sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1 ... blocked [environment_tedge.py:58,run.py:100]
+06:51:09 WARN  Aborted test due to BLOCKED outcome
+06:51:09 INFO  
+06:51:09 INFO  cleanup:
+06:51:09 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
+06:51:10 INFO  Executed sudo&lt;unset_cert_path&gt;, exit status 0
+06:51:10 INFO  Executed sudo&lt;unset_key_path&gt;, exit status 0
+06:51:11 INFO  Executed sudo&lt;remove_cert_dir&gt;, exit status 0
+06:51:11 INFO  
+06:51:11 INFO  Test duration: 9.42 secs
+06:51:11 INFO  Test final outcome:  BLOCKED
+06:51:11 INFO  Test outcome reason: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1
+06:51:11 INFO  
+</system-out>
+	</testcase>
 </testsuite>
