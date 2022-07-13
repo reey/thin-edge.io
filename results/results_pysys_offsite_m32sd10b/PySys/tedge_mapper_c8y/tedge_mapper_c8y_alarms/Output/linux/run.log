@@ -1,102 +1,100 @@
-2022-07-01 07:05:40,478 INFO  ==============================================================
-2022-07-01 07:05:40,479 INFO  Id:    tedge_mapper_c8y_alarms
-2022-07-01 07:05:40,480 INFO  Dir:   tedge_mapper_c8y/
-2022-07-01 07:05:40,481 INFO  Title: Validate that alarms sent to tedge/alarms topic \ gets mapped as alarms in Cumulocity
-2022-07-01 07:05:40,482 INFO  ==============================================================
-2022-07-01 07:05:40,491 INFO  EnvironmentC8y Setup
-2022-07-01 07:05:41,053 INFO  Executed systemctl<serv_mapper1>, exit status 3
-2022-07-01 07:05:55,125 INFO  Executed sudo<tedge_connect_c8y>, exit status 0, duration 13 secs
-2022-07-01 07:05:55,747 INFO  Executed sudo<tedge_connect_c8y_test>, exit status 0
-2022-07-01 07:05:56,216 INFO  Executed systemctl<serv_mosq2>, exit status 0
-2022-07-01 07:05:56,729 INFO  Executed systemctl<serv_mapper3>, exit status 0
-2022-07-01 07:05:57,147 INFO  Executed tedge, exit status 0
-2022-07-01 07:05:57,610 INFO  Executed tedge, exit status 0
-2022-07-01 07:05:58,035 INFO  Executed tedge, exit status 0
-2022-07-01 07:05:58,447 INFO  Executed tedge, exit status 0
-2022-07-01 07:05:58,858 INFO  Executed tedge, exit status 0
-2022-07-01 07:06:00,476 WARN  ConnectionError occurred while running test - ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
-Traceback (most recent call last):
-  File "/home/pi/env-pysys/lib/python3.7/site-packages/urllib3/connectionpool.py", line 710, in urlopen
-    chunked=chunked,
-  File "/home/pi/env-pysys/lib/python3.7/site-packages/urllib3/connectionpool.py", line 386, in _make_request
-    self._validate_conn(conn)
-  File "/home/pi/env-pysys/lib/python3.7/site-packages/urllib3/connectionpool.py", line 1040, in _validate_conn
-    conn.connect()
-  File "/home/pi/env-pysys/lib/python3.7/site-packages/urllib3/connection.py", line 424, in connect
-    tls_in_tls=tls_in_tls,
-  File "/home/pi/env-pysys/lib/python3.7/site-packages/urllib3/util/ssl_.py", line 450, in ssl_wrap_socket
-    sock, context, tls_in_tls, server_hostname=server_hostname
-  File "/home/pi/env-pysys/lib/python3.7/site-packages/urllib3/util/ssl_.py", line 493, in _ssl_wrap_socket_impl
-    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
-  File "/usr/lib/python3.7/ssl.py", line 412, in wrap_socket
-    session=session
-  File "/usr/lib/python3.7/ssl.py", line 853, in _create
-    self.do_handshake()
-  File "/usr/lib/python3.7/ssl.py", line 1117, in do_handshake
-    self._sslobj.do_handshake()
-ConnectionResetError: [Errno 104] Connection reset by peer
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/home/pi/env-pysys/lib/python3.7/site-packages/requests/adapters.py", line 449, in send
-    timeout=timeout
-  File "/home/pi/env-pysys/lib/python3.7/site-packages/urllib3/connectionpool.py", line 786, in urlopen
-    method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
-  File "/home/pi/env-pysys/lib/python3.7/site-packages/urllib3/util/retry.py", line 550, in increment
-    raise six.reraise(type(error), error, _stacktrace)
-  File "/home/pi/env-pysys/lib/python3.7/site-packages/urllib3/packages/six.py", line 769, in reraise
-    raise value.with_traceback(tb)
-  File "/home/pi/env-pysys/lib/python3.7/site-packages/urllib3/connectionpool.py", line 710, in urlopen
-    chunked=chunked,
-  File "/home/pi/env-pysys/lib/python3.7/site-packages/urllib3/connectionpool.py", line 386, in _make_request
-    self._validate_conn(conn)
-  File "/home/pi/env-pysys/lib/python3.7/site-packages/urllib3/connectionpool.py", line 1040, in _validate_conn
-    conn.connect()
-  File "/home/pi/env-pysys/lib/python3.7/site-packages/urllib3/connection.py", line 424, in connect
-    tls_in_tls=tls_in_tls,
-  File "/home/pi/env-pysys/lib/python3.7/site-packages/urllib3/util/ssl_.py", line 450, in ssl_wrap_socket
-    sock, context, tls_in_tls, server_hostname=server_hostname
-  File "/home/pi/env-pysys/lib/python3.7/site-packages/urllib3/util/ssl_.py", line 493, in _ssl_wrap_socket_impl
-    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
-  File "/usr/lib/python3.7/ssl.py", line 412, in wrap_socket
-    session=session
-  File "/usr/lib/python3.7/ssl.py", line 853, in _create
-    self.do_handshake()
-  File "/usr/lib/python3.7/ssl.py", line 1117, in do_handshake
-    self._sslobj.do_handshake()
-urllib3.exceptions.ProtocolError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/home/pi/env-pysys/lib/python3.7/site-packages/pysys/baserunner.py", line 1296, in __call__
-    self.testObj.validate()
-  File "/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/tedge_mapper_c8y/tedge_mapper_c8y_alarms/run.py", line 92, in validate
-    alarms = self.cumulocity.get_last_n_alarms_from_device(self.project.deviceid, 3)
-  File "/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/environments/cumulocity.py", line 200, in get_last_n_alarms_from_device
-    url=self.c8y_url + "/alarm/alarms", params=params, auth=self.auth
-  File "/home/pi/env-pysys/lib/python3.7/site-packages/requests/api.py", line 76, in get
-    return request('get', url, params=params, **kwargs)
-  File "/home/pi/env-pysys/lib/python3.7/site-packages/requests/api.py", line 61, in request
-    return session.request(method=method, url=url, **kwargs)
-  File "/home/pi/env-pysys/lib/python3.7/site-packages/requests/sessions.py", line 542, in request
-    resp = self.send(prep, **send_kwargs)
-  File "/home/pi/env-pysys/lib/python3.7/site-packages/requests/sessions.py", line 655, in send
-    r = adapter.send(request, **kwargs)
-  File "/home/pi/env-pysys/lib/python3.7/site-packages/requests/adapters.py", line 498, in send
-    raise ConnectionError(err, request=request)
-requests.exceptions.ConnectionError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
-2022-07-01 07:06:00,656 WARN  ConnectionError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer')) ... blocked 
-2022-07-01 07:06:00,657 INFO  
-2022-07-01 07:06:00,658 INFO  cleanup:
-2022-07-01 07:06:01,069 INFO  Executed tedge, exit status 0
-2022-07-01 07:06:01,481 INFO  Executed tedge, exit status 0
-2022-07-01 07:06:01,946 INFO  Executed tedge, exit status 0
-2022-07-01 07:06:06,111 INFO  Executed sudo<tedge_disconnect_c8y>, exit status 0
-2022-07-01 07:06:06,724 INFO  Executed systemctl<serv_mapper5>, exit status 3
-2022-07-01 07:06:06,728 INFO  
-2022-07-01 07:06:06,729 INFO  Test duration: 26.25 secs
-2022-07-01 07:06:06,730 INFO  Test final outcome:  BLOCKED
-2022-07-01 07:06:06,731 INFO  Test outcome reason: ConnectionError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
-2022-07-01 07:06:06,732 INFO  
+2022-07-13 11:49:09,161 INFO  ==============================================================
+2022-07-13 11:49:09,162 INFO  Id:    tedge_mapper_c8y_alarms
+2022-07-13 11:49:09,164 INFO  Dir:   tedge_mapper_c8y/
+2022-07-13 11:49:09,164 INFO  Title: Validate that alarms sent to tedge/alarms topic \ gets mapped as alarms in Cumulocity
+2022-07-13 11:49:09,165 INFO  ==============================================================
+2022-07-13 11:49:09,174 INFO  EnvironmentC8y Setup
+2022-07-13 11:49:09,737 INFO  Executed systemctl<serv_mapper1>, exit status 3
+2022-07-13 11:49:23,568 INFO  Executed sudo<tedge_connect_c8y>, exit status 0, duration 13 secs
+2022-07-13 11:49:24,236 INFO  Executed sudo<tedge_connect_c8y_test>, exit status 0
+2022-07-13 11:49:24,699 INFO  Executed systemctl<serv_mosq2>, exit status 0
+2022-07-13 11:49:25,162 INFO  Executed systemctl<serv_mapper3>, exit status 0
+2022-07-13 11:49:25,575 INFO  Executed tedge, exit status 0
+2022-07-13 11:49:26,041 INFO  Executed tedge, exit status 0
+2022-07-13 11:49:26,504 INFO  Executed tedge, exit status 0
+2022-07-13 11:49:26,946 INFO  Executed tedge, exit status 0
+2022-07-13 11:49:27,357 INFO  Executed tedge, exit status 0
+2022-07-13 11:49:28,581 INFO  {
+    "severity": "CRITICAL",
+    "creationTime": "2022-07-13T11:49:26.440Z",
+    "count": 1,
+    "history": {
+        "auditRecords": [],
+        "self": "https://t493319102.eu-latest.cumulocity.com/audit/auditRecords"
+    },
+    "source": {
+        "name": "m32sd10b",
+        "self": "https://t493319102.eu-latest.cumulocity.com/inventory/managedObjects/20878063",
+        "id": "20878063"
+    },
+    "type": "temperature_dangerous",
+    "lastUpdated": "2022-07-13T11:49:26.440Z",
+    "self": "https://t493319102.eu-latest.cumulocity.com/alarm/alarms/20887026",
+    "time": "2022-07-13T11:49:26.455Z",
+    "id": "20887026",
+    "text": "temperature is dangerously high",
+    "status": "ACTIVE"
+}
+2022-07-13 11:49:28,583 INFO  Assert that (actual == expected) with actual="temperature_dangerous", expected="temperature_dangerous" ... passed
+2022-07-13 11:49:28,584 INFO  Assert that (actual == expected) with actual="CRITICAL", expected="CRITICAL" ... passed
+2022-07-13 11:49:28,586 INFO  Assert that (actual == expected) with actual="temperature is dangerously high", expected="temperature is dangerously high" ... passed
+2022-07-13 11:49:28,587 INFO  {
+    "severity": "MAJOR",
+    "creationTime": "2022-07-13T11:49:25.973Z",
+    "count": 1,
+    "history": {
+        "auditRecords": [],
+        "self": "https://t493319102.eu-latest.cumulocity.com/audit/auditRecords"
+    },
+    "source": {
+        "name": "m32sd10b",
+        "self": "https://t493319102.eu-latest.cumulocity.com/inventory/managedObjects/20878063",
+        "id": "20878063"
+    },
+    "type": "temperature_very_high",
+    "lastUpdated": "2022-07-13T11:49:25.973Z",
+    "self": "https://t493319102.eu-latest.cumulocity.com/alarm/alarms/20887024",
+    "time": "2022-07-13T11:49:25.988Z",
+    "id": "20887024",
+    "text": "temperature is very high",
+    "status": "ACTIVE"
+}
+2022-07-13 11:49:28,588 INFO  Assert that (actual == expected) with actual="temperature_very_high", expected="temperature_very_high" ... passed
+2022-07-13 11:49:28,590 INFO  Assert that (actual == expected) with actual="MAJOR", expected="MAJOR" ... passed
+2022-07-13 11:49:28,591 INFO  Assert that (actual == expected) with actual="temperature is very high", expected="temperature is very high" ... passed
+2022-07-13 11:49:28,593 INFO  {
+    "severity": "WARNING",
+    "creationTime": "2022-07-13T11:49:25.546Z",
+    "count": 1,
+    "history": {
+        "auditRecords": [],
+        "self": "https://t493319102.eu-latest.cumulocity.com/audit/auditRecords"
+    },
+    "source": {
+        "name": "m32sd10b",
+        "self": "https://t493319102.eu-latest.cumulocity.com/inventory/managedObjects/20878063",
+        "id": "20878063"
+    },
+    "type": "temperature_high",
+    "lastUpdated": "2022-07-13T11:49:25.546Z",
+    "self": "https://t493319102.eu-latest.cumulocity.com/alarm/alarms/20887022",
+    "time": "2021-12-15T15:22:06.464+05:30",
+    "id": "20887022",
+    "text": "temperature is high",
+    "status": "ACTIVE"
+}
+2022-07-13 11:49:28,594 INFO  Assert that (actual == expected) with actual="temperature_high", expected="temperature_high" ... passed
+2022-07-13 11:49:28,595 INFO  Assert that (actual == expected) with actual="WARNING", expected="WARNING" ... passed
+2022-07-13 11:49:28,597 INFO  Assert that (actual == expected) with actual="temperature is high", expected="temperature is high" ... passed
+2022-07-13 11:49:28,599 INFO  Assert that (actual == expected) with actual="temperature_high", expected="temperature_high" ... passed
+2022-07-13 11:49:28,605 INFO  
+2022-07-13 11:49:28,606 INFO  cleanup:
+2022-07-13 11:49:29,017 INFO  Executed tedge, exit status 0
+2022-07-13 11:49:29,445 INFO  Executed tedge, exit status 0
+2022-07-13 11:49:29,907 INFO  Executed tedge, exit status 0
+2022-07-13 11:49:34,139 INFO  Executed sudo<tedge_disconnect_c8y>, exit status 0
+2022-07-13 11:49:34,752 INFO  Executed systemctl<serv_mapper5>, exit status 3
+2022-07-13 11:49:34,757 INFO  
+2022-07-13 11:49:34,758 INFO  Test duration: 25.60 secs
+2022-07-13 11:49:34,759 INFO  Test final outcome:  PASSED
+2022-07-13 11:49:34,760 INFO  
