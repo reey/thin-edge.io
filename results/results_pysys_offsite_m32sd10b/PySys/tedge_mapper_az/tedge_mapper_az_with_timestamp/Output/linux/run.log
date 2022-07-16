@@ -1,19 +1,34 @@
-2022-07-16 11:43:24,256 INFO  ==============================================================
-2022-07-16 11:43:24,257 INFO  Id:    tedge_mapper_az_with_timestamp
-2022-07-16 11:43:24,258 INFO  Dir:   tedge_mapper_az/
-2022-07-16 11:43:24,259 INFO  Title: Validate the Azure Mapper that publishes a Thin Edge JSON message with timestamp on az/messages/events/ when it receives a valid JSON message on tedge/measurements
-2022-07-16 11:43:24,260 INFO  ==============================================================
-2022-07-16 11:43:24,880 INFO  Executed sudo<tedge_mapper_az>, exit status 0
-2022-07-16 11:43:24,890 INFO  Started sudo<tedge_sub> with process id 24588
-2022-07-16 11:43:25,556 INFO  Executed sudo<tedge_temp>, exit status 0
-2022-07-16 11:43:26,121 INFO  Executed sudo<kill_out>, exit status 0
-2022-07-16 11:43:26,126 INFO  Assert that (actual == expected) with actual=12.0, expected=12 ... passed
-2022-07-16 11:43:26,129 INFO  Assert that (actual == expected) with actual="2021-06-15T17:01:15.806181503+02:00", expected="2021-06-15T17:01:15.806181503+02:00" ... passed
-2022-07-16 11:43:26,135 INFO  
-2022-07-16 11:43:26,136 INFO  cleanup:
-2022-07-16 11:43:26,137 INFO  mapper_cleanup
-2022-07-16 11:43:26,700 INFO  Executed sudo<tedge_mapper_az>, exit status 0
-2022-07-16 11:43:26,704 INFO  
-2022-07-16 11:43:26,705 INFO  Test duration: 2.45 secs
-2022-07-16 11:43:26,706 INFO  Test final outcome:  PASSED
-2022-07-16 11:43:26,707 INFO  
+2022-07-16 17:28:53,540 INFO  ==============================================================
+2022-07-16 17:28:53,541 INFO  Id:    tedge_mapper_az_with_timestamp
+2022-07-16 17:28:53,542 INFO  Dir:   tedge_mapper_az/
+2022-07-16 17:28:53,543 INFO  Title: Validate the Azure Mapper that publishes a Thin Edge JSON message with timestamp on az/messages/events/ when it receives a valid JSON message on tedge/measurements
+2022-07-16 17:28:53,544 INFO  ==============================================================
+2022-07-16 17:28:54,233 INFO  Executed sudo<tedge_mapper_az>, exit status 0
+2022-07-16 17:28:54,243 INFO  Started sudo<tedge_sub> with process id 21116
+2022-07-16 17:28:56,063 INFO  Executed sudo<tedge_temp>, exit status 0
+2022-07-16 17:28:56,576 INFO  Executed sudo<kill_out>, exit status 0
+2022-07-16 17:28:56,580 WARN  JSONDecodeError occurred while running test - Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "/home/pi/env-pysys/lib/python3.7/site-packages/pysys/baserunner.py", line 1296, in __call__
+    self.testObj.validate()
+  File "/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/tedge_mapper_az/tedge_mapper_az_with_timestamp/run.py", line 70, in validate
+    thin_edge_json = json.load(f)
+  File "/usr/lib/python3.7/json/__init__.py", line 296, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "/usr/lib/python3.7/json/__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.7/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.7/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2022-07-16 17:28:56,664 WARN  JSONDecodeError: Expecting value: line 1 column 1 (char 0) ... blocked 
+2022-07-16 17:28:56,665 INFO  
+2022-07-16 17:28:56,666 INFO  cleanup:
+2022-07-16 17:28:56,667 INFO  mapper_cleanup
+2022-07-16 17:28:57,229 INFO  Executed sudo<tedge_mapper_az>, exit status 0
+2022-07-16 17:28:57,233 INFO  
+2022-07-16 17:28:57,234 INFO  Test duration: 3.70 secs
+2022-07-16 17:28:57,235 INFO  Test final outcome:  BLOCKED
+2022-07-16 17:28:57,236 INFO  Test outcome reason: JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2022-07-16 17:28:57,237 INFO  

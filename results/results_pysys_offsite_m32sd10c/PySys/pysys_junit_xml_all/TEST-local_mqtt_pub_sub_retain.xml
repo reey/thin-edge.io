@@ -1,4 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<testsuite failures="0" name="local_mqtt_pub_sub_retain" skipped="0" tests="1" time="5.81" timestamp="2022-07-16T11:28:08">
-	<testcase classname="MqttPublishWithRetain" name="local_mqtt_pub_sub_retain"/>
+<testsuite failures="1" name="local_mqtt_pub_sub_retain" skipped="0" tests="1" time="6.11" timestamp="2022-07-16T17:13:51">
+	<testcase classname="MqttPublishWithRetain" name="local_mqtt_pub_sub_retain">
+		<failure message="FAILED: Grep on temp_sensor_sub.out contains &quot;\[test/alarms/temp_sensor\] alarm msg 2&quot; (+1 other failures)" type="FAILED"/>
+		<system-out>17:13:45 INFO  ==============================================================
+17:13:45 INFO  Id:    local_mqtt_pub_sub_retain
+17:13:45 INFO  Dir:   local_mqtt/
+17:13:45 INFO  Title: Validate local publishing with retain flag
+17:13:45 INFO  ==============================================================
+17:13:46 INFO  Executed tedge&lt;pub_to_set_alarm&gt;, exit status 0
+17:13:46 INFO  Executed tedge&lt;pub_to_set_alarm&gt;, exit status 0
+17:13:47 INFO  Started tedge&lt;temp_sensor_sub&gt; with process id 31803
+17:13:48 INFO  Executed tedge&lt;pub_to_clear_alarm&gt;, exit status 0
+17:13:49 INFO  Executed sudo&lt;kill_out&gt;, exit status 0
+17:13:49 INFO  Executed tedge&lt;pub_to_clear_alarm&gt;, exit status 0
+17:13:50 INFO  Started tedge&lt;temp_sensor_empty_message&gt; with process id 31808
+17:13:51 INFO  Executed sudo&lt;kill_out&gt;, exit status 0
+17:13:51 WARN  Grep on temp_sensor_sub.out contains &quot;\[test/alarms/temp_sensor\] alarm msg 2&quot; ... failed [run.py:139]
+17:13:51 WARN  Grep on temp_sensor_sub.out contains &quot;\[test/alarms/temp_sensor\] &quot; ... failed [run.py:142]
+17:13:51 INFO  Grep on file temp_sensor_empty_message.out ... passed
+17:13:51 INFO  
+17:13:51 INFO  Test duration: 6.11 secs
+17:13:51 INFO  Test final outcome:  FAILED
+17:13:51 INFO  Test outcome reason: Grep on temp_sensor_sub.out contains &quot;\[test/alarms/temp_sensor\] alarm msg 2&quot; (+1 other failures)
+17:13:51 INFO  
+</system-out>
+	</testcase>
 </testsuite>
