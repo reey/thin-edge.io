@@ -1,4 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<testsuite failures="0" name="valid_device_id" skipped="0" tests="1" time="47.27" timestamp="2022-07-18T13:59:01">
-	<testcase classname="ValidateValidDeviceId" name="valid_device_id"/>
+<testsuite failures="1" name="valid_device_id" skipped="0" tests="1" time="14.25" timestamp="2022-07-18T15:49:57">
+	<testcase classname="ValidateValidDeviceId" name="valid_device_id">
+		<failure message="BLOCKED: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1" type="BLOCKED"/>
+		<system-out>15:49:43 INFO  ==============================================================
+15:49:43 INFO  Id:    valid_device_id
+15:49:43 INFO  Dir:   misc_features/
+15:49:43 INFO  Title: Valid device ID
+15:49:43 INFO  ==============================================================
+15:49:43 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
+15:49:44 INFO  Executed sudo&lt;create_cert_dir&gt;, exit status 0
+15:49:44 INFO  Executed sudo&lt;change_owner_of_dir&gt;, exit status 0
+15:49:45 INFO  Executed sudo&lt;set_cert_path&gt;, exit status 0
+15:49:45 INFO  Executed sudo&lt;set_key_path&gt;, exit status 0
+15:49:46 INFO  Executed sudo&lt;cert_create&gt;, exit status 0
+15:49:47 INFO  Executed sudo&lt;cert_upload&gt;, exit status 0
+15:49:55 WARN  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 1
+15:49:55 INFO  Contents of tedge_connect_c8y.err: 
+  ERROR: Io(Custom { kind: InvalidData, error: AlertReceived(CertificateUnknown) })
+  Error: failed to connect Cumulocity cloud.
+  Caused by:
+      Connection check failed
+  -----
+
+15:49:55 WARN  sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1 ... blocked [environment_tedge.py:58,run.py:100]
+15:49:55 WARN  Aborted test due to BLOCKED outcome
+15:49:55 INFO  
+15:49:55 INFO  cleanup:
+15:49:55 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
+15:49:56 INFO  Executed sudo&lt;unset_cert_path&gt;, exit status 0
+15:49:56 INFO  Executed sudo&lt;unset_key_path&gt;, exit status 0
+15:49:57 INFO  Executed sudo&lt;remove_cert_dir&gt;, exit status 0
+15:49:57 INFO  
+15:49:57 INFO  Test duration: 14.25 secs
+15:49:57 INFO  Test final outcome:  BLOCKED
+15:49:57 INFO  Test outcome reason: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1
+15:49:57 INFO  
+</system-out>
+	</testcase>
 </testsuite>
