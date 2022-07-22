@@ -1,113 +1,44 @@
-2022-07-22 04:05:07,332 INFO  ==============================================================
-2022-07-22 04:05:07,333 INFO  Id:    tedge_mapper_c8y_child_device_measurement
-2022-07-22 04:05:07,334 INFO  Dir:   tedge_mapper_c8y/
-2022-07-22 04:05:07,335 INFO  Title: Validate that measurements sent to tedge/measurements/child topic gets mapped as the child device's measurement in Cumulocity
-2022-07-22 04:05:07,336 INFO  ==============================================================
-2022-07-22 04:05:07,375 INFO  EnvironmentC8y Setup
-2022-07-22 04:05:07,952 INFO  Executed systemctl<serv_mapper1>, exit status 3
-2022-07-22 04:05:08,062 INFO  Restarting mosquitto too frequently in the last 10 seconds. It was only up for 4 seconds
-2022-07-22 04:05:08,064 INFO  Delaying execution by 7 seconds
-2022-07-22 04:05:29,272 INFO  Executed sudo<tedge_connect_c8y>, exit status 0, duration 14 secs
-2022-07-22 04:05:29,891 INFO  Executed sudo<tedge_connect_c8y_test>, exit status 0
-2022-07-22 04:05:30,411 INFO  Executed systemctl<serv_mosq2>, exit status 0
-2022-07-22 04:05:30,924 INFO  Executed systemctl<serv_mapper3>, exit status 0
-2022-07-22 04:05:31,879 INFO  Assert that (actual == expected) with actual=None, expected=None ... passed
-2022-07-22 04:05:32,291 INFO  Executed tedge_pub, exit status 0
-2022-07-22 04:05:32,703 INFO  Executed tedge_pub, exit status 0
-2022-07-22 04:05:33,115 INFO  Executed tedge_pub, exit status 0
-2022-07-22 04:05:33,527 INFO  Executed tedge_pub, exit status 0
-2022-07-22 04:05:33,939 INFO  Executed tedge_pub, exit status 0
-2022-07-22 04:05:37,049 INFO  {
-    "self": "https://t493319102.eu-latest.cumulocity.com/measurement/measurements/21240951",
-    "time": "2022-07-22T04:05:33.921Z",
-    "id": "21240951",
-    "source": {
-        "self": "https://t493319102.eu-latest.cumulocity.com/inventory/managedObjects/21240945",
-        "id": "21240945"
-    },
-    "type": "ThinEdgeMeasurement",
-    "temperature": {
-        "temperature": {
-            "value": 10.0
-        }
-    }
-}
-2022-07-22 04:05:37,051 INFO  Assert that (actual == expected) with actual="ThinEdgeMeasurement", expected="ThinEdgeMeasurement" ... passed
-2022-07-22 04:05:37,052 INFO  Assert that (actual == expected) with actual=10.0, expected=10 ... passed
-2022-07-22 04:05:37,054 INFO  {
-    "self": "https://t493319102.eu-latest.cumulocity.com/measurement/measurements/21240947",
-    "time": "2022-07-22T04:05:32.686Z",
-    "id": "21240947",
-    "source": {
-        "self": "https://t493319102.eu-latest.cumulocity.com/inventory/managedObjects/21240945",
-        "id": "21240945"
-    },
-    "type": "ThinEdgeMeasurement",
-    "temperature": {
-        "temperature": {
-            "value": 11.0
-        }
-    }
-}
-2022-07-22 04:05:37,055 INFO  Assert that (actual == expected) with actual="ThinEdgeMeasurement", expected="ThinEdgeMeasurement" ... passed
-2022-07-22 04:05:37,056 INFO  Assert that (actual == expected) with actual=11.0, expected=11 ... passed
-2022-07-22 04:05:37,058 INFO  {
-    "self": "https://t493319102.eu-latest.cumulocity.com/measurement/measurements/21240946",
-    "time": "2021-01-01T10:10:10.100+02:00",
-    "id": "21240946",
-    "source": {
-        "self": "https://t493319102.eu-latest.cumulocity.com/inventory/managedObjects/21240945",
-        "id": "21240945"
-    },
-    "type": "ThinEdgeMeasurement",
-    "temperature": {
-        "temperature": {
-            "value": 12.0
-        }
-    }
-}
-2022-07-22 04:05:37,059 INFO  Assert that (actual == expected) with actual="ThinEdgeMeasurement", expected="ThinEdgeMeasurement" ... passed
-2022-07-22 04:05:37,061 INFO  Assert that (actual == expected) with actual=12.0, expected=12 ... passed
-2022-07-22 04:05:37,062 INFO  Assert that (actual == expected) with actual="2021-01-01T10:10:10.100+02:00", expected="2021-01-01T10:10:10.100+02:00" ... passed
-2022-07-22 04:05:37,272 INFO  {
-    "self": "https://t493319102.eu-latest.cumulocity.com/measurement/measurements/21240950",
-    "time": "2022-07-22T04:05:33.512Z",
-    "id": "21240950",
-    "source": {
-        "self": "https://t493319102.eu-latest.cumulocity.com/inventory/managedObjects/21240949",
-        "id": "21240949"
-    },
-    "type": "ThinEdgeMeasurement",
-    "temperature": {
-        "temperature": {
-            "value": 6.0
-        }
-    }
-}
-2022-07-22 04:05:37,274 INFO  Assert that (actual == expected) with actual="ThinEdgeMeasurement", expected="ThinEdgeMeasurement" ... passed
-2022-07-22 04:05:37,276 INFO  Assert that (actual == expected) with actual=6.0, expected=6 ... passed
-2022-07-22 04:05:37,483 INFO  {
-    "self": "https://t493319102.eu-latest.cumulocity.com/measurement/measurements/21240948",
-    "time": "2022-07-22T04:05:33.097Z",
-    "id": "21240948",
-    "source": {
-        "self": "https://t493319102.eu-latest.cumulocity.com/inventory/managedObjects/21231606",
-        "id": "21231606"
-    },
-    "type": "ThinEdgeMeasurement",
-    "temperature": {
-        "temperature": {
-            "value": 5.0
-        }
-    }
-}
-2022-07-22 04:05:37,485 INFO  Assert that (actual == expected) with actual="ThinEdgeMeasurement", expected="ThinEdgeMeasurement" ... passed
-2022-07-22 04:05:37,486 INFO  Assert that (actual == expected) with actual=5.0, expected=5 ... passed
-2022-07-22 04:05:37,494 INFO  
-2022-07-22 04:05:37,495 INFO  cleanup:
-2022-07-22 04:05:42,052 INFO  Executed sudo<tedge_disconnect_c8y>, exit status 0
-2022-07-22 04:05:42,666 INFO  Executed systemctl<serv_mapper5>, exit status 3
-2022-07-22 04:05:42,670 INFO  
-2022-07-22 04:05:42,671 INFO  Test duration: 35.34 secs
-2022-07-22 04:05:42,673 INFO  Test final outcome:  PASSED
-2022-07-22 04:05:42,674 INFO  
+2022-07-22 07:40:12,602 INFO  ==============================================================
+2022-07-22 07:40:12,603 INFO  Id:    tedge_mapper_c8y_child_device_measurement
+2022-07-22 07:40:12,605 INFO  Dir:   tedge_mapper_c8y/
+2022-07-22 07:40:12,605 INFO  Title: Validate that measurements sent to tedge/measurements/child topic gets mapped as the child device's measurement in Cumulocity
+2022-07-22 07:40:12,606 INFO  ==============================================================
+2022-07-22 07:40:12,625 INFO  EnvironmentC8y Setup
+2022-07-22 07:40:13,209 INFO  Executed systemctl<serv_mapper1>, exit status 3
+2022-07-22 07:40:13,320 INFO  Restarting mosquitto too frequently in the last 10 seconds. It was only up for 4 seconds
+2022-07-22 07:40:13,321 INFO  Delaying execution by 7 seconds
+2022-07-22 07:40:48,262 INFO  Executed sudo<tedge_connect_c8y>, exit status 0, duration 27 secs
+2022-07-22 07:40:48,885 INFO  Executed sudo<tedge_connect_c8y_test>, exit status 0
+2022-07-22 07:40:49,399 INFO  Executed systemctl<serv_mosq2>, exit status 0
+2022-07-22 07:40:49,913 INFO  Executed systemctl<serv_mapper3>, exit status 0
+2022-07-22 07:40:50,884 INFO  Assert that (actual == expected) with actual=None, expected=None ... passed
+2022-07-22 07:40:51,356 INFO  Executed tedge_pub, exit status 0
+2022-07-22 07:40:51,821 INFO  Executed tedge_pub, exit status 0
+2022-07-22 07:40:52,233 INFO  Executed tedge_pub, exit status 0
+2022-07-22 07:40:52,645 INFO  Executed tedge_pub, exit status 0
+2022-07-22 07:40:53,057 INFO  Executed tedge_pub, exit status 0
+2022-07-22 07:40:55,871 WARN  TypeError occurred while running test - 'NoneType' object is not subscriptable
+Traceback (most recent call last):
+  File "/home/pi/env-pysys/lib/python3.7/site-packages/pysys/baserunner.py", line 1296, in __call__
+    self.testObj.validate()
+  File "/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/tedge_mapper_c8y/tedge_mapper_c8y_child_device_measurement/run.py", line 115, in validate
+    self.child_device_json["id"], 3
+TypeError: 'NoneType' object is not subscriptable
+2022-07-22 07:40:55,893 WARN  TypeError: 'NoneType' object is not subscriptable ... blocked 
+2022-07-22 07:40:55,894 INFO  
+2022-07-22 07:40:55,895 INFO  cleanup:
+2022-07-22 07:40:55,896 ERROR Error while running cleanup function: 
+Traceback (most recent call last):
+  File "/home/pi/env-pysys/lib/python3.7/site-packages/pysys/process/user.py", line 1305, in cleanup
+    fn()
+  File "/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/tedge_mapper_c8y/tedge_mapper_c8y_child_device_measurement/run.py", line 165, in test_cleanup
+    self.child_device_json["id"]
+TypeError: 'NoneType' object is not subscriptable
+2022-07-22 07:40:59,740 INFO  Executed sudo<tedge_disconnect_c8y>, exit status 0
+2022-07-22 07:41:00,307 INFO  Executed systemctl<serv_mapper5>, exit status 3
+2022-07-22 07:41:00,319 WARN  Cleanup failed with 1 errors: Cleanup function failed: 'NoneType' object is not subscriptable (TypeError) ... blocked 
+2022-07-22 07:41:00,323 INFO  
+2022-07-22 07:41:00,324 INFO  Test duration: 47.73 secs
+2022-07-22 07:41:00,325 INFO  Test final outcome:  BLOCKED
+2022-07-22 07:41:00,326 INFO  Test outcome reason: TypeError: 'NoneType' object is not subscriptable (+1 other failures)
+2022-07-22 07:41:00,327 INFO  

@@ -1,4 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<testsuite failures="0" name="tedge_mapper_c8y_child_device_measurement" skipped="0" tests="1" time="35.34" timestamp="2022-07-22T04:05:42">
-	<testcase classname="TedgeMapperC8yChildDevice" name="tedge_mapper_c8y_child_device_measurement"/>
+<testsuite failures="1" name="tedge_mapper_c8y_child_device_measurement" skipped="0" tests="1" time="47.73" timestamp="2022-07-22T07:41:00">
+	<testcase classname="TedgeMapperC8yChildDevice" name="tedge_mapper_c8y_child_device_measurement">
+		<failure message="BLOCKED: TypeError: 'NoneType' object is not subscriptable (+1 other failures)" type="BLOCKED"/>
+		<system-out>07:40:12 INFO  ==============================================================
+07:40:12 INFO  Id:    tedge_mapper_c8y_child_device_measurement
+07:40:12 INFO  Dir:   tedge_mapper_c8y/
+07:40:12 INFO  Title: Validate that measurements sent to tedge/measurements/child topic gets mapped as the child device's measurement in Cumulocity
+07:40:12 INFO  ==============================================================
+07:40:12 INFO  EnvironmentC8y Setup
+07:40:13 INFO  Executed systemctl&lt;serv_mapper1&gt;, exit status 3
+07:40:13 INFO  Restarting mosquitto too frequently in the last 10 seconds. It was only up for 4 seconds
+07:40:13 INFO  Delaying execution by 7 seconds
+07:40:48 INFO  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 0, duration 27 secs
+07:40:48 INFO  Executed sudo&lt;tedge_connect_c8y_test&gt;, exit status 0
+07:40:49 INFO  Executed systemctl&lt;serv_mosq2&gt;, exit status 0
+07:40:49 INFO  Executed systemctl&lt;serv_mapper3&gt;, exit status 0
+07:40:50 INFO  Assert that (actual == expected) with actual=None, expected=None ... passed
+07:40:51 INFO  Executed tedge_pub, exit status 0
+07:40:51 INFO  Executed tedge_pub, exit status 0
+07:40:52 INFO  Executed tedge_pub, exit status 0
+07:40:52 INFO  Executed tedge_pub, exit status 0
+07:40:53 INFO  Executed tedge_pub, exit status 0
+07:40:55 WARN  TypeError occurred while running test - 'NoneType' object is not subscriptable
+Traceback (most recent call last):
+  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/pysys/baserunner.py&quot;, line 1296, in __call__
+    self.testObj.validate()
+  File &quot;/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/tedge_mapper_c8y/tedge_mapper_c8y_child_device_measurement/run.py&quot;, line 115, in validate
+    self.child_device_json[&quot;id&quot;], 3
+TypeError: 'NoneType' object is not subscriptable
+07:40:55 WARN  TypeError: 'NoneType' object is not subscriptable ... blocked 
+07:40:55 INFO  
+07:40:55 INFO  cleanup:
+07:40:55 ERROR Error while running cleanup function: 
+Traceback (most recent call last):
+  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/pysys/process/user.py&quot;, line 1305, in cleanup
+    fn()
+  File &quot;/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/tedge_mapper_c8y/tedge_mapper_c8y_child_device_measurement/run.py&quot;, line 165, in test_cleanup
+    self.child_device_json[&quot;id&quot;]
+TypeError: 'NoneType' object is not subscriptable
+07:40:59 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
+07:41:00 INFO  Executed systemctl&lt;serv_mapper5&gt;, exit status 3
+07:41:00 WARN  Cleanup failed with 1 errors: Cleanup function failed: 'NoneType' object is not subscriptable (TypeError) ... blocked 
+07:41:00 INFO  
+07:41:00 INFO  Test duration: 47.73 secs
+07:41:00 INFO  Test final outcome:  BLOCKED
+07:41:00 INFO  Test outcome reason: TypeError: 'NoneType' object is not subscriptable (+1 other failures)
+07:41:00 INFO  
+</system-out>
+	</testcase>
 </testsuite>
