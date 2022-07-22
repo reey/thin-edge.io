@@ -1,4 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
-<testsuite failures="0" name="SoftwareManagement.sm_fake_install_remove" skipped="0" tests="1" time="43.81" timestamp="2022-07-22T01:47:23">
-	<testcase classname="PySysTest" name="SoftwareManagement.sm_fake_install_remove"/>
+<testsuite failures="1" name="SoftwareManagement.sm_fake_install_remove" skipped="0" tests="1" time="164.16" timestamp="2022-07-22T03:23:43">
+	<testcase classname="PySysTest" name="SoftwareManagement.sm_fake_install_remove">
+		<failure message="BLOCKED: SystemError: Timeout while waiting for status FAILED or SUCCESSFUL" type="BLOCKED"/>
+		<system-out>03:20:59 INFO  ==============================================================
+03:20:59 INFO  Id:    SoftwareManagement.sm_fake_install_remove
+03:20:59 INFO  Dir:   software_management_end_to_end/
+03:20:59 INFO  Title: Validate end to end behaviour for the dummy plugin for installation and removal of packages
+03:20:59 INFO  ==============================================================
+03:20:59 INFO  Using sw id database: {'asciijump': '5475369', 'robotfindskitten': '5474869', 'squirrel3': '5475279', 'rolldice': '5152439', 'moon-buggy': '5439204', 'apple': '5495053', 'banana': '5494888', 'cherry': '5495382', 'watermelon': '5494510', 'registry': '8018911', 'hello-world': '8021526', 'docker/getting-started': '8021973', 'alpine': '7991792'}
+03:20:59 INFO  EnvironmentC8y Setup
+03:20:59 INFO  Executed systemctl&lt;serv_mapper1&gt;, exit status 3
+03:21:00 INFO  Restarting mosquitto too frequently in the last 10 seconds. It was only up for 5 seconds
+03:21:00 INFO  Delaying execution by 6 seconds
+03:21:19 INFO  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 0, duration 13 secs
+03:21:20 INFO  Executed sudo&lt;tedge_connect_c8y_test&gt;, exit status 0
+03:21:20 INFO  Executed systemctl&lt;serv_mosq2&gt;, exit status 0
+03:21:21 INFO  Executed systemctl&lt;serv_mapper3&gt;, exit status 0
+03:21:23 INFO  State of current operation: EXECUTING
+03:21:25 INFO  State of current operation: EXECUTING
+03:21:28 INFO  State of current operation: EXECUTING
+03:21:30 INFO  State of current operation: EXECUTING
+03:21:32 INFO  State of current operation: EXECUTING
+03:21:34 INFO  State of current operation: EXECUTING
+03:21:36 INFO  State of current operation: EXECUTING
+03:21:39 INFO  State of current operation: EXECUTING
+03:21:41 INFO  State of current operation: EXECUTING
+03:21:43 INFO  State of current operation: EXECUTING
+03:21:45 INFO  State of current operation: EXECUTING
+03:21:48 INFO  State of current operation: EXECUTING
+03:21:50 INFO  State of current operation: EXECUTING
+03:21:52 INFO  State of current operation: EXECUTING
+03:21:54 INFO  State of current operation: EXECUTING
+03:21:56 INFO  State of current operation: EXECUTING
+03:21:59 INFO  State of current operation: EXECUTING
+03:22:01 INFO  State of current operation: EXECUTING
+03:22:03 INFO  State of current operation: EXECUTING
+03:22:05 INFO  State of current operation: EXECUTING
+03:22:08 INFO  State of current operation: EXECUTING
+03:22:10 INFO  State of current operation: EXECUTING
+03:22:12 INFO  State of current operation: EXECUTING
+03:22:14 INFO  State of current operation: EXECUTING
+03:22:16 INFO  State of current operation: EXECUTING
+03:22:19 INFO  State of current operation: EXECUTING
+03:22:21 INFO  State of current operation: EXECUTING
+03:22:23 INFO  State of current operation: EXECUTING
+03:22:25 INFO  State of current operation: EXECUTING
+03:22:27 INFO  State of current operation: EXECUTING
+03:22:30 INFO  State of current operation: EXECUTING
+03:22:32 INFO  State of current operation: EXECUTING
+03:22:34 INFO  State of current operation: EXECUTING
+03:22:36 INFO  State of current operation: EXECUTING
+03:22:39 INFO  State of current operation: EXECUTING
+03:22:41 INFO  State of current operation: EXECUTING
+03:22:43 INFO  State of current operation: EXECUTING
+03:22:45 INFO  State of current operation: EXECUTING
+03:22:48 INFO  State of current operation: EXECUTING
+03:22:50 INFO  State of current operation: EXECUTING
+03:22:52 INFO  State of current operation: EXECUTING
+03:22:54 INFO  State of current operation: EXECUTING
+03:22:56 INFO  State of current operation: EXECUTING
+03:22:59 INFO  State of current operation: EXECUTING
+03:23:01 INFO  State of current operation: EXECUTING
+03:23:03 INFO  State of current operation: EXECUTING
+03:23:05 INFO  State of current operation: EXECUTING
+03:23:07 INFO  State of current operation: EXECUTING
+03:23:10 INFO  State of current operation: EXECUTING
+03:23:12 INFO  State of current operation: EXECUTING
+03:23:14 INFO  State of current operation: EXECUTING
+03:23:16 INFO  State of current operation: EXECUTING
+03:23:19 INFO  State of current operation: EXECUTING
+03:23:21 INFO  State of current operation: EXECUTING
+03:23:23 INFO  State of current operation: EXECUTING
+03:23:25 INFO  State of current operation: EXECUTING
+03:23:27 INFO  State of current operation: EXECUTING
+03:23:30 INFO  State of current operation: EXECUTING
+03:23:32 INFO  State of current operation: EXECUTING
+03:23:34 INFO  State of current operation: EXECUTING
+03:23:36 INFO  State of current operation: EXECUTING
+03:23:38 WARN  SystemError occurred while running test - Timeout while waiting for status FAILED or SUCCESSFUL
+Traceback (most recent call last):
+  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/pysys/baserunner.py&quot;, line 1292, in __call__
+    self.testObj.setup()
+  File &quot;/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/sm_fake_install_remove/run.py&quot;, line 38, in setup
+    super().setup()
+  File &quot;/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/environment_sm_management.py&quot;, line 151, in setup
+    self.wait_until_end()
+  File &quot;/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/environment_sm_management.py&quot;, line 332, in wait_until_end
+    self.wait_until_status(&quot;FAILED&quot;, &quot;SUCCESSFUL&quot;)
+  File &quot;/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/environment_sm_management.py&quot;, line 381, in wait_until_status
+    &quot;Timeout while waiting for status %s or %s&quot; % (status, status2)
+SystemError: Timeout while waiting for status FAILED or SUCCESSFUL
+03:23:38 WARN  SystemError: Timeout while waiting for status FAILED or SUCCESSFUL ... blocked 
+03:23:38 INFO  
+03:23:38 INFO  cleanup:
+03:23:42 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
+03:23:43 INFO  Executed systemctl&lt;serv_mapper5&gt;, exit status 3
+03:23:43 INFO  
+03:23:43 INFO  Test duration: 164.16 secs
+03:23:43 INFO  Test final outcome:  BLOCKED
+03:23:43 INFO  Test outcome reason: SystemError: Timeout while waiting for status FAILED or SUCCESSFUL
+03:23:43 INFO  
+</system-out>
+	</testcase>
 </testsuite>

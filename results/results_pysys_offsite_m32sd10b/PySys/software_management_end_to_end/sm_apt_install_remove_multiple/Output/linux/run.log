@@ -1,166 +1,98 @@
-2022-07-22 01:36:12,960 INFO  ==============================================================
-2022-07-22 01:36:12,961 INFO  Id:    SoftwareManagement.sm_apt_install_remove_multiple
-2022-07-22 01:36:12,962 INFO  Dir:   software_management_end_to_end/
-2022-07-22 01:36:12,963 INFO  Title: Validate end to end behaviour for the apt plugin for multiple packages
-2022-07-22 01:36:12,964 INFO  ==============================================================
-2022-07-22 01:36:13,048 INFO  Using sw id database: {'asciijump': '5475369', 'robotfindskitten': '5474869', 'squirrel3': '5475279', 'rolldice': '5152439', 'moon-buggy': '5439204', 'apple': '5495053', 'banana': '5494888', 'cherry': '5495382', 'watermelon': '5494510', 'registry': '8018911', 'hello-world': '8021526', 'docker/getting-started': '8021973', 'alpine': '7991792'}
-2022-07-22 01:36:13,049 INFO  EnvironmentC8y Setup
-2022-07-22 01:36:13,610 INFO  Executed systemctl<serv_mapper1>, exit status 3
-2022-07-22 01:36:13,713 INFO  Restarting mosquitto too frequently in the last 10 seconds. It was only up for 5 seconds
-2022-07-22 01:36:13,715 INFO  Delaying execution by 6 seconds
-2022-07-22 01:36:33,990 INFO  Executed sudo<tedge_connect_c8y>, exit status 0, duration 14 secs
-2022-07-22 01:36:34,560 INFO  Executed sudo<tedge_connect_c8y_test>, exit status 0
-2022-07-22 01:36:35,029 INFO  Executed systemctl<serv_mosq2>, exit status 0
-2022-07-22 01:36:35,493 INFO  Executed systemctl<serv_mapper3>, exit status 0
-2022-07-22 01:36:37,721 INFO  State of current operation: SUCCESSFUL
-2022-07-22 01:36:37,948 INFO  Assert that (False == value) with value=False ... passed
-2022-07-22 01:36:38,171 INFO  Package asciijump is installed
-2022-07-22 01:36:38,496 WARN  Assert that (False == value) with value=True ... failed 
-2022-07-22 01:36:38,723 INFO  Package squirrel3 is installed
-2022-07-22 01:36:38,745 WARN  Assert that (False == value) with value=True ... failed 
-2022-07-22 01:36:38,966 INFO  Package robotfindskitten is installed
-2022-07-22 01:36:38,989 WARN  Assert that (False == value) with value=True ... failed 
-2022-07-22 01:36:39,209 INFO  Response status: 201
-2022-07-22 01:36:39,210 INFO  Response to action: {
-    "delivery": {
-        "log": [],
-        "time": "2022-07-22T01:36:39.182Z",
-        "status": "PENDING"
-    },
-    "creationTime": "2022-07-22T01:36:39.167Z",
-    "deviceId": "21166557",
-    "deviceName": "m32sd10b",
-    "self": "https://t493319102.eu-latest.cumulocity.com/devicecontrol/operations/21214049",
-    "id": "21214049",
-    "status": "PENDING",
-    "description": "Apply software changes, triggered from PySys: [{'action': 'install', 'id': '5475369', 'name': 'asciijump', 'url': ' ', 'version': '::apt'}, {'action': 'install', 'id': '5474869', 'name': 'robotfindskitten', 'url': ' ', 'version': '::apt'}, {'action': 'install', 'id': '5475279', 'name': 'squirrel3', 'url': ' ', 'version': '::apt'}]",
-    "c8y_SoftwareUpdate": [
-        {
-            "name": "asciijump",
-            "action": "install",
-            "id": "5475369",
-            "version": "::apt",
-            "url": " "
-        },
-        {
-            "name": "robotfindskitten",
-            "action": "install",
-            "id": "5474869",
-            "version": "::apt",
-            "url": " "
-        },
-        {
-            "name": "squirrel3",
-            "action": "install",
-            "id": "5475279",
-            "version": "::apt",
-            "url": " "
-        }
-    ]
-}
-2022-07-22 01:36:39,211 INFO  Started operation: {'delivery': {'log': [], 'time': '2022-07-22T01:36:39.182Z', 'status': 'PENDING'}, 'creationTime': '2022-07-22T01:36:39.167Z', 'deviceId': '21166557', 'deviceName': 'm32sd10b', 'self': 'https://t493319102.eu-latest.cumulocity.com/devicecontrol/operations/21214049', 'id': '21214049', 'status': 'PENDING', 'description': "Apply software changes, triggered from PySys: [{'action': 'install', 'id': '5475369', 'name': 'asciijump', 'url': ' ', 'version': '::apt'}, {'action': 'install', 'id': '5474869', 'name': 'robotfindskitten', 'url': ' ', 'version': '::apt'}, {'action': 'install', 'id': '5475279', 'name': 'squirrel3', 'url': ' ', 'version': '::apt'}]", 'c8y_SoftwareUpdate': [{'name': 'asciijump', 'action': 'install', 'id': '5475369', 'version': '::apt', 'url': ' '}, {'name': 'robotfindskitten', 'action': 'install', 'id': '5474869', 'version': '::apt', 'url': ' '}, {'name': 'squirrel3', 'action': 'install', 'id': '5475279', 'version': '::apt', 'url': ' '}]}
-2022-07-22 01:36:41,424 INFO  State of operation 21214049 : PENDING
-2022-07-22 01:36:43,678 INFO  State of operation 21214049 : EXECUTING
-2022-07-22 01:36:45,896 INFO  State of operation 21214049 : EXECUTING
-2022-07-22 01:36:48,120 INFO  State of operation 21214049 : EXECUTING
-2022-07-22 01:36:50,394 INFO  State of operation 21214049 : EXECUTING
-2022-07-22 01:36:52,612 INFO  State of operation 21214049 : EXECUTING
-2022-07-22 01:36:55,277 INFO  State of operation 21214049 : EXECUTING
-2022-07-22 01:36:58,002 INFO  State of operation 21214049 : EXECUTING
-2022-07-22 01:37:00,446 INFO  State of operation 21214049 : EXECUTING
-2022-07-22 01:37:02,960 INFO  State of operation 21214049 : EXECUTING
-2022-07-22 01:37:05,180 INFO  State of operation 21214049 : EXECUTING
-2022-07-22 01:37:07,398 INFO  State of operation 21214049 : EXECUTING
-2022-07-22 01:37:09,627 INFO  State of operation 21214049 : EXECUTING
-2022-07-22 01:37:11,860 INFO  State of operation 21214049 : EXECUTING
-2022-07-22 01:37:14,071 INFO  State of operation 21214049 : EXECUTING
-2022-07-22 01:37:16,357 INFO  State of operation 21214049 : SUCCESSFUL
-2022-07-22 01:37:16,614 INFO  Assert that (False == value) with value=False ... passed
-2022-07-22 01:37:16,834 INFO  Package asciijump is installed
-2022-07-22 01:37:16,836 INFO  Assert that (True == value) with value=True ... passed
-2022-07-22 01:37:17,062 INFO  Package squirrel3 is installed
-2022-07-22 01:37:17,064 INFO  Assert that (True == value) with value=True ... passed
-2022-07-22 01:37:17,296 INFO  Package robotfindskitten is installed
-2022-07-22 01:37:17,299 INFO  Assert that (True == value) with value=True ... passed
-2022-07-22 01:37:17,521 INFO  Response status: 201
-2022-07-22 01:37:17,523 INFO  Response to action: {
-    "delivery": {
-        "log": [],
-        "time": "2022-07-22T01:37:17.495Z",
-        "status": "PENDING"
-    },
-    "creationTime": "2022-07-22T01:37:17.473Z",
-    "deviceId": "21166557",
-    "deviceName": "m32sd10b",
-    "self": "https://t493319102.eu-latest.cumulocity.com/devicecontrol/operations/21214063",
-    "id": "21214063",
-    "status": "PENDING",
-    "description": "Apply software changes, triggered from PySys: [{'action': 'delete', 'id': '5475369', 'name': 'asciijump', 'url': ' ', 'version': '::apt'}, {'action': 'delete', 'id': '5474869', 'name': 'robotfindskitten', 'url': ' ', 'version': '::apt'}, {'action': 'delete', 'id': '5475279', 'name': 'squirrel3', 'url': ' ', 'version': '::apt'}]",
-    "c8y_SoftwareUpdate": [
-        {
-            "name": "asciijump",
-            "action": "delete",
-            "id": "5475369",
-            "version": "::apt",
-            "url": " "
-        },
-        {
-            "name": "robotfindskitten",
-            "action": "delete",
-            "id": "5474869",
-            "version": "::apt",
-            "url": " "
-        },
-        {
-            "name": "squirrel3",
-            "action": "delete",
-            "id": "5475279",
-            "version": "::apt",
-            "url": " "
-        }
-    ]
-}
-2022-07-22 01:37:17,524 INFO  Started operation: {'delivery': {'log': [], 'time': '2022-07-22T01:37:17.495Z', 'status': 'PENDING'}, 'creationTime': '2022-07-22T01:37:17.473Z', 'deviceId': '21166557', 'deviceName': 'm32sd10b', 'self': 'https://t493319102.eu-latest.cumulocity.com/devicecontrol/operations/21214063', 'id': '21214063', 'status': 'PENDING', 'description': "Apply software changes, triggered from PySys: [{'action': 'delete', 'id': '5475369', 'name': 'asciijump', 'url': ' ', 'version': '::apt'}, {'action': 'delete', 'id': '5474869', 'name': 'robotfindskitten', 'url': ' ', 'version': '::apt'}, {'action': 'delete', 'id': '5475279', 'name': 'squirrel3', 'url': ' ', 'version': '::apt'}]", 'c8y_SoftwareUpdate': [{'name': 'asciijump', 'action': 'delete', 'id': '5475369', 'version': '::apt', 'url': ' '}, {'name': 'robotfindskitten', 'action': 'delete', 'id': '5474869', 'version': '::apt', 'url': ' '}, {'name': 'squirrel3', 'action': 'delete', 'id': '5475279', 'version': '::apt', 'url': ' '}]}
-2022-07-22 01:37:19,733 INFO  State of operation 21214063 : PENDING
-2022-07-22 01:37:21,958 INFO  State of operation 21214063 : EXECUTING
-2022-07-22 01:37:24,195 INFO  State of operation 21214063 : EXECUTING
-2022-07-22 01:37:26,412 INFO  State of operation 21214063 : EXECUTING
-2022-07-22 01:37:28,629 INFO  State of operation 21214063 : EXECUTING
-2022-07-22 01:37:30,844 INFO  State of operation 21214063 : EXECUTING
-2022-07-22 01:37:33,573 INFO  State of operation 21214063 : EXECUTING
-2022-07-22 01:37:36,321 INFO  State of operation 21214063 : EXECUTING
-2022-07-22 01:37:38,575 INFO  State of operation 21214063 : EXECUTING
-2022-07-22 01:37:40,909 INFO  State of operation 21214063 : EXECUTING
-2022-07-22 01:37:43,134 INFO  State of operation 21214063 : EXECUTING
-2022-07-22 01:37:45,347 INFO  State of operation 21214063 : EXECUTING
-2022-07-22 01:37:47,578 INFO  State of operation 21214063 : EXECUTING
-2022-07-22 01:37:49,838 INFO  State of operation 21214063 : EXECUTING
-2022-07-22 01:37:52,053 INFO  State of operation 21214063 : EXECUTING
-2022-07-22 01:37:54,337 INFO  State of operation 21214063 : EXECUTING
-2022-07-22 01:37:56,752 INFO  State of operation 21214063 : EXECUTING
-2022-07-22 01:37:58,969 INFO  State of operation 21214063 : EXECUTING
-2022-07-22 01:38:01,670 INFO  State of operation 21214063 : EXECUTING
-2022-07-22 01:38:04,064 INFO  State of operation 21214063 : EXECUTING
-2022-07-22 01:38:06,304 INFO  State of operation 21214063 : EXECUTING
-2022-07-22 01:38:08,528 INFO  State of operation 21214063 : EXECUTING
-2022-07-22 01:38:10,781 INFO  State of operation 21214063 : EXECUTING
-2022-07-22 01:38:13,011 INFO  State of operation 21214063 : EXECUTING
-2022-07-22 01:38:15,237 INFO  State of operation 21214063 : EXECUTING
-2022-07-22 01:38:17,953 INFO  State of operation 21214063 : EXECUTING
-2022-07-22 01:38:20,207 INFO  State of operation 21214063 : EXECUTING
-2022-07-22 01:38:22,621 INFO  State of operation 21214063 : EXECUTING
-2022-07-22 01:38:24,850 INFO  State of operation 21214063 : EXECUTING
-2022-07-22 01:38:27,072 INFO  State of operation 21214063 : SUCCESSFUL
-2022-07-22 01:38:27,299 INFO  Assert that (False == value) with value=False ... passed
-2022-07-22 01:38:27,526 INFO  Assert that (False == value) with value=False ... passed
-2022-07-22 01:38:27,760 INFO  Assert that (False == value) with value=False ... passed
-2022-07-22 01:38:27,987 INFO  Assert that (False == value) with value=False ... passed
-2022-07-22 01:38:27,998 INFO  
-2022-07-22 01:38:27,999 INFO  cleanup:
-2022-07-22 01:38:32,098 INFO  Executed sudo<tedge_disconnect_c8y>, exit status 0
-2022-07-22 01:38:32,711 INFO  Executed systemctl<serv_mapper5>, exit status 3
-2022-07-22 01:38:32,715 INFO  
-2022-07-22 01:38:32,716 INFO  Test duration: 139.77 secs
-2022-07-22 01:38:32,718 INFO  Test final outcome:  FAILED
-2022-07-22 01:38:32,719 INFO  Test outcome reason: Assert that (False == value) with value=True (+2 other failures)
-2022-07-22 01:38:32,719 INFO  
+2022-07-22 03:10:00,414 INFO  ==============================================================
+2022-07-22 03:10:00,415 INFO  Id:    SoftwareManagement.sm_apt_install_remove_multiple
+2022-07-22 03:10:00,416 INFO  Dir:   software_management_end_to_end/
+2022-07-22 03:10:00,417 INFO  Title: Validate end to end behaviour for the apt plugin for multiple packages
+2022-07-22 03:10:00,418 INFO  ==============================================================
+2022-07-22 03:10:00,426 INFO  Using sw id database: {'asciijump': '5475369', 'robotfindskitten': '5474869', 'squirrel3': '5475279', 'rolldice': '5152439', 'moon-buggy': '5439204', 'apple': '5495053', 'banana': '5494888', 'cherry': '5495382', 'watermelon': '5494510', 'registry': '8018911', 'hello-world': '8021526', 'docker/getting-started': '8021973', 'alpine': '7991792'}
+2022-07-22 03:10:00,427 INFO  EnvironmentC8y Setup
+2022-07-22 03:10:00,989 INFO  Executed systemctl<serv_mapper1>, exit status 3
+2022-07-22 03:10:01,089 INFO  Restarting mosquitto too frequently in the last 10 seconds. It was only up for 5 seconds
+2022-07-22 03:10:01,090 INFO  Delaying execution by 6 seconds
+2022-07-22 03:10:21,163 INFO  Executed sudo<tedge_connect_c8y>, exit status 0, duration 14 secs
+2022-07-22 03:10:21,780 INFO  Executed sudo<tedge_connect_c8y_test>, exit status 0
+2022-07-22 03:10:22,249 INFO  Executed systemctl<serv_mosq2>, exit status 0
+2022-07-22 03:10:22,713 INFO  Executed systemctl<serv_mapper3>, exit status 0
+2022-07-22 03:10:24,939 INFO  State of current operation: EXECUTING
+2022-07-22 03:10:27,162 INFO  State of current operation: EXECUTING
+2022-07-22 03:10:29,380 INFO  State of current operation: EXECUTING
+2022-07-22 03:10:31,608 INFO  State of current operation: EXECUTING
+2022-07-22 03:10:33,840 INFO  State of current operation: EXECUTING
+2022-07-22 03:10:36,062 INFO  State of current operation: EXECUTING
+2022-07-22 03:10:38,275 INFO  State of current operation: EXECUTING
+2022-07-22 03:10:40,489 INFO  State of current operation: EXECUTING
+2022-07-22 03:10:42,707 INFO  State of current operation: EXECUTING
+2022-07-22 03:10:44,931 INFO  State of current operation: EXECUTING
+2022-07-22 03:10:47,148 INFO  State of current operation: EXECUTING
+2022-07-22 03:10:49,387 INFO  State of current operation: EXECUTING
+2022-07-22 03:10:51,598 INFO  State of current operation: EXECUTING
+2022-07-22 03:10:53,809 INFO  State of current operation: EXECUTING
+2022-07-22 03:10:56,028 INFO  State of current operation: EXECUTING
+2022-07-22 03:10:58,248 INFO  State of current operation: EXECUTING
+2022-07-22 03:11:00,467 INFO  State of current operation: EXECUTING
+2022-07-22 03:11:02,678 INFO  State of current operation: EXECUTING
+2022-07-22 03:11:04,919 INFO  State of current operation: EXECUTING
+2022-07-22 03:11:07,132 INFO  State of current operation: EXECUTING
+2022-07-22 03:11:09,498 INFO  State of current operation: EXECUTING
+2022-07-22 03:11:11,712 INFO  State of current operation: EXECUTING
+2022-07-22 03:11:13,946 INFO  State of current operation: EXECUTING
+2022-07-22 03:11:16,163 INFO  State of current operation: EXECUTING
+2022-07-22 03:11:18,381 INFO  State of current operation: EXECUTING
+2022-07-22 03:11:20,592 INFO  State of current operation: EXECUTING
+2022-07-22 03:11:22,805 INFO  State of current operation: EXECUTING
+2022-07-22 03:11:25,023 INFO  State of current operation: EXECUTING
+2022-07-22 03:11:27,235 INFO  State of current operation: EXECUTING
+2022-07-22 03:11:29,456 INFO  State of current operation: EXECUTING
+2022-07-22 03:11:31,712 INFO  State of current operation: EXECUTING
+2022-07-22 03:11:33,921 INFO  State of current operation: EXECUTING
+2022-07-22 03:11:36,134 INFO  State of current operation: EXECUTING
+2022-07-22 03:11:38,354 INFO  State of current operation: EXECUTING
+2022-07-22 03:11:40,570 INFO  State of current operation: EXECUTING
+2022-07-22 03:11:42,798 INFO  State of current operation: EXECUTING
+2022-07-22 03:11:45,024 INFO  State of current operation: EXECUTING
+2022-07-22 03:11:47,234 INFO  State of current operation: EXECUTING
+2022-07-22 03:11:49,450 INFO  State of current operation: EXECUTING
+2022-07-22 03:11:51,665 INFO  State of current operation: EXECUTING
+2022-07-22 03:11:53,893 INFO  State of current operation: EXECUTING
+2022-07-22 03:11:56,107 INFO  State of current operation: EXECUTING
+2022-07-22 03:11:58,327 INFO  State of current operation: EXECUTING
+2022-07-22 03:12:00,537 INFO  State of current operation: EXECUTING
+2022-07-22 03:12:02,759 INFO  State of current operation: EXECUTING
+2022-07-22 03:12:04,976 INFO  State of current operation: EXECUTING
+2022-07-22 03:12:07,191 INFO  State of current operation: EXECUTING
+2022-07-22 03:12:09,465 INFO  State of current operation: EXECUTING
+2022-07-22 03:12:11,682 INFO  State of current operation: EXECUTING
+2022-07-22 03:12:13,898 INFO  State of current operation: EXECUTING
+2022-07-22 03:12:16,116 INFO  State of current operation: EXECUTING
+2022-07-22 03:12:18,338 INFO  State of current operation: EXECUTING
+2022-07-22 03:12:20,553 INFO  State of current operation: EXECUTING
+2022-07-22 03:12:22,763 INFO  State of current operation: EXECUTING
+2022-07-22 03:12:24,986 INFO  State of current operation: EXECUTING
+2022-07-22 03:12:27,199 INFO  State of current operation: EXECUTING
+2022-07-22 03:12:29,417 INFO  State of current operation: EXECUTING
+2022-07-22 03:12:31,638 INFO  State of current operation: EXECUTING
+2022-07-22 03:12:33,853 INFO  State of current operation: EXECUTING
+2022-07-22 03:12:36,069 INFO  State of current operation: EXECUTING
+2022-07-22 03:12:38,287 INFO  State of current operation: EXECUTING
+2022-07-22 03:12:40,288 WARN  SystemError occurred while running test - Timeout while waiting for status FAILED or SUCCESSFUL
+Traceback (most recent call last):
+  File "/home/pi/env-pysys/lib/python3.7/site-packages/pysys/baserunner.py", line 1292, in __call__
+    self.testObj.setup()
+  File "/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/sm_apt_install_remove_multiple/run.py", line 52, in setup
+    super().setup()
+  File "/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/environment_sm_management.py", line 151, in setup
+    self.wait_until_end()
+  File "/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/environment_sm_management.py", line 332, in wait_until_end
+    self.wait_until_status("FAILED", "SUCCESSFUL")
+  File "/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/environment_sm_management.py", line 381, in wait_until_status
+    "Timeout while waiting for status %s or %s" % (status, status2)
+SystemError: Timeout while waiting for status FAILED or SUCCESSFUL
+2022-07-22 03:12:40,317 WARN  SystemError: Timeout while waiting for status FAILED or SUCCESSFUL ... blocked 
+2022-07-22 03:12:40,318 INFO  
+2022-07-22 03:12:40,319 INFO  cleanup:
+2022-07-22 03:12:44,443 INFO  Executed sudo<tedge_disconnect_c8y>, exit status 0
+2022-07-22 03:12:45,016 INFO  Executed systemctl<serv_mapper5>, exit status 3
+2022-07-22 03:12:45,020 INFO  
+2022-07-22 03:12:45,021 INFO  Test duration: 164.62 secs
+2022-07-22 03:12:45,022 INFO  Test final outcome:  BLOCKED
+2022-07-22 03:12:45,023 INFO  Test outcome reason: SystemError: Timeout while waiting for status FAILED or SUCCESSFUL
+2022-07-22 03:12:45,024 INFO  

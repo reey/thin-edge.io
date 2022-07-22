@@ -1,157 +1,98 @@
-2022-07-22 01:45:30,383 INFO  ==============================================================
-2022-07-22 01:45:30,384 INFO  Id:    SoftwareManagement.sm_apt_install_remove_with_version
-2022-07-22 01:45:30,385 INFO  Dir:   software_management_end_to_end/
-2022-07-22 01:45:30,387 INFO  Title: Validate end to end behaviour for the apt plugin for packages with version
-2022-07-22 01:45:30,388 INFO  ==============================================================
-2022-07-22 01:45:30,406 INFO  Using sw id database: {'asciijump': '5475369', 'robotfindskitten': '5474869', 'squirrel3': '5475279', 'rolldice': '5152439', 'moon-buggy': '5439204', 'apple': '5495053', 'banana': '5494888', 'cherry': '5495382', 'watermelon': '5494510', 'registry': '8018911', 'hello-world': '8021526', 'docker/getting-started': '8021973', 'alpine': '7991792'}
-2022-07-22 01:45:30,407 INFO  EnvironmentC8y Setup
-2022-07-22 01:45:31,020 INFO  Executed systemctl<serv_mapper1>, exit status 3
-2022-07-22 01:45:31,131 INFO  Restarting mosquitto too frequently in the last 10 seconds. It was only up for 5 seconds
-2022-07-22 01:45:31,132 INFO  Delaying execution by 6 seconds
-2022-07-22 01:45:51,896 INFO  Executed sudo<tedge_connect_c8y>, exit status 0, duration 14 secs
-2022-07-22 01:45:52,517 INFO  Executed sudo<tedge_connect_c8y_test>, exit status 0
-2022-07-22 01:45:53,035 INFO  Executed systemctl<serv_mosq2>, exit status 0
-2022-07-22 01:45:53,499 INFO  Executed systemctl<serv_mapper3>, exit status 0
-2022-07-22 01:45:55,724 INFO  State of current operation: FAILED
-2022-07-22 01:45:55,951 INFO  Assert that (False == value) with value=False ... passed
-2022-07-22 01:45:56,512 INFO  Response status: 201
-2022-07-22 01:45:56,514 INFO  Response to action: {
-    "delivery": {
-        "log": [],
-        "time": "2022-07-22T01:45:56.482Z",
-        "status": "PENDING"
-    },
-    "creationTime": "2022-07-22T01:45:56.466Z",
-    "deviceId": "21167114",
-    "deviceName": "m32sd10c",
-    "self": "https://t493319102.eu-latest.cumulocity.com/devicecontrol/operations/21222127",
-    "id": "21222127",
-    "status": "PENDING",
-    "description": "Apply software changes, triggered from PySys: [{'name': 'rolldice', 'id': '5152439', 'version': '1.16-1+b1', 'url': '', 'action': 'install'}]",
-    "c8y_SoftwareUpdate": [
-        {
-            "name": "rolldice",
-            "action": "install",
-            "id": "5152439",
-            "version": "1.16-1+b1",
-            "url": ""
-        }
-    ]
-}
-2022-07-22 01:45:56,515 INFO  Started operation: {'delivery': {'log': [], 'time': '2022-07-22T01:45:56.482Z', 'status': 'PENDING'}, 'creationTime': '2022-07-22T01:45:56.466Z', 'deviceId': '21167114', 'deviceName': 'm32sd10c', 'self': 'https://t493319102.eu-latest.cumulocity.com/devicecontrol/operations/21222127', 'id': '21222127', 'status': 'PENDING', 'description': "Apply software changes, triggered from PySys: [{'name': 'rolldice', 'id': '5152439', 'version': '1.16-1+b1', 'url': '', 'action': 'install'}]", 'c8y_SoftwareUpdate': [{'name': 'rolldice', 'action': 'install', 'id': '5152439', 'version': '1.16-1+b1', 'url': ''}]}
-2022-07-22 01:45:58,761 INFO  State of operation 21222127 : PENDING
-2022-07-22 01:46:01,015 INFO  State of operation 21222127 : EXECUTING
-2022-07-22 01:46:03,228 INFO  State of operation 21222127 : EXECUTING
-2022-07-22 01:46:05,444 INFO  State of operation 21222127 : EXECUTING
-2022-07-22 01:46:07,670 INFO  State of operation 21222127 : EXECUTING
-2022-07-22 01:46:09,886 INFO  State of operation 21222127 : EXECUTING
-2022-07-22 01:46:12,766 INFO  State of operation 21222127 : EXECUTING
-2022-07-22 01:46:16,243 INFO  State of operation 21222127 : EXECUTING
-2022-07-22 01:46:18,848 INFO  State of operation 21222127 : EXECUTING
-2022-07-22 01:46:21,082 INFO  State of operation 21222127 : EXECUTING
-2022-07-22 01:46:23,292 INFO  State of operation 21222127 : EXECUTING
-2022-07-22 01:46:25,526 INFO  State of operation 21222127 : EXECUTING
-2022-07-22 01:46:27,744 INFO  State of operation 21222127 : EXECUTING
-2022-07-22 01:46:29,980 INFO  State of operation 21222127 : EXECUTING
-2022-07-22 01:46:32,197 INFO  State of operation 21222127 : SUCCESSFUL
-2022-07-22 01:46:32,415 INFO  Package rolldice is installed
-2022-07-22 01:46:32,418 INFO  Assert that (True == value) with value=True ... passed
-2022-07-22 01:46:32,641 INFO  Response status: 201
-2022-07-22 01:46:32,643 INFO  Response to action: {
-    "delivery": {
-        "log": [],
-        "time": "2022-07-22T01:46:32.614Z",
-        "status": "PENDING"
-    },
-    "creationTime": "2022-07-22T01:46:32.600Z",
-    "deviceId": "21167114",
-    "deviceName": "m32sd10c",
-    "self": "https://t493319102.eu-latest.cumulocity.com/devicecontrol/operations/21222137",
-    "id": "21222137",
-    "status": "PENDING",
-    "description": "Apply software changes, triggered from PySys: [{'name': 'rolldice', 'id': '5152439', 'version': '88::apt', 'url': '', 'action': 'delete'}]",
-    "c8y_SoftwareUpdate": [
-        {
-            "name": "rolldice",
-            "action": "delete",
-            "id": "5152439",
-            "version": "88::apt",
-            "url": ""
-        }
-    ]
-}
-2022-07-22 01:46:32,644 INFO  Started operation: {'delivery': {'log': [], 'time': '2022-07-22T01:46:32.614Z', 'status': 'PENDING'}, 'creationTime': '2022-07-22T01:46:32.600Z', 'deviceId': '21167114', 'deviceName': 'm32sd10c', 'self': 'https://t493319102.eu-latest.cumulocity.com/devicecontrol/operations/21222137', 'id': '21222137', 'status': 'PENDING', 'description': "Apply software changes, triggered from PySys: [{'name': 'rolldice', 'id': '5152439', 'version': '88::apt', 'url': '', 'action': 'delete'}]", 'c8y_SoftwareUpdate': [{'name': 'rolldice', 'action': 'delete', 'id': '5152439', 'version': '88::apt', 'url': ''}]}
-2022-07-22 01:46:34,863 INFO  State of operation 21222137 : PENDING
-2022-07-22 01:46:37,111 INFO  State of operation 21222137 : EXECUTING
-2022-07-22 01:46:39,326 INFO  State of operation 21222137 : EXECUTING
-2022-07-22 01:46:41,551 INFO  State of operation 21222137 : EXECUTING
-2022-07-22 01:46:43,771 INFO  State of operation 21222137 : EXECUTING
-2022-07-22 01:46:45,991 INFO  State of operation 21222137 : EXECUTING
-2022-07-22 01:46:48,617 INFO  State of operation 21222137 : EXECUTING
-2022-07-22 01:46:51,353 INFO  State of operation 21222137 : EXECUTING
-2022-07-22 01:46:53,574 INFO  State of operation 21222137 : EXECUTING
-2022-07-22 01:46:56,044 INFO  State of operation 21222137 : EXECUTING
-2022-07-22 01:46:58,260 INFO  State of operation 21222137 : EXECUTING
-2022-07-22 01:47:00,483 INFO  State of operation 21222137 : EXECUTING
-2022-07-22 01:47:02,724 INFO  State of operation 21222137 : EXECUTING
-2022-07-22 01:47:04,946 INFO  State of operation 21222137 : EXECUTING
-2022-07-22 01:47:07,155 INFO  State of operation 21222137 : FAILED
-2022-07-22 01:47:07,386 INFO  Package rolldice is installed
-2022-07-22 01:47:07,388 INFO  Assert that (True == value) with value=True ... passed
-2022-07-22 01:47:07,946 INFO  Response status: 201
-2022-07-22 01:47:07,948 INFO  Response to action: {
-    "delivery": {
-        "log": [],
-        "time": "2022-07-22T01:47:07.919Z",
-        "status": "PENDING"
-    },
-    "creationTime": "2022-07-22T01:47:07.902Z",
-    "deviceId": "21167114",
-    "deviceName": "m32sd10c",
-    "self": "https://t493319102.eu-latest.cumulocity.com/devicecontrol/operations/21222148",
-    "id": "21222148",
-    "status": "PENDING",
-    "description": "Apply software changes, triggered from PySys: [{'name': 'rolldice', 'id': '5152439', 'version': '1.16-1+b1', 'url': '', 'action': 'delete'}]",
-    "c8y_SoftwareUpdate": [
-        {
-            "name": "rolldice",
-            "action": "delete",
-            "id": "5152439",
-            "version": "1.16-1+b1",
-            "url": ""
-        }
-    ]
-}
-2022-07-22 01:47:07,949 INFO  Started operation: {'delivery': {'log': [], 'time': '2022-07-22T01:47:07.919Z', 'status': 'PENDING'}, 'creationTime': '2022-07-22T01:47:07.902Z', 'deviceId': '21167114', 'deviceName': 'm32sd10c', 'self': 'https://t493319102.eu-latest.cumulocity.com/devicecontrol/operations/21222148', 'id': '21222148', 'status': 'PENDING', 'description': "Apply software changes, triggered from PySys: [{'name': 'rolldice', 'id': '5152439', 'version': '1.16-1+b1', 'url': '', 'action': 'delete'}]", 'c8y_SoftwareUpdate': [{'name': 'rolldice', 'action': 'delete', 'id': '5152439', 'version': '1.16-1+b1', 'url': ''}]}
-2022-07-22 01:47:10,161 INFO  State of operation 21222148 : PENDING
-2022-07-22 01:47:12,381 INFO  State of operation 21222148 : EXECUTING
-2022-07-22 01:47:14,600 INFO  State of operation 21222148 : EXECUTING
-2022-07-22 01:47:16,817 INFO  State of operation 21222148 : EXECUTING
-2022-07-22 01:47:19,033 INFO  State of operation 21222148 : EXECUTING
-2022-07-22 01:47:21,255 INFO  State of operation 21222148 : EXECUTING
-2022-07-22 01:47:23,927 INFO  State of operation 21222148 : EXECUTING
-2022-07-22 01:47:26,767 INFO  State of operation 21222148 : EXECUTING
-2022-07-22 01:47:29,013 INFO  State of operation 21222148 : EXECUTING
-2022-07-22 01:47:31,441 INFO  State of operation 21222148 : EXECUTING
-2022-07-22 01:47:33,658 INFO  State of operation 21222148 : EXECUTING
-2022-07-22 01:47:35,872 INFO  State of operation 21222148 : EXECUTING
-2022-07-22 01:47:38,086 INFO  State of operation 21222148 : EXECUTING
-2022-07-22 01:47:40,306 INFO  State of operation 21222148 : EXECUTING
-2022-07-22 01:47:42,615 INFO  State of operation 21222148 : EXECUTING
-2022-07-22 01:47:45,017 INFO  State of operation 21222148 : EXECUTING
-2022-07-22 01:47:48,201 INFO  State of operation 21222148 : EXECUTING
-2022-07-22 01:47:50,563 INFO  State of operation 21222148 : EXECUTING
-2022-07-22 01:47:52,993 INFO  State of operation 21222148 : EXECUTING
-2022-07-22 01:47:55,214 INFO  State of operation 21222148 : EXECUTING
-2022-07-22 01:47:57,456 INFO  State of operation 21222148 : EXECUTING
-2022-07-22 01:47:59,694 INFO  State of operation 21222148 : EXECUTING
-2022-07-22 01:48:01,907 INFO  State of operation 21222148 : SUCCESSFUL
-2022-07-22 01:48:02,466 INFO  Assert that (False == value) with value=False ... passed
-2022-07-22 01:48:02,478 INFO  
-2022-07-22 01:48:02,479 INFO  cleanup:
-2022-07-22 01:48:06,639 INFO  Executed sudo<tedge_disconnect_c8y>, exit status 0
-2022-07-22 01:48:07,202 INFO  Executed systemctl<serv_mapper5>, exit status 3
-2022-07-22 01:48:07,206 INFO  
-2022-07-22 01:48:07,207 INFO  Test duration: 156.84 secs
-2022-07-22 01:48:07,208 INFO  Test final outcome:  PASSED
-2022-07-22 01:48:07,209 INFO  
+2022-07-22 03:18:05,662 INFO  ==============================================================
+2022-07-22 03:18:05,663 INFO  Id:    SoftwareManagement.sm_apt_install_remove_with_version
+2022-07-22 03:18:05,664 INFO  Dir:   software_management_end_to_end/
+2022-07-22 03:18:05,665 INFO  Title: Validate end to end behaviour for the apt plugin for packages with version
+2022-07-22 03:18:05,666 INFO  ==============================================================
+2022-07-22 03:18:05,673 INFO  Using sw id database: {'asciijump': '5475369', 'robotfindskitten': '5474869', 'squirrel3': '5475279', 'rolldice': '5152439', 'moon-buggy': '5439204', 'apple': '5495053', 'banana': '5494888', 'cherry': '5495382', 'watermelon': '5494510', 'registry': '8018911', 'hello-world': '8021526', 'docker/getting-started': '8021973', 'alpine': '7991792'}
+2022-07-22 03:18:05,674 INFO  EnvironmentC8y Setup
+2022-07-22 03:18:06,236 INFO  Executed systemctl<serv_mapper1>, exit status 3
+2022-07-22 03:18:06,352 INFO  Restarting mosquitto too frequently in the last 10 seconds. It was only up for 5 seconds
+2022-07-22 03:18:06,354 INFO  Delaying execution by 6 seconds
+2022-07-22 03:18:26,375 INFO  Executed sudo<tedge_connect_c8y>, exit status 0, duration 14 secs
+2022-07-22 03:18:26,993 INFO  Executed sudo<tedge_connect_c8y_test>, exit status 0
+2022-07-22 03:18:27,557 INFO  Executed systemctl<serv_mosq2>, exit status 0
+2022-07-22 03:18:28,028 INFO  Executed systemctl<serv_mapper3>, exit status 0
+2022-07-22 03:18:30,250 INFO  State of current operation: EXECUTING
+2022-07-22 03:18:32,480 INFO  State of current operation: EXECUTING
+2022-07-22 03:18:34,694 INFO  State of current operation: EXECUTING
+2022-07-22 03:18:36,906 INFO  State of current operation: EXECUTING
+2022-07-22 03:18:39,125 INFO  State of current operation: EXECUTING
+2022-07-22 03:18:41,334 INFO  State of current operation: EXECUTING
+2022-07-22 03:18:43,544 INFO  State of current operation: EXECUTING
+2022-07-22 03:18:45,769 INFO  State of current operation: EXECUTING
+2022-07-22 03:18:47,986 INFO  State of current operation: EXECUTING
+2022-07-22 03:18:50,207 INFO  State of current operation: EXECUTING
+2022-07-22 03:18:52,427 INFO  State of current operation: EXECUTING
+2022-07-22 03:18:54,646 INFO  State of current operation: EXECUTING
+2022-07-22 03:18:56,864 INFO  State of current operation: EXECUTING
+2022-07-22 03:18:59,079 INFO  State of current operation: EXECUTING
+2022-07-22 03:19:01,298 INFO  State of current operation: EXECUTING
+2022-07-22 03:19:03,518 INFO  State of current operation: EXECUTING
+2022-07-22 03:19:05,736 INFO  State of current operation: EXECUTING
+2022-07-22 03:19:07,953 INFO  State of current operation: EXECUTING
+2022-07-22 03:19:10,168 INFO  State of current operation: EXECUTING
+2022-07-22 03:19:12,381 INFO  State of current operation: EXECUTING
+2022-07-22 03:19:14,600 INFO  State of current operation: EXECUTING
+2022-07-22 03:19:16,897 INFO  State of current operation: EXECUTING
+2022-07-22 03:19:19,115 INFO  State of current operation: EXECUTING
+2022-07-22 03:19:21,337 INFO  State of current operation: EXECUTING
+2022-07-22 03:19:23,553 INFO  State of current operation: EXECUTING
+2022-07-22 03:19:25,771 INFO  State of current operation: EXECUTING
+2022-07-22 03:19:27,987 INFO  State of current operation: EXECUTING
+2022-07-22 03:19:30,199 INFO  State of current operation: EXECUTING
+2022-07-22 03:19:32,413 INFO  State of current operation: EXECUTING
+2022-07-22 03:19:34,633 INFO  State of current operation: EXECUTING
+2022-07-22 03:19:36,882 INFO  State of current operation: EXECUTING
+2022-07-22 03:19:39,102 INFO  State of current operation: EXECUTING
+2022-07-22 03:19:41,316 INFO  State of current operation: EXECUTING
+2022-07-22 03:19:43,535 INFO  State of current operation: EXECUTING
+2022-07-22 03:19:45,756 INFO  State of current operation: EXECUTING
+2022-07-22 03:19:47,973 INFO  State of current operation: EXECUTING
+2022-07-22 03:19:50,184 INFO  State of current operation: EXECUTING
+2022-07-22 03:19:52,470 INFO  State of current operation: EXECUTING
+2022-07-22 03:19:54,688 INFO  State of current operation: EXECUTING
+2022-07-22 03:19:56,905 INFO  State of current operation: EXECUTING
+2022-07-22 03:19:59,115 INFO  State of current operation: EXECUTING
+2022-07-22 03:20:01,332 INFO  State of current operation: EXECUTING
+2022-07-22 03:20:03,550 INFO  State of current operation: EXECUTING
+2022-07-22 03:20:05,770 INFO  State of current operation: EXECUTING
+2022-07-22 03:20:08,008 INFO  State of current operation: EXECUTING
+2022-07-22 03:20:10,234 INFO  State of current operation: EXECUTING
+2022-07-22 03:20:12,460 INFO  State of current operation: EXECUTING
+2022-07-22 03:20:14,676 INFO  State of current operation: EXECUTING
+2022-07-22 03:20:16,892 INFO  State of current operation: EXECUTING
+2022-07-22 03:20:19,110 INFO  State of current operation: EXECUTING
+2022-07-22 03:20:21,325 INFO  State of current operation: EXECUTING
+2022-07-22 03:20:23,542 INFO  State of current operation: EXECUTING
+2022-07-22 03:20:25,760 INFO  State of current operation: EXECUTING
+2022-07-22 03:20:27,988 INFO  State of current operation: EXECUTING
+2022-07-22 03:20:30,203 INFO  State of current operation: EXECUTING
+2022-07-22 03:20:32,420 INFO  State of current operation: EXECUTING
+2022-07-22 03:20:34,644 INFO  State of current operation: EXECUTING
+2022-07-22 03:20:36,861 INFO  State of current operation: EXECUTING
+2022-07-22 03:20:39,078 INFO  State of current operation: EXECUTING
+2022-07-22 03:20:41,303 INFO  State of current operation: EXECUTING
+2022-07-22 03:20:43,517 INFO  State of current operation: EXECUTING
+2022-07-22 03:20:45,521 WARN  SystemError occurred while running test - Timeout while waiting for status FAILED or SUCCESSFUL
+Traceback (most recent call last):
+  File "/home/pi/env-pysys/lib/python3.7/site-packages/pysys/baserunner.py", line 1292, in __call__
+    self.testObj.setup()
+  File "/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/sm_apt_install_remove_with_version/run.py", line 27, in setup
+    super().setup()
+  File "/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/environment_sm_management.py", line 151, in setup
+    self.wait_until_end()
+  File "/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/environment_sm_management.py", line 332, in wait_until_end
+    self.wait_until_status("FAILED", "SUCCESSFUL")
+  File "/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/environment_sm_management.py", line 381, in wait_until_status
+    "Timeout while waiting for status %s or %s" % (status, status2)
+SystemError: Timeout while waiting for status FAILED or SUCCESSFUL
+2022-07-22 03:20:45,549 WARN  SystemError: Timeout while waiting for status FAILED or SUCCESSFUL ... blocked 
+2022-07-22 03:20:45,550 INFO  
+2022-07-22 03:20:45,551 INFO  cleanup:
+2022-07-22 03:20:49,559 INFO  Executed sudo<tedge_disconnect_c8y>, exit status 0
+2022-07-22 03:20:50,121 INFO  Executed systemctl<serv_mapper5>, exit status 3
+2022-07-22 03:20:50,125 INFO  
+2022-07-22 03:20:50,126 INFO  Test duration: 164.48 secs
+2022-07-22 03:20:50,127 INFO  Test final outcome:  BLOCKED
+2022-07-22 03:20:50,128 INFO  Test outcome reason: SystemError: Timeout while waiting for status FAILED or SUCCESSFUL
+2022-07-22 03:20:50,129 INFO  

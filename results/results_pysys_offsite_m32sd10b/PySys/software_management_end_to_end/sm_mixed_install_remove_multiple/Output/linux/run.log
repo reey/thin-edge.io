@@ -1,204 +1,98 @@
-2022-07-22 01:48:09,584 INFO  ==============================================================
-2022-07-22 01:48:09,585 INFO  Id:    SoftwareManagement.sm_mixed_install_remove_multiple
-2022-07-22 01:48:09,586 INFO  Dir:   software_management_end_to_end/
-2022-07-22 01:48:09,587 INFO  Title: Validate end to end behaviour for the dummy-plugin for multiple packages with mixed versions
-2022-07-22 01:48:09,588 INFO  ==============================================================
-2022-07-22 01:48:09,599 INFO  Using sw id database: {'asciijump': '5475369', 'robotfindskitten': '5474869', 'squirrel3': '5475279', 'rolldice': '5152439', 'moon-buggy': '5439204', 'apple': '5495053', 'banana': '5494888', 'cherry': '5495382', 'watermelon': '5494510', 'registry': '8018911', 'hello-world': '8021526', 'docker/getting-started': '8021973', 'alpine': '7991792'}
-2022-07-22 01:48:09,600 INFO  EnvironmentC8y Setup
-2022-07-22 01:48:10,161 INFO  Executed systemctl<serv_mapper1>, exit status 3
-2022-07-22 01:48:10,276 INFO  Restarting mosquitto too frequently in the last 10 seconds. It was only up for 4 seconds
-2022-07-22 01:48:10,277 INFO  Delaying execution by 7 seconds
-2022-07-22 01:48:31,503 INFO  Executed sudo<tedge_connect_c8y>, exit status 0, duration 14 secs
-2022-07-22 01:48:32,128 INFO  Executed sudo<tedge_connect_c8y_test>, exit status 0
-2022-07-22 01:48:32,592 INFO  Executed systemctl<serv_mosq2>, exit status 0
-2022-07-22 01:48:33,055 INFO  Executed systemctl<serv_mapper3>, exit status 0
-2022-07-22 01:48:35,274 INFO  State of current operation: SUCCESSFUL
-2022-07-22 01:48:35,497 INFO  Package apple is installed
-2022-07-22 01:48:35,500 INFO  Assert that (True == value) with value=True ... passed
-2022-07-22 01:48:35,727 INFO  Package banana is installed
-2022-07-22 01:48:35,729 INFO  Assert that (True == value) with value=True ... passed
-2022-07-22 01:48:35,956 INFO  Package cherry is installed
-2022-07-22 01:48:35,958 INFO  Assert that (True == value) with value=True ... passed
-2022-07-22 01:48:36,187 INFO  Package asciijump is installed
-2022-07-22 01:48:36,222 WARN  Assert that (False == value) with value=True ... failed 
-2022-07-22 01:48:36,451 INFO  Assert that (False == value) with value=False ... passed
-2022-07-22 01:48:36,682 INFO  Response status: 201
-2022-07-22 01:48:36,683 INFO  Response to action: {
-    "creationTime": "2022-07-22T01:48:36.633Z",
-    "deviceId": "21166557",
-    "deviceName": "m32sd10b",
-    "self": "https://t493319102.eu-latest.cumulocity.com/devicecontrol/operations/21222164",
-    "id": "21222164",
-    "status": "PENDING",
-    "description": "Apply software changes, triggered from PySys: [{'action': 'install', 'id': '5495053', 'name': 'apple', 'url': ' ', 'version': '::fruits'}, {'action': 'install', 'id': '5494888', 'name': 'banana', 'url': ' ', 'version': '::fruits'}, {'action': 'install', 'id': '5475369', 'name': 'asciijump', 'url': ' ', 'version': '::apt'}, {'action': 'install', 'id': '5495382', 'name': 'cherry', 'url': ' ', 'version': '::fruits'}, {'action': 'install', 'id': '8018911', 'name': 'registry', 'url': ' ', 'version': '::docker'}]",
-    "c8y_SoftwareUpdate": [
-        {
-            "name": "apple",
-            "action": "install",
-            "id": "5495053",
-            "version": "::fruits",
-            "url": " "
-        },
-        {
-            "name": "banana",
-            "action": "install",
-            "id": "5494888",
-            "version": "::fruits",
-            "url": " "
-        },
-        {
-            "name": "asciijump",
-            "action": "install",
-            "id": "5475369",
-            "version": "::apt",
-            "url": " "
-        },
-        {
-            "name": "cherry",
-            "action": "install",
-            "id": "5495382",
-            "version": "::fruits",
-            "url": " "
-        },
-        {
-            "name": "registry",
-            "action": "install",
-            "id": "8018911",
-            "version": "::docker",
-            "url": " "
-        }
-    ]
-}
-2022-07-22 01:48:36,684 INFO  Started operation: {'creationTime': '2022-07-22T01:48:36.633Z', 'deviceId': '21166557', 'deviceName': 'm32sd10b', 'self': 'https://t493319102.eu-latest.cumulocity.com/devicecontrol/operations/21222164', 'id': '21222164', 'status': 'PENDING', 'description': "Apply software changes, triggered from PySys: [{'action': 'install', 'id': '5495053', 'name': 'apple', 'url': ' ', 'version': '::fruits'}, {'action': 'install', 'id': '5494888', 'name': 'banana', 'url': ' ', 'version': '::fruits'}, {'action': 'install', 'id': '5475369', 'name': 'asciijump', 'url': ' ', 'version': '::apt'}, {'action': 'install', 'id': '5495382', 'name': 'cherry', 'url': ' ', 'version': '::fruits'}, {'action': 'install', 'id': '8018911', 'name': 'registry', 'url': ' ', 'version': '::docker'}]", 'c8y_SoftwareUpdate': [{'name': 'apple', 'action': 'install', 'id': '5495053', 'version': '::fruits', 'url': ' '}, {'name': 'banana', 'action': 'install', 'id': '5494888', 'version': '::fruits', 'url': ' '}, {'name': 'asciijump', 'action': 'install', 'id': '5475369', 'version': '::apt', 'url': ' '}, {'name': 'cherry', 'action': 'install', 'id': '5495382', 'version': '::fruits', 'url': ' '}, {'name': 'registry', 'action': 'install', 'id': '8018911', 'version': '::docker', 'url': ' '}]}
-2022-07-22 01:48:38,892 INFO  State of operation 21222164 : PENDING
-2022-07-22 01:48:41,126 INFO  State of operation 21222164 : EXECUTING
-2022-07-22 01:48:43,352 INFO  State of operation 21222164 : EXECUTING
-2022-07-22 01:48:45,562 INFO  State of operation 21222164 : EXECUTING
-2022-07-22 01:48:47,779 INFO  State of operation 21222164 : EXECUTING
-2022-07-22 01:48:50,005 INFO  State of operation 21222164 : EXECUTING
-2022-07-22 01:48:52,222 INFO  State of operation 21222164 : EXECUTING
-2022-07-22 01:48:54,969 INFO  State of operation 21222164 : EXECUTING
-2022-07-22 01:48:57,722 INFO  State of operation 21222164 : EXECUTING
-2022-07-22 01:49:00,393 INFO  State of operation 21222164 : EXECUTING
-2022-07-22 01:49:02,617 INFO  State of operation 21222164 : EXECUTING
-2022-07-22 01:49:04,884 INFO  State of operation 21222164 : EXECUTING
-2022-07-22 01:49:07,109 INFO  State of operation 21222164 : EXECUTING
-2022-07-22 01:49:09,330 INFO  State of operation 21222164 : EXECUTING
-2022-07-22 01:49:11,543 INFO  State of operation 21222164 : EXECUTING
-2022-07-22 01:49:13,873 INFO  State of operation 21222164 : EXECUTING
-2022-07-22 01:49:16,130 INFO  State of operation 21222164 : EXECUTING
-2022-07-22 01:49:18,464 INFO  State of operation 21222164 : EXECUTING
-2022-07-22 01:49:20,693 INFO  State of operation 21222164 : EXECUTING
-2022-07-22 01:49:22,967 INFO  State of operation 21222164 : EXECUTING
-2022-07-22 01:49:25,202 INFO  State of operation 21222164 : EXECUTING
-2022-07-22 01:49:27,459 INFO  State of operation 21222164 : EXECUTING
-2022-07-22 01:49:29,682 INFO  State of operation 21222164 : EXECUTING
-2022-07-22 01:49:31,988 INFO  State of operation 21222164 : EXECUTING
-2022-07-22 01:49:34,262 INFO  State of operation 21222164 : EXECUTING
-2022-07-22 01:49:36,477 INFO  State of operation 21222164 : EXECUTING
-2022-07-22 01:49:38,702 INFO  State of operation 21222164 : SUCCESSFUL
-2022-07-22 01:49:38,945 INFO  Package apple is installed
-2022-07-22 01:49:38,949 INFO  Assert that (True == value) with value=True ... passed
-2022-07-22 01:49:39,162 INFO  Package banana is installed
-2022-07-22 01:49:39,164 INFO  Assert that (True == value) with value=True ... passed
-2022-07-22 01:49:39,427 INFO  Package cherry is installed
-2022-07-22 01:49:39,430 INFO  Assert that (True == value) with value=True ... passed
-2022-07-22 01:49:39,648 INFO  Package asciijump is installed
-2022-07-22 01:49:39,650 INFO  Assert that (True == value) with value=True ... passed
-2022-07-22 01:49:39,875 INFO  Package registry is installed
-2022-07-22 01:49:39,877 INFO  Assert that (True == value) with value=True ... passed
-2022-07-22 01:49:40,126 INFO  Response status: 201
-2022-07-22 01:49:40,128 INFO  Response to action: {
-    "creationTime": "2022-07-22T01:49:40.070Z",
-    "deviceId": "21166557",
-    "deviceName": "m32sd10b",
-    "self": "https://t493319102.eu-latest.cumulocity.com/devicecontrol/operations/21222174",
-    "id": "21222174",
-    "status": "PENDING",
-    "description": "Apply software changes, triggered from PySys: [{'action': 'delete', 'id': '5495053', 'name': 'apple', 'url': ' ', 'version': '::fruits'}, {'action': 'delete', 'id': '5494888', 'name': 'banana', 'url': ' ', 'version': '::fruits'}, {'action': 'delete', 'id': '5475369', 'name': 'asciijump', 'url': ' ', 'version': '::apt'}, {'action': 'delete', 'id': '5495382', 'name': 'cherry', 'url': ' ', 'version': '::fruits'}, {'action': 'delete', 'id': '8018911', 'name': 'registry', 'url': ' ', 'version': '::docker'}]",
-    "c8y_SoftwareUpdate": [
-        {
-            "name": "apple",
-            "action": "delete",
-            "id": "5495053",
-            "version": "::fruits",
-            "url": " "
-        },
-        {
-            "name": "banana",
-            "action": "delete",
-            "id": "5494888",
-            "version": "::fruits",
-            "url": " "
-        },
-        {
-            "name": "asciijump",
-            "action": "delete",
-            "id": "5475369",
-            "version": "::apt",
-            "url": " "
-        },
-        {
-            "name": "cherry",
-            "action": "delete",
-            "id": "5495382",
-            "version": "::fruits",
-            "url": " "
-        },
-        {
-            "name": "registry",
-            "action": "delete",
-            "id": "8018911",
-            "version": "::docker",
-            "url": " "
-        }
-    ]
-}
-2022-07-22 01:49:40,129 INFO  Started operation: {'creationTime': '2022-07-22T01:49:40.070Z', 'deviceId': '21166557', 'deviceName': 'm32sd10b', 'self': 'https://t493319102.eu-latest.cumulocity.com/devicecontrol/operations/21222174', 'id': '21222174', 'status': 'PENDING', 'description': "Apply software changes, triggered from PySys: [{'action': 'delete', 'id': '5495053', 'name': 'apple', 'url': ' ', 'version': '::fruits'}, {'action': 'delete', 'id': '5494888', 'name': 'banana', 'url': ' ', 'version': '::fruits'}, {'action': 'delete', 'id': '5475369', 'name': 'asciijump', 'url': ' ', 'version': '::apt'}, {'action': 'delete', 'id': '5495382', 'name': 'cherry', 'url': ' ', 'version': '::fruits'}, {'action': 'delete', 'id': '8018911', 'name': 'registry', 'url': ' ', 'version': '::docker'}]", 'c8y_SoftwareUpdate': [{'name': 'apple', 'action': 'delete', 'id': '5495053', 'version': '::fruits', 'url': ' '}, {'name': 'banana', 'action': 'delete', 'id': '5494888', 'version': '::fruits', 'url': ' '}, {'name': 'asciijump', 'action': 'delete', 'id': '5475369', 'version': '::apt', 'url': ' '}, {'name': 'cherry', 'action': 'delete', 'id': '5495382', 'version': '::fruits', 'url': ' '}, {'name': 'registry', 'action': 'delete', 'id': '8018911', 'version': '::docker', 'url': ' '}]}
-2022-07-22 01:49:42,345 INFO  State of operation 21222174 : PENDING
-2022-07-22 01:49:44,598 INFO  State of operation 21222174 : EXECUTING
-2022-07-22 01:49:46,812 INFO  State of operation 21222174 : EXECUTING
-2022-07-22 01:49:49,031 INFO  State of operation 21222174 : EXECUTING
-2022-07-22 01:49:51,251 INFO  State of operation 21222174 : EXECUTING
-2022-07-22 01:49:53,464 INFO  State of operation 21222174 : EXECUTING
-2022-07-22 01:49:56,110 INFO  State of operation 21222174 : EXECUTING
-2022-07-22 01:49:58,795 INFO  State of operation 21222174 : EXECUTING
-2022-07-22 01:50:01,023 INFO  State of operation 21222174 : EXECUTING
-2022-07-22 01:50:03,403 INFO  State of operation 21222174 : EXECUTING
-2022-07-22 01:50:05,613 INFO  State of operation 21222174 : EXECUTING
-2022-07-22 01:50:07,837 INFO  State of operation 21222174 : EXECUTING
-2022-07-22 01:50:10,066 INFO  State of operation 21222174 : EXECUTING
-2022-07-22 01:50:12,288 INFO  State of operation 21222174 : EXECUTING
-2022-07-22 01:50:14,545 INFO  State of operation 21222174 : EXECUTING
-2022-07-22 01:50:16,972 INFO  State of operation 21222174 : EXECUTING
-2022-07-22 01:50:21,062 INFO  State of operation 21222174 : EXECUTING
-2022-07-22 01:50:23,440 INFO  State of operation 21222174 : EXECUTING
-2022-07-22 01:50:25,659 INFO  State of operation 21222174 : EXECUTING
-2022-07-22 01:50:27,874 INFO  State of operation 21222174 : EXECUTING
-2022-07-22 01:50:30,094 INFO  State of operation 21222174 : EXECUTING
-2022-07-22 01:50:32,319 INFO  State of operation 21222174 : EXECUTING
-2022-07-22 01:50:35,010 INFO  State of operation 21222174 : EXECUTING
-2022-07-22 01:50:37,237 INFO  State of operation 21222174 : EXECUTING
-2022-07-22 01:50:39,514 INFO  State of operation 21222174 : EXECUTING
-2022-07-22 01:50:41,729 INFO  State of operation 21222174 : EXECUTING
-2022-07-22 01:50:43,942 INFO  State of operation 21222174 : EXECUTING
-2022-07-22 01:50:46,386 INFO  State of operation 21222174 : EXECUTING
-2022-07-22 01:50:48,607 INFO  State of operation 21222174 : EXECUTING
-2022-07-22 01:50:50,814 INFO  State of operation 21222174 : SUCCESSFUL
-2022-07-22 01:50:51,033 INFO  Package apple is installed
-2022-07-22 01:50:51,036 INFO  Assert that (True == value) with value=True ... passed
-2022-07-22 01:50:51,256 INFO  Package banana is installed
-2022-07-22 01:50:51,258 INFO  Assert that (True == value) with value=True ... passed
-2022-07-22 01:50:51,481 INFO  Package cherry is installed
-2022-07-22 01:50:51,484 INFO  Assert that (True == value) with value=True ... passed
-2022-07-22 01:50:51,820 INFO  Assert that (False == value) with value=False ... passed
-2022-07-22 01:50:52,043 INFO  Assert that (False == value) with value=False ... passed
-2022-07-22 01:50:52,054 INFO  
-2022-07-22 01:50:52,055 INFO  cleanup:
-2022-07-22 01:50:56,248 INFO  Executed sudo<tedge_disconnect_c8y>, exit status 0
-2022-07-22 01:50:56,820 INFO  Executed systemctl<serv_mapper5>, exit status 3
-2022-07-22 01:50:56,824 INFO  
-2022-07-22 01:50:56,825 INFO  Test duration: 167.25 secs
-2022-07-22 01:50:56,826 INFO  Test final outcome:  FAILED
-2022-07-22 01:50:56,827 INFO  Test outcome reason: Assert that (False == value) with value=True
-2022-07-22 01:50:56,828 INFO  
+2022-07-22 03:26:30,029 INFO  ==============================================================
+2022-07-22 03:26:30,030 INFO  Id:    SoftwareManagement.sm_mixed_install_remove_multiple
+2022-07-22 03:26:30,031 INFO  Dir:   software_management_end_to_end/
+2022-07-22 03:26:30,032 INFO  Title: Validate end to end behaviour for the dummy-plugin for multiple packages with mixed versions
+2022-07-22 03:26:30,033 INFO  ==============================================================
+2022-07-22 03:26:30,060 INFO  Using sw id database: {'asciijump': '5475369', 'robotfindskitten': '5474869', 'squirrel3': '5475279', 'rolldice': '5152439', 'moon-buggy': '5439204', 'apple': '5495053', 'banana': '5494888', 'cherry': '5495382', 'watermelon': '5494510', 'registry': '8018911', 'hello-world': '8021526', 'docker/getting-started': '8021973', 'alpine': '7991792'}
+2022-07-22 03:26:30,061 INFO  EnvironmentC8y Setup
+2022-07-22 03:26:30,622 INFO  Executed systemctl<serv_mapper1>, exit status 3
+2022-07-22 03:26:30,721 INFO  Restarting mosquitto too frequently in the last 10 seconds. It was only up for 5 seconds
+2022-07-22 03:26:30,723 INFO  Delaying execution by 6 seconds
+2022-07-22 03:26:50,806 INFO  Executed sudo<tedge_connect_c8y>, exit status 0, duration 14 secs
+2022-07-22 03:26:51,391 INFO  Executed sudo<tedge_connect_c8y_test>, exit status 0
+2022-07-22 03:26:51,853 INFO  Executed systemctl<serv_mosq2>, exit status 0
+2022-07-22 03:26:52,326 INFO  Executed systemctl<serv_mapper3>, exit status 0
+2022-07-22 03:26:54,546 INFO  State of current operation: EXECUTING
+2022-07-22 03:26:56,760 INFO  State of current operation: EXECUTING
+2022-07-22 03:26:58,978 INFO  State of current operation: EXECUTING
+2022-07-22 03:27:01,193 INFO  State of current operation: EXECUTING
+2022-07-22 03:27:03,566 INFO  State of current operation: EXECUTING
+2022-07-22 03:27:05,784 INFO  State of current operation: EXECUTING
+2022-07-22 03:27:07,998 INFO  State of current operation: EXECUTING
+2022-07-22 03:27:10,216 INFO  State of current operation: EXECUTING
+2022-07-22 03:27:12,433 INFO  State of current operation: EXECUTING
+2022-07-22 03:27:14,656 INFO  State of current operation: EXECUTING
+2022-07-22 03:27:16,879 INFO  State of current operation: EXECUTING
+2022-07-22 03:27:19,099 INFO  State of current operation: EXECUTING
+2022-07-22 03:27:21,322 INFO  State of current operation: EXECUTING
+2022-07-22 03:27:23,544 INFO  State of current operation: EXECUTING
+2022-07-22 03:27:25,761 INFO  State of current operation: EXECUTING
+2022-07-22 03:27:27,997 INFO  State of current operation: EXECUTING
+2022-07-22 03:27:30,210 INFO  State of current operation: EXECUTING
+2022-07-22 03:27:32,427 INFO  State of current operation: EXECUTING
+2022-07-22 03:27:34,648 INFO  State of current operation: EXECUTING
+2022-07-22 03:27:37,022 INFO  State of current operation: EXECUTING
+2022-07-22 03:27:39,236 INFO  State of current operation: EXECUTING
+2022-07-22 03:27:41,443 INFO  State of current operation: EXECUTING
+2022-07-22 03:27:43,654 INFO  State of current operation: EXECUTING
+2022-07-22 03:27:45,870 INFO  State of current operation: EXECUTING
+2022-07-22 03:27:48,090 INFO  State of current operation: EXECUTING
+2022-07-22 03:27:50,305 INFO  State of current operation: EXECUTING
+2022-07-22 03:27:52,521 INFO  State of current operation: EXECUTING
+2022-07-22 03:27:54,738 INFO  State of current operation: EXECUTING
+2022-07-22 03:27:56,960 INFO  State of current operation: EXECUTING
+2022-07-22 03:27:59,172 INFO  State of current operation: EXECUTING
+2022-07-22 03:28:01,481 INFO  State of current operation: EXECUTING
+2022-07-22 03:28:03,700 INFO  State of current operation: EXECUTING
+2022-07-22 03:28:05,920 INFO  State of current operation: EXECUTING
+2022-07-22 03:28:08,138 INFO  State of current operation: EXECUTING
+2022-07-22 03:28:10,372 INFO  State of current operation: EXECUTING
+2022-07-22 03:28:12,587 INFO  State of current operation: EXECUTING
+2022-07-22 03:28:14,805 INFO  State of current operation: EXECUTING
+2022-07-22 03:28:17,028 INFO  State of current operation: EXECUTING
+2022-07-22 03:28:19,252 INFO  State of current operation: EXECUTING
+2022-07-22 03:28:21,475 INFO  State of current operation: EXECUTING
+2022-07-22 03:28:23,788 INFO  State of current operation: EXECUTING
+2022-07-22 03:28:26,006 INFO  State of current operation: EXECUTING
+2022-07-22 03:28:28,229 INFO  State of current operation: EXECUTING
+2022-07-22 03:28:30,447 INFO  State of current operation: EXECUTING
+2022-07-22 03:28:32,663 INFO  State of current operation: EXECUTING
+2022-07-22 03:28:34,877 INFO  State of current operation: EXECUTING
+2022-07-22 03:28:37,115 INFO  State of current operation: EXECUTING
+2022-07-22 03:28:39,326 INFO  State of current operation: EXECUTING
+2022-07-22 03:28:41,564 INFO  State of current operation: EXECUTING
+2022-07-22 03:28:43,797 INFO  State of current operation: EXECUTING
+2022-07-22 03:28:46,015 INFO  State of current operation: EXECUTING
+2022-07-22 03:28:48,232 INFO  State of current operation: EXECUTING
+2022-07-22 03:28:50,520 INFO  State of current operation: EXECUTING
+2022-07-22 03:28:52,739 INFO  State of current operation: EXECUTING
+2022-07-22 03:28:54,956 INFO  State of current operation: EXECUTING
+2022-07-22 03:28:57,177 INFO  State of current operation: EXECUTING
+2022-07-22 03:28:59,403 INFO  State of current operation: EXECUTING
+2022-07-22 03:29:01,619 INFO  State of current operation: EXECUTING
+2022-07-22 03:29:03,855 INFO  State of current operation: EXECUTING
+2022-07-22 03:29:06,072 INFO  State of current operation: EXECUTING
+2022-07-22 03:29:08,289 INFO  State of current operation: EXECUTING
+2022-07-22 03:29:10,292 WARN  SystemError occurred while running test - Timeout while waiting for status FAILED or SUCCESSFUL
+Traceback (most recent call last):
+  File "/home/pi/env-pysys/lib/python3.7/site-packages/pysys/baserunner.py", line 1292, in __call__
+    self.testObj.setup()
+  File "/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/sm_mixed_install_remove_multiple/run.py", line 83, in setup
+    super().setup()
+  File "/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/environment_sm_management.py", line 151, in setup
+    self.wait_until_end()
+  File "/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/environment_sm_management.py", line 332, in wait_until_end
+    self.wait_until_status("FAILED", "SUCCESSFUL")
+  File "/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/environment_sm_management.py", line 381, in wait_until_status
+    "Timeout while waiting for status %s or %s" % (status, status2)
+SystemError: Timeout while waiting for status FAILED or SUCCESSFUL
+2022-07-22 03:29:10,324 WARN  SystemError: Timeout while waiting for status FAILED or SUCCESSFUL ... blocked 
+2022-07-22 03:29:10,326 INFO  
+2022-07-22 03:29:10,326 INFO  cleanup:
+2022-07-22 03:29:14,378 INFO  Executed sudo<tedge_disconnect_c8y>, exit status 0
+2022-07-22 03:29:14,990 INFO  Executed systemctl<serv_mapper5>, exit status 3
+2022-07-22 03:29:14,994 INFO  
+2022-07-22 03:29:14,995 INFO  Test duration: 164.97 secs
+2022-07-22 03:29:14,996 INFO  Test final outcome:  BLOCKED
+2022-07-22 03:29:14,997 INFO  Test outcome reason: SystemError: Timeout while waiting for status FAILED or SUCCESSFUL
+2022-07-22 03:29:14,998 INFO  

@@ -1,60 +1,98 @@
-2022-07-22 01:33:46,055 INFO  ==============================================================
-2022-07-22 01:33:46,056 INFO  Id:    SoftwareManagement.sm_apt_install_fail
-2022-07-22 01:33:46,057 INFO  Dir:   software_management_end_to_end/
-2022-07-22 01:33:46,058 INFO  Title: Validate end to end behaviour for a failing installation
-2022-07-22 01:33:46,059 INFO  ==============================================================
-2022-07-22 01:33:46,064 INFO  Using sw id database: {'asciijump': '5475369', 'robotfindskitten': '5474869', 'squirrel3': '5475279', 'rolldice': '5152439', 'moon-buggy': '5439204', 'apple': '5495053', 'banana': '5494888', 'cherry': '5495382', 'watermelon': '5494510', 'registry': '8018911', 'hello-world': '8021526', 'docker/getting-started': '8021973', 'alpine': '7991792'}
-2022-07-22 01:33:46,065 INFO  EnvironmentC8y Setup
-2022-07-22 01:33:46,627 INFO  Executed systemctl<serv_mapper1>, exit status 3
-2022-07-22 01:33:46,732 INFO  Restarting mosquitto too frequently in the last 10 seconds. It was only up for 5 seconds
-2022-07-22 01:33:46,733 INFO  Delaying execution by 6 seconds
-2022-07-22 01:34:06,292 INFO  Executed sudo<tedge_connect_c8y>, exit status 0, duration 13 secs
-2022-07-22 01:34:06,908 INFO  Executed sudo<tedge_connect_c8y_test>, exit status 0
-2022-07-22 01:34:07,373 INFO  Executed systemctl<serv_mosq2>, exit status 0
-2022-07-22 01:34:07,836 INFO  Executed systemctl<serv_mapper3>, exit status 0
-2022-07-22 01:34:10,074 INFO  State of current operation: FAILED
-2022-07-22 01:34:10,315 INFO  Response status: 201
-2022-07-22 01:34:10,316 INFO  Response to action: {
-    "creationTime": "2022-07-22T01:34:10.260Z",
-    "deviceId": "21167114",
-    "deviceName": "m32sd10c",
-    "self": "https://t493319102.eu-latest.cumulocity.com/devicecontrol/operations/21214026",
-    "id": "21214026",
-    "status": "PENDING",
-    "description": "Apply software changes, triggered from PySys: [{'name': 'does_not_exist', 'id': '5446165', 'version': '::apt', 'url': '', 'action': 'install'}]",
-    "c8y_SoftwareUpdate": [
-        {
-            "name": "does_not_exist",
-            "action": "install",
-            "id": "5446165",
-            "version": "::apt",
-            "url": ""
-        }
-    ]
-}
-2022-07-22 01:34:10,317 INFO  Started operation: {'creationTime': '2022-07-22T01:34:10.260Z', 'deviceId': '21167114', 'deviceName': 'm32sd10c', 'self': 'https://t493319102.eu-latest.cumulocity.com/devicecontrol/operations/21214026', 'id': '21214026', 'status': 'PENDING', 'description': "Apply software changes, triggered from PySys: [{'name': 'does_not_exist', 'id': '5446165', 'version': '::apt', 'url': '', 'action': 'install'}]", 'c8y_SoftwareUpdate': [{'name': 'does_not_exist', 'action': 'install', 'id': '5446165', 'version': '::apt', 'url': ''}]}
-2022-07-22 01:34:12,545 INFO  State of operation 21214026 : PENDING
-2022-07-22 01:34:14,799 INFO  State of operation 21214026 : EXECUTING
-2022-07-22 01:34:17,069 INFO  State of operation 21214026 : EXECUTING
-2022-07-22 01:34:19,400 INFO  State of operation 21214026 : EXECUTING
-2022-07-22 01:34:21,694 INFO  State of operation 21214026 : EXECUTING
-2022-07-22 01:34:23,931 INFO  State of operation 21214026 : EXECUTING
-2022-07-22 01:34:26,193 INFO  State of operation 21214026 : EXECUTING
-2022-07-22 01:34:29,022 INFO  State of operation 21214026 : EXECUTING
-2022-07-22 01:34:31,704 INFO  State of operation 21214026 : EXECUTING
-2022-07-22 01:34:34,228 INFO  State of operation 21214026 : EXECUTING
-2022-07-22 01:34:36,440 INFO  State of operation 21214026 : EXECUTING
-2022-07-22 01:34:38,678 INFO  State of operation 21214026 : EXECUTING
-2022-07-22 01:34:40,898 INFO  State of operation 21214026 : EXECUTING
-2022-07-22 01:34:43,128 INFO  State of operation 21214026 : EXECUTING
-2022-07-22 01:34:45,360 INFO  State of operation 21214026 : EXECUTING
-2022-07-22 01:34:47,574 INFO  State of operation 21214026 : FAILED
-2022-07-22 01:34:47,821 INFO  Assert that (False == value) with value=False ... passed
-2022-07-22 01:34:47,832 INFO  
-2022-07-22 01:34:47,833 INFO  cleanup:
-2022-07-22 01:34:52,093 INFO  Executed sudo<tedge_disconnect_c8y>, exit status 0
-2022-07-22 01:34:52,707 INFO  Executed systemctl<serv_mapper5>, exit status 3
-2022-07-22 01:34:52,711 INFO  
-2022-07-22 01:34:52,712 INFO  Test duration: 66.67 secs
-2022-07-22 01:34:52,713 INFO  Test final outcome:  PASSED
-2022-07-22 01:34:52,714 INFO  
+2022-07-22 03:04:20,294 INFO  ==============================================================
+2022-07-22 03:04:20,295 INFO  Id:    SoftwareManagement.sm_apt_install_fail
+2022-07-22 03:04:20,296 INFO  Dir:   software_management_end_to_end/
+2022-07-22 03:04:20,297 INFO  Title: Validate end to end behaviour for a failing installation
+2022-07-22 03:04:20,298 INFO  ==============================================================
+2022-07-22 03:04:20,304 INFO  Using sw id database: {'asciijump': '5475369', 'robotfindskitten': '5474869', 'squirrel3': '5475279', 'rolldice': '5152439', 'moon-buggy': '5439204', 'apple': '5495053', 'banana': '5494888', 'cherry': '5495382', 'watermelon': '5494510', 'registry': '8018911', 'hello-world': '8021526', 'docker/getting-started': '8021973', 'alpine': '7991792'}
+2022-07-22 03:04:20,305 INFO  EnvironmentC8y Setup
+2022-07-22 03:04:20,879 INFO  Executed systemctl<serv_mapper1>, exit status 3
+2022-07-22 03:04:21,019 INFO  Restarting mosquitto too frequently in the last 10 seconds. It was only up for 4 seconds
+2022-07-22 03:04:21,021 INFO  Delaying execution by 7 seconds
+2022-07-22 03:04:41,779 INFO  Executed sudo<tedge_connect_c8y>, exit status 0, duration 13 secs
+2022-07-22 03:04:42,399 INFO  Executed sudo<tedge_connect_c8y_test>, exit status 0
+2022-07-22 03:04:42,912 INFO  Executed systemctl<serv_mosq2>, exit status 0
+2022-07-22 03:04:43,425 INFO  Executed systemctl<serv_mapper3>, exit status 0
+2022-07-22 03:04:45,663 INFO  State of current operation: EXECUTING
+2022-07-22 03:04:47,882 INFO  State of current operation: EXECUTING
+2022-07-22 03:04:50,095 INFO  State of current operation: EXECUTING
+2022-07-22 03:04:52,308 INFO  State of current operation: EXECUTING
+2022-07-22 03:04:54,528 INFO  State of current operation: EXECUTING
+2022-07-22 03:04:56,747 INFO  State of current operation: EXECUTING
+2022-07-22 03:04:58,963 INFO  State of current operation: EXECUTING
+2022-07-22 03:05:01,189 INFO  State of current operation: EXECUTING
+2022-07-22 03:05:03,409 INFO  State of current operation: EXECUTING
+2022-07-22 03:05:05,628 INFO  State of current operation: EXECUTING
+2022-07-22 03:05:07,851 INFO  State of current operation: EXECUTING
+2022-07-22 03:05:10,064 INFO  State of current operation: EXECUTING
+2022-07-22 03:05:12,284 INFO  State of current operation: EXECUTING
+2022-07-22 03:05:14,505 INFO  State of current operation: EXECUTING
+2022-07-22 03:05:16,727 INFO  State of current operation: EXECUTING
+2022-07-22 03:05:18,977 INFO  State of current operation: EXECUTING
+2022-07-22 03:05:21,198 INFO  State of current operation: EXECUTING
+2022-07-22 03:05:23,407 INFO  State of current operation: EXECUTING
+2022-07-22 03:05:25,627 INFO  State of current operation: EXECUTING
+2022-07-22 03:05:27,841 INFO  State of current operation: EXECUTING
+2022-07-22 03:05:30,060 INFO  State of current operation: EXECUTING
+2022-07-22 03:05:32,287 INFO  State of current operation: EXECUTING
+2022-07-22 03:05:34,502 INFO  State of current operation: EXECUTING
+2022-07-22 03:05:36,713 INFO  State of current operation: EXECUTING
+2022-07-22 03:05:38,931 INFO  State of current operation: EXECUTING
+2022-07-22 03:05:41,145 INFO  State of current operation: EXECUTING
+2022-07-22 03:05:43,373 INFO  State of current operation: EXECUTING
+2022-07-22 03:05:45,592 INFO  State of current operation: EXECUTING
+2022-07-22 03:05:47,807 INFO  State of current operation: EXECUTING
+2022-07-22 03:05:50,023 INFO  State of current operation: EXECUTING
+2022-07-22 03:05:52,242 INFO  State of current operation: EXECUTING
+2022-07-22 03:05:54,457 INFO  State of current operation: EXECUTING
+2022-07-22 03:05:56,674 INFO  State of current operation: EXECUTING
+2022-07-22 03:05:58,898 INFO  State of current operation: EXECUTING
+2022-07-22 03:06:01,124 INFO  State of current operation: EXECUTING
+2022-07-22 03:06:03,346 INFO  State of current operation: EXECUTING
+2022-07-22 03:06:05,563 INFO  State of current operation: EXECUTING
+2022-07-22 03:06:07,782 INFO  State of current operation: EXECUTING
+2022-07-22 03:06:10,000 INFO  State of current operation: EXECUTING
+2022-07-22 03:06:12,528 INFO  State of current operation: EXECUTING
+2022-07-22 03:06:14,747 INFO  State of current operation: EXECUTING
+2022-07-22 03:06:16,967 INFO  State of current operation: EXECUTING
+2022-07-22 03:06:19,178 INFO  State of current operation: EXECUTING
+2022-07-22 03:06:21,396 INFO  State of current operation: EXECUTING
+2022-07-22 03:06:23,610 INFO  State of current operation: EXECUTING
+2022-07-22 03:06:25,825 INFO  State of current operation: EXECUTING
+2022-07-22 03:06:28,040 INFO  State of current operation: EXECUTING
+2022-07-22 03:06:30,250 INFO  State of current operation: EXECUTING
+2022-07-22 03:06:32,482 INFO  State of current operation: EXECUTING
+2022-07-22 03:06:34,693 INFO  State of current operation: EXECUTING
+2022-07-22 03:06:36,905 INFO  State of current operation: EXECUTING
+2022-07-22 03:06:39,114 INFO  State of current operation: EXECUTING
+2022-07-22 03:06:41,328 INFO  State of current operation: EXECUTING
+2022-07-22 03:06:43,547 INFO  State of current operation: EXECUTING
+2022-07-22 03:06:45,761 INFO  State of current operation: EXECUTING
+2022-07-22 03:06:47,976 INFO  State of current operation: EXECUTING
+2022-07-22 03:06:50,192 INFO  State of current operation: EXECUTING
+2022-07-22 03:06:52,411 INFO  State of current operation: EXECUTING
+2022-07-22 03:06:54,622 INFO  State of current operation: EXECUTING
+2022-07-22 03:06:56,834 INFO  State of current operation: EXECUTING
+2022-07-22 03:06:59,044 INFO  State of current operation: EXECUTING
+2022-07-22 03:07:01,053 WARN  SystemError occurred while running test - Timeout while waiting for status FAILED or SUCCESSFUL
+Traceback (most recent call last):
+  File "/home/pi/env-pysys/lib/python3.7/site-packages/pysys/baserunner.py", line 1292, in __call__
+    self.testObj.setup()
+  File "/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/sm_apt_install_fail/run.py", line 20, in setup
+    super().setup()
+  File "/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/environment_sm_management.py", line 151, in setup
+    self.wait_until_end()
+  File "/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/environment_sm_management.py", line 332, in wait_until_end
+    self.wait_until_status("FAILED", "SUCCESSFUL")
+  File "/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/environment_sm_management.py", line 381, in wait_until_status
+    "Timeout while waiting for status %s or %s" % (status, status2)
+SystemError: Timeout while waiting for status FAILED or SUCCESSFUL
+2022-07-22 03:07:01,082 WARN  SystemError: Timeout while waiting for status FAILED or SUCCESSFUL ... blocked 
+2022-07-22 03:07:01,084 INFO  
+2022-07-22 03:07:01,084 INFO  cleanup:
+2022-07-22 03:07:05,043 INFO  Executed sudo<tedge_disconnect_c8y>, exit status 0
+2022-07-22 03:07:05,608 INFO  Executed systemctl<serv_mapper5>, exit status 3
+2022-07-22 03:07:05,612 INFO  
+2022-07-22 03:07:05,613 INFO  Test duration: 165.33 secs
+2022-07-22 03:07:05,614 INFO  Test final outcome:  BLOCKED
+2022-07-22 03:07:05,615 INFO  Test outcome reason: SystemError: Timeout while waiting for status FAILED or SUCCESSFUL
+2022-07-22 03:07:05,616 INFO  

@@ -1,34 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<testsuite failures="1" name="SoftwareManagement.sm_apt_install_remove_multiple_mixed" skipped="0" tests="1" time="179.55" timestamp="2022-07-22T01:17:10">
+<testsuite failures="1" name="SoftwareManagement.sm_apt_install_remove_multiple_mixed" skipped="0" tests="1" time="270.07" timestamp="2022-07-22T02:47:06">
 	<testcase classname="PySysTest" name="SoftwareManagement.sm_apt_install_remove_multiple_mixed">
-		<failure message="BLOCKED: SystemError: Timeout while waiting for status SUCCESSFUL or False" type="BLOCKED"/>
-		<system-out>01:14:10 INFO  ==============================================================
-01:14:10 INFO  Id:    SoftwareManagement.sm_apt_install_remove_multiple_mixed
-01:14:10 INFO  Dir:   software_management_end_to_end/
-01:14:10 INFO  Title: Validate end to end behaviour for the apt plugin for multiple packages with mixed versions
-01:14:10 INFO  ==============================================================
-01:14:10 INFO  Using sw id database: {'asciijump': '5475369', 'robotfindskitten': '5474869', 'squirrel3': '5475279', 'rolldice': '5152439', 'moon-buggy': '5439204', 'apple': '5495053', 'banana': '5494888', 'cherry': '5495382', 'watermelon': '5494510', 'registry': '8018911', 'hello-world': '8021526', 'docker/getting-started': '8021973', 'alpine': '7991792'}
-01:14:10 INFO  EnvironmentC8y Setup
-01:14:11 INFO  Executed systemctl&lt;serv_mapper1&gt;, exit status 3
-01:14:11 INFO  Restarting mosquitto too frequently in the last 10 seconds. It was only up for 4 seconds
-01:14:11 INFO  Delaying execution by 7 seconds
-01:14:32 INFO  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 0, duration 13 secs
-01:14:33 INFO  Executed sudo&lt;tedge_connect_c8y_test&gt;, exit status 0
-01:14:33 INFO  Executed systemctl&lt;serv_mosq2&gt;, exit status 0
-01:14:34 INFO  Executed systemctl&lt;serv_mapper3&gt;, exit status 0
-01:14:36 INFO  State of current operation: SUCCESSFUL
-01:14:36 INFO  Assert that (False == value) with value=False ... passed
-01:14:36 INFO  Assert that (False == value) with value=False ... passed
-01:14:37 INFO  Assert that (False == value) with value=False ... passed
-01:14:37 INFO  Assert that (False == value) with value=False ... passed
-01:14:37 INFO  Assert that (False == value) with value=False ... passed
-01:14:38 INFO  Response status: 201
-01:14:38 INFO  Response to action: {
-    &quot;creationTime&quot;: &quot;2022-07-22T01:14:38.824Z&quot;,
+		<failure message="FAILED: Assert that (False == value) with value=True" type="FAILED"/>
+		<system-out>02:42:36 INFO  ==============================================================
+02:42:36 INFO  Id:    SoftwareManagement.sm_apt_install_remove_multiple_mixed
+02:42:36 INFO  Dir:   software_management_end_to_end/
+02:42:36 INFO  Title: Validate end to end behaviour for the apt plugin for multiple packages with mixed versions
+02:42:36 INFO  ==============================================================
+02:42:36 INFO  Using sw id database: {'asciijump': '5475369', 'robotfindskitten': '5474869', 'squirrel3': '5475279', 'rolldice': '5152439', 'moon-buggy': '5439204', 'apple': '5495053', 'banana': '5494888', 'cherry': '5495382', 'watermelon': '5494510', 'registry': '8018911', 'hello-world': '8021526', 'docker/getting-started': '8021973', 'alpine': '7991792'}
+02:42:36 INFO  EnvironmentC8y Setup
+02:42:37 INFO  Executed systemctl&lt;serv_mapper1&gt;, exit status 3
+02:42:37 INFO  Restarting mosquitto too frequently in the last 10 seconds. It was only up for 5 seconds
+02:42:37 INFO  Delaying execution by 6 seconds
+02:42:57 INFO  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 0, duration 14 secs
+02:42:59 INFO  Executed sudo&lt;tedge_connect_c8y_test&gt;, exit status 0
+02:43:00 INFO  Executed systemctl&lt;serv_mosq2&gt;, exit status 0
+02:43:01 INFO  Executed systemctl&lt;serv_mapper3&gt;, exit status 0
+02:43:03 INFO  State of current operation: FAILED
+02:43:03 INFO  Assert that (False == value) with value=False ... passed
+02:43:03 INFO  Package robotfindskitten is installed
+02:43:03 WARN  Assert that (False == value) with value=True ... failed 
+02:43:04 INFO  Assert that (False == value) with value=False ... passed
+02:43:04 INFO  Assert that (False == value) with value=False ... passed
+02:43:04 INFO  Assert that (False == value) with value=False ... passed
+02:43:05 INFO  Response status: 201
+02:43:05 INFO  Response to action: {
+    &quot;creationTime&quot;: &quot;2022-07-22T02:43:05.658Z&quot;,
     &quot;deviceId&quot;: &quot;21164556&quot;,
     &quot;deviceName&quot;: &quot;m32sd10a&quot;,
-    &quot;self&quot;: &quot;https://t493319102.eu-latest.cumulocity.com/devicecontrol/operations/21213913&quot;,
-    &quot;id&quot;: &quot;21213913&quot;,
+    &quot;self&quot;: &quot;https://t493319102.eu-latest.cumulocity.com/devicecontrol/operations/21230831&quot;,
+    &quot;id&quot;: &quot;21230831&quot;,
     &quot;status&quot;: &quot;PENDING&quot;,
     &quot;description&quot;: &quot;Apply software changes, triggered from PySys: [{'action': 'install', 'id': '5475369', 'name': 'asciijump', 'url': ' ', 'version': '::apt'}, {'action': 'install', 'id': '5474869', 'name': 'robotfindskitten', 'url': ' ', 'version': ' '}, {'action': 'install', 'id': '5475279', 'name': 'squirrel3', 'url': ' ', 'version': '3.1-7::apt'}, {'action': 'install', 'id': '5152439', 'name': 'rolldice', 'url': ' ', 'version': '1.16-1+b1'}, {'action': 'install', 'id': '5439204', 'name': 'moon-buggy', 'url': ' ', 'version': '1:1.0.51-12'}, {'action': 'install', 'id': '5475369', 'name': 'asciijump', 'url': ' ', 'version': '::apt'}]&quot;,
     &quot;c8y_SoftwareUpdate&quot;: [
@@ -76,89 +77,185 @@
         }
     ]
 }
-01:14:38 INFO  Started operation: {'creationTime': '2022-07-22T01:14:38.824Z', 'deviceId': '21164556', 'deviceName': 'm32sd10a', 'self': 'https://t493319102.eu-latest.cumulocity.com/devicecontrol/operations/21213913', 'id': '21213913', 'status': 'PENDING', 'description': &quot;Apply software changes, triggered from PySys: [{'action': 'install', 'id': '5475369', 'name': 'asciijump', 'url': ' ', 'version': '::apt'}, {'action': 'install', 'id': '5474869', 'name': 'robotfindskitten', 'url': ' ', 'version': ' '}, {'action': 'install', 'id': '5475279', 'name': 'squirrel3', 'url': ' ', 'version': '3.1-7::apt'}, {'action': 'install', 'id': '5152439', 'name': 'rolldice', 'url': ' ', 'version': '1.16-1+b1'}, {'action': 'install', 'id': '5439204', 'name': 'moon-buggy', 'url': ' ', 'version': '1:1.0.51-12'}, {'action': 'install', 'id': '5475369', 'name': 'asciijump', 'url': ' ', 'version': '::apt'}]&quot;, 'c8y_SoftwareUpdate': [{'name': 'asciijump', 'action': 'install', 'id': '5475369', 'version': '::apt', 'url': ' '}, {'name': 'robotfindskitten', 'action': 'install', 'id': '5474869', 'version': ' ', 'url': ' '}, {'name': 'squirrel3', 'action': 'install', 'id': '5475279', 'version': '3.1-7::apt', 'url': ' '}, {'name': 'rolldice', 'action': 'install', 'id': '5152439', 'version': '1.16-1+b1', 'url': ' '}, {'name': 'moon-buggy', 'action': 'install', 'id': '5439204', 'version': '1:1.0.51-12', 'url': ' '}, {'name': 'asciijump', 'action': 'install', 'id': '5475369', 'version': '::apt', 'url': ' '}]}
-01:14:41 INFO  State of operation 21213913 : PENDING
-01:14:43 INFO  State of operation 21213913 : EXECUTING
-01:14:45 INFO  State of operation 21213913 : EXECUTING
-01:14:47 INFO  State of operation 21213913 : EXECUTING
-01:14:49 INFO  State of operation 21213913 : EXECUTING
-01:14:52 INFO  State of operation 21213913 : EXECUTING
-01:14:54 INFO  State of operation 21213913 : EXECUTING
-01:14:57 INFO  State of operation 21213913 : EXECUTING
-01:15:00 INFO  State of operation 21213913 : EXECUTING
-01:15:02 INFO  State of operation 21213913 : EXECUTING
-01:15:04 INFO  State of operation 21213913 : EXECUTING
-01:15:06 INFO  State of operation 21213913 : EXECUTING
-01:15:09 INFO  State of operation 21213913 : EXECUTING
-01:15:11 INFO  State of operation 21213913 : EXECUTING
-01:15:13 INFO  State of operation 21213913 : EXECUTING
-01:15:15 INFO  State of operation 21213913 : EXECUTING
-01:15:18 INFO  State of operation 21213913 : EXECUTING
-01:15:21 INFO  State of operation 21213913 : EXECUTING
-01:15:23 INFO  State of operation 21213913 : EXECUTING
-01:15:25 INFO  State of operation 21213913 : EXECUTING
-01:15:27 INFO  State of operation 21213913 : EXECUTING
-01:15:30 INFO  State of operation 21213913 : EXECUTING
-01:15:32 INFO  State of operation 21213913 : EXECUTING
-01:15:35 INFO  State of operation 21213913 : EXECUTING
-01:15:37 INFO  State of operation 21213913 : EXECUTING
-01:15:39 INFO  State of operation 21213913 : EXECUTING
-01:15:42 INFO  State of operation 21213913 : EXECUTING
-01:15:44 INFO  State of operation 21213913 : EXECUTING
-01:15:46 INFO  State of operation 21213913 : EXECUTING
-01:15:49 INFO  State of operation 21213913 : EXECUTING
-01:15:51 INFO  State of operation 21213913 : EXECUTING
-01:15:53 INFO  State of operation 21213913 : EXECUTING
-01:15:56 INFO  State of operation 21213913 : EXECUTING
-01:15:58 INFO  State of operation 21213913 : EXECUTING
-01:16:00 INFO  State of operation 21213913 : EXECUTING
-01:16:02 INFO  State of operation 21213913 : EXECUTING
-01:16:04 INFO  State of operation 21213913 : EXECUTING
-01:16:07 INFO  State of operation 21213913 : EXECUTING
-01:16:10 INFO  State of operation 21213913 : EXECUTING
-01:16:12 INFO  State of operation 21213913 : EXECUTING
-01:16:15 INFO  State of operation 21213913 : EXECUTING
-01:16:17 INFO  State of operation 21213913 : EXECUTING
-01:16:19 INFO  State of operation 21213913 : EXECUTING
-01:16:21 INFO  State of operation 21213913 : EXECUTING
-01:16:23 INFO  State of operation 21213913 : EXECUTING
-01:16:26 INFO  State of operation 21213913 : EXECUTING
-01:16:28 INFO  State of operation 21213913 : EXECUTING
-01:16:30 INFO  State of operation 21213913 : EXECUTING
-01:16:33 INFO  State of operation 21213913 : EXECUTING
-01:16:35 INFO  State of operation 21213913 : EXECUTING
-01:16:37 INFO  State of operation 21213913 : EXECUTING
-01:16:40 INFO  State of operation 21213913 : EXECUTING
-01:16:42 INFO  State of operation 21213913 : EXECUTING
-01:16:45 INFO  State of operation 21213913 : EXECUTING
-01:16:47 INFO  State of operation 21213913 : EXECUTING
-01:16:50 INFO  State of operation 21213913 : EXECUTING
-01:16:52 INFO  State of operation 21213913 : EXECUTING
-01:16:55 INFO  State of operation 21213913 : EXECUTING
-01:16:57 INFO  State of operation 21213913 : EXECUTING
-01:17:00 INFO  State of operation 21213913 : EXECUTING
-01:17:02 INFO  State of operation 21213913 : EXECUTING
-01:17:04 WARN  SystemError occurred while running test - Timeout while waiting for status SUCCESSFUL or False
-Traceback (most recent call last):
-  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/pysys/baserunner.py&quot;, line 1294, in __call__
-    self.testObj.execute()
-  File &quot;/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/sm_apt_install_remove_multiple_mixed/run.py&quot;, line 89, in execute
-    self.wait_until_succcess()
-  File &quot;/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/environment_sm_management.py&quot;, line 324, in wait_until_succcess
-    self.wait_until_status(&quot;SUCCESSFUL&quot;)
-  File &quot;/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/environment_sm_management.py&quot;, line 381, in wait_until_status
-    &quot;Timeout while waiting for status %s or %s&quot; % (status, status2)
-SystemError: Timeout while waiting for status SUCCESSFUL or False
-01:17:04 WARN  SystemError: Timeout while waiting for status SUCCESSFUL or False ... blocked 
-01:17:04 INFO  
-01:17:04 INFO  cleanup:
-01:17:09 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
-01:17:10 INFO  Executed systemctl&lt;serv_mapper5&gt;, exit status 3
-01:17:10 INFO  
-01:17:10 INFO  Test duration: 179.55 secs
-01:17:10 INFO  Test final outcome:  BLOCKED
-01:17:10 INFO  Test outcome reason: SystemError: Timeout while waiting for status SUCCESSFUL or False
-01:17:10 INFO  
+02:43:05 INFO  Started operation: {'creationTime': '2022-07-22T02:43:05.658Z', 'deviceId': '21164556', 'deviceName': 'm32sd10a', 'self': 'https://t493319102.eu-latest.cumulocity.com/devicecontrol/operations/21230831', 'id': '21230831', 'status': 'PENDING', 'description': &quot;Apply software changes, triggered from PySys: [{'action': 'install', 'id': '5475369', 'name': 'asciijump', 'url': ' ', 'version': '::apt'}, {'action': 'install', 'id': '5474869', 'name': 'robotfindskitten', 'url': ' ', 'version': ' '}, {'action': 'install', 'id': '5475279', 'name': 'squirrel3', 'url': ' ', 'version': '3.1-7::apt'}, {'action': 'install', 'id': '5152439', 'name': 'rolldice', 'url': ' ', 'version': '1.16-1+b1'}, {'action': 'install', 'id': '5439204', 'name': 'moon-buggy', 'url': ' ', 'version': '1:1.0.51-12'}, {'action': 'install', 'id': '5475369', 'name': 'asciijump', 'url': ' ', 'version': '::apt'}]&quot;, 'c8y_SoftwareUpdate': [{'name': 'asciijump', 'action': 'install', 'id': '5475369', 'version': '::apt', 'url': ' '}, {'name': 'robotfindskitten', 'action': 'install', 'id': '5474869', 'version': ' ', 'url': ' '}, {'name': 'squirrel3', 'action': 'install', 'id': '5475279', 'version': '3.1-7::apt', 'url': ' '}, {'name': 'rolldice', 'action': 'install', 'id': '5152439', 'version': '1.16-1+b1', 'url': ' '}, {'name': 'moon-buggy', 'action': 'install', 'id': '5439204', 'version': '1:1.0.51-12', 'url': ' '}, {'name': 'asciijump', 'action': 'install', 'id': '5475369', 'version': '::apt', 'url': ' '}]}
+02:43:07 INFO  State of operation 21230831 : PENDING
+02:43:10 INFO  State of operation 21230831 : EXECUTING
+02:43:12 INFO  State of operation 21230831 : EXECUTING
+02:43:14 INFO  State of operation 21230831 : EXECUTING
+02:43:16 INFO  State of operation 21230831 : EXECUTING
+02:43:19 INFO  State of operation 21230831 : EXECUTING
+02:43:21 INFO  State of operation 21230831 : EXECUTING
+02:43:24 INFO  State of operation 21230831 : EXECUTING
+02:43:27 INFO  State of operation 21230831 : EXECUTING
+02:43:29 INFO  State of operation 21230831 : EXECUTING
+02:43:31 INFO  State of operation 21230831 : EXECUTING
+02:43:33 INFO  State of operation 21230831 : EXECUTING
+02:43:36 INFO  State of operation 21230831 : EXECUTING
+02:43:38 INFO  State of operation 21230831 : EXECUTING
+02:43:40 INFO  State of operation 21230831 : EXECUTING
+02:43:43 INFO  State of operation 21230831 : EXECUTING
+02:43:45 INFO  State of operation 21230831 : EXECUTING
+02:43:47 INFO  State of operation 21230831 : EXECUTING
+02:43:50 INFO  State of operation 21230831 : EXECUTING
+02:43:53 INFO  State of operation 21230831 : EXECUTING
+02:43:55 INFO  State of operation 21230831 : EXECUTING
+02:43:57 INFO  State of operation 21230831 : EXECUTING
+02:43:59 INFO  State of operation 21230831 : EXECUTING
+02:44:02 INFO  State of operation 21230831 : EXECUTING
+02:44:04 INFO  State of operation 21230831 : EXECUTING
+02:44:06 INFO  State of operation 21230831 : EXECUTING
+02:44:08 INFO  State of operation 21230831 : EXECUTING
+02:44:11 INFO  State of operation 21230831 : EXECUTING
+02:44:13 INFO  State of operation 21230831 : EXECUTING
+02:44:16 INFO  State of operation 21230831 : EXECUTING
+02:44:18 INFO  State of operation 21230831 : EXECUTING
+02:44:21 INFO  State of operation 21230831 : EXECUTING
+02:44:23 INFO  State of operation 21230831 : EXECUTING
+02:44:25 INFO  State of operation 21230831 : EXECUTING
+02:44:27 INFO  State of operation 21230831 : EXECUTING
+02:44:30 INFO  State of operation 21230831 : EXECUTING
+02:44:32 INFO  State of operation 21230831 : EXECUTING
+02:44:35 INFO  State of operation 21230831 : EXECUTING
+02:44:37 INFO  State of operation 21230831 : EXECUTING
+02:44:40 INFO  State of operation 21230831 : EXECUTING
+02:44:42 INFO  State of operation 21230831 : EXECUTING
+02:44:45 INFO  State of operation 21230831 : EXECUTING
+02:44:47 INFO  State of operation 21230831 : EXECUTING
+02:44:49 INFO  State of operation 21230831 : EXECUTING
+02:44:51 INFO  State of operation 21230831 : EXECUTING
+02:44:54 INFO  State of operation 21230831 : SUCCESSFUL
+02:44:54 INFO  Package asciijump is installed
+02:44:54 INFO  Assert that (True == value) with value=True ... passed
+02:44:54 INFO  Package robotfindskitten is installed
+02:44:54 INFO  Assert that (True == value) with value=True ... passed
+02:44:54 INFO  Package rolldice is installed
+02:44:54 INFO  Assert that (True == value) with value=True ... passed
+02:44:54 INFO  Package squirrel3 is installed
+02:44:54 INFO  Assert that (True == value) with value=True ... passed
+02:44:55 INFO  Package moon-buggy is installed
+02:44:55 INFO  Assert that (True == value) with value=True ... passed
+02:44:56 INFO  Response status: 201
+02:44:56 INFO  Response to action: {
+    &quot;creationTime&quot;: &quot;2022-07-22T02:44:56.346Z&quot;,
+    &quot;deviceId&quot;: &quot;21164556&quot;,
+    &quot;deviceName&quot;: &quot;m32sd10a&quot;,
+    &quot;self&quot;: &quot;https://t493319102.eu-latest.cumulocity.com/devicecontrol/operations/21230837&quot;,
+    &quot;id&quot;: &quot;21230837&quot;,
+    &quot;status&quot;: &quot;PENDING&quot;,
+    &quot;description&quot;: &quot;Apply software changes, triggered from PySys: [{'action': 'delete', 'id': '5475369', 'name': 'asciijump', 'url': ' ', 'version': '::apt'}, {'action': 'delete', 'id': '5474869', 'name': 'robotfindskitten', 'url': ' ', 'version': ' '}, {'action': 'delete', 'id': '5475279', 'name': 'squirrel3', 'url': ' ', 'version': '3.1-7::apt'}, {'action': 'delete', 'id': '5152439', 'name': 'rolldice', 'url': ' ', 'version': '1.16-1+b1'}, {'action': 'delete', 'id': '5439204', 'name': 'moon-buggy', 'url': ' ', 'version': '1:1.0.51-12'}, {'action': 'delete', 'id': '5475369', 'name': 'asciijump', 'url': ' ', 'version': '::apt'}]&quot;,
+    &quot;c8y_SoftwareUpdate&quot;: [
+        {
+            &quot;name&quot;: &quot;asciijump&quot;,
+            &quot;action&quot;: &quot;delete&quot;,
+            &quot;id&quot;: &quot;5475369&quot;,
+            &quot;version&quot;: &quot;::apt&quot;,
+            &quot;url&quot;: &quot; &quot;
+        },
+        {
+            &quot;name&quot;: &quot;robotfindskitten&quot;,
+            &quot;action&quot;: &quot;delete&quot;,
+            &quot;id&quot;: &quot;5474869&quot;,
+            &quot;version&quot;: &quot; &quot;,
+            &quot;url&quot;: &quot; &quot;
+        },
+        {
+            &quot;name&quot;: &quot;squirrel3&quot;,
+            &quot;action&quot;: &quot;delete&quot;,
+            &quot;id&quot;: &quot;5475279&quot;,
+            &quot;version&quot;: &quot;3.1-7::apt&quot;,
+            &quot;url&quot;: &quot; &quot;
+        },
+        {
+            &quot;name&quot;: &quot;rolldice&quot;,
+            &quot;action&quot;: &quot;delete&quot;,
+            &quot;id&quot;: &quot;5152439&quot;,
+            &quot;version&quot;: &quot;1.16-1+b1&quot;,
+            &quot;url&quot;: &quot; &quot;
+        },
+        {
+            &quot;name&quot;: &quot;moon-buggy&quot;,
+            &quot;action&quot;: &quot;delete&quot;,
+            &quot;id&quot;: &quot;5439204&quot;,
+            &quot;version&quot;: &quot;1:1.0.51-12&quot;,
+            &quot;url&quot;: &quot; &quot;
+        },
+        {
+            &quot;name&quot;: &quot;asciijump&quot;,
+            &quot;action&quot;: &quot;delete&quot;,
+            &quot;id&quot;: &quot;5475369&quot;,
+            &quot;version&quot;: &quot;::apt&quot;,
+            &quot;url&quot;: &quot; &quot;
+        }
+    ]
+}
+02:44:56 INFO  Started operation: {'creationTime': '2022-07-22T02:44:56.346Z', 'deviceId': '21164556', 'deviceName': 'm32sd10a', 'self': 'https://t493319102.eu-latest.cumulocity.com/devicecontrol/operations/21230837', 'id': '21230837', 'status': 'PENDING', 'description': &quot;Apply software changes, triggered from PySys: [{'action': 'delete', 'id': '5475369', 'name': 'asciijump', 'url': ' ', 'version': '::apt'}, {'action': 'delete', 'id': '5474869', 'name': 'robotfindskitten', 'url': ' ', 'version': ' '}, {'action': 'delete', 'id': '5475279', 'name': 'squirrel3', 'url': ' ', 'version': '3.1-7::apt'}, {'action': 'delete', 'id': '5152439', 'name': 'rolldice', 'url': ' ', 'version': '1.16-1+b1'}, {'action': 'delete', 'id': '5439204', 'name': 'moon-buggy', 'url': ' ', 'version': '1:1.0.51-12'}, {'action': 'delete', 'id': '5475369', 'name': 'asciijump', 'url': ' ', 'version': '::apt'}]&quot;, 'c8y_SoftwareUpdate': [{'name': 'asciijump', 'action': 'delete', 'id': '5475369', 'version': '::apt', 'url': ' '}, {'name': 'robotfindskitten', 'action': 'delete', 'id': '5474869', 'version': ' ', 'url': ' '}, {'name': 'squirrel3', 'action': 'delete', 'id': '5475279', 'version': '3.1-7::apt', 'url': ' '}, {'name': 'rolldice', 'action': 'delete', 'id': '5152439', 'version': '1.16-1+b1', 'url': ' '}, {'name': 'moon-buggy', 'action': 'delete', 'id': '5439204', 'version': '1:1.0.51-12', 'url': ' '}, {'name': 'asciijump', 'action': 'delete', 'id': '5475369', 'version': '::apt', 'url': ' '}]}
+02:44:58 INFO  State of operation 21230837 : PENDING
+02:45:00 INFO  State of operation 21230837 : EXECUTING
+02:45:03 INFO  State of operation 21230837 : EXECUTING
+02:45:05 INFO  State of operation 21230837 : EXECUTING
+02:45:07 INFO  State of operation 21230837 : EXECUTING
+02:45:09 INFO  State of operation 21230837 : EXECUTING
+02:45:12 INFO  State of operation 21230837 : EXECUTING
+02:45:15 INFO  State of operation 21230837 : EXECUTING
+02:45:17 INFO  State of operation 21230837 : EXECUTING
+02:45:19 INFO  State of operation 21230837 : EXECUTING
+02:45:22 INFO  State of operation 21230837 : EXECUTING
+02:45:24 INFO  State of operation 21230837 : EXECUTING
+02:45:26 INFO  State of operation 21230837 : EXECUTING
+02:45:28 INFO  State of operation 21230837 : EXECUTING
+02:45:31 INFO  State of operation 21230837 : EXECUTING
+02:45:33 INFO  State of operation 21230837 : EXECUTING
+02:45:35 INFO  State of operation 21230837 : EXECUTING
+02:45:38 INFO  State of operation 21230837 : EXECUTING
+02:45:40 INFO  State of operation 21230837 : EXECUTING
+02:45:43 INFO  State of operation 21230837 : EXECUTING
+02:45:45 INFO  State of operation 21230837 : EXECUTING
+02:45:47 INFO  State of operation 21230837 : EXECUTING
+02:45:49 INFO  State of operation 21230837 : EXECUTING
+02:45:52 INFO  State of operation 21230837 : EXECUTING
+02:45:54 INFO  State of operation 21230837 : EXECUTING
+02:45:56 INFO  State of operation 21230837 : EXECUTING
+02:45:59 INFO  State of operation 21230837 : EXECUTING
+02:46:01 INFO  State of operation 21230837 : EXECUTING
+02:46:03 INFO  State of operation 21230837 : EXECUTING
+02:46:05 INFO  State of operation 21230837 : EXECUTING
+02:46:08 INFO  State of operation 21230837 : EXECUTING
+02:46:11 INFO  State of operation 21230837 : EXECUTING
+02:46:13 INFO  State of operation 21230837 : EXECUTING
+02:46:16 INFO  State of operation 21230837 : EXECUTING
+02:46:18 INFO  State of operation 21230837 : EXECUTING
+02:46:20 INFO  State of operation 21230837 : EXECUTING
+02:46:23 INFO  State of operation 21230837 : EXECUTING
+02:46:25 INFO  State of operation 21230837 : EXECUTING
+02:46:27 INFO  State of operation 21230837 : EXECUTING
+02:46:29 INFO  State of operation 21230837 : EXECUTING
+02:46:32 INFO  State of operation 21230837 : EXECUTING
+02:46:34 INFO  State of operation 21230837 : EXECUTING
+02:46:37 INFO  State of operation 21230837 : EXECUTING
+02:46:39 INFO  State of operation 21230837 : EXECUTING
+02:46:41 INFO  State of operation 21230837 : EXECUTING
+02:46:44 INFO  State of operation 21230837 : EXECUTING
+02:46:46 INFO  State of operation 21230837 : EXECUTING
+02:46:48 INFO  State of operation 21230837 : EXECUTING
+02:46:50 INFO  State of operation 21230837 : EXECUTING
+02:46:53 INFO  State of operation 21230837 : EXECUTING
+02:46:55 INFO  State of operation 21230837 : EXECUTING
+02:46:58 INFO  State of operation 21230837 : EXECUTING
+02:47:00 INFO  State of operation 21230837 : SUCCESSFUL
+02:47:00 INFO  Assert that (False == value) with value=False ... passed
+02:47:01 INFO  Assert that (False == value) with value=False ... passed
+02:47:01 INFO  Assert that (False == value) with value=False ... passed
+02:47:01 INFO  Assert that (False == value) with value=False ... passed
+02:47:01 INFO  Assert that (False == value) with value=False ... passed
+02:47:01 INFO  
+02:47:01 INFO  cleanup:
+02:47:05 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
+02:47:06 INFO  Executed systemctl&lt;serv_mapper5&gt;, exit status 3
+02:47:06 INFO  
+02:47:06 INFO  Test duration: 270.07 secs
+02:47:06 INFO  Test final outcome:  FAILED
+02:47:06 INFO  Test outcome reason: Assert that (False == value) with value=True
+02:47:06 INFO  
 </system-out>
 	</testcase>
 </testsuite>
