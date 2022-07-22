@@ -1,113 +1,28 @@
-2022-07-22 14:32:21,204 INFO  ==============================================================
-2022-07-22 14:32:21,205 INFO  Id:    tedge_mapper_c8y_child_device_measurement
-2022-07-22 14:32:21,206 INFO  Dir:   tedge_mapper_c8y/
-2022-07-22 14:32:21,207 INFO  Title: Validate that measurements sent to tedge/measurements/child topic gets mapped as the child device's measurement in Cumulocity
-2022-07-22 14:32:21,208 INFO  ==============================================================
-2022-07-22 14:32:21,241 INFO  EnvironmentC8y Setup
-2022-07-22 14:32:21,804 INFO  Executed systemctl<serv_mapper1>, exit status 3
-2022-07-22 14:32:21,916 INFO  Restarting mosquitto too frequently in the last 10 seconds. It was only up for 4 seconds
-2022-07-22 14:32:21,917 INFO  Delaying execution by 7 seconds
-2022-07-22 14:32:42,864 INFO  Executed sudo<tedge_connect_c8y>, exit status 0, duration 13 secs
-2022-07-22 14:32:43,439 INFO  Executed sudo<tedge_connect_c8y_test>, exit status 0
-2022-07-22 14:32:43,927 INFO  Executed systemctl<serv_mosq2>, exit status 0
-2022-07-22 14:32:44,394 INFO  Executed systemctl<serv_mapper3>, exit status 0
-2022-07-22 14:32:45,148 INFO  Assert that (actual == expected) with actual=None, expected=None ... passed
-2022-07-22 14:32:45,577 INFO  Executed tedge_pub, exit status 0
-2022-07-22 14:32:46,039 INFO  Executed tedge_pub, exit status 0
-2022-07-22 14:32:46,451 INFO  Executed tedge_pub, exit status 0
-2022-07-22 14:32:46,863 INFO  Executed tedge_pub, exit status 0
-2022-07-22 14:32:47,275 INFO  Executed tedge_pub, exit status 0
-2022-07-22 14:32:50,001 INFO  {
-    "self": "https://t493319102.eu-latest.cumulocity.com/measurement/measurements/21290258",
-    "time": "2022-07-22T14:32:47.262Z",
-    "id": "21290258",
-    "source": {
-        "self": "https://t493319102.eu-latest.cumulocity.com/inventory/managedObjects/21290252",
-        "id": "21290252"
-    },
-    "type": "ThinEdgeMeasurement",
-    "temperature": {
-        "temperature": {
-            "value": 10.0
-        }
-    }
-}
-2022-07-22 14:32:50,003 INFO  Assert that (actual == expected) with actual="ThinEdgeMeasurement", expected="ThinEdgeMeasurement" ... passed
-2022-07-22 14:32:50,004 INFO  Assert that (actual == expected) with actual=10.0, expected=10 ... passed
-2022-07-22 14:32:50,005 INFO  {
-    "self": "https://t493319102.eu-latest.cumulocity.com/measurement/measurements/21290254",
-    "time": "2022-07-22T14:32:45.991Z",
-    "id": "21290254",
-    "source": {
-        "self": "https://t493319102.eu-latest.cumulocity.com/inventory/managedObjects/21290252",
-        "id": "21290252"
-    },
-    "type": "ThinEdgeMeasurement",
-    "temperature": {
-        "temperature": {
-            "value": 11.0
-        }
-    }
-}
-2022-07-22 14:32:50,007 INFO  Assert that (actual == expected) with actual="ThinEdgeMeasurement", expected="ThinEdgeMeasurement" ... passed
-2022-07-22 14:32:50,009 INFO  Assert that (actual == expected) with actual=11.0, expected=11 ... passed
-2022-07-22 14:32:50,010 INFO  {
-    "self": "https://t493319102.eu-latest.cumulocity.com/measurement/measurements/21290253",
-    "time": "2021-01-01T10:10:10.100+02:00",
-    "id": "21290253",
-    "source": {
-        "self": "https://t493319102.eu-latest.cumulocity.com/inventory/managedObjects/21290252",
-        "id": "21290252"
-    },
-    "type": "ThinEdgeMeasurement",
-    "temperature": {
-        "temperature": {
-            "value": 12.0
-        }
-    }
-}
-2022-07-22 14:32:50,011 INFO  Assert that (actual == expected) with actual="ThinEdgeMeasurement", expected="ThinEdgeMeasurement" ... passed
-2022-07-22 14:32:50,013 INFO  Assert that (actual == expected) with actual=12.0, expected=12 ... passed
-2022-07-22 14:32:50,014 INFO  Assert that (actual == expected) with actual="2021-01-01T10:10:10.100+02:00", expected="2021-01-01T10:10:10.100+02:00" ... passed
-2022-07-22 14:32:50,224 INFO  {
-    "self": "https://t493319102.eu-latest.cumulocity.com/measurement/measurements/21290257",
-    "time": "2022-07-22T14:32:46.848Z",
-    "id": "21290257",
-    "source": {
-        "self": "https://t493319102.eu-latest.cumulocity.com/inventory/managedObjects/21290256",
-        "id": "21290256"
-    },
-    "type": "ThinEdgeMeasurement",
-    "temperature": {
-        "temperature": {
-            "value": 6.0
-        }
-    }
-}
-2022-07-22 14:32:50,226 INFO  Assert that (actual == expected) with actual="ThinEdgeMeasurement", expected="ThinEdgeMeasurement" ... passed
-2022-07-22 14:32:50,228 INFO  Assert that (actual == expected) with actual=6.0, expected=6 ... passed
-2022-07-22 14:32:50,431 INFO  {
-    "self": "https://t493319102.eu-latest.cumulocity.com/measurement/measurements/21290255",
-    "time": "2022-07-22T14:32:46.433Z",
-    "id": "21290255",
-    "source": {
-        "self": "https://t493319102.eu-latest.cumulocity.com/inventory/managedObjects/21278194",
-        "id": "21278194"
-    },
-    "type": "ThinEdgeMeasurement",
-    "temperature": {
-        "temperature": {
-            "value": 5.0
-        }
-    }
-}
-2022-07-22 14:32:50,433 INFO  Assert that (actual == expected) with actual="ThinEdgeMeasurement", expected="ThinEdgeMeasurement" ... passed
-2022-07-22 14:32:50,434 INFO  Assert that (actual == expected) with actual=5.0, expected=5 ... passed
-2022-07-22 14:32:50,442 INFO  
-2022-07-22 14:32:50,443 INFO  cleanup:
-2022-07-22 14:32:54,768 INFO  Executed sudo<tedge_disconnect_c8y>, exit status 0
-2022-07-22 14:32:55,333 INFO  Executed systemctl<serv_mapper5>, exit status 3
-2022-07-22 14:32:55,339 INFO  
-2022-07-22 14:32:55,340 INFO  Test duration: 34.14 secs
-2022-07-22 14:32:55,341 INFO  Test final outcome:  PASSED
-2022-07-22 14:32:55,342 INFO  
+2022-07-22 16:02:25,272 INFO  ==============================================================
+2022-07-22 16:02:25,273 INFO  Id:    tedge_mapper_c8y_child_device_measurement
+2022-07-22 16:02:25,274 INFO  Dir:   tedge_mapper_c8y/
+2022-07-22 16:02:25,275 INFO  Title: Validate that measurements sent to tedge/measurements/child topic gets mapped as the child device's measurement in Cumulocity
+2022-07-22 16:02:25,276 INFO  ==============================================================
+2022-07-22 16:02:25,300 INFO  EnvironmentC8y Setup
+2022-07-22 16:02:25,913 INFO  Executed systemctl<serv_mapper1>, exit status 3
+2022-07-22 16:02:26,025 INFO  Restarting mosquitto too frequently in the last 10 seconds. It was only up for 4 seconds
+2022-07-22 16:02:26,027 INFO  Delaying execution by 7 seconds
+2022-07-22 16:02:42,877 WARN  Executed sudo<tedge_connect_c8y>, exit status 1
+2022-07-22 16:02:42,887 INFO  Contents of tedge_connect_c8y.err: 
+2022-07-22 16:02:42,888 INFO    ERROR: Timeout(Elapsed(()))
+2022-07-22 16:02:42,889 INFO    Error: failed to connect Cumulocity cloud.
+2022-07-22 16:02:42,890 INFO    Caused by:
+2022-07-22 16:02:42,891 INFO        Connection check failed
+2022-07-22 16:02:42,891 INFO    -----
+2022-07-22 16:02:42,892 INFO  
+2022-07-22 16:02:42,968 WARN  sudo<tedge_connect_c8y> returned non-zero exit code 1 ... blocked 
+2022-07-22 16:02:42,969 WARN  Aborted test due to BLOCKED outcome
+2022-07-22 16:02:42,974 INFO  
+2022-07-22 16:02:42,975 INFO  cleanup:
+2022-07-22 16:02:43,607 INFO  Executed sudo<tedge_disconnect_c8y>, exit status 0
+2022-07-22 16:02:44,170 INFO  Executed systemctl<serv_mapper5>, exit status 3
+2022-07-22 16:02:44,174 INFO  
+2022-07-22 16:02:44,175 INFO  Test duration: 18.91 secs
+2022-07-22 16:02:44,176 INFO  Test final outcome:  BLOCKED
+2022-07-22 16:02:44,177 INFO  Test outcome reason: sudo<tedge_connect_c8y> returned non-zero exit code 1
+2022-07-22 16:02:44,178 INFO  

@@ -1,4 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<testsuite failures="0" name="tedge_mapper_c8y_child_device_measurement" skipped="0" tests="1" time="34.14" timestamp="2022-07-22T14:32:55">
-	<testcase classname="TedgeMapperC8yChildDevice" name="tedge_mapper_c8y_child_device_measurement"/>
+<testsuite failures="1" name="tedge_mapper_c8y_child_device_measurement" skipped="0" tests="1" time="18.91" timestamp="2022-07-22T16:02:44">
+	<testcase classname="TedgeMapperC8yChildDevice" name="tedge_mapper_c8y_child_device_measurement">
+		<failure message="BLOCKED: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1" type="BLOCKED"/>
+		<system-out>16:02:25 INFO  ==============================================================
+16:02:25 INFO  Id:    tedge_mapper_c8y_child_device_measurement
+16:02:25 INFO  Dir:   tedge_mapper_c8y/
+16:02:25 INFO  Title: Validate that measurements sent to tedge/measurements/child topic gets mapped as the child device's measurement in Cumulocity
+16:02:25 INFO  ==============================================================
+16:02:25 INFO  EnvironmentC8y Setup
+16:02:25 INFO  Executed systemctl&lt;serv_mapper1&gt;, exit status 3
+16:02:26 INFO  Restarting mosquitto too frequently in the last 10 seconds. It was only up for 4 seconds
+16:02:26 INFO  Delaying execution by 7 seconds
+16:02:42 WARN  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 1
+16:02:42 INFO  Contents of tedge_connect_c8y.err: 
+  ERROR: Timeout(Elapsed(()))
+  Error: failed to connect Cumulocity cloud.
+  Caused by:
+      Connection check failed
+  -----
+
+16:02:42 WARN  sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1 ... blocked 
+16:02:42 WARN  Aborted test due to BLOCKED outcome
+16:02:42 INFO  
+16:02:42 INFO  cleanup:
+16:02:43 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
+16:02:44 INFO  Executed systemctl&lt;serv_mapper5&gt;, exit status 3
+16:02:44 INFO  
+16:02:44 INFO  Test duration: 18.91 secs
+16:02:44 INFO  Test final outcome:  BLOCKED
+16:02:44 INFO  Test outcome reason: sudo&lt;tedge_connect_c8y&gt; returned non-zero exit code 1
+16:02:44 INFO  
+</system-out>
+	</testcase>
 </testsuite>
