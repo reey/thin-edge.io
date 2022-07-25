@@ -1,20 +1,20 @@
-2022-07-25 10:16:02,308 INFO  ==============================================================
-2022-07-25 10:16:02,309 INFO  Id:    log_request_num_lines
-2022-07-25 10:16:02,310 INFO  Dir:   log_request_end_to_end/
-2022-07-25 10:16:02,310 INFO  Title: Validate end to end behaviour for the log request operation check for number of lines
-2022-07-25 10:16:02,311 INFO  ==============================================================
-2022-07-25 10:16:02,322 INFO  EnvironmentC8y Setup
-2022-07-25 10:16:02,883 INFO  Executed systemctl<serv_mapper1>, exit status 3
-2022-07-25 10:16:02,993 INFO  Restarting mosquitto too frequently in the last 10 seconds. It was only up for 5 seconds
-2022-07-25 10:16:02,994 INFO  Delaying execution by 6 seconds
-2022-07-25 10:16:23,560 INFO  Executed sudo<tedge_connect_c8y>, exit status 0, duration 14 secs
-2022-07-25 10:16:24,165 INFO  Executed sudo<tedge_connect_c8y_test>, exit status 0
-2022-07-25 10:16:24,628 INFO  Executed systemctl<serv_mosq2>, exit status 0
-2022-07-25 10:16:25,108 INFO  Executed systemctl<serv_mapper3>, exit status 0
-2022-07-25 10:16:25,621 INFO  Executed sudo<rm_logs>, exit status 0
-2022-07-25 10:16:26,207 INFO  Executed sudo<move_logs>, exit status 0
-2022-07-25 10:16:26,789 INFO  Executed sudo<log_file_daemon>, exit status 0
-2022-07-25 10:16:27,532 WARN  TypeError occurred while running test - 'NoneType' object is not subscriptable
+2022-07-25 11:46:22,500 INFO  ==============================================================
+2022-07-25 11:46:22,501 INFO  Id:    log_request_num_lines
+2022-07-25 11:46:22,502 INFO  Dir:   log_request_end_to_end/
+2022-07-25 11:46:22,503 INFO  Title: Validate end to end behaviour for the log request operation check for number of lines
+2022-07-25 11:46:22,504 INFO  ==============================================================
+2022-07-25 11:46:22,513 INFO  EnvironmentC8y Setup
+2022-07-25 11:46:23,077 INFO  Executed systemctl<serv_mapper1>, exit status 3
+2022-07-25 11:46:23,185 INFO  Restarting mosquitto too frequently in the last 10 seconds. It was only up for 4 seconds
+2022-07-25 11:46:23,186 INFO  Delaying execution by 7 seconds
+2022-07-25 11:46:44,353 INFO  Executed sudo<tedge_connect_c8y>, exit status 0, duration 14 secs
+2022-07-25 11:46:44,927 INFO  Executed sudo<tedge_connect_c8y_test>, exit status 0
+2022-07-25 11:46:45,440 INFO  Executed systemctl<serv_mosq2>, exit status 0
+2022-07-25 11:46:45,910 INFO  Executed systemctl<serv_mapper3>, exit status 0
+2022-07-25 11:46:46,423 INFO  Executed sudo<rm_logs>, exit status 0
+2022-07-25 11:46:47,010 INFO  Executed sudo<move_logs>, exit status 0
+2022-07-25 11:46:47,573 INFO  Executed sudo<log_file_daemon>, exit status 0
+2022-07-25 11:46:48,269 WARN  TypeError occurred while running test - 'NoneType' object is not subscriptable
 Traceback (most recent call last):
   File "/home/pi/env-pysys/lib/python3.7/site-packages/pysys/baserunner.py", line 1294, in __call__
     self.testObj.execute()
@@ -23,17 +23,17 @@ Traceback (most recent call last):
   File "/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/environments/cumulocity.py", line 101, in trigger_log_request
     "deviceId": self.device_fragment["id"],
 TypeError: 'NoneType' object is not subscriptable
-2022-07-25 10:16:27,551 WARN  TypeError: 'NoneType' object is not subscriptable ... blocked 
-2022-07-25 10:16:27,553 INFO  
-2022-07-25 10:16:27,553 INFO  cleanup:
-2022-07-25 10:16:28,065 INFO  Executed sudo<rm_logs>, exit status 0
-2022-07-25 10:16:28,578 INFO  Executed sudo<rm_tmp_logs>, exit status 0
-2022-07-25 10:16:29,090 INFO  Executed sudo<send_failed>, exit status 0
-2022-07-25 10:16:29,705 INFO  Executed sudo<log_file_daemon>, exit status 0
-2022-07-25 10:16:33,894 INFO  Executed sudo<tedge_disconnect_c8y>, exit status 0
-2022-07-25 10:16:34,459 INFO  Executed systemctl<serv_mapper5>, exit status 3
-2022-07-25 10:16:34,464 INFO  
-2022-07-25 10:16:34,464 INFO  Test duration: 32.16 secs
-2022-07-25 10:16:34,466 INFO  Test final outcome:  BLOCKED
-2022-07-25 10:16:34,467 INFO  Test outcome reason: TypeError: 'NoneType' object is not subscriptable
-2022-07-25 10:16:34,467 INFO  
+2022-07-25 11:46:48,292 WARN  TypeError: 'NoneType' object is not subscriptable ... blocked 
+2022-07-25 11:46:48,293 INFO  
+2022-07-25 11:46:48,294 INFO  cleanup:
+2022-07-25 11:46:48,806 INFO  Executed sudo<rm_logs>, exit status 0
+2022-07-25 11:46:49,319 INFO  Executed sudo<rm_tmp_logs>, exit status 0
+2022-07-25 11:46:49,884 INFO  Executed sudo<send_failed>, exit status 0
+2022-07-25 11:46:50,447 INFO  Executed sudo<log_file_daemon>, exit status 0
+2022-07-25 11:46:54,463 INFO  Executed sudo<tedge_disconnect_c8y>, exit status 0
+2022-07-25 11:46:55,030 INFO  Executed systemctl<serv_mapper5>, exit status 3
+2022-07-25 11:46:55,034 INFO  
+2022-07-25 11:46:55,035 INFO  Test duration: 32.54 secs
+2022-07-25 11:46:55,036 INFO  Test final outcome:  BLOCKED
+2022-07-25 11:46:55,037 INFO  Test outcome reason: TypeError: 'NoneType' object is not subscriptable
+2022-07-25 11:46:55,038 INFO  
