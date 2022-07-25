@@ -1,4 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<testsuite failures="0" name="agent_init_session" skipped="0" tests="1" time="6.02" timestamp="2022-07-22T17:36:49">
-	<testcase classname="AgentInitSession" name="agent_init_session"/>
+<testsuite failures="1" name="agent_init_session" skipped="0" tests="1" time="5.99" timestamp="2022-07-25T08:41:31">
+	<testcase classname="AgentInitSession" name="agent_init_session">
+		<failure message="FAILED: Grep on sub_resp.out contains &quot;Ld3KgqpcLDlrYH6sfpG7w&quot;" type="FAILED"/>
+		<system-out>08:41:25 INFO  ==============================================================
+08:41:25 INFO  Id:    agent_init_session
+08:41:25 INFO  Dir:   tedge_agent/
+08:41:25 INFO  Title: Validate tedge agent init session feature
+08:41:25 INFO  ==============================================================
+08:41:25 INFO  Executed sudo&lt;remove_lock&gt;, exit status 0
+08:41:26 INFO  Executed sudo&lt;agent_clear&gt;, exit status 0
+08:41:26 INFO  Executed sudo&lt;agent_init&gt;, exit status 0
+08:41:27 INFO  Executed sudo&lt;pub_req&gt;, exit status 0
+08:41:27 INFO  Started sudo&lt;sub_resp&gt; with process id 31340
+08:41:28 INFO  Executed sudo&lt;agent_start&gt;, exit status 0
+08:41:28 INFO  Waiting for 2.0 seconds
+08:41:30 INFO  Executed sudo&lt;agent_stop&gt;, exit status 0
+08:41:31 INFO  Executed sudo&lt;sub_stop&gt;, exit status 0
+08:41:31 WARN  Grep on sub_resp.out contains &quot;Ld3KgqpcLDlrYH6sfpG7w&quot; ... failed [run.py:87]
+08:41:31 INFO  
+08:41:31 INFO  Test duration: 5.99 secs
+08:41:31 INFO  Test final outcome:  FAILED
+08:41:31 INFO  Test outcome reason: Grep on sub_resp.out contains &quot;Ld3KgqpcLDlrYH6sfpG7w&quot;
+08:41:31 INFO  
+</system-out>
+	</testcase>
 </testsuite>

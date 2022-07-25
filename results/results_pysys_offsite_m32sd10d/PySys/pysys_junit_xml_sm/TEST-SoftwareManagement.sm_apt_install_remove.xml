@@ -1,4 +1,192 @@
 <?xml version="1.0" encoding="utf-8"?>
-<testsuite failures="0" name="SoftwareManagement.sm_apt_install_remove" skipped="0" tests="1" time="161.16" timestamp="2022-07-22T18:19:20">
-	<testcase classname="PySysTest" name="SoftwareManagement.sm_apt_install_remove"/>
+<testsuite failures="1" name="SoftwareManagement.sm_apt_install_remove" skipped="0" tests="1" time="135.16" timestamp="2022-07-25T09:35:48">
+	<testcase classname="PySysTest" name="SoftwareManagement.sm_apt_install_remove">
+		<failure message="BLOCKED: ConnectionError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))" type="BLOCKED"/>
+		<system-out>09:33:33 INFO  ==============================================================
+09:33:33 INFO  Id:    SoftwareManagement.sm_apt_install_remove
+09:33:33 INFO  Dir:   software_management_end_to_end/
+09:33:33 INFO  Title: Validate end to end behaviour for the apt plugin for installation and removal of packages
+09:33:33 INFO  ==============================================================
+09:33:33 INFO  Using sw id database: {'asciijump': '5475369', 'robotfindskitten': '5474869', 'squirrel3': '5475279', 'rolldice': '5152439', 'moon-buggy': '5439204', 'apple': '5495053', 'banana': '5494888', 'cherry': '5495382', 'watermelon': '5494510', 'registry': '8018911', 'hello-world': '8021526', 'docker/getting-started': '8021973', 'alpine': '7991792'}
+09:33:33 INFO  EnvironmentC8y Setup
+09:33:33 INFO  Executed systemctl&lt;serv_mapper1&gt;, exit status 3
+09:33:34 INFO  Restarting mosquitto too frequently in the last 10 seconds. It was only up for 4 seconds
+09:33:34 INFO  Delaying execution by 7 seconds
+09:33:54 INFO  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 0, duration 13 secs
+09:33:55 INFO  Executed sudo&lt;tedge_connect_c8y_test&gt;, exit status 0
+09:33:56 INFO  Executed systemctl&lt;serv_mosq2&gt;, exit status 0
+09:33:56 INFO  Executed systemctl&lt;serv_mapper3&gt;, exit status 0
+09:33:58 INFO  State of current operation: FAILED
+09:33:59 INFO  Assert that (False == value) with value=False ... passed
+09:33:59 INFO  Response status: 201
+09:33:59 INFO  Response to action: {
+    &quot;creationTime&quot;: &quot;2022-07-25T09:33:59.329Z&quot;,
+    &quot;deviceId&quot;: &quot;21358818&quot;,
+    &quot;deviceName&quot;: &quot;m32sd10d&quot;,
+    &quot;self&quot;: &quot;https://t493319102.eu-latest.cumulocity.com/devicecontrol/operations/21368536&quot;,
+    &quot;id&quot;: &quot;21368536&quot;,
+    &quot;status&quot;: &quot;PENDING&quot;,
+    &quot;description&quot;: &quot;Apply software changes, triggered from PySys: [{'name': 'rolldice', 'id': '5152439', 'version': '::apt', 'url': '', 'action': 'install'}]&quot;,
+    &quot;c8y_SoftwareUpdate&quot;: [
+        {
+            &quot;name&quot;: &quot;rolldice&quot;,
+            &quot;action&quot;: &quot;install&quot;,
+            &quot;id&quot;: &quot;5152439&quot;,
+            &quot;version&quot;: &quot;::apt&quot;,
+            &quot;url&quot;: &quot;&quot;
+        }
+    ]
+}
+09:33:59 INFO  Started operation: {'creationTime': '2022-07-25T09:33:59.329Z', 'deviceId': '21358818', 'deviceName': 'm32sd10d', 'self': 'https://t493319102.eu-latest.cumulocity.com/devicecontrol/operations/21368536', 'id': '21368536', 'status': 'PENDING', 'description': &quot;Apply software changes, triggered from PySys: [{'name': 'rolldice', 'id': '5152439', 'version': '::apt', 'url': '', 'action': 'install'}]&quot;, 'c8y_SoftwareUpdate': [{'name': 'rolldice', 'action': 'install', 'id': '5152439', 'version': '::apt', 'url': ''}]}
+09:34:01 INFO  State of operation 21368536 : PENDING
+09:34:03 INFO  State of operation 21368536 : EXECUTING
+09:34:06 INFO  State of operation 21368536 : EXECUTING
+09:34:08 INFO  State of operation 21368536 : EXECUTING
+09:34:10 INFO  State of operation 21368536 : EXECUTING
+09:34:12 INFO  State of operation 21368536 : EXECUTING
+09:34:15 INFO  State of operation 21368536 : EXECUTING
+09:34:18 INFO  State of operation 21368536 : EXECUTING
+09:34:21 INFO  State of operation 21368536 : EXECUTING
+09:34:24 INFO  State of operation 21368536 : EXECUTING
+09:34:26 INFO  State of operation 21368536 : EXECUTING
+09:34:28 INFO  State of operation 21368536 : EXECUTING
+09:34:30 INFO  State of operation 21368536 : EXECUTING
+09:34:32 INFO  State of operation 21368536 : EXECUTING
+09:34:35 INFO  State of operation 21368536 : EXECUTING
+09:34:37 INFO  State of operation 21368536 : EXECUTING
+09:34:41 INFO  State of operation 21368536 : EXECUTING
+09:34:43 INFO  State of operation 21368536 : EXECUTING
+09:34:46 INFO  State of operation 21368536 : EXECUTING
+09:34:48 INFO  State of operation 21368536 : EXECUTING
+09:34:51 INFO  State of operation 21368536 : EXECUTING
+09:34:53 INFO  State of operation 21368536 : EXECUTING
+09:34:56 INFO  State of operation 21368536 : EXECUTING
+09:34:58 INFO  State of operation 21368536 : EXECUTING
+09:35:00 INFO  State of operation 21368536 : EXECUTING
+09:35:02 INFO  State of operation 21368536 : EXECUTING
+09:35:05 INFO  State of operation 21368536 : EXECUTING
+09:35:07 INFO  State of operation 21368536 : EXECUTING
+09:35:09 INFO  State of operation 21368536 : EXECUTING
+09:35:12 INFO  State of operation 21368536 : EXECUTING
+09:35:14 INFO  State of operation 21368536 : EXECUTING
+09:35:16 INFO  State of operation 21368536 : EXECUTING
+09:35:18 INFO  State of operation 21368536 : EXECUTING
+09:35:20 INFO  State of operation 21368536 : SUCCESSFUL
+09:35:21 INFO  Package rolldice is installed
+09:35:21 INFO  Assert that (True == value) with value=True ... passed
+09:35:21 INFO  Response status: 201
+09:35:21 INFO  Response to action: {
+    &quot;creationTime&quot;: &quot;2022-07-25T09:35:21.333Z&quot;,
+    &quot;deviceId&quot;: &quot;21358818&quot;,
+    &quot;deviceName&quot;: &quot;m32sd10d&quot;,
+    &quot;self&quot;: &quot;https://t493319102.eu-latest.cumulocity.com/devicecontrol/operations/21368546&quot;,
+    &quot;id&quot;: &quot;21368546&quot;,
+    &quot;status&quot;: &quot;PENDING&quot;,
+    &quot;description&quot;: &quot;Apply software changes, triggered from PySys: [{'name': 'rolldice', 'id': '5152439', 'version': '::apt', 'url': '', 'action': 'delete'}]&quot;,
+    &quot;c8y_SoftwareUpdate&quot;: [
+        {
+            &quot;name&quot;: &quot;rolldice&quot;,
+            &quot;action&quot;: &quot;delete&quot;,
+            &quot;id&quot;: &quot;5152439&quot;,
+            &quot;version&quot;: &quot;::apt&quot;,
+            &quot;url&quot;: &quot;&quot;
+        }
+    ]
+}
+09:35:21 INFO  Started operation: {'creationTime': '2022-07-25T09:35:21.333Z', 'deviceId': '21358818', 'deviceName': 'm32sd10d', 'self': 'https://t493319102.eu-latest.cumulocity.com/devicecontrol/operations/21368546', 'id': '21368546', 'status': 'PENDING', 'description': &quot;Apply software changes, triggered from PySys: [{'name': 'rolldice', 'id': '5152439', 'version': '::apt', 'url': '', 'action': 'delete'}]&quot;, 'c8y_SoftwareUpdate': [{'name': 'rolldice', 'action': 'delete', 'id': '5152439', 'version': '::apt', 'url': ''}]}
+09:35:23 INFO  State of operation 21368546 : PENDING
+09:35:25 INFO  State of operation 21368546 : EXECUTING
+09:35:28 INFO  State of operation 21368546 : EXECUTING
+09:35:30 INFO  State of operation 21368546 : EXECUTING
+09:35:32 INFO  State of operation 21368546 : EXECUTING
+09:35:34 INFO  State of operation 21368546 : EXECUTING
+09:35:37 WARN  ConnectionError occurred while running test - ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
+Traceback (most recent call last):
+  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/urllib3/connectionpool.py&quot;, line 710, in urlopen
+    chunked=chunked,
+  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/urllib3/connectionpool.py&quot;, line 386, in _make_request
+    self._validate_conn(conn)
+  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/urllib3/connectionpool.py&quot;, line 1040, in _validate_conn
+    conn.connect()
+  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/urllib3/connection.py&quot;, line 424, in connect
+    tls_in_tls=tls_in_tls,
+  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/urllib3/util/ssl_.py&quot;, line 450, in ssl_wrap_socket
+    sock, context, tls_in_tls, server_hostname=server_hostname
+  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/urllib3/util/ssl_.py&quot;, line 493, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+  File &quot;/usr/lib/python3.7/ssl.py&quot;, line 412, in wrap_socket
+    session=session
+  File &quot;/usr/lib/python3.7/ssl.py&quot;, line 853, in _create
+    self.do_handshake()
+  File &quot;/usr/lib/python3.7/ssl.py&quot;, line 1117, in do_handshake
+    self._sslobj.do_handshake()
+ConnectionResetError: [Errno 104] Connection reset by peer
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/requests/adapters.py&quot;, line 449, in send
+    timeout=timeout
+  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/urllib3/connectionpool.py&quot;, line 786, in urlopen
+    method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/urllib3/util/retry.py&quot;, line 550, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/urllib3/packages/six.py&quot;, line 769, in reraise
+    raise value.with_traceback(tb)
+  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/urllib3/connectionpool.py&quot;, line 710, in urlopen
+    chunked=chunked,
+  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/urllib3/connectionpool.py&quot;, line 386, in _make_request
+    self._validate_conn(conn)
+  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/urllib3/connectionpool.py&quot;, line 1040, in _validate_conn
+    conn.connect()
+  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/urllib3/connection.py&quot;, line 424, in connect
+    tls_in_tls=tls_in_tls,
+  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/urllib3/util/ssl_.py&quot;, line 450, in ssl_wrap_socket
+    sock, context, tls_in_tls, server_hostname=server_hostname
+  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/urllib3/util/ssl_.py&quot;, line 493, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+  File &quot;/usr/lib/python3.7/ssl.py&quot;, line 412, in wrap_socket
+    session=session
+  File &quot;/usr/lib/python3.7/ssl.py&quot;, line 853, in _create
+    self.do_handshake()
+  File &quot;/usr/lib/python3.7/ssl.py&quot;, line 1117, in do_handshake
+    self._sslobj.do_handshake()
+urllib3.exceptions.ProtocolError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/pysys/baserunner.py&quot;, line 1294, in __call__
+    self.testObj.execute()
+  File &quot;/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/sm_apt_install_remove/run.py&quot;, line 47, in execute
+    self.wait_until_succcess()
+  File &quot;/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/environment_sm_management.py&quot;, line 324, in wait_until_succcess
+    self.wait_until_status(&quot;SUCCESSFUL&quot;)
+  File &quot;/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/environment_sm_management.py&quot;, line 354, in wait_until_status
+    current_status = self.get_status_of_operation()
+  File &quot;/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/environment_sm_management.py&quot;, line 300, in get_status_of_operation
+    req = requests.get(url, headers=self.header, timeout=self.timeout_req)
+  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/requests/api.py&quot;, line 76, in get
+    return request('get', url, params=params, **kwargs)
+  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/requests/api.py&quot;, line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/requests/sessions.py&quot;, line 542, in request
+    resp = self.send(prep, **send_kwargs)
+  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/requests/sessions.py&quot;, line 655, in send
+    r = adapter.send(request, **kwargs)
+  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/requests/adapters.py&quot;, line 498, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
+09:35:38 WARN  ConnectionError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer')) ... blocked 
+09:35:38 INFO  
+09:35:38 INFO  cleanup:
+09:35:47 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
+09:35:48 INFO  Executed systemctl&lt;serv_mapper5&gt;, exit status 3
+09:35:48 INFO  
+09:35:48 INFO  Test duration: 135.16 secs
+09:35:48 INFO  Test final outcome:  BLOCKED
+09:35:48 INFO  Test outcome reason: ConnectionError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
+09:35:48 INFO  
+</system-out>
+	</testcase>
 </testsuite>
