@@ -1,41 +1,164 @@
 <?xml version="1.0" encoding="utf-8"?>
-<testsuite failures="1" name="SoftwareManagement.sm_apt_install_remove_multiple_mixed" skipped="0" tests="1" time="29.14" timestamp="2022-07-26T07:54:45">
+<testsuite failures="1" name="SoftwareManagement.sm_apt_install_remove_multiple_mixed" skipped="0" tests="1" time="177.85" timestamp="2022-07-26T17:04:01">
 	<testcase classname="PySysTest" name="SoftwareManagement.sm_apt_install_remove_multiple_mixed">
-		<failure message="BLOCKED: SystemError: The Sofware list is empty !!!" type="BLOCKED"/>
-		<system-out>07:54:16 INFO  ==============================================================
-07:54:16 INFO  Id:    SoftwareManagement.sm_apt_install_remove_multiple_mixed
-07:54:16 INFO  Dir:   software_management_end_to_end/
-07:54:16 INFO  Title: Validate end to end behaviour for the apt plugin for multiple packages with mixed versions
-07:54:16 INFO  ==============================================================
-07:54:16 INFO  Using sw id database: {'asciijump': '5475369', 'robotfindskitten': '5474869', 'squirrel3': '5475279', 'rolldice': '5152439', 'moon-buggy': '5439204', 'apple': '5495053', 'banana': '5494888', 'cherry': '5495382', 'watermelon': '5494510', 'registry': '8018911', 'hello-world': '8021526', 'docker/getting-started': '8021973', 'alpine': '7991792'}
-07:54:16 INFO  EnvironmentC8y Setup
-07:54:17 INFO  Executed systemctl&lt;serv_mapper1&gt;, exit status 3
-07:54:17 INFO  Restarting mosquitto too frequently in the last 10 seconds. It was only up for 5 seconds
-07:54:17 INFO  Delaying execution by 6 seconds
-07:54:37 INFO  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 0, duration 13 secs
-07:54:37 INFO  Executed sudo&lt;tedge_connect_c8y_test&gt;, exit status 0
-07:54:38 INFO  Executed systemctl&lt;serv_mosq2&gt;, exit status 0
-07:54:38 INFO  Executed systemctl&lt;serv_mapper3&gt;, exit status 0
-07:54:41 INFO  State of current operation: FAILED
-07:54:41 WARN  SystemError occurred while running test - The Sofware list is empty !!!
+		<failure message="BLOCKED: SystemError: Timeout while waiting for status SUCCESSFUL or False" type="BLOCKED"/>
+		<system-out>17:01:03 INFO  ==============================================================
+17:01:03 INFO  Id:    SoftwareManagement.sm_apt_install_remove_multiple_mixed
+17:01:03 INFO  Dir:   software_management_end_to_end/
+17:01:03 INFO  Title: Validate end to end behaviour for the apt plugin for multiple packages with mixed versions
+17:01:03 INFO  ==============================================================
+17:01:03 INFO  Using sw id database: {'asciijump': '5475369', 'robotfindskitten': '5474869', 'squirrel3': '5475279', 'rolldice': '5152439', 'moon-buggy': '5439204', 'apple': '5495053', 'banana': '5494888', 'cherry': '5495382', 'watermelon': '5494510', 'registry': '8018911', 'hello-world': '8021526', 'docker/getting-started': '8021973', 'alpine': '7991792'}
+17:01:03 INFO  EnvironmentC8y Setup
+17:01:04 INFO  Executed systemctl&lt;serv_mapper1&gt;, exit status 3
+17:01:04 INFO  Restarting mosquitto too frequently in the last 10 seconds. It was only up for 5 seconds
+17:01:04 INFO  Delaying execution by 6 seconds
+17:01:24 INFO  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 0, duration 13 secs
+17:01:25 INFO  Executed sudo&lt;tedge_connect_c8y_test&gt;, exit status 0
+17:01:25 INFO  Executed systemctl&lt;serv_mosq2&gt;, exit status 0
+17:01:26 INFO  Executed systemctl&lt;serv_mapper3&gt;, exit status 0
+17:01:28 INFO  State of current operation: SUCCESSFUL
+17:01:28 INFO  Assert that (False == value) with value=False ... passed
+17:01:28 INFO  Assert that (False == value) with value=False ... passed
+17:01:29 INFO  Assert that (False == value) with value=False ... passed
+17:01:29 INFO  Assert that (False == value) with value=False ... passed
+17:01:29 INFO  Assert that (False == value) with value=False ... passed
+17:01:30 INFO  Response status: 201
+17:01:30 INFO  Response to action: {
+    &quot;creationTime&quot;: &quot;2022-07-26T17:01:30.681Z&quot;,
+    &quot;deviceId&quot;: &quot;21442286&quot;,
+    &quot;deviceName&quot;: &quot;m32sd10c&quot;,
+    &quot;self&quot;: &quot;https://t493319102.eu-latest.cumulocity.com/devicecontrol/operations/21453167&quot;,
+    &quot;id&quot;: &quot;21453167&quot;,
+    &quot;status&quot;: &quot;PENDING&quot;,
+    &quot;description&quot;: &quot;Apply software changes, triggered from PySys: [{'action': 'install', 'id': '5475369', 'name': 'asciijump', 'url': ' ', 'version': '::apt'}, {'action': 'install', 'id': '5474869', 'name': 'robotfindskitten', 'url': ' ', 'version': ' '}, {'action': 'install', 'id': '5475279', 'name': 'squirrel3', 'url': ' ', 'version': '3.1-7::apt'}, {'action': 'install', 'id': '5152439', 'name': 'rolldice', 'url': ' ', 'version': '1.16-1+b1'}, {'action': 'install', 'id': '5439204', 'name': 'moon-buggy', 'url': ' ', 'version': '1:1.0.51-12'}, {'action': 'install', 'id': '5475369', 'name': 'asciijump', 'url': ' ', 'version': '::apt'}]&quot;,
+    &quot;c8y_SoftwareUpdate&quot;: [
+        {
+            &quot;name&quot;: &quot;asciijump&quot;,
+            &quot;action&quot;: &quot;install&quot;,
+            &quot;id&quot;: &quot;5475369&quot;,
+            &quot;version&quot;: &quot;::apt&quot;,
+            &quot;url&quot;: &quot; &quot;
+        },
+        {
+            &quot;name&quot;: &quot;robotfindskitten&quot;,
+            &quot;action&quot;: &quot;install&quot;,
+            &quot;id&quot;: &quot;5474869&quot;,
+            &quot;version&quot;: &quot; &quot;,
+            &quot;url&quot;: &quot; &quot;
+        },
+        {
+            &quot;name&quot;: &quot;squirrel3&quot;,
+            &quot;action&quot;: &quot;install&quot;,
+            &quot;id&quot;: &quot;5475279&quot;,
+            &quot;version&quot;: &quot;3.1-7::apt&quot;,
+            &quot;url&quot;: &quot; &quot;
+        },
+        {
+            &quot;name&quot;: &quot;rolldice&quot;,
+            &quot;action&quot;: &quot;install&quot;,
+            &quot;id&quot;: &quot;5152439&quot;,
+            &quot;version&quot;: &quot;1.16-1+b1&quot;,
+            &quot;url&quot;: &quot; &quot;
+        },
+        {
+            &quot;name&quot;: &quot;moon-buggy&quot;,
+            &quot;action&quot;: &quot;install&quot;,
+            &quot;id&quot;: &quot;5439204&quot;,
+            &quot;version&quot;: &quot;1:1.0.51-12&quot;,
+            &quot;url&quot;: &quot; &quot;
+        },
+        {
+            &quot;name&quot;: &quot;asciijump&quot;,
+            &quot;action&quot;: &quot;install&quot;,
+            &quot;id&quot;: &quot;5475369&quot;,
+            &quot;version&quot;: &quot;::apt&quot;,
+            &quot;url&quot;: &quot; &quot;
+        }
+    ]
+}
+17:01:30 INFO  Started operation: {'creationTime': '2022-07-26T17:01:30.681Z', 'deviceId': '21442286', 'deviceName': 'm32sd10c', 'self': 'https://t493319102.eu-latest.cumulocity.com/devicecontrol/operations/21453167', 'id': '21453167', 'status': 'PENDING', 'description': &quot;Apply software changes, triggered from PySys: [{'action': 'install', 'id': '5475369', 'name': 'asciijump', 'url': ' ', 'version': '::apt'}, {'action': 'install', 'id': '5474869', 'name': 'robotfindskitten', 'url': ' ', 'version': ' '}, {'action': 'install', 'id': '5475279', 'name': 'squirrel3', 'url': ' ', 'version': '3.1-7::apt'}, {'action': 'install', 'id': '5152439', 'name': 'rolldice', 'url': ' ', 'version': '1.16-1+b1'}, {'action': 'install', 'id': '5439204', 'name': 'moon-buggy', 'url': ' ', 'version': '1:1.0.51-12'}, {'action': 'install', 'id': '5475369', 'name': 'asciijump', 'url': ' ', 'version': '::apt'}]&quot;, 'c8y_SoftwareUpdate': [{'name': 'asciijump', 'action': 'install', 'id': '5475369', 'version': '::apt', 'url': ' '}, {'name': 'robotfindskitten', 'action': 'install', 'id': '5474869', 'version': ' ', 'url': ' '}, {'name': 'squirrel3', 'action': 'install', 'id': '5475279', 'version': '3.1-7::apt', 'url': ' '}, {'name': 'rolldice', 'action': 'install', 'id': '5152439', 'version': '1.16-1+b1', 'url': ' '}, {'name': 'moon-buggy', 'action': 'install', 'id': '5439204', 'version': '1:1.0.51-12', 'url': ' '}, {'name': 'asciijump', 'action': 'install', 'id': '5475369', 'version': '::apt', 'url': ' '}]}
+17:01:32 INFO  State of operation 21453167 : PENDING
+17:01:35 INFO  State of operation 21453167 : EXECUTING
+17:01:37 INFO  State of operation 21453167 : EXECUTING
+17:01:39 INFO  State of operation 21453167 : EXECUTING
+17:01:42 INFO  State of operation 21453167 : EXECUTING
+17:01:44 INFO  State of operation 21453167 : EXECUTING
+17:01:47 INFO  State of operation 21453167 : EXECUTING
+17:01:49 INFO  State of operation 21453167 : EXECUTING
+17:01:52 INFO  State of operation 21453167 : EXECUTING
+17:01:54 INFO  State of operation 21453167 : EXECUTING
+17:01:56 INFO  State of operation 21453167 : EXECUTING
+17:01:59 INFO  State of operation 21453167 : EXECUTING
+17:02:01 INFO  State of operation 21453167 : EXECUTING
+17:02:03 INFO  State of operation 21453167 : EXECUTING
+17:02:06 INFO  State of operation 21453167 : EXECUTING
+17:02:08 INFO  State of operation 21453167 : EXECUTING
+17:02:10 INFO  State of operation 21453167 : EXECUTING
+17:02:13 INFO  State of operation 21453167 : EXECUTING
+17:02:15 INFO  State of operation 21453167 : EXECUTING
+17:02:17 INFO  State of operation 21453167 : EXECUTING
+17:02:19 INFO  State of operation 21453167 : EXECUTING
+17:02:22 INFO  State of operation 21453167 : EXECUTING
+17:02:24 INFO  State of operation 21453167 : EXECUTING
+17:02:27 INFO  State of operation 21453167 : EXECUTING
+17:02:29 INFO  State of operation 21453167 : EXECUTING
+17:02:31 INFO  State of operation 21453167 : EXECUTING
+17:02:34 INFO  State of operation 21453167 : EXECUTING
+17:02:36 INFO  State of operation 21453167 : EXECUTING
+17:02:38 INFO  State of operation 21453167 : EXECUTING
+17:02:41 INFO  State of operation 21453167 : EXECUTING
+17:02:43 INFO  State of operation 21453167 : EXECUTING
+17:02:45 INFO  State of operation 21453167 : EXECUTING
+17:02:47 INFO  State of operation 21453167 : EXECUTING
+17:02:50 INFO  State of operation 21453167 : EXECUTING
+17:02:52 INFO  State of operation 21453167 : EXECUTING
+17:02:54 INFO  State of operation 21453167 : EXECUTING
+17:02:56 INFO  State of operation 21453167 : EXECUTING
+17:02:59 INFO  State of operation 21453167 : EXECUTING
+17:03:01 INFO  State of operation 21453167 : EXECUTING
+17:03:04 INFO  State of operation 21453167 : EXECUTING
+17:03:06 INFO  State of operation 21453167 : EXECUTING
+17:03:09 INFO  State of operation 21453167 : EXECUTING
+17:03:11 INFO  State of operation 21453167 : EXECUTING
+17:03:13 INFO  State of operation 21453167 : EXECUTING
+17:03:15 INFO  State of operation 21453167 : EXECUTING
+17:03:18 INFO  State of operation 21453167 : EXECUTING
+17:03:20 INFO  State of operation 21453167 : EXECUTING
+17:03:22 INFO  State of operation 21453167 : EXECUTING
+17:03:25 INFO  State of operation 21453167 : EXECUTING
+17:03:28 INFO  State of operation 21453167 : EXECUTING
+17:03:30 INFO  State of operation 21453167 : EXECUTING
+17:03:32 INFO  State of operation 21453167 : EXECUTING
+17:03:34 INFO  State of operation 21453167 : EXECUTING
+17:03:37 INFO  State of operation 21453167 : EXECUTING
+17:03:39 INFO  State of operation 21453167 : EXECUTING
+17:03:42 INFO  State of operation 21453167 : EXECUTING
+17:03:44 INFO  State of operation 21453167 : EXECUTING
+17:03:47 INFO  State of operation 21453167 : EXECUTING
+17:03:49 INFO  State of operation 21453167 : EXECUTING
+17:03:51 INFO  State of operation 21453167 : EXECUTING
+17:03:54 INFO  State of operation 21453167 : EXECUTING
+17:03:56 WARN  SystemError occurred while running test - Timeout while waiting for status SUCCESSFUL or False
 Traceback (most recent call last):
-  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/pysys/baserunner.py&quot;, line 1292, in __call__
-    self.testObj.setup()
-  File &quot;/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/sm_apt_install_remove_multiple_mixed/run.py&quot;, line 75, in setup
-    self.assertThat(&quot;False == value&quot;, value=self.check_is_installed(&quot;asciijump&quot;))
-  File &quot;/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/environment_sm_management.py&quot;, line 399, in check_is_installed
-    raise SystemError(&quot;The Sofware list is empty !!!&quot;)
-SystemError: The Sofware list is empty !!!
-07:54:41 WARN  SystemError: The Sofware list is empty !!! ... blocked 
-07:54:41 INFO  
-07:54:41 INFO  cleanup:
-07:54:45 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
-07:54:45 INFO  Executed systemctl&lt;serv_mapper5&gt;, exit status 3
-07:54:45 INFO  
-07:54:45 INFO  Test duration: 29.14 secs
-07:54:45 INFO  Test final outcome:  BLOCKED
-07:54:45 INFO  Test outcome reason: SystemError: The Sofware list is empty !!!
-07:54:45 INFO  
+  File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/pysys/baserunner.py&quot;, line 1294, in __call__
+    self.testObj.execute()
+  File &quot;/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/sm_apt_install_remove_multiple_mixed/run.py&quot;, line 89, in execute
+    self.wait_until_succcess()
+  File &quot;/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/environment_sm_management.py&quot;, line 324, in wait_until_succcess
+    self.wait_until_status(&quot;SUCCESSFUL&quot;)
+  File &quot;/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/environment_sm_management.py&quot;, line 381, in wait_until_status
+    &quot;Timeout while waiting for status %s or %s&quot; % (status, status2)
+SystemError: Timeout while waiting for status SUCCESSFUL or False
+17:03:56 WARN  SystemError: Timeout while waiting for status SUCCESSFUL or False ... blocked 
+17:03:56 INFO  
+17:03:56 INFO  cleanup:
+17:04:01 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
+17:04:01 INFO  Executed systemctl&lt;serv_mapper5&gt;, exit status 3
+17:04:01 INFO  
+17:04:01 INFO  Test duration: 177.85 secs
+17:04:01 INFO  Test final outcome:  BLOCKED
+17:04:01 INFO  Test outcome reason: SystemError: Timeout while waiting for status SUCCESSFUL or False
+17:04:01 INFO  
 </system-out>
 	</testcase>
 </testsuite>

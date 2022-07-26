@@ -1,26 +1,33 @@
-2022-07-26 07:16:24,541 INFO  ==============================================================
-2022-07-26 07:16:24,542 INFO  Id:    valid_device_id
-2022-07-26 07:16:24,544 INFO  Dir:   misc_features/
-2022-07-26 07:16:24,544 INFO  Title: Valid device ID
-2022-07-26 07:16:24,545 INFO  ==============================================================
-2022-07-26 07:16:25,205 INFO  Executed sudo<tedge_disconnect_c8y>, exit status 0
-2022-07-26 07:16:25,718 INFO  Executed sudo<create_cert_dir>, exit status 0
-2022-07-26 07:16:26,230 INFO  Executed sudo<change_owner_of_dir>, exit status 0
-2022-07-26 07:16:26,744 INFO  Executed sudo<set_cert_path>, exit status 0
-2022-07-26 07:16:27,306 INFO  Executed sudo<set_key_path>, exit status 0
-2022-07-26 07:16:28,073 INFO  Executed sudo<cert_create>, exit status 0
-2022-07-26 07:16:29,469 INFO  Executed sudo<cert_upload>, exit status 0
-2022-07-26 07:17:05,250 INFO  Executed sudo<tedge_connect_c8y>, exit status 0, duration 34 secs
-2022-07-26 07:17:06,173 INFO  Executed sudo<tedge_connect_c8y_test>, exit status 0
-2022-07-26 07:17:06,179 INFO  Grep on file tedge_connect_c8y.out ... passed
-2022-07-26 07:17:06,183 INFO  Grep on file tedge_connect_c8y_test.out ... passed
-2022-07-26 07:17:06,191 INFO  
-2022-07-26 07:17:06,192 INFO  cleanup:
-2022-07-26 07:17:10,657 INFO  Executed sudo<tedge_disconnect_c8y>, exit status 0
-2022-07-26 07:17:11,175 INFO  Executed sudo<unset_cert_path>, exit status 0
-2022-07-26 07:17:11,688 INFO  Executed sudo<unset_key_path>, exit status 0
-2022-07-26 07:17:12,200 INFO  Executed sudo<remove_cert_dir>, exit status 0
-2022-07-26 07:17:12,204 INFO  
-2022-07-26 07:17:12,205 INFO  Test duration: 47.67 secs
-2022-07-26 07:17:12,206 INFO  Test final outcome:  PASSED
-2022-07-26 07:17:12,207 INFO  
+2022-07-26 16:15:13,828 INFO  ==============================================================
+2022-07-26 16:15:13,829 INFO  Id:    valid_device_id
+2022-07-26 16:15:13,830 INFO  Dir:   misc_features/
+2022-07-26 16:15:13,830 INFO  Title: Valid device ID
+2022-07-26 16:15:13,831 INFO  ==============================================================
+2022-07-26 16:15:14,462 INFO  Executed sudo<tedge_disconnect_c8y>, exit status 0
+2022-07-26 16:15:14,974 INFO  Executed sudo<create_cert_dir>, exit status 0
+2022-07-26 16:15:15,489 INFO  Executed sudo<change_owner_of_dir>, exit status 0
+2022-07-26 16:15:16,060 INFO  Executed sudo<set_cert_path>, exit status 0
+2022-07-26 16:15:16,778 INFO  Executed sudo<set_key_path>, exit status 0
+2022-07-26 16:15:17,342 INFO  Executed sudo<cert_create>, exit status 0
+2022-07-26 16:15:19,259 INFO  Executed sudo<cert_upload>, exit status 0
+2022-07-26 16:15:27,001 WARN  Executed sudo<tedge_connect_c8y>, exit status 1
+2022-07-26 16:15:27,006 INFO  Contents of tedge_connect_c8y.err: 
+2022-07-26 16:15:27,007 INFO    ERROR: Timeout(Elapsed(()))
+2022-07-26 16:15:27,008 INFO    Error: failed to connect Cumulocity cloud.
+2022-07-26 16:15:27,009 INFO    Caused by:
+2022-07-26 16:15:27,010 INFO        Connection check failed
+2022-07-26 16:15:27,010 INFO    -----
+2022-07-26 16:15:27,011 INFO  
+2022-07-26 16:15:27,043 WARN  sudo<tedge_connect_c8y> returned non-zero exit code 1 ... blocked [environment_tedge.py:58,run.py:100]
+2022-07-26 16:15:27,044 WARN  Aborted test due to BLOCKED outcome
+2022-07-26 16:15:27,050 INFO  
+2022-07-26 16:15:27,051 INFO  cleanup:
+2022-07-26 16:15:27,675 INFO  Executed sudo<tedge_disconnect_c8y>, exit status 0
+2022-07-26 16:15:28,187 INFO  Executed sudo<unset_cert_path>, exit status 0
+2022-07-26 16:15:28,699 INFO  Executed sudo<unset_key_path>, exit status 0
+2022-07-26 16:15:29,212 INFO  Executed sudo<remove_cert_dir>, exit status 0
+2022-07-26 16:15:29,216 INFO  
+2022-07-26 16:15:29,217 INFO  Test duration: 15.39 secs
+2022-07-26 16:15:29,218 INFO  Test final outcome:  BLOCKED
+2022-07-26 16:15:29,219 INFO  Test outcome reason: sudo<tedge_connect_c8y> returned non-zero exit code 1
+2022-07-26 16:15:29,220 INFO  
