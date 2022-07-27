@@ -1,40 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<testsuite failures="1" name="SoftwareManagement.sm_apt_install_download_path" skipped="0" tests="1" time="87.77" timestamp="2022-07-26T16:50:47">
+<testsuite failures="1" name="SoftwareManagement.sm_apt_install_download_path" skipped="0" tests="1" time="87.8" timestamp="2022-07-27T09:51:05">
 	<testcase classname="AptInstallWithDownloadPath" name="SoftwareManagement.sm_apt_install_download_path">
-		<failure message="BLOCKED: AssertionError:" type="BLOCKED"/>
-		<system-out>16:49:19 INFO  ==============================================================
-16:49:19 INFO  Id:    SoftwareManagement.sm_apt_install_download_path
-16:49:19 INFO  Dir:   software_management_end_to_end/
-16:49:19 INFO  Title: Install package to directory specified in tedge config set tmp.path
-16:49:19 INFO  ==============================================================
-16:49:20 INFO  Using sw id database: {'asciijump': '5475369', 'robotfindskitten': '5474869', 'squirrel3': '5475279', 'rolldice': '5152439', 'moon-buggy': '5439204', 'apple': '5495053', 'banana': '5494888', 'cherry': '5495382', 'watermelon': '5494510', 'registry': '8018911', 'hello-world': '8021526', 'docker/getting-started': '8021973', 'alpine': '7991792'}
-16:49:20 INFO  EnvironmentC8y Setup
-16:49:20 INFO  Executed systemctl&lt;serv_mapper1&gt;, exit status 3
-16:49:35 INFO  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 0, duration 14 secs
-16:49:37 INFO  Executed sudo&lt;tedge_connect_c8y_test&gt;, exit status 0
-16:49:38 INFO  Executed systemctl&lt;serv_mosq2&gt;, exit status 0
-16:49:38 INFO  Executed systemctl&lt;serv_mapper3&gt;, exit status 0
-16:49:41 ERROR No operations found, assuming it passed
-16:49:41 INFO  Assert that (False == value) with value=False ... passed
-16:49:41 INFO  Executed sudo, exit status 0
-16:49:42 INFO  Executed sudo, exit status 0
-16:49:43 INFO  Executed sudo, exit status 0
-16:49:46 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
-16:49:47 INFO  Restarting mosquitto too frequently in the last 10 seconds. It was only up for 3 seconds
-16:49:47 INFO  Delaying execution by 8 seconds
-16:50:09 INFO  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 0, duration 14 secs
-16:50:10 INFO  Response status: 201
-16:50:10 INFO  Response to action: {
-    &quot;delivery&quot;: {
-        &quot;log&quot;: [],
-        &quot;time&quot;: &quot;2022-07-26T16:50:10.014Z&quot;,
-        &quot;status&quot;: &quot;PENDING&quot;
-    },
-    &quot;creationTime&quot;: &quot;2022-07-26T16:50:09.589Z&quot;,
-    &quot;deviceId&quot;: &quot;21435313&quot;,
+		<failure message="BLOCKED: AssertionError: (+1 other failures)" type="BLOCKED"/>
+		<system-out>09:49:37 INFO  ==============================================================
+09:49:37 INFO  Id:    SoftwareManagement.sm_apt_install_download_path
+09:49:37 INFO  Dir:   software_management_end_to_end/
+09:49:37 INFO  Title: Install package to directory specified in tedge config set tmp.path
+09:49:37 INFO  ==============================================================
+09:49:37 INFO  Using sw id database: {'asciijump': '5475369', 'robotfindskitten': '5474869', 'squirrel3': '5475279', 'rolldice': '5152439', 'moon-buggy': '5439204', 'apple': '5495053', 'banana': '5494888', 'cherry': '5495382', 'watermelon': '5494510', 'registry': '8018911', 'hello-world': '8021526', 'docker/getting-started': '8021973', 'alpine': '7991792'}
+09:49:37 INFO  EnvironmentC8y Setup
+09:49:38 INFO  Executed systemctl&lt;serv_mapper1&gt;, exit status 3
+09:49:52 INFO  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 0, duration 14 secs
+09:49:54 INFO  Executed sudo&lt;tedge_connect_c8y_test&gt;, exit status 0
+09:49:55 INFO  Executed systemctl&lt;serv_mosq2&gt;, exit status 0
+09:49:56 INFO  Executed systemctl&lt;serv_mapper3&gt;, exit status 0
+09:49:58 ERROR No operations found, assuming it passed
+09:49:58 INFO  Package rolldice is installed
+09:49:59 WARN  Assert that (False == value) with value=True ... failed 
+09:50:00 INFO  Executed sudo, exit status 0
+09:50:00 INFO  Executed sudo, exit status 0
+09:50:01 INFO  Executed sudo, exit status 0
+09:50:05 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
+09:50:05 INFO  Restarting mosquitto too frequently in the last 10 seconds. It was only up for 3 seconds
+09:50:05 INFO  Delaying execution by 8 seconds
+09:50:27 INFO  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 0, duration 14 secs
+09:50:27 INFO  Response status: 201
+09:50:27 INFO  Response to action: {
+    &quot;creationTime&quot;: &quot;2022-07-27T09:50:27.705Z&quot;,
+    &quot;deviceId&quot;: &quot;21453471&quot;,
     &quot;deviceName&quot;: &quot;m32sd10d&quot;,
-    &quot;self&quot;: &quot;https://t493319102.eu-latest.cumulocity.com/devicecontrol/operations/21435069&quot;,
-    &quot;id&quot;: &quot;21435069&quot;,
+    &quot;self&quot;: &quot;https://t493319102.eu-latest.cumulocity.com/devicecontrol/operations/21474173&quot;,
+    &quot;id&quot;: &quot;21474173&quot;,
     &quot;status&quot;: &quot;PENDING&quot;,
     &quot;description&quot;: &quot;Apply software changes, triggered from PySys: [{'name': 'rolldice', 'id': '5152439', 'version': '::apt', 'url': 'https://thin-edge-io.eu-latest.cumulocity.com/inventory/binaries/12435463', 'action': 'install'}]&quot;,
     &quot;c8y_SoftwareUpdate&quot;: [
@@ -47,17 +43,17 @@
         }
     ]
 }
-16:50:10 INFO  Started operation: {'delivery': {'log': [], 'time': '2022-07-26T16:50:10.014Z', 'status': 'PENDING'}, 'creationTime': '2022-07-26T16:50:09.589Z', 'deviceId': '21435313', 'deviceName': 'm32sd10d', 'self': 'https://t493319102.eu-latest.cumulocity.com/devicecontrol/operations/21435069', 'id': '21435069', 'status': 'PENDING', 'description': &quot;Apply software changes, triggered from PySys: [{'name': 'rolldice', 'id': '5152439', 'version': '::apt', 'url': 'https://thin-edge-io.eu-latest.cumulocity.com/inventory/binaries/12435463', 'action': 'install'}]&quot;, 'c8y_SoftwareUpdate': [{'name': 'rolldice', 'action': 'install', 'id': '5152439', 'version': '::apt', 'url': 'https://thin-edge-io.eu-latest.cumulocity.com/inventory/binaries/12435463'}]}
-16:50:10 WARN  , retrying in 0.5 seconds...
-16:50:10 WARN  , retrying in 0.5 seconds...
-16:50:11 WARN  , retrying in 0.5 seconds...
-16:50:11 WARN  , retrying in 0.5 seconds...
-16:50:12 WARN  , retrying in 0.5 seconds...
-16:50:12 WARN  , retrying in 0.5 seconds...
-16:50:13 WARN  , retrying in 0.5 seconds...
-16:50:13 WARN  , retrying in 0.5 seconds...
-16:50:14 WARN  , retrying in 0.5 seconds...
-16:50:14 WARN  AssertionError occurred while running test - 
+09:50:27 INFO  Started operation: {'creationTime': '2022-07-27T09:50:27.705Z', 'deviceId': '21453471', 'deviceName': 'm32sd10d', 'self': 'https://t493319102.eu-latest.cumulocity.com/devicecontrol/operations/21474173', 'id': '21474173', 'status': 'PENDING', 'description': &quot;Apply software changes, triggered from PySys: [{'name': 'rolldice', 'id': '5152439', 'version': '::apt', 'url': 'https://thin-edge-io.eu-latest.cumulocity.com/inventory/binaries/12435463', 'action': 'install'}]&quot;, 'c8y_SoftwareUpdate': [{'name': 'rolldice', 'action': 'install', 'id': '5152439', 'version': '::apt', 'url': 'https://thin-edge-io.eu-latest.cumulocity.com/inventory/binaries/12435463'}]}
+09:50:27 WARN  , retrying in 0.5 seconds...
+09:50:28 WARN  , retrying in 0.5 seconds...
+09:50:28 WARN  , retrying in 0.5 seconds...
+09:50:29 WARN  , retrying in 0.5 seconds...
+09:50:29 WARN  , retrying in 0.5 seconds...
+09:50:30 WARN  , retrying in 0.5 seconds...
+09:50:30 WARN  , retrying in 0.5 seconds...
+09:50:31 WARN  , retrying in 0.5 seconds...
+09:50:31 WARN  , retrying in 0.5 seconds...
+09:50:32 WARN  AssertionError occurred while running test - 
 Traceback (most recent call last):
   File &quot;/home/pi/env-pysys/lib/python3.7/site-packages/pysys/baserunner.py&quot;, line 1294, in __call__
     self.testObj.execute()
@@ -72,22 +68,22 @@ Traceback (most recent call last):
   File &quot;/home/pi/actions-runner/_work/thin-edge.io/thin-edge.io/tests/PySys/software_management_end_to_end/sm_apt_install_download_path/run.py&quot;, line 28, in assert_install_in_download_path
     assert &quot;rolldice&quot; in os.listdir(f&quot;{install_directory}&quot;)
 AssertionError
-16:50:15 WARN  AssertionError: ... blocked 
-16:50:15 INFO  
-16:50:15 INFO  cleanup:
-16:50:15 INFO  Executed sudo, exit status 0
-16:50:16 INFO  Executed sudo, exit status 0
-16:50:20 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
-16:50:20 INFO  Restarting mosquitto too frequently in the last 10 seconds. It was only up for 3 seconds
-16:50:20 INFO  Delaying execution by 8 seconds
-16:50:42 INFO  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 0, duration 14 secs
-16:50:46 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
-16:50:47 INFO  Executed systemctl&lt;serv_mapper5&gt;, exit status 3
-16:50:47 INFO  
-16:50:47 INFO  Test duration: 87.77 secs
-16:50:47 INFO  Test final outcome:  BLOCKED
-16:50:47 INFO  Test outcome reason: AssertionError:
-16:50:47 INFO  
+09:50:32 WARN  AssertionError: ... blocked 
+09:50:32 INFO  
+09:50:32 INFO  cleanup:
+09:50:32 INFO  Executed sudo, exit status 0
+09:50:33 INFO  Executed sudo, exit status 0
+09:50:37 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
+09:50:37 INFO  Restarting mosquitto too frequently in the last 10 seconds. It was only up for 3 seconds
+09:50:37 INFO  Delaying execution by 8 seconds
+09:51:00 INFO  Executed sudo&lt;tedge_connect_c8y&gt;, exit status 0, duration 14 secs
+09:51:04 INFO  Executed sudo&lt;tedge_disconnect_c8y&gt;, exit status 0
+09:51:05 INFO  Executed systemctl&lt;serv_mapper5&gt;, exit status 3
+09:51:05 INFO  
+09:51:05 INFO  Test duration: 87.80 secs
+09:51:05 INFO  Test final outcome:  BLOCKED
+09:51:05 INFO  Test outcome reason: AssertionError: (+1 other failures)
+09:51:05 INFO  
 </system-out>
 	</testcase>
 </testsuite>
