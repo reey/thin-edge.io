@@ -966,7 +966,7 @@ these monitoring metrics will be forwarded to the cloud.</p>
 </ul>
 <h2 id="trouble-shooting"><a class="header" href="#trouble-shooting">Trouble shooting</a></h2>
 <p>See here for <a href="tutorials/../howto-guides/009_trouble_shooting_monitoring.html">how to trouble shoot device monitoring?</a></p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="manage-the-softwares-on-your-devices-from-cumulocity-cloud"><a class="header" href="#manage-the-softwares-on-your-devices-from-cumulocity-cloud">Manage the softwares on your devices from Cumulocity cloud</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="manage-the-software-on-your-devices-from-cumulocity-cloud"><a class="header" href="#manage-the-software-on-your-devices-from-cumulocity-cloud">Manage the software on your devices from Cumulocity cloud</a></h1>
 <p>This document describes how to manage the software modules that are installed on a thin-edge device from the
 cloud using the <strong>software management</strong> feature of thin-edge.io.</p>
 <blockquote>
@@ -2177,7 +2177,7 @@ is connected to the Cumulocity cloud using <code>tedge connect c8y</code>.</p>
 <p>The <code>tedge connect c8y</code> will automatically start and enable the software management feature.
 Find more about <a href="howto-guides/../howto-guides/004_connect.html">how to connect thin-edge device to cloud</a></p>
 <p>Once the thin-edge device is successfully connected to Cumulocity cloud, the <strong>Software</strong> option will be enabled and
-the list of softwares that are installed on the device will be visible as shown in the figure below.</p>
+the list of software that are installed on the device will be visible as shown in the figure below.</p>
 <p><img src="howto-guides/./images/start-software-management.png" alt="Add new software" /></p>
 <blockquote>
 <p>Note: Disconnecting thin-edge device from cloud with <code>tedge disconnect c8y</code> command will stop and disable the software management feature.</p>
@@ -2493,7 +2493,7 @@ These daemons expose MQTT health endpoints which you can query to check if the p
 <h1 id="mosquitto-bridge-health-endpoints"><a class="header" href="#mosquitto-bridge-health-endpoints">Mosquitto bridge health endpoints</a></h1>
 <p>The mosquitto bridge clients connecting thin-edge devices to the respective cloud platforms also report their health status as retained messages to <code>tedge/health/&lt;mosquitto-cloud-bridge&gt;</code> topics.
 The health check messages published by these clients are just numeric values <code>1</code> or <code>0</code>, indicating active and dead bridge clients respectively.</p>
-<p>Here are the health endpoints of curently supported clouds, bridged with mosquitto:</p>
+<p>Here are the health endpoints of currently supported clouds, bridged with mosquitto:</p>
 <table><thead><tr><th>Cloud</th><th>Health topic</th></tr></thead><tbody>
 <tr><td>Cumulocity</td><td><code>tedge/health/mosquitto-c8y-bridge</code></td></tr>
 <tr><td>Azure</td><td><code>tedge/health/mosquitto-az-bridge</code></td></tr>
@@ -2709,7 +2709,7 @@ Then, run this command in the directory where the package is stored.</p>
 <p>The binary is extracted in <code>&lt;current directory&gt;/usr/bin</code>.
 For more details, refer to our guide <a href="howto-guides/./015_installation_without_deb_support.html#extracting-binaries-from-deb-packages">Extracting from debian package</a>.</p>
 <h3 id="building-from-sources"><a class="header" href="#building-from-sources">Building from sources</a></h3>
-<p>Follow our guide <a href="howto-guides/./../BUILDING.html">Buiding thin-edge.io</a> and <a href="howto-guides/./015_installation_without_deb_support.html#if-building-from-source">Building from source</a>.</p>
+<p>Follow our guide <a href="howto-guides/./../BUILDING.html">Building thin-edge.io</a> and <a href="howto-guides/./015_installation_without_deb_support.html#if-building-from-source">Building from source</a>.</p>
 <pre><code class="language-shell">cargo build --release -p c8y_configuration_plugin
 </code></pre>
 <p>A <code>systemd</code> unit file for <code>c8y_configuration_plugin</code> can be found in the repository at <code>configuration/init/systemd/c8y-configuration-plugin.service</code>
@@ -2759,7 +2759,7 @@ You can find <code>c8y-configuration-plugin</code> and more are listed as suppor
 <p>To update any configuration file, create a local copy of that config file and then upload that file to the <a href="https://cumulocity.com/guides/users-guide/device-management/#to-add-a-configuration-snapshot">Cumulocity configuration repository</a> with the appropriate configuration type.</p>
 <p>The <code>c8y-configuration-plugin.toml</code> file can also be updated from the cloud in a similar manner to add/remove further configuration file entries. The updated TOML file has to be uploaded with the configuration type:  <strong>c8y-configuration-plugin</strong>.</p>
 <p>Then, go back to the <strong>Configuration</strong> tab of your desired device in Cumulocity.</p>
-<p><img src="howto-guides/./images/c8y-config-plugin-download.png" alt="Cumulocity Configuration Management Donwload" /></p>
+<p><img src="howto-guides/./images/c8y-config-plugin-download.png" alt="Cumulocity Configuration Management Download" /></p>
 <p>Click on the config file entry from the <strong>DEVICE SUPPORTED CONFIGURATIONS</strong> files list.
 You can choose the file that you uploaded from the <strong>AVAILABLE SUPPORTED CONFIGURATIONS</strong> section, and then apply that file to your device by clicking on the <strong>Send configuration to device</strong> button.</p>
 <p>After the operation created gets marked SUCCESSFUL, reload the page.
@@ -3305,7 +3305,7 @@ and thin-edge.io routes the messages to different clouds in a secure and reliabl
 <li>MQTT is message oriented and bi-directional, which matches well with the event oriented programming model of industrial IoT.</li>
 <li>MQTT is available on many platforms, including Linux and Windows.</li>
 <li>MQTT client libraries are available for 25+ programming languages (see <a href="https://mqtt.org/software/">MQTT.org</a>]) </li>
-<li>MQTT overhead is relatively small in terms of client libary size and network overhead.</li>
+<li>MQTT overhead is relatively small in terms of client library size and network overhead.</li>
 <li>MQTT is message payload agnostic which enables sending not only JSON messages, but also text, CSV or binary data.</li>
 </ul>
 <p>Alternatives considered where: DBus, gRPC and REST over HTTP. </p>
@@ -4242,7 +4242,7 @@ package-by-package using original commands <code>install</code> and <code>remove
 <li>Behaviour of operations <code>install</code> and <code>remove</code> is same as for original commands <code>install</code> and <code>remove</code> as specified above.
 <ul>
 <li>For details about operations' arguments &quot;name&quot;, &quot;version&quot; and &quot;path&quot;, see specification of original command <code>install</code> or <code>remove</code>.</li>
-<li>For details about <code>exitstatus</code> see accoring specification of original command <code>install</code> or <code>remove</code>.</li>
+<li>For details about <code>exitstatus</code> see according specification of original command <code>install</code> or <code>remove</code>.</li>
 </ul>
 </li>
 <li>An overall error must be reported (via process's exit status) when at least one software module operation has failed.</li>
