@@ -151,10 +151,12 @@ please go on with the <a href="#manual-installation-steps">manual installation s
 <h2 id="upgrade-thin-edgeio-with-get-thin-edge_iosh-script"><a class="header" href="#upgrade-thin-edgeio-with-get-thin-edge_iosh-script">Upgrade thin-edge.io with get-thin-edge_io.sh script</a></h2>
 <p>If you already have <code>thin-edge.io</code> on your device, to upgrade <code>thin-edge.io</code>,
 the easiest way is to use the same script as the installation. Follow the steps below.
-there is no need to remove old version.</p>
+There is no need to remove old version.</p>
 <blockquote>
-<p>Note: To successfully upgrade <code>thin-edge.io</code> all thin-edge.io components <strong>must be stopped</strong>. The components are:
-<code>tedge-mapper-c8y</code>, <code>tedge-mapper-az</code>, <code>tedge-mapper-collectd</code>, <code>tedge-agent</code>, <code>c8y-log-plugin</code>, <code>c8y-configuration-plugin</code>.</p>
+<p>Note for only <strong>0.7.7 or lower version</strong>: To upgrade <code>thin-edge.io</code> from these version,
+all thin-edge.io components <strong>must be stopped</strong> before upgrading.
+The components are:
+<code>tedge-mapper-c8y</code>, <code>tedge-mapper-az</code>, <code>tedge-mapper-collectd</code>, <code>tedge-agent</code>, <code>tedge-watchdog</code>, <code>c8y-log-plugin</code>, <code>c8y-configuration-plugin</code>.</p>
 <p>To stop <code>tedge-mapper-c8y</code>, <code>tedge-agent</code>, <code>tedge-mapper-az</code>, you can simply run the commands below.</p>
 <pre><code class="language-shell">sudo tedge disconnect c8y
 sudo tedge disconnect az
@@ -165,7 +167,7 @@ systemctl stop tedge-agent
 systemctl stop c8y-log-plugin
 </code></pre>
 </blockquote>
-<p>Then, run <code>get-thin-edge_io.sh</code> script as below to upgrade to the latest version.</p>
+<p>Run <code>get-thin-edge_io.sh</code> script as below to upgrade to the latest version.</p>
 <pre><code class="language-shell">curl -fsSL https://raw.githubusercontent.com/thin-edge/thin-edge.io/main/get-thin-edge_io.sh | sudo sh -s
 </code></pre>
 <blockquote>
