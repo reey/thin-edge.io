@@ -3350,9 +3350,9 @@ So, the collectd specific logs can be accessed using the <code>journalctl</code>
 level in <code>system.toml</code></p>
 <h3 id="setting-the-log-level-through-cli"><a class="header" href="#setting-the-log-level-through-cli">Setting the log level through Cli</a></h3>
 <p>The log level can be enabled for a <code>thin-edge.io</code> service as below</p>
-<p>For example for tedge_mapper:</p>
+<p>For example for tedge-mapper:</p>
 <pre><code class="language-shell">
-sudo -u tedge -- tedge_mapper  --debug c8y
+sudo -u tedge -- tedge-mapper  --debug c8y
 
 </code></pre>
 <blockquote>
@@ -3363,11 +3363,11 @@ Only <code>debug</code> level can be set through cli. Also, it enables <code>tra
 <p>The log levels can also be configured through the <code>system.toml</code> file.
 The supported log levels are <code>info, warn, error, trace, debug</code>.</p>
 <pre><code class="language-shell">[log]
-tedge_mapper = &quot;trace&quot;
-tedge_agent = &quot;info&quot;
-tedge_watchdog = &quot;debug&quot;
-c8y_log_plugin = &quot;warn&quot;
-c8y_configuration_plugin = &quot;error&quot;
+tedge-mapper = &quot;trace&quot;
+tedge-agent = &quot;info&quot;
+tedge-watchdog = &quot;debug&quot;
+c8y-log-plugin = &quot;warn&quot;
+c8y-configuration-plugin = &quot;error&quot;
 </code></pre>
 <blockquote>
 <p>Note: The log level strings are case insensitive</p>
