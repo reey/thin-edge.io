@@ -3570,19 +3570,38 @@ To get to know the rules of the configuration file, please refer to <a href="how
 <li><a href="howto-guides/./../references/init-system-config.html">Init System Configuration File</a></li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="how-to-monitor-health-of-tedge-daemons"><a class="header" href="#how-to-monitor-health-of-tedge-daemons">How to monitor health of tedge daemons</a></h1>
-<p>The health of tedge daemon processes like <code>tedge-mapper</code>, <code>tedge-agent</code> etc can be monitored via MQTT.
+<p>The health of tedge daemons like <code>tedge-mapper</code>, <code>tedge-agent</code> etc can be monitored via MQTT.
 These daemons expose MQTT health endpoints which you can query to check if the process is still active or not.</p>
-<p>The health endpoints conform to the following topic scheme, listening for health check requests:</p>
-<p><code>tedge/health-check/&lt;tedge-daemon-name&gt;</code></p>
-<p>expecting empty messages, triggering the health check.</p>
-<p>The daemon will then respond back on the topic:</p>
-<p><code>tedge/health/&lt;tedge-daemon-name&gt;</code></p>
-<p>with the following payload:</p>
-<pre><code class="language-json">{ &quot;status&quot;: &quot;up&quot;, &quot;pid&quot;: &lt;process id of the daemon&gt; }
+<p>To get the last known health status of a daemon you can subscribe to the following topic</p>
+<pre><code>tedge/health/&lt;tedge-daemon-name&gt;
 </code></pre>
-<p>All daemons will also respond to health checks sent to the common health check endpoint <code>tedge/health-check</code>.</p>
-<h2 id="supported-mqtt-topic-endpoints"><a class="header" href="#supported-mqtt-topic-endpoints">Supported MQTT topic endpoints</a></h2>
-<p>The following endpoints are currently supported by various tedge daemons:</p>
+<p>To refresh the health status of the daemon, publish an empty message on the topic below.</p>
+<pre><code>tedge/health-check/&lt;tedge-daemon-name&gt;
+</code></pre>
+<blockquote>
+<p>Note: if the response is not received then most likely the daemon is down, or not responding</p>
+</blockquote>
+<p>For example, <code>tedge-mapper-c8y</code> publishes below message on topic <code>tedge/health/tedge-mapper-c8y</code> when it starts</p>
+<pre><code class="language-json">{&quot;pid&quot;:290854,&quot;status&quot;:&quot;up&quot;,&quot;time&quot;:1674739912}
+</code></pre>
+<table><thead><tr><th>Property</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>pid</code></td><td>Process ID of the daemon</td></tr>
+<tr><td><code>status</code></td><td>Daemon status. Possible values are <code>up</code> or <code>down</code></td></tr>
+<tr><td><code>time</code></td><td>Unix timestamp in seconds</td></tr>
+</tbody></table>
+<p>If the tedge daemon gets stopped or crashed or get killed then a <code>down</code> message will be published on health status topic
+and this will be retained till the tedge daemon is re-launched.</p>
+<p>E.g the mapper being killed:</p>
+<pre><code>tedge mqtt sub 'tedge/health/#'
+
+INFO: Connected
+[tedge/health/mosquitto-c8y-bridge] 1
+[tedge/health/tedge-mapper-c8y] {&quot;pid&quot;:51367,&quot;status&quot;:&quot;down&quot;}
+[tedge/health/tedge-agent] {&quot;pid&quot;:13280,&quot;status&quot;:&quot;up&quot;,&quot;time&quot;:1675330667}
+
+</code></pre>
+<h2 id="supported-mqtt-health-endpoint-topics"><a class="header" href="#supported-mqtt-health-endpoint-topics">Supported MQTT health endpoint topics</a></h2>
+<p>The following endpoints are currently supported:</p>
 <ul>
 <li><code>tedge/health/tedge-agent</code></li>
 <li><code>tedge/health/tedge-mapper-c8y</code></li>
