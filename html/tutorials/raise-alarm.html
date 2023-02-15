@@ -187,14 +187,55 @@ An empty message can't be used for the same, as empty messages are used to clear
 <p>Thin-edge.io doesn't keep any history of all alarms raised on an alarm topic.</p>
 <h2 id="clearing-alarms"><a class="header" href="#clearing-alarms">Clearing alarms</a></h2>
 <p>An already raised alarm can be cleared by sending an empty message with retained flag enabled to the same alarm topic on which the original alarm was raised.</p>
+<p>For example <code>temperature_alarm</code> will be cleared by publishing an empty payload message as below:</p>
+<pre><code>tedge mqtt pub tedge/alarms/critical/temperature_alarm &quot;&quot; -q 2 -r
+
+</code></pre>
 <blockquote>
-<p>Note: Using the retained flag is a must while clearing the alarm as well, without which the alarm won't be cleared properly.</p>
+<p>Note: Using the retained (-r) flag is a must while clearing the alarm as well, without which the alarm won't be cleared properly.</p>
 </blockquote>
 <p>If alarms of different severities exist for a given alarm type, they must all be cleared separately as they're all treated as independent alarms.</p>
 <h3 id="raising-alarms-from-child-devices"><a class="header" href="#raising-alarms-from-child-devices">Raising alarms from child devices</a></h3>
 <p>Alarms for child devices can be raised by publishing the alarm payload to <code>tedge/alarms/&lt;severity&gt;/&lt;alarm-type&gt;/&lt;child-device-id&gt;</code> topic,
 where the <code>child-device-id</code> is the unique device id of the child device.
 The alarm payload structure is the same, as described in the previous section.</p>
+<h3 id="raising-an-alarm-with-custom-fragment"><a class="header" href="#raising-an-alarm-with-custom-fragment">Raising an alarm with custom fragment</a></h3>
+<p>Thin-edge supports the creation of alarms using custom (user-defined) fragments.
+Custom fragments are supported for both the main and child devices.
+The custom fragments can be a simple json value or a complex json value.</p>
+<p>For example, an alarm with simple custom fragment field named <code>details</code>:</p>
+<p>Payload:</p>
+<pre><code class="language-json">{
+    &quot;text&quot;: &quot;Temperature is very high&quot;,
+    &quot;time&quot;: &quot;2021-01-01T05:30:45+00:00&quot;,
+    &quot;details&quot;: &quot;A custom alarm info&quot;
+}
+</code></pre>
+<p>For example, an alarm with complex custom fragments</p>
+<p>Payload:</p>
+<pre><code class="language-json">{
+    &quot;text&quot;: &quot;Temperature is very high&quot;,
+    &quot;time&quot;: &quot;2021-01-01T05:30:45+00:00&quot;,
+    &quot;someOtherCustomFragment&quot;: {
+        &quot;nested&quot;: {
+            &quot;value&quot;: &quot;extra info&quot;
+        }
+    }
+}
+</code></pre>
+<blockquote>
+<p>Note: Other than <code>text</code> and <code>time</code> fields, all the other fields are considered as custom fragments.</p>
+</blockquote>
+<h3 id="raising-an-alarm-with-empty-json-payload"><a class="header" href="#raising-an-alarm-with-empty-json-payload">Raising an alarm with empty json payload</a></h3>
+<p>Alarms can also be raised with an <code>empty json object</code> as payload as follows:</p>
+<p>Payload:</p>
+<pre><code class="language-json">{}
+</code></pre>
+<blockquote>
+<p>Note: The <code>default</code> value for the <code>time</code> fragment will be the timestamp in utc time that is added by the <code>tedge-mapper-c8y</code>
+while alarm message being translated to cumulocity format.
+The default value for the <code>text</code> fragment will be derived from the <code>alarm-type</code> of the topic.</p>
+</blockquote>
 <h2 id="cloud-data-mapping"><a class="header" href="#cloud-data-mapping">Cloud data mapping</a></h2>
 <p>If the device is connected to some supported IoT cloud platform, any alarms raised locally on thin-edge.io will be forwarded to the connected cloud platform as well.
 The mapping of thin-edge alarms data to its respective cloud-native representation will be done by the corresponding cloud mapper process.
@@ -209,6 +250,44 @@ For example, if the device is connected to Cumulocity IoT cloud platform, the Cu
 </code></pre>
 <p>... and is published to <code>c8y/s/us</code> topic which will get forwarded to the connected Cumulocity cloud instance.</p>
 <p>If the alarm is raised from a child device, the payload is published to <code>c8y/s/us/&lt;child-device-id&gt;</code> topic instead.</p>
+<p>If an alarm contains a <code>custom fragment</code> then, the alarm message will be converted to <code>cumulocity json</code>
+format and then will be published on to <code>c8y/alarm/alarms/create</code> topic.</p>
+<p>An example of the translated custom message for <code>thin-edge</code> device will be as below</p>
+<pre><code class="language-json">{
+    &quot;severity&quot;:&quot;MAJOR&quot;,
+    &quot;type&quot;:&quot;temperature_high&quot;,
+    &quot;time&quot;:&quot;2023-01-25T18:41:14.776170774Z&quot;,
+    &quot;text&quot;:&quot;Temperature High&quot;,
+    &quot;someOtherCustomFragment&quot;:
+        {
+            &quot;nested&quot;:
+            {
+                &quot;value&quot;: &quot;extra info&quot;
+            }
+        }
+}
+</code></pre>
+<p>An example of the translated <code>cumulocity</code> alarm message for a <code>child</code> device with a <code>custom</code> fragment will be as below</p>
+<pre><code class="language-json">{
+    &quot;severity&quot;:&quot;MAJOR&quot;,
+    &quot;type&quot;:&quot;pressure_alarm&quot;,
+    &quot;time&quot;:&quot;2023-01-25T18:41:14.776170774Z&quot;,
+    &quot;text&quot;:&quot;Pressure alarm&quot;,
+    &quot;someOtherCustomFragment&quot;:
+        {
+            &quot;nested&quot;:
+            {
+                &quot;value&quot;: &quot;extra info&quot;
+            }
+        }
+    &quot;externalSource&quot;:
+        {
+            &quot;externalId&quot;:&quot;child_device_id&quot;,
+            &quot;type&quot;:&quot;c8y_Serial&quot;
+        }
+}
+
+</code></pre>
 <p>Find more information about SmartREST representations for alarms in Cumulocity <a href="https://cumulocity.com/guides/10.11.0/reference/smartrest-two/#alarm-templates">here</a></p>
 <p>Find more information about alarms data model in Cumulocity <a href="https://cumulocity.com/guides/concepts/domain-model/#events">here</a></p>
 
