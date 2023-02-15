@@ -136,8 +136,7 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="software-management-plugin-api"><a class="header" href="#software-management-plugin-api">Software Management Plugin API</a></h1>
-<p>Thin-edge uses plugins to delegate to the appropriate package managers and installers
-all the software management operations: installation of packages, uninstallations and queries.</p>
+<p>Thin-edge uses plugins to delegate software management operations to the appropriate package manager/installer. The plugins are responsible for: installation of packages, uninstalls and queries.</p>
 <ul>
 <li>A package manager plugin acts as a facade for a specific package manager.</li>
 <li>A plugin is an executable that follows the <a href="#plugin-api">plugin API</a>.</li>
@@ -146,7 +145,7 @@ all the software management operations: installation of packages, uninstallation
 <li>All the actions on a software module are directed to the plugin bearing the name that matches the module type name.</li>
 <li>The plugins are loaded and invoked by the sm-agent in a systematic order (in practice the alphanumerical order of their names in the file system).</li>
 <li>The software modules to be installed/removed are also passed to the plugins in a consistent order.</li>
-<li>Among all the plugins, one can be marked as the default plugin using <code>tedge config</code> cli.</li>
+<li>Among all the plugins, one can be marked as the default plugin using the <code>tedge config</code> cli.</li>
 <li>The default plugin is invoked when an incoming software module in the cloud request doesn't contain any explicit type annotation.</li>
 <li>Several plugins can co-exist for a given package manager as long as they are given different names.
 Each can implement a specific software management policy.
@@ -154,16 +153,18 @@ For instance, for a debian package manager, several plugins can concurrently be 
 </ul>
 <h2 id="plugin-repository"><a class="header" href="#plugin-repository">Plugin repository</a></h2>
 <ul>
-<li>To be used by thin-edge, a plugin has to stored in the directory <code>/etc/tedge/sm-plugins</code>.</li>
+<li>To be used by thin-edge, a plugin has to be stored in the directory <code>/etc/tedge/sm-plugins</code>.</li>
 <li>A plugin must be named after the software module type as specified in the cloud request.
 That is, a plugin named <code>apt</code> handles software modules that are defined with type <code>apt</code> in the cloud request.
 Consequently a plugin to handle software module defined for <code>docker</code> must be named <code>docker</code>.</li>
 <li>The same plugin can be given different names, using virtual links.</li>
 <li>When there are multiple plugins on a device, one can be marked as the default plugin using the command
-<code>tedge config set software.plugin.default &lt;plugin-name&gt;</code></li>
-<li>If there's one and only one plugin available on a device, that's treated as the default, even without an explicit configuration.</li>
+<pre><code class="language-sh">tedge config set software.plugin.default &lt;plugin-name&gt;
+</code></pre>
+</li>
+<li>If there's only one plugin available on a device, it is selected by default, even without an explicit configuration.</li>
 </ul>
-<p>On start-up and sighup, the sm-agent registers the plugins as follow:</p>
+<p>On start-up, the sm-agent registers the plugins as follows:</p>
 <ol>
 <li>Iterate over the executable file of the directory <code>/etc/tedge/sm-plugins</code>.</li>
 <li>Check the executable is indeed a plugin, calling the <a href="#the-list-command"><code>list</code></a> command.</li>
@@ -172,18 +173,18 @@ Consequently a plugin to handle software module defined for <code>docker</code> 
 <ul>
 <li>A plugin must implement all the commands used by the sm-agent of thin-edge,
 and support all the options for these commands.</li>
-<li>A plugin should not support extra command or option.</li>
+<li>A plugin should not support extra commands or options.</li>
 <li>A plugin might have a configuration file.
 <ul>
 <li>It can be a list of remote repositories, or a list of software modules to be excluded.</li>
-<li>These configuration files can be managed from the cloud via the sm-agent (TODO: how).</li>
+<li>These configuration files can be managed from the cloud via the configuration management feature.</li>
 </ul>
 </li>
 </ul>
 <h3 id="input-output-and-errors"><a class="header" href="#input-output-and-errors">Input, Output and Errors</a></h3>
 <ul>
 <li>The plugins are called by the sm-agent using a child process for each action.</li>
-<li>Beside command <code>update-list</code> there is no input beyond the command arguments, and a plugin that does not
+<li>Besides the <code>update-list</code> command, there is no input beyond the command arguments, and a plugin that does not
 implement <code>update-list</code> can close its <code>stdin</code>.</li>
 <li>The <code>stdout</code> and <code>stderr</code> of the process running a plugin command are captured by the sm-agent.
 <ul>
@@ -193,10 +194,10 @@ It can be a one sentence summary of the error, redirecting the administrator to 
 </li>
 <li>A plugin must return the appropriate exit status after each command.
 <ul>
-<li>In no cases, the error status of the underlying package manager should be reported.</li>
+<li>It is important that under no circumstances should the error status of the underlying package manager should be reported, instead return one of the exit codes mentioned in the next section.</li>
 </ul>
 </li>
-<li>The exit status are interpreted by sm-agent as follows:
+<li>The exit status are interpreted by the sm-agent as follows:
 <ul>
 <li><strong><code>0</code></strong>: success.</li>
 <li><strong><code>1</code></strong>: usage. The command arguments cannot be interpreted, and the command has not been launched.</li>
@@ -290,7 +291,7 @@ from the sm-agent viewpoint this is no more than a string.</li>
 </li>
 <li>An optional file path can be provided.
 <ul>
-<li>When the device administrator provides an url,
+<li>When the device administrator provides a url,
 the sm-agent downloads the software module on the device,
 then invoke the install command with a path to that file.</li>
 <li>If no file is provided, the plugin has to derive the appropriate location from its repository
@@ -314,7 +315,7 @@ If the plugin manage concurrent versions, the module <code>foo</code> might also
 <li>An error must be reported if:
 <ul>
 <li>The module name is unknown.</li>
-<li>There is no version for the module that matches the constraint provided by the <code>--version</code> option.</li>
+<li>There is no version for the module that matches the constraint provided by the <code>--module-version</code> option.</li>
 <li>The file content provided by <code>--file</code> option:
 <ul>
 <li>is not in the expected format,</li>
@@ -345,7 +346,7 @@ and is transmitted unchanged from the cloud to the plugin.</li>
 and is transmitted unchanged from the cloud to the plugin.</li>
 </ul>
 </li>
-<li>The command uninstall the requested module and possibly any dependencies that are no more required.
+<li>The command uninstalls the requested module and possibly any dependencies that are no more required.
 <ul>
 <li>If a version is provided, only the module of that version is removed.
 This is in-practice useful only for a package manager that is able to install concurrent versions of a module.</li>
@@ -366,7 +367,7 @@ If the plugin manage concurrent versions, the module <code>foo</code> might stil
 <h3 id="the-update-list-command"><a class="header" href="#the-update-list-command">The <code>update-list</code> command</a></h3>
 <p>The <code>update-list</code> command accepts a list of software modules and associated operations as <code>install</code> or <code>remove</code>.</p>
 <p>This basically achieves same purpose as original commands <code>install</code> and <code>remove</code>, but gets passed all software modules to be processed in one command.
-This can be needed when order of processing software modules is relevant - e.g. when dependencies between packages inside the software list do occur.</p>
+This can be necessary when the processing order of software modules is relevant - e.g. when dependencies between packages inside the software list do occur.</p>
 <pre><code class="language-shell"># building list of software modules and operations, 
 # and passing to plugin's stdin via pipe:
 # NOTE that each argument is tab separated:
@@ -382,14 +383,13 @@ echo '\
 <ul>
 <li>This command is optional for a plugin. It can be implemented alternatively to original commands <code>install</code> and <code>remove</code> as both are specified above.
 <ul>
-<li>If a plugin does not implement this command it must return exit status <code>1</code>. In that case sm-agent will call the plugin again
-package-by-package using original commands <code>install</code> and <code>remove</code>.</li>
-<li>If a plugin implements this command sm-agent uses it instead of original commands <code>install</code> and <code>remove</code>.</li>
+<li>If a plugin does not implement this command it must return exit status <code>1</code>. In that case, the sm-agent will call the plugin again, calling it package-by-package using the <code>install</code> and <code>remove</code> commands.</li>
+<li>If a plugin implements this command, the sm-agent uses it instead of original commands <code>install</code> and <code>remove</code>.</li>
 </ul>
 </li>
-<li>This command takes no commandline arguments, but expects a software list sent from sm-agent to plugin's <code>stdin</code>.</li>
-<li>In the software list each software module is represented by exactly one line, using tab separated values.</li>
-<li>The position of each argument in the argument list has it's defined meaning:
+<li>This command takes no command line arguments, but expects a software list sent from the sm-agent to the plugin's <code>stdin</code>.</li>
+<li>In the software list, each software module is represented by exactly one line, using tab separated values.</li>
+<li>The position of each argument in the argument list has its defined meaning:
 <ul>
 <li>1st argument: Is the operation and can be <code>install</code> or <code>remove</code></li>
 <li>2nd argument: Is the software module's name.</li>
@@ -405,7 +405,7 @@ package-by-package using original commands <code>install</code> and <code>remove
 </li>
 <li>An overall error must be reported (via process's exit status) when at least one software module operation has failed.</li>
 </ul>
-<p>Example how to invoke that plugin command <code>update-list</code>. Note that each argument is tab separated:</p>
+<p>Example how to invoke a plugin's <code>update-list</code> command. Note that each argument is tab separated:</p>
 <pre><code class="language-shell">plugin update-list &lt;&lt;EOF
   install	name1	version1
   install	name2		path2
@@ -415,12 +415,11 @@ EOF
 </code></pre>
 <p>That is equivalent to use of original commands (<code>install</code> and <code>remove</code>):</p>
 <pre><code class="language-shell">plugin install name1 --module-version version1
-plugin install name2 --module-path path2
+plugin install name2 --file path2
 plugin remove &quot;name 3&quot; --module-version version3
 plugin remove name4
 </code></pre>
-<p>Exemplary implementation of a shell script for parsing software list from <code>stdin</code>:</p>
-<p>Note that this example works only in bash.</p>
+<p>Below shows an example implementation (in <code>bash</code>) to parse the software list from <code>stdin</code>:</p>
 <pre><code class="language-shell">#!/bin/bash
 
 echo &quot;&quot;
