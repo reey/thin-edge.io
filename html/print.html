@@ -6922,313 +6922,49 @@ Alternatively, you can use <code>cargo</code> to build and run executable in a s
 <li><a href="references/./thin-edge-config-files.html">Thin-edge.io configuration files</a></li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="the-tedge-command"><a class="header" href="#the-tedge-command">The <code>tedge</code> command</a></h1>
-<pre><code>tedge 0.9.0
-tedge is the cli tool for thin-edge.io
-
-USAGE:
-    tedge [OPTIONS] [SUBCOMMAND]
-
-OPTIONS:
-        --config-dir &lt;CONFIG_DIR&gt;    [default: /etc/tedge]
-    -h, --help                       Print help information
-        --init                       Initialize the tedge
-    -V, --version                    Print version information
-
-SUBCOMMANDS:
-    cert          Create and manage device certificate
-    config        Configure Thin Edge
-    connect       Connect to connector provider
-    disconnect    Remove bridge connection for a provider
-    help          Print this message or the help of the given subcommand(s)
-    mqtt          Publish a message on a topic and subscribe a topic
-    reconnect     Reconnect command, calls disconnect followed by connect
-</code></pre>
+<pre><code class="language-console"></code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="the-tedge-config-command"><a class="header" href="#the-tedge-config-command">The <code>tedge config</code> command</a></h1>
-<pre><code>tedge-config 
-Configure Thin Edge
-
-USAGE:
-    tedge config &lt;SUBCOMMAND&gt;
-
-OPTIONS:
-    -h, --help    Print help information
-
-SUBCOMMANDS:
-    get      Get the value of the provided configuration key
-    help     Print this message or the help of the given subcommand(s)
-    list     Print the configuration keys and their values
-    set      Set or update the provided configuration key with the given value
-    unset    Unset the provided configuration key
-</code></pre>
+<pre><code class="language-console"></code></pre>
 <h2 id="get"><a class="header" href="#get">Get</a></h2>
-<pre><code>tedge-config-get 
-Get the value of the provided configuration key
-
-USAGE:
-    tedge config get &lt;KEY&gt;
-
-ARGS:
-    &lt;KEY&gt;    Configuration key. Run `tedge config list --doc` for available keys
-
-OPTIONS:
-    -h, --help    Print help information
-</code></pre>
+<pre><code class="language-console"></code></pre>
 <h2 id="set"><a class="header" href="#set">Set</a></h2>
-<pre><code>tedge-config-set 
-Set or update the provided configuration key with the given value
-
-USAGE:
-    tedge config set &lt;KEY&gt; &lt;VALUE&gt;
-
-ARGS:
-    &lt;KEY&gt;      Configuration key. Run `tedge config list --doc` for available keys
-    &lt;VALUE&gt;    Configuration value
-
-OPTIONS:
-    -h, --help    Print help information
-</code></pre>
+<pre><code class="language-console"></code></pre>
 <h2 id="list-2"><a class="header" href="#list-2">List</a></h2>
-<pre><code>tedge-config-list 
-Print the configuration keys and their values
-
-USAGE:
-    tedge config list [OPTIONS]
-
-OPTIONS:
-        --all     Prints all the configuration keys, even those without a configured value
-        --doc     Prints all keys and descriptions with example values
-    -h, --help    Print help information
-</code></pre>
+<pre><code class="language-console"></code></pre>
 <h2 id="unset"><a class="header" href="#unset">Unset</a></h2>
-<pre><code>tedge-config-unset 
-Unset the provided configuration key
-
-USAGE:
-    tedge config unset &lt;KEY&gt;
-
-ARGS:
-    &lt;KEY&gt;    Configuration key. Run `tedge config list --doc` for available keys
-
-OPTIONS:
-    -h, --help    Print help information
-</code></pre>
+<pre><code class="language-console"></code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="the-tedge-cert-command"><a class="header" href="#the-tedge-cert-command">The <code>tedge cert</code> command</a></h1>
-<pre><code>tedge-cert 
-Create and manage device certificate
-
-USAGE:
-    tedge cert &lt;SUBCOMMAND&gt;
-
-OPTIONS:
-    -h, --help    Print help information
-
-SUBCOMMANDS:
-    create    Create a self-signed device certificate
-    help      Print this message or the help of the given subcommand(s)
-    remove    Remove the device certificate
-    show      Show the device certificate, if any
-    upload    Upload root certificate
-</code></pre>
+<pre><code class="language-console"></code></pre>
 <h2 id="create"><a class="header" href="#create">Create</a></h2>
-<pre><code>tedge-cert-create 
-Create a self-signed device certificate
-
-USAGE:
-    tedge cert create --device-id &lt;ID&gt;
-
-OPTIONS:
-        --device-id &lt;ID&gt;    The device identifier to be used as the common name for the certificate
-    -h, --help              Print help information
-</code></pre>
+<pre><code class="language-console"></code></pre>
 <h2 id="show"><a class="header" href="#show">Show</a></h2>
-<pre><code>tedge-cert-show 
-Show the device certificate, if any
-
-USAGE:
-    tedge cert show
-
-OPTIONS:
-    -h, --help    Print help information
-</code></pre>
+<pre><code class="language-console"></code></pre>
 <h2 id="remove-2"><a class="header" href="#remove-2">Remove</a></h2>
-<pre><code>tedge-cert-remove 
-Remove the device certificate
-
-USAGE:
-    tedge cert remove
-
-OPTIONS:
-    -h, --help    Print help information
-</code></pre>
+<pre><code class="language-console"></code></pre>
 <h2 id="upload"><a class="header" href="#upload">Upload</a></h2>
-<pre><code>tedge-cert-upload 
-Upload root certificate
-
-USAGE:
-    tedge cert upload &lt;SUBCOMMAND&gt;
-
-OPTIONS:
-    -h, --help    Print help information
-
-SUBCOMMANDS:
-    c8y     Upload root certificate to Cumulocity
-    help    Print this message or the help of the given subcommand(s)
-</code></pre>
+<pre><code class="language-console"></code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="the-tedge-connect-command"><a class="header" href="#the-tedge-connect-command">The <code>tedge connect</code> command</a></h1>
-<pre><code>tedge-connect 
-Connect to connector provider
-
-USAGE:
-    tedge connect &lt;SUBCOMMAND&gt;
-
-OPTIONS:
-    -h, --help    Print help information
-
-SUBCOMMANDS:
-    az      Create connection to Azure
-    c8y     Create connection to Cumulocity
-    help    Print this message or the help of the given subcommand(s)
-</code></pre>
-<h2 id="azure-1"><a class="header" href="#azure-1">Azure</a></h2>
-<pre><code>tedge-connect-az 
-Create connection to Azure
-
-The command will create config and start edge relay from the device to az instance
-
-USAGE:
-    tedge connect az [OPTIONS]
-
-OPTIONS:
-    -h, --help
-            Print help information
-
-        --test
-            Test connection to Azure
-</code></pre>
+<pre><code class="language-console"></code></pre>
 <h2 id="aws"><a class="header" href="#aws">AWS</a></h2>
-<pre><code>tedge-connect-aws
-Create connection to AWS
-
-The command will create config and start edge relay from the device to aws instance
-
-USAGE:
-    tedge connect aws [OPTIONS]
-
-OPTIONS:
-    -h, --help
-            Print help information
-
-        --test
-            Test connection to AWS
-</code></pre>
+<pre><code class="language-console"></code></pre>
+<h2 id="azure-1"><a class="header" href="#azure-1">Azure</a></h2>
+<pre><code class="language-console"></code></pre>
 <h2 id="cumulocity-1"><a class="header" href="#cumulocity-1">Cumulocity</a></h2>
-<pre><code>tedge-connect-c8y 
-Create connection to Cumulocity
-
-The command will create config and start edge relay from the device to c8y instance
-
-USAGE:
-    tedge connect c8y [OPTIONS]
-
-OPTIONS:
-    -h, --help
-            Print help information
-
-        --test
-            Test connection to Cumulocity
-</code></pre>
+<pre><code class="language-console"></code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="the-tedge-disconnect-command"><a class="header" href="#the-tedge-disconnect-command">The <code>tedge disconnect</code> command</a></h1>
-<pre><code>tedge-disconnect 
-Remove bridge connection for a provider
-
-USAGE:
-    tedge disconnect &lt;SUBCOMMAND&gt;
-
-OPTIONS:
-    -h, --help    Print help information
-
-SUBCOMMANDS:
-    az      Remove bridge connection to Azure
-    aws     Remove bridge connection to AWS
-    c8y     Remove bridge connection to Cumulocity
-    help    Print this message or the help of the given subcommand(s)
-</code></pre>
-<h2 id="azure-2"><a class="header" href="#azure-2">Azure</a></h2>
-<pre><code>tedge-disconnect-az 
-Remove bridge connection to Azure
-
-USAGE:
-    tedge disconnect az
-
-OPTIONS:
-    -h, --help    Print help information
-</code></pre>
+<pre><code class="language-console"></code></pre>
 <h2 id="aws-1"><a class="header" href="#aws-1">AWS</a></h2>
-<pre><code>tedge-disconnect-aws
-Remove bridge connection to AWS
-
-USAGE:
-    tedge disconnect aws
-
-OPTIONS:
-    -h, --help    Print help information
-</code></pre>
+<pre><code class="language-console"></code></pre>
+<h2 id="azure-2"><a class="header" href="#azure-2">Azure</a></h2>
+<pre><code class="language-console"></code></pre>
 <h2 id="cumulocity-2"><a class="header" href="#cumulocity-2">Cumulocity</a></h2>
-<pre><code>tedge-disconnect-c8y 
-Remove bridge connection to Cumulocity
-
-USAGE:
-    tedge disconnect c8y
-
-OPTIONS:
-    -h, --help    Print help information
-</code></pre>
+<pre><code class="language-console"></code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="the-tedge-mqtt-command"><a class="header" href="#the-tedge-mqtt-command">The <code>tedge mqtt</code> command</a></h1>
-<pre><code>tedge-mqtt 
-Publish a message on a topic and subscribe a topic
-
-USAGE:
-    tedge mqtt &lt;SUBCOMMAND&gt;
-
-OPTIONS:
-    -h, --help    Print help information
-
-SUBCOMMANDS:
-    help    Print this message or the help of the given subcommand(s)
-    pub     Publish a MQTT message on a topic
-    sub     Subscribe a MQTT topic
-</code></pre>
+<pre><code class="language-console"></code></pre>
 <h2 id="pub"><a class="header" href="#pub">Pub</a></h2>
-<pre><code>tedge-mqtt-pub 
-Publish a MQTT message on a topic
-
-USAGE:
-    tedge mqtt pub [OPTIONS] &lt;TOPIC&gt; &lt;MESSAGE&gt;
-
-ARGS:
-    &lt;TOPIC&gt;      Topic to publish
-    &lt;MESSAGE&gt;    Message to publish
-
-OPTIONS:
-    -h, --help         Print help information
-    -q, --qos &lt;QOS&gt;    QoS level (0, 1, 2) [default: 0]
-    -r, --retain       Retain flag
-</code></pre>
+<pre><code class="language-console"></code></pre>
 <h2 id="sub"><a class="header" href="#sub">Sub</a></h2>
-<pre><code>tedge-mqtt-sub 
-Subscribe a MQTT topic
-
-USAGE:
-    tedge mqtt sub [OPTIONS] &lt;TOPIC&gt;
-
-ARGS:
-    &lt;TOPIC&gt;    Topic to subscribe to
-
-OPTIONS:
-    -h, --help         Print help information
-        --no-topic     Avoid printing the message topics on the console
-    -q, --qos &lt;QOS&gt;    QoS level (0, 1, 2) [default: 0]
-</code></pre>
+<pre><code class="language-console"></code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="thin-edge-config-files"><a class="header" href="#thin-edge-config-files">Thin-edge config files</a></h1>
 <p>Thin-edge.io requires config files for its operation. The <code>tedge --init</code> option is used to create
 the base directory and other directories inside the base directory with appropriate user and permissions.
