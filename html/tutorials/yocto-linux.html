@@ -146,10 +146,16 @@ website</a>.</p>
 recommend to look into <a href="https://docs.yoctoproject.org/brief-yoctoprojectqs/index.html">official yocto documentation</a>
 as the installation process will now skip all information that were mentioned there! For workspace organization or
 raspberry pi distribution, we also recommend this <a href="https://github.com/jynik/ready-set-yocto">guide</a></p>
-<blockquote>
-<p>Most of the installation process is based on <a href="https://docs.yoctoproject.org/brief-yoctoprojectqs/index.html">Yocto Project Quick Build
-guide</a>.</p>
-</blockquote>
+<div id="admonition-note" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="#admonition-note"></a></p>
+</div>
+<div>
+<p>Most of the installation process is based on
+<a href="https://docs.yoctoproject.org/brief-yoctoprojectqs/index.html">Yocto Project Quick Build guide</a>.</p>
+</div>
+</div>
 <p>Before starting, be sure the host, where you plan to build a new Yocto image with thin-edge, meets the following
 requirements:</p>
 <ul>
@@ -164,10 +170,16 @@ Project Development Tasks Manual.</li>
 <li>Python 3.6.0 or greater.</li>
 <li>gcc 5.0 or greater.</li>
 </ul>
-<blockquote>
+<div id="admonition-note-1" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="#admonition-note-1"></a></p>
+</div>
+<div>
 <p>For the purposes of the tutorial, we assume <code>/home/yocto/</code> working directory. If using other directory, be sure to
 change paths where needed.</p>
-</blockquote>
+</div>
+</div>
 <h3 id="build-host-packages"><a class="header" href="#build-host-packages">Build Host Packages</a></h3>
 <p>Install essential packages:</p>
 <pre><code class="language-bash">sudo apt install gawk wget git diffstat unzip texinfo gcc build-essential chrpath socat cpio python3 python3-pip python3-pexpect xz-utils debianutils iputils-ping python3-git python3-jinja2 libegl1-mesa libsdl1.2-dev pylint3 xterm python3-subunit mesa-common-dev zstd liblz4-tool
@@ -177,10 +189,8 @@ change paths where needed.</p>
 process. If using these options, to see previous commits or other branches see
 <a href="https://stackoverflow.com/questions/29270058/how-to-fetch-all-git-history-after-i-clone-the-repo-with-depth-1">here</a>
 and <a href="https://stackoverflow.com/questions/17714159/how-do-i-undo-a-single-branch-clone">here</a>.</p>
-<blockquote>
-<p>Alternatively, you could use <code>--branch=honister</code> for Yocto version 3.4 Honister. If doing so, remember to also use
-<code>--branch=honister</code> for all additional layers that require it.</p>
-</blockquote>
+<p>Alternatively, you could use <code>--branch=honister</code> for Yocto version 3.4 Honister.
+If doing so, remember to also use <code>--branch=honister</code> for all additional layers that require it.</p>
 <pre><code class="language-bash">git clone git://git.yoctoproject.org/poky --branch=kirkstone --depth=1
 </code></pre>
 <p>Resulting directory structure should look like this:</p>
@@ -240,12 +250,18 @@ git clone https://github.com/thin-edge/meta-tedge
 git clone https://github.com/meta-rust/meta-rust.git
 git clone --branch=kirkstone git://git.openembedded.org/meta-openembedded
 </code></pre>
-<blockquote>
+<div id="admonition-note-2" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="#admonition-note-2"></a></p>
+</div>
+<div>
 <p>As with Poky itself, when cloning meta-openembedded either provide <code>--branch=kirkstone</code> for the clone command or
 manually <code>git switch kirkstone</code> in <code>meta-openembedded</code> repository after cloning. Some Yocto layers support different
 Yocto versions on different branches, in which case be sure to select correct branch. <code>meta-tedge</code> however supports 2
 versions, Honister and Kirkstone on the main branch, so there's no need to change the default branch.</p>
-</blockquote>
+</div>
+</div>
 <p>Resulting in the following directory structure:</p>
 <pre><code>.
 ├── meta-openembedded
@@ -253,11 +269,9 @@ versions, Honister and Kirkstone on the main branch, so there's no need to chang
 ├── meta-tedge
 └── poky
 </code></pre>
-<blockquote>
 <p>As these layers and <code>poky</code> are all different git repositories, we clone them next to the poky directory, but you can
 put them inside <code>poky</code> if you prefer. The only thing that matters is to use a correct path in the
 <code>poky/build/conf/bblayers.conf</code> file.</p>
-</blockquote>
 <p>Next, we add these layers to our build using <code>bitbake-layers</code> tool. Be aware that <code>meta-openembedded</code> is not itself a
 layer, but a collection of many layers. We need to run it from the <code>build</code> directory:</p>
 <pre><code class="language-bash">cd poky/build
@@ -293,12 +307,18 @@ BBLAYERS ?= &quot; \
 <p>For thin-edge to work, it has to run some setup scripts upon the first boot and interact with system services via the
 init system. Right now, <code>meta-tedge</code> only supports systemd init manager. The default in yocto is initrd, thus we have to
 change it.</p>
-<blockquote>
+<div id="admonition-important" class="admonition tip">
+<div class="admonition-title">
+<p>Important</p>
+<p><a class="admonition-anchor-link" href="#admonition-important"></a></p>
+</div>
+<div>
 <p>This, and any successive changes to the build configuration should happen only in your local configuration, ie.
 <code>poky/build/conf/local.conf</code> or in configuration files of layers you create yourself. Changing any files in layers you
 do not control - in our example <code>meta-tedge</code> or any of the layers in <code>meta-openembedded</code> - is discouraged, because any
 changes you make to them may be lost when you update the layer.</p>
-</blockquote>
+</div>
+</div>
 <p>Activate <code>systemd</code> as default init manager by adding following line to <code>poky/build/conf/local.conf</code>:</p>
 <pre><code>INIT_MANAGER=&quot;systemd&quot;
 </code></pre>
@@ -336,10 +356,16 @@ PACKAGE_CLASSES ?= &quot;package_deb&quot;
 use <code>nographic</code> option to run the emulator inside the current terminal, so that we may copy-paste from our system
 clipboard, which wouldn't work in an external window. If this is not necessary, or if you run a graphical image, such as
 <code>core-image-sato</code>, you can omit this option.</p>
-<blockquote>
+<div id="admonition-tip" class="admonition tip">
+<div class="admonition-title">
+<p>Tip</p>
+<p><a class="admonition-anchor-link" href="#admonition-tip"></a></p>
+</div>
+<div>
 <p>For more information about runqemu tool, see <a href="https://docs.yoctoproject.org/4.0.5/dev-manual/qemu.html">Using the Quick EMUlator
 (QEMU)</a> in Yocto Development Tasks manual.</p>
-</blockquote>
+</div>
+</div>
 <pre><code class="language-bash">runqemu nographic
 </code></pre>
 <p>After booting up, there will be a prompt to login. Login as <code>root</code>, password won't be required for the default
@@ -374,10 +400,16 @@ enable/disable/modify functionality of a device, e.g to access a shell via the U
 </code></pre>
 <p>Once the build is complete, the image will be located in <code>/tmp/deploy/images/$MACHINE/</code> directory where <code>$MACHINE</code>
 denotes your target platform. Copy the image to the SD card and run your device.</p>
-<blockquote>
-<p>To make Yocto run on another hardware, check other layers in the <a href="https://layers.openembedded.org/layerindex/branch/master/layers/">OpenEmbedded Layer
-Index</a>.</p>
-</blockquote>
+<div id="admonition-tip-1" class="admonition tip">
+<div class="admonition-title">
+<p>Tip</p>
+<p><a class="admonition-anchor-link" href="#admonition-tip-1"></a></p>
+</div>
+<div>
+<p>To make Yocto run on another hardware, check other layers in the
+<a href="https://layers.openembedded.org/layerindex/branch/master/layers/">OpenEmbedded Layer Index</a>.</p>
+</div>
+</div>
 <h2 id="further-recommendations"><a class="header" href="#further-recommendations">Further recommendations</a></h2>
 <p>After building the reference distribution and image, you can explore creating your own layer and image, and then
 integrating <code>tedge-*</code> recipes for it.</p>

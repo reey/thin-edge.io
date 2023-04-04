@@ -144,9 +144,15 @@ These daemons expose MQTT health endpoints which you can query to check if the p
 <p>To refresh the health status of the daemon, publish an empty message on the topic below.</p>
 <pre><code>tedge/health-check/&lt;tedge-daemon-name&gt;
 </code></pre>
-<blockquote>
-<p>Note: if the response is not received then most likely the daemon is down, or not responding</p>
-</blockquote>
+<div id="admonition-note" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="#admonition-note"></a></p>
+</div>
+<div>
+<p>If the response is not received then most likely the daemon is down, or not responding</p>
+</div>
+</div>
 <p>For example, <code>tedge-mapper-c8y</code> publishes below message on topic <code>tedge/health/tedge-mapper-c8y</code> when it starts</p>
 <pre><code class="language-json">{&quot;pid&quot;:290854,&quot;status&quot;:&quot;up&quot;,&quot;time&quot;:1674739912}
 </code></pre>

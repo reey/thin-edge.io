@@ -141,36 +141,60 @@
 <p>On a thin-edge device different components like mappers, agent, and plugins run. The log messages of these components can be accessed as below.
 The logs here capture INFO, WARNING, and ERROR messages.</p>
 <h3 id="cloud-mapper-logs"><a class="header" href="#cloud-mapper-logs">Cloud mapper logs</a></h3>
-<p>The thin-edge cloud mapper component that sends the measurement data to the cloud can be accessed as below.</p>
+<p>The thin-edge cloud mapper component that sends the measurement data to the cloud can be accessed as below.</p>
 <h4 id="tedge-cumulocity-mapper"><a class="header" href="#tedge-cumulocity-mapper">Tedge Cumulocity mapper</a></h4>
-<p>The log messages of the Cumulocity mapper component that sends the measurement data from the thin-edge device to the Cumulocity
-cloud can be accessed as below</p>
+<p>The log messages of the Cumulocity mapper component that sends the measurement data from the thin-edge device to the Cumulocity
+cloud can be accessed as below</p>
 <p><code>journalctl -u tedge-mapper-c8y.service</code></p>
-<blockquote>
-<p>Note: Run <code>tedge-mapper --debug c8y</code> to log more debug messages</p>
-</blockquote>
+<div id="admonition-note" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="#admonition-note"></a></p>
+</div>
+<div>
+<p>Run <code>tedge-mapper --debug c8y</code> to log more debug messages</p>
+</div>
+</div>
 <h4 id="tedge-azure-mapper"><a class="header" href="#tedge-azure-mapper">Tedge Azure mapper</a></h4>
-<p>The log messages of the Azure mapper component that sends the measurement data from the thin-edge device to the Azure
-cloud can be accessed as below.</p>
+<p>The log messages of the Azure mapper component that sends the measurement data from the thin-edge device to the Azure
+cloud can be accessed as below.</p>
 <p><code>journalctl -u tedge-mapper-az.service</code></p>
-<blockquote>
-<p>Note: Run <code>tedge-mapper --debug az</code> to log more debug messages</p>
-</blockquote>
+<div id="admonition-note-1" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="#admonition-note-1"></a></p>
+</div>
+<div>
+<p>Run <code>tedge-mapper --debug az</code> to log more debug messages</p>
+</div>
+</div>
 <h4 id="tedge-aws-mapper"><a class="header" href="#tedge-aws-mapper">Tedge AWS mapper</a></h4>
-<p>The log messages of the AWS mapper component that sends the measurement data from the thin-edge device to the AWS
-cloud can be accessed as below.</p>
+<p>The log messages of the AWS mapper component that sends the measurement data from the thin-edge device to the AWS
+cloud can be accessed as below.</p>
 <p><code>journalctl -u tedge-mapper-aws.service</code></p>
-<blockquote>
-<p>Note: Run <code>tedge_mapper --debug aws</code> to log more debug messages</p>
-</blockquote>
+<div id="admonition-note-2" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="#admonition-note-2"></a></p>
+</div>
+<div>
+<p>Run <code>tedge_mapper --debug aws</code> to log more debug messages</p>
+</div>
+</div>
 <h3 id="device-monitoring-logs"><a class="header" href="#device-monitoring-logs">Device monitoring logs</a></h3>
 <p>The thin-edge device monitoring component logs can be found as below</p>
 <h4 id="collectd-mapper-logs"><a class="header" href="#collectd-mapper-logs">Collectd mapper logs</a></h4>
 <p>The log messages of the collectd mapper that sends the monitoring data to the cloud can be accessed as below</p>
 <p><code>journalctl -u tedge-mapper-collectd.service</code></p>
-<blockquote>
-<p>Note: Run <code>tedge-mapper --debug collectd</code> to log more debug messages</p>
-</blockquote>
+<div id="admonition-note-3" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="#admonition-note-3"></a></p>
+</div>
+<div>
+<p>Run <code>tedge-mapper --debug collectd</code> to log more debug messages</p>
+</div>
+</div>
 <h3 id="software-management-logs"><a class="header" href="#software-management-logs">Software Management logs</a></h3>
 <p>This section describes how to access the software management component logs</p>
 <h4 id="software-update-operation-log"><a class="header" href="#software-update-operation-log">Software update operation log</a></h4>
@@ -183,9 +207,15 @@ the log file captures <code>exit status, stdout, and stderr</code> messages.</p>
 <p>For example: tedge-agent logs plugin calls finalize and list.</p>
 <p>tedge-agent : TTY=unknown ; PWD=/tmp ; USER=root ; COMMAND=/etc/tedge/sm-plugins/apt finalize</p>
 <p>tedge-agent : TTY=unknown ; PWD=/tmp ; USER=root ; COMMAND=/etc/tedge/sm-plugins/apt list</p>
-<blockquote>
-<p>Note: Run <code>tedge-agent --debug</code> to log more debug messages</p>
-</blockquote>
+<div id="admonition-note-4" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="#admonition-note-4"></a></p>
+</div>
+<div>
+<p>Run <code>tedge-agent --debug</code> to log more debug messages</p>
+</div>
+</div>
 <h2 id="thirdparty-component-logs"><a class="header" href="#thirdparty-component-logs">Thirdparty component logs</a></h2>
 <p>Thin-edge uses the third-party components <code>Mosquitto</code> as the mqtt broker and <code>Collectd</code> for monitoring purpose.
 The logs that are created by these components can be accessed on a thin-edge device as below.</p>
@@ -193,9 +223,15 @@ The logs that are created by these components can be accessed on a thin-edge dev
 <p>Thin-edge uses <code>Mosquitto</code> as the <code>mqtt broker</code> for local communication as well as to communicate with the cloud.
 The <code>Mosquitto</code> logs can be found in <code>/var/log/mosquitto/mosquitto.log</code>.
 <code>Mosquitto</code> captures error, warning, notice, information, subscribe, and unsubscribe messages.</p>
-<blockquote>
-<p>Note: Set <code>log_type debug</code> or <code>log_type all</code> on /etc/mosquitto/mosquitto.conf, to capture more debug information.</p>
-</blockquote>
+<div id="admonition-note-5" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="#admonition-note-5"></a></p>
+</div>
+<div>
+<p>Set <code>log_type debug</code> or <code>log_type all</code> on /etc/mosquitto/mosquitto.conf, to capture more debug information.</p>
+</div>
+</div>
 <h3 id="collectd-logs"><a class="header" href="#collectd-logs">Collectd logs</a></h3>
 <p><code>Collectd</code> is used for monitoring the resource status of a thin-edge device.
 Collectd logs all the messages at <code>/var/log/syslog</code>.
@@ -209,12 +245,17 @@ level in <code>system.toml</code></p>
 <p>For example for tedge-mapper:</p>
 <pre><code class="language-shell">
 sudo -u tedge -- tedge-mapper  --debug c8y
-
 </code></pre>
-<blockquote>
-<p>Note: In a similar way it can be set for all the <code>thin-edge.io</code> services.
+<div id="admonition-note-6" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="#admonition-note-6"></a></p>
+</div>
+<div>
+<p>In a similar way it can be set for all the <code>thin-edge.io</code> services.
 Only <code>debug</code> level can be set through cli. Also, it enables <code>trace</code> level.</p>
-</blockquote>
+</div>
+</div>
 <h3 id="setting-log-level-through-systemtoml"><a class="header" href="#setting-log-level-through-systemtoml">Setting <code>log level</code> through <code>system.toml</code></a></h3>
 <p>The log levels can also be configured through the <code>system.toml</code> file.
 The supported log levels are <code>info, warn, error, trace, debug</code>.</p>
@@ -225,10 +266,15 @@ tedge-watchdog = &quot;debug&quot;
 c8y-log-plugin = &quot;warn&quot;
 c8y-configuration-plugin = &quot;error&quot;
 </code></pre>
-<blockquote>
-<p>Note: The log level strings are case insensitive</p>
-</blockquote>
-
+<div id="admonition-note-7" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="#admonition-note-7"></a></p>
+</div>
+<div>
+<p>The log level strings are case insensitive</p>
+</div>
+</div>
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">

@@ -191,9 +191,15 @@ For <code>tedge</code> debian package do:</p>
 <p>This unpacks two directories <code>usr/bin/</code>, move its contents to <code>/usr/bin</code></p>
 <pre><code class="language-shell">sudo mv usr/bin/tedge /usr/bin
 </code></pre>
-<blockquote>
-<p>Note: Do the same for tedge_agent and tedge_mapper debian packages.</p>
-</blockquote>
+<div id="admonition-note" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="#admonition-note"></a></p>
+</div>
+<div>
+<p>Do the same for tedge_agent and tedge_mapper debian packages.</p>
+</div>
+</div>
 <h2 id="step-1-creating-the-tedge-user"><a class="header" href="#step-1-creating-the-tedge-user">Step 1: Creating the tedge user</a></h2>
 <p>The next step is to create the tedge user. This is normally taken care by the debian package for the <code>tedge</code> CLI tool.</p>
 <p>To do this in Gentoo, for example, you can:</p>
@@ -215,9 +221,8 @@ sudo tedge-mapper --init c8y
 <p align="center">
   <img src="./images/manual_installation-binaries_init.png" alt="Sublime's custom image"/>
 </p>
-<blockquote>
-<p>Note: if you do not restart mosquitto you will see a Connection refused error. Do not worry, this error can be ignored.</p>
-</blockquote>
+<pre><code class="language-asmonish note">If you do not restart mosquitto you will see a Connection refused error. Do not worry, this error can be ignored.
+</code></pre>
 <p>Ensure that running the init has created the following files and directories in <code>/etc/tedge</code>:</p>
 <p align="center">
   <img src="./images/manual_installation-tedge_directories.png" alt="Sublime's custom image"/>
@@ -231,13 +236,23 @@ sudo tedge-mapper --init c8y
 </code></pre>
 <h2 id="step-4-creating-openrc-service-files"><a class="header" href="#step-4-creating-openrc-service-files">Step 4: Creating OpenRC service files</a></h2>
 <p>You will need service files for tedge_agent and tedge_mapper. For example:</p>
-<blockquote>
-<p>Note that, for Cumulocity IoT, the <code>tedge connect</code> command expects three service files called: mosquitto, tedge-agent and tedge-mapper-c8y</p>
-</blockquote>
+<div id="admonition-note-1" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="#admonition-note-1"></a></p>
+</div>
+<div>
+<p>For Cumulocity IoT, the <code>tedge connect</code> command expects three service files called: mosquitto, tedge-agent and tedge-mapper-c8y</p>
+</div>
+</div>
 <p>For the <code>tedge-agent</code> service an example file is the following:</p>
+<div id="admonition-etcinitdtedge-agent" class="admonition example">
+<div class="admonition-title">
+<p>/etc/init.d/tedge-agent</p>
+<p><a class="admonition-anchor-link" href="#admonition-etcinitdtedge-agent"></a></p>
+</div>
+<div>
 <blockquote>
-<p>FILE: /etc/init.d/tedge-agent</p>
-</blockquote>
 <pre><code class="language-sh">#!/sbin/runscript
 
 start() {
@@ -252,10 +267,17 @@ stop() {
     eend $?
 }
 </code></pre>
-<p>For the <code>tedge-mapper-c8y</code> service an example file is the following:</p>
-<blockquote>
-<p>FILE: /etc/init.d/tedge-mapper-c8y</p>
 </blockquote>
+</div>
+</div>
+<p>For the <code>tedge-mapper-c8y</code> service an example file is the following</p>
+<div id="admonition-etcinitdtedge-mapper-c8y" class="admonition example">
+<div class="admonition-title">
+<p>/etc/init.d/tedge-mapper-c8y</p>
+<p><a class="admonition-anchor-link" href="#admonition-etcinitdtedge-mapper-c8y"></a></p>
+</div>
+<div>
+<blockquote>
 <pre><code class="language-sh">#!/sbin/runscript
 
 start() {
@@ -270,14 +292,21 @@ stop() {
    eend $?
 }
 </code></pre>
+</blockquote>
+</div>
+</div>
 <pre><code class="language-sh">sudo chmod +x /etc/init.d/tedge-agent
 sudo chmod +x /etc/init.d/tedge-mapper-c8y
 </code></pre>
 <p>Next, we need to add a <code>system.toml</code> to <code>/etc/tedge/</code>, telling it to use OpenRC. To do this create the following file:</p>
+<div id="admonition-etctedgesystemtoml" class="admonition example">
+<div class="admonition-title">
+<p>/etc/tedge/system.toml</p>
+<p><a class="admonition-anchor-link" href="#admonition-etctedgesystemtoml"></a></p>
+</div>
+<div>
 <blockquote>
-<p>FILE: /etc/tedge/system.toml</p>
-</blockquote>
-<pre><code class="language-sh">[init]
+<pre><code>[init]
 name = &quot;OpenRC&quot;
 is_available = [&quot;/sbin/rc-service&quot;, &quot;-l&quot;]
 restart = [&quot;/sbin/rc-service&quot;, &quot;{}&quot;, &quot;restart&quot;]
@@ -286,6 +315,9 @@ enable =  [&quot;/sbin/rc-update&quot;, &quot;add&quot;, &quot;{}&quot;]
 disable =  [&quot;/sbin/rc-update&quot;, &quot;delete&quot;, &quot;{}&quot;]
 is_active = [&quot;/sbin/rc-service&quot;, &quot;{}&quot;, &quot;status&quot;]
 </code></pre>
+</blockquote>
+</div>
+</div>
 <p>Limit the file's permission to read only:</p>
 <pre><code class="language-sh">sudo chmod 444 /etc/tedge/system.toml
 </code></pre>

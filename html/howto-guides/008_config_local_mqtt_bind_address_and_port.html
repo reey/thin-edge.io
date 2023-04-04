@@ -137,9 +137,15 @@
                     <main>
                         <h1 id="how-to-configure-the-local-port-and-bind-address-in-mosquitto"><a class="header" href="#how-to-configure-the-local-port-and-bind-address-in-mosquitto">How to configure the local port and bind address in mosquitto?</a></h1>
 <p>Configuring a mosquitto port and bind address in thin-edge.io is a three-step process.</p>
-<blockquote>
-<p>Note: The mqtt.port and the mqtt.bind_address can be set/unset independently.</p>
-</blockquote>
+<div id="admonition-note" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="#admonition-note"></a></p>
+</div>
+<div>
+<p>The mqtt.port and the mqtt.bind_address can be set/unset independently.</p>
+</div>
+</div>
 <h2 id="step-1-disconnect-thin-edgeio-edge-device"><a class="header" href="#step-1-disconnect-thin-edgeio-edge-device">Step 1: Disconnect thin-edge.io edge device</a></h2>
 <p>The thin edge device has to be disconnected from the cloud using the <code>tedge</code> command</p>
 <pre><code class="language-shell">tedge disconnect c8y/az
@@ -150,10 +156,16 @@
 </code></pre>
 <pre><code class="language-shell">tedge config set mqtt.bind_address 127.0.0.1
 </code></pre>
-<blockquote>
-<p>Note: The bind_address is the address of the one of the device interface.
-For example this can be get as <code>ifconfig | grep inet</code> or set it to <code>0.0.0.0</code></p>
-</blockquote>
+<div id="admonition-note-1" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="#admonition-note-1"></a></p>
+</div>
+<div>
+<p>The bind_address is the address of one of the device network interface.
+For example, this can be get as <code>ifconfig | grep inet</code> or set it to <code>0.0.0.0</code></p>
+</div>
+</div>
 <p>This will make sure that all the mqtt clients use the newer port and the bind address that
 has been set once the device is connected to the cloud as in step 3.</p>
 <h2 id="verify-the-port-and-the-bind-address-configuredset"><a class="header" href="#verify-the-port-and-the-bind-address-configuredset">Verify the port and the bind address configured/set</a></h2>

@@ -136,10 +136,16 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="install-and-enable-the-software-management-feature"><a class="header" href="#install-and-enable-the-software-management-feature">Install and enable the software management feature</a></h1>
-<blockquote>
-<p>Note: As of now, this feature is supported only on devices with <strong>debian</strong> based
+<div id="admonition-note" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="#admonition-note"></a></p>
+</div>
+<div>
+<p>As of now, this feature is supported only on devices with <strong>debian</strong> based
 distributions, which use the <strong>apt</strong> package manager(Ex: RaspberryPi OS , Ubuntu, Debian), from Cumulocity cloud.</p>
-</blockquote>
+</div>
+</div>
 <p>Below steps show how to download, install and enable thin-edge software management feature.</p>
 <h2 id="download-and-install-software-management-packages-on-the-device"><a class="header" href="#download-and-install-software-management-packages-on-the-device">Download and install software management packages on the device</a></h2>
 <p>As a prerequisite, install <a href="../howto-guides/002_installation.html">tedge and tedge-mapper</a> if not installed already.</p>
@@ -148,10 +154,10 @@ distributions, which use the <strong>apt</strong> package manager(Ex: RaspberryP
 <pre><code class="language-shell">curl -LJO https://github.com/thin-edge/thin-edge.io/releases/download/&lt;package&gt;_&lt;version&gt;_&lt;arch&gt;.deb
 </code></pre>
 <p>where:</p>
-<blockquote>
-<p><code>version</code> -&gt; thin-edge.io software management components version in x.x.x format</p>
-<p><code>arch</code> -&gt; architecture type (amd64, armhf)</p>
-</blockquote>
+<ul>
+<li><code>version</code> -&gt; thin-edge.io software management components version in x.x.x format</li>
+<li><code>arch</code> -&gt; architecture type (amd64, armhf)</li>
+</ul>
 <p>Download <code>tedge-apt-plugin</code> and <code>tedge-agent</code></p>
 <pre><code class="language-shell">curl -LJO https://github.com/thin-edge/thin-edge.io/releases/download/0.9.0/tedge-apt-plugin_0.9.0_armhf.deb
 curl -LJO https://github.com/thin-edge/thin-edge.io/releases/download/0.9.0/tedge-agent_0.9.0_armhf.deb
@@ -161,10 +167,16 @@ curl -LJO https://github.com/thin-edge/thin-edge.io/releases/download/0.9.0/tedg
 <pre><code class="language-shell">sudo dpkg -i tedge-apt-plugin_&lt;version&gt;_&lt;arch&gt;.deb
 sudo dpkg -i tedge-agent_&lt;version&gt;_&lt;arch&gt;.deb
 </code></pre>
-<blockquote>
-<p>Note: Software management feature will be enabled after installation if the device
+<div id="admonition-note-1" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="#admonition-note-1"></a></p>
+</div>
+<div>
+<p>Software management feature will be enabled after installation if the device
 is connected to the Cumulocity cloud using <code>tedge connect c8y</code>.</p>
-</blockquote>
+</div>
+</div>
 <h2 id="start-and-enable-the-software-management-feature"><a class="header" href="#start-and-enable-the-software-management-feature">Start and enable the software management feature</a></h2>
 <h3 id="using-tedge-connect-c8y"><a class="header" href="#using-tedge-connect-c8y">Using <code>tedge connect c8y</code></a></h3>
 <p>The <code>tedge connect c8y</code> will automatically start and enable the software management feature.
@@ -172,9 +184,15 @@ Find more about <a href="../howto-guides/004_connect.html">how to connect thin-e
 <p>Once the thin-edge device is successfully connected to Cumulocity cloud, the <strong>Software</strong> option will be enabled and
 the list of software that are installed on the device will be visible as shown in the figure below.</p>
 <p><img src="./images/start-software-management.png" alt="Add new software" /></p>
-<blockquote>
-<p>Note: Disconnecting thin-edge device from cloud with <code>tedge disconnect c8y</code> command will stop and disable the software management feature.</p>
-</blockquote>
+<div id="admonition-note-2" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="#admonition-note-2"></a></p>
+</div>
+<div>
+<p>Disconnecting thin-edge device from cloud with <code>tedge disconnect c8y</code> command will stop and disable the software management feature.</p>
+</div>
+</div>
 <h3 id="manually-enabling-and-disabling-software-management-feature"><a class="header" href="#manually-enabling-and-disabling-software-management-feature">Manually enabling and disabling software management feature</a></h3>
 <p>For debugging purpose or to disable/enable the software management services, one can start/stop manually as shown below.</p>
 <h3 id="starting-the-services"><a class="header" href="#starting-the-services">Starting the services</a></h3>

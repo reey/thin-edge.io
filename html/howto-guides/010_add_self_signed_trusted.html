@@ -140,15 +140,20 @@
 <p>If the server you are trying to connect <code>thin-edge.io</code> to is presenting a certificate with a root that is not currently trusted, then you can add the server's root certificate to the list of trusted root certificates.
 For the most part the store will be filled with certificates from your TLS/SSL provider, but when you want to use self-signed certificates you may need to update your local certificate store.
 Below are instructions on how to add new CA certificate and update the certificate store.</p>
-<blockquote>
-<p>Please note: Provided instructions are for supported OSes and may not apply to the flavour you are running, if you need help with other OS please consult appropriate documentation.</p>
-</blockquote>
+<div id="admonition-note" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="#admonition-note"></a></p>
+</div>
+<div>
+<p>Provided instructions are for supported OSes and may not apply to the flavour you are running,
+if you need help with other OS please consult appropriate documentation.</p>
+</div>
+</div>
 <h2 id="ubuntu-and-raspberry-pi-os"><a class="header" href="#ubuntu-and-raspberry-pi-os">Ubuntu and Raspberry Pi OS</a></h2>
-<blockquote>
 <p>If you do not have the <code>ca-certificates</code> package installed on your system, install it with your package manager.</p>
 <pre><code class="language-shell">sudo apt install ca-certificates
 </code></pre>
-</blockquote>
 <p>To add a self-signed certificate to the trusted certificate repository on thin-edge.io system:</p>
 <p>Create a <code>/usr/local/share/ca-certificates/</code> directory if it does not exist on your computer:</p>
 <pre><code class="language-shell">sudo mkdir /usr/local/share/ca-certificates/

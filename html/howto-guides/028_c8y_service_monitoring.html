@@ -145,9 +145,15 @@ health status message format for both the <code>thin-edge</code> and for the <co
 <tr><td>Thin-edge-device</td><td><code>tedge/health/&lt;service-name&gt;</code></td><td><code>{&quot;status&quot;:&quot;status of the service&quot;,&quot;type&quot;:&quot;type of service&quot;}</code></td></tr>
 <tr><td>Child-device</td><td><code>tedge/health/&lt;child-device-id&gt;/&lt;service-name&gt;</code></td><td><code>{&quot;status&quot;:&quot;status of the service&quot;,&quot;type&quot;:&quot;type of service&quot;}</code></td></tr>
 </tbody></table>
-<blockquote>
-<p>Note: The <code>status</code> here can be <code>up or down</code> or any other string. For example, <code>unknown</code>.</p>
-</blockquote>
+<div id="admonition-note" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="#admonition-note"></a></p>
+</div>
+<div>
+<p>The <code>status</code> here can be <code>up or down</code> or any other string. For example, <code>unknown</code>.</p>
+</div>
+</div>
 <p>For example, to monitor the health status of a <code>tedge-mapper-c8y service</code> that is running on a <code>thin-edge.io</code> device
 one has to send the below message.</p>
 <pre><code>tedge mqtt pub tedge/health/tedge-mapper-c8y `{&quot;status&quot;:&quot;up&quot;,&quot;type&quot;:&quot;thin-edge.io&quot;}` -q 2 -r
@@ -156,9 +162,15 @@ one has to send the below message.</p>
 <p>To monitor the health of a <code>docker</code> service that is running on an <code>external-sensor</code> child device,</p>
 <pre><code>tedge mqtt pub tedge/health/external-sensor/docker `{&quot;status&quot;:&quot;up&quot;,&quot;type&quot;:&quot;systemd&quot;}` -q 2 -r
 </code></pre>
-<blockquote>
-<p>Note: The health status message has to be sent as a <code>retain</code> message.</p>
-</blockquote>
+<div id="admonition-note-1" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="#admonition-note-1"></a></p>
+</div>
+<div>
+<p>The health status message has to be sent as a <code>retain</code> message.</p>
+</div>
+</div>
 <p>When an <code>empty health status,i.e('{}' or '')</code> message sent, the <code>status</code> will be replaced with <code>unknown</code> and the <code>type</code> will be replaced with default value <code>service</code>.</p>
 <h2 id="conversion-of-the-health-status-message-to-cumulocity-iot-service-monitor-message"><a class="header" href="#conversion-of-the-health-status-message-to-cumulocity-iot-service-monitor-message">Conversion of the <code>health status</code> message to <code>Cumulocity IoT service monitor</code> message.</a></h2>
 <p>The <code>tedge-mapper-c8y</code> will translate the <code>health status</code> message that is received on <code>tedge/health/#</code>
@@ -168,27 +180,36 @@ topic to <code>Cumulocity</code> specific <code>service monitor</code> message a
 <tr><td>Thin-edge-device</td><td><code>c8y/s/us</code></td><td><code>102,&lt;unique-service-id&gt;,type,service-name,status</code></td></tr>
 <tr><td>Child-device</td><td><code>c8y/s/us/&lt;child-id&gt;</code></td><td><code>102,&lt;unique-service-id&gt;,type,service-name,status</code></td></tr>
 </tbody></table>
-<blockquote>
-<p>Note: The <code>unique-service-id</code> for thin-edge device will be  <code>&lt;device-name&gt;_&lt;service-name&gt;</code>.
+<div id="admonition-note-2" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="#admonition-note-2"></a></p>
+</div>
+<div>
+<p>The <code>unique-service-id</code> for thin-edge device will be  <code>&lt;device-name&gt;_&lt;service-name&gt;</code>.
 In case of child device <code>&lt;device-name&gt;_&lt;child-id&gt;_&lt;service-name&gt;</code>.</p>
-</blockquote>
-<blockquote>
-<p>Note: <code>102</code> is the <code>smartrest</code> template number for the service monitoring message.</p>
-</blockquote>
+<p>Note also that <code>102</code> is the <code>smartrest</code> template number for the service monitoring message.</p>
+</div>
+</div>
 <h2 id="configuring-the-default-service-type"><a class="header" href="#configuring-the-default-service-type">Configuring the default service type</a></h2>
 <p>The <code>default service type</code> can be configured using the <code>tedge</code> cli.</p>
 <p>The example below shows how one can set the default service type to <code>systemd</code>.</p>
 <pre><code>tedge config set service.type systemd
 
 </code></pre>
-<blockquote>
-<p>Note: When the <code>service type</code> was not sent with the <code>health status</code> message, then the configured default value will be used by
+<div id="admonition-note-3" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="#admonition-note-3"></a></p>
+</div>
+<div>
+<p>When the <code>service type</code> was not sent with the <code>health status</code> message, then the configured default value will be used by
 the mapper while translating the <code>health status</code> message to <code>service status</code> message.</p>
-</blockquote>
+</div>
+</div>
 <p>To clear the configured default service type one can use the command below.
 This will set the <code>service.type</code> to <code>service</code>.</p>
 <pre><code>tedge config unset service.type
-
 </code></pre>
 <h1 id="references"><a class="header" href="#references">References</a></h1>
 <p>More info about the service monitoring can be found in the below link</p>

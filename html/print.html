@@ -875,9 +875,6 @@ The child device is named after the <code>&lt;child-id&gt;</code> topic name, an
 }
 </code></pre>
 <h2 id="azure-iot-hub-mapper"><a class="header" href="#azure-iot-hub-mapper">Azure IoT Hub mapper</a></h2>
-<blockquote>
-<p>Note: Child device measurements are not supported yet on Azure IoT Hub.</p>
-</blockquote>
 <p>The Azure IoT Hub mapper takes messages formatted in the <a href="architecture/thin-edge-json.html">Thin Edge JSON</a> as input.
 It validates if the incoming message is correctly formatted Thin Edge JSON, then outputs the message.
 The validated messages are published on the topic <code>az/messages/events/</code> from where they are forwarded to Azure IoT Hub.
@@ -1039,9 +1036,15 @@ If not found download it from <a href="https://www.identrust.com/dst-root-ca-x3"
 then the path to that server certificate must be set as the c8y.root.cert.path as follows:</p>
 <pre><code>sudo tedge config set c8y.root.cert.path /path/to/the/self-signed/certificate
 </code></pre>
-<blockquote>
-<p>Note: This is the certificate chain of the server and not the device's certificate kept at /etc/tedge/device-certs directory.</p>
-</blockquote>
+<div id="admonition-warning" class="admonition warning">
+<div class="admonition-title">
+<p>Warning</p>
+<p><a class="admonition-anchor-link" href="tutorials/connect-c8y.html#admonition-warning"></a></p>
+</div>
+<div>
+<p>This is the certificate chain of the server and not the device's certificate kept at /etc/tedge/device-certs directory.</p>
+</div>
+</div>
 <p>If the Cumulocity server's certificate chain file isn't available locally, it can be downloaded using a web browser or using some other
 third-party tools like openssl command as follows (to be adjusted based on your env):</p>
 <p><code>openssl s_client -connect &lt;hostname&gt;:&lt;port&gt; &lt; /dev/null 2&gt;/dev/null | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p'</code></p>
@@ -1083,9 +1086,16 @@ to your tenant &quot;Device Management/Management/Trusted certificates&quot;.</l
 </ul>
 <pre><code class="language-shell">sudo tedge cert upload c8y --user &lt;username&gt;
 </code></pre>
-<blockquote>
-<p>To upload the certificate to cumulocity this user needs to have &quot;Tenant management&quot; admin rights. If you get an error 503 here, check the appropriate rights in cumulocity user management.</p>
-</blockquote>
+<div id="admonition-warning-1" class="admonition warning">
+<div class="admonition-title">
+<p>Warning</p>
+<p><a class="admonition-anchor-link" href="tutorials/connect-c8y.html#admonition-warning-1"></a></p>
+</div>
+<div>
+<p>To upload the certificate to cumulocity this user needs to have &quot;Tenant management&quot; admin rights.
+If you get an error 503 here, check the appropriate rights in cumulocity user management.</p>
+</div>
+</div>
 <h2 id="connect-the-device"><a class="header" href="#connect-the-device">Connect the device</a></h2>
 <p>Now, you are ready to run <code>tedge connect c8y</code>.
 This command configures the MQTT broker:</p>
@@ -1477,9 +1487,6 @@ along with a multi-valued <code>coordinate</code> measurement, all sharing a sin
 Refer to <a href="tutorials/../architecture/thin-edge-json.html">Thin Edge JSON Specification</a> for more details on the kinds of telemetry 
 data that can be represented in Thin Edge JSON format and the reserved fields like <code>time</code> used in the above example.</p>
 <h2 id="sending-measurements-to-child-devices"><a class="header" href="#sending-measurements-to-child-devices">Sending measurements to child devices</a></h2>
-<blockquote>
-<p>Note: Currently this feature supports Cumulocity IoT only.</p>
-</blockquote>
 <p>If valid Thin Edge JSON measurements are published to the <code>tedge/measurements/&lt;child-id&gt;</code> topic,
 the measurements are recorded under a child device of your thin-edge.io device.</p>
 <p>Given your desired child device ID is <code>child1</code>, publish a Thin Edge JSON message to the <code>tedge/measurements/child1</code> topic:</p>
@@ -1514,12 +1521,19 @@ Thin-edge.io doesn't keep a history of all its state changes but only reacts to 
     &quot;time&quot;: &quot;&lt;Timestamp in ISO-8601 format&gt;&quot;
 }
 </code></pre>
-<blockquote>
-<p>Note: These messages must be sent with MQTT retained flag enabled and with QOS &gt; 1 to ensure guaranteed processing by thin-edge.io.
+<div id="admonition-note" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="tutorials/raise-alarm.html#admonition-note"></a></p>
+</div>
+<div>
+<p>These messages must be sent with MQTT retained flag enabled and with QOS &gt; 1 to ensure guaranteed processing by thin-edge.io.
 Enabling the retained flag ensures that the alarm stays persisted with the MQTT broker until its state changes again.
-These retained messages will make sure that the thin-edge.io processes or any other third-party processes subscribed to these alarms will get those, even if they were down at the moment the alarm was raised.
+These retained messages will make sure that the thin-edge.io processes or any other third-party processes subscribed to these alarms will get those,
+even if they were down at the moment the alarm was raised.
 If multiple messages are sent to the same alarm topic, the last alarm is considered to have overwritten the previous one.</p>
-</blockquote>
+</div>
+</div>
 <p>Here is a sample alarm raised for <code>temperature_high</code> alarm type with <code>critical</code> severity:</p>
 <p>Topic: 
 <code>tedge/alarms/critical/temperature_high</code></p>
@@ -1529,13 +1543,19 @@ If multiple messages are sent to the same alarm topic, the last alarm is conside
     &quot;time&quot;: &quot;2021-01-01T05:30:45+00:00&quot;
 }
 </code></pre>
-<blockquote>
-<p>Note: Both the <code>text</code> field and the <code>time</code> field are optional.
+<div id="admonition-note-1" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="tutorials/raise-alarm.html#admonition-note-1"></a></p>
+</div>
+<div>
+<p>Both the <code>text</code> field and the <code>time</code> field are optional.
 When a <code>text</code> is not provided, it is assumed to be empty.
 When <code>time</code> is not provided, thin-edge.io will use the current system time as the <code>time</code> of the alarm.
 When you want to skip both fields, use an empty json fragment <code>{}</code> as the payload to indicate the same.
 An empty message can't be used for the same, as empty messages are used to clear alarms, which is discussed in the next section.</p>
-</blockquote>
+</div>
+</div>
 <p>The <code>&lt;severity&gt;</code> value in the MQTT topic can only be one of the following values:</p>
 <ol>
 <li>critical</li>
@@ -1549,11 +1569,16 @@ An empty message can't be used for the same, as empty messages are used to clear
 <p>An already raised alarm can be cleared by sending an empty message with retained flag enabled to the same alarm topic on which the original alarm was raised.</p>
 <p>For example <code>temperature_alarm</code> will be cleared by publishing an empty payload message as below:</p>
 <pre><code>tedge mqtt pub tedge/alarms/critical/temperature_alarm &quot;&quot; -q 2 -r
-
 </code></pre>
-<blockquote>
-<p>Note: Using the retained (-r) flag is a must while clearing the alarm as well, without which the alarm won't be cleared properly.</p>
-</blockquote>
+<div id="admonition-note-2" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="tutorials/raise-alarm.html#admonition-note-2"></a></p>
+</div>
+<div>
+<p>Using the retained (-r) flag is a must while clearing the alarm as well, without which the alarm won't be cleared properly.</p>
+</div>
+</div>
 <p>If alarms of different severities exist for a given alarm type, they must all be cleared separately as they're all treated as independent alarms.</p>
 <h3 id="raising-alarms-from-child-devices"><a class="header" href="#raising-alarms-from-child-devices">Raising alarms from child devices</a></h3>
 <p>Alarms for child devices can be raised by publishing the alarm payload to <code>tedge/alarms/&lt;severity&gt;/&lt;alarm-type&gt;/&lt;child-device-id&gt;</code> topic,
@@ -1583,26 +1608,44 @@ The custom fragments can be a simple json value or a complex json value.</p>
     }
 }
 </code></pre>
-<blockquote>
-<p>Note: Other than <code>text</code> and <code>time</code> fields, all the other fields are considered as custom fragments.</p>
-</blockquote>
+<div id="admonition-note-3" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="tutorials/raise-alarm.html#admonition-note-3"></a></p>
+</div>
+<div>
+<p>Other than <code>text</code> and <code>time</code> fields, all the other fields are considered as custom fragments.</p>
+</div>
+</div>
 <h3 id="raising-an-alarm-with-empty-json-payload"><a class="header" href="#raising-an-alarm-with-empty-json-payload">Raising an alarm with empty json payload</a></h3>
 <p>Alarms can also be raised with an <code>empty json object</code> as payload as follows:</p>
 <p>Payload:</p>
 <pre><code class="language-json">{}
 </code></pre>
-<blockquote>
-<p>Note: The <code>default</code> value for the <code>time</code> fragment will be the timestamp in utc time that is added by the <code>tedge-mapper-c8y</code>
+<div id="admonition-note-4" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="tutorials/raise-alarm.html#admonition-note-4"></a></p>
+</div>
+<div>
+<p>The <code>default</code> value for the <code>time</code> fragment will be the timestamp in utc time that is added by the <code>tedge-mapper-c8y</code>
 while alarm message being translated to cumulocity format.
 The default value for the <code>text</code> fragment will be derived from the <code>alarm-type</code> of the topic.</p>
-</blockquote>
+</div>
+</div>
 <h2 id="cloud-data-mapping"><a class="header" href="#cloud-data-mapping">Cloud data mapping</a></h2>
 <p>If the device is connected to some supported IoT cloud platform, any alarms raised locally on thin-edge.io will be forwarded to the connected cloud platform as well.
 The mapping of thin-edge alarms data to its respective cloud-native representation will be done by the corresponding cloud mapper process.
 For example, if the device is connected to Cumulocity IoT cloud platform, the Cumulocity cloud mapper process will translate the thin-edge alarm JSON data to its equivalent Cumulocity SmartREST representation.</p>
-<blockquote>
-<p>Warning: As of now, alarm data mapping is supported only on Cumulocity IoT cloud platform.</p>
-</blockquote>
+<div id="admonition-warning" class="admonition warning">
+<div class="admonition-title">
+<p>Warning</p>
+<p><a class="admonition-anchor-link" href="tutorials/raise-alarm.html#admonition-warning"></a></p>
+</div>
+<div>
+<p>As of now, alarm data mapping is supported only on Cumulocity IoT cloud platform.</p>
+</div>
+</div>
 <h3 id="cumulocity-cloud-data-mapping"><a class="header" href="#cumulocity-cloud-data-mapping">Cumulocity cloud data mapping</a></h3>
 <p>The Cumulocity mapper will convert Thin Edge JSON alarm into Cumulocity SmartREST messages and send it to Cumulocity via MQTT.</p>
 <p>For example the <code>temperature_high</code> alarm with <code>critical</code> severity described in the earlier sections will be converted to the following Cumulocity SmartREST message:</p>
@@ -1677,9 +1720,15 @@ If multiple events are raised for a given type, thin-edge.io will process them a
     &quot;time&quot;: &quot;2021-01-01T05:30:45+00:00&quot;
 }
 </code></pre>
-<blockquote>
-<p>Note: Both the <code>text</code> field and the <code>time</code> field are optional.</p>
-</blockquote>
+<div id="admonition-note" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="tutorials/send-events.html#admonition-note"></a></p>
+</div>
+<div>
+<p>Both the <code>text</code> field and the <code>time</code> field are optional.</p>
+</div>
+</div>
 <p>When the <code>message</code> field is not provided, the <code>event-type</code> from the MQTT topic will be used as the message as well if the connected cloud mandates one.
 When the <code>time</code> field is not provided, thin-edge.io will use the current system time as the <code>time</code> of the event.
 When you want to skip both fields, use an empty payload to indicate the same.
@@ -1692,9 +1741,15 @@ The event payload structure is the same, as described in the previous section.</
 <p>If the device is connected to some supported IoT cloud platform, an event that is triggered locally on thin-edge.io will be forwarded to the connected cloud platform as well.
 The mapping of thin-edge events data to its respective cloud-native representation will be done by the corresponding cloud mapper process.
 For example, if the device is connected to Cumulocity IoT cloud platform, the Cumulocity cloud mapper process will translate the thin-edge event JSON data to its equivalent Cumulocity SmartREST representation.</p>
-<blockquote>
-<p>Warning: As of now, event data mapping is supported only on Cumulocity IoT cloud platform.</p>
-</blockquote>
+<div id="admonition-warning" class="admonition warning">
+<div class="admonition-title">
+<p>Warning</p>
+<p><a class="admonition-anchor-link" href="tutorials/send-events.html#admonition-warning"></a></p>
+</div>
+<div>
+<p>As of now, event data mapping is supported only on Cumulocity IoT cloud platform.</p>
+</div>
+</div>
 <h3 id="cumulocity-cloud-data-mapping-1"><a class="header" href="#cumulocity-cloud-data-mapping-1">Cumulocity cloud data mapping</a></h3>
 <p>The Cumulocity mapper will convert Thin Edge JSON events into its Cumulocity SmartREST equivalent if the payload only contains either a <code>text</code> field or <code>time</code> field.</p>
 <p>For example the <code>login_event</code> described in the earlier sections will be converted to the following Cumulocity SmartREST message:</p>
@@ -1713,9 +1768,15 @@ For example, if the device is connected to Cumulocity IoT cloud platform, the Cu
   }
 }
 </code></pre>
-<blockquote>
-<p>Note: Mapped events will be sent to Cumulocity via MQTT if the incoming Thin Edge JSON event payload size is less than 16K bytes. If higher, HTTP will be used.</p>
-</blockquote>
+<div id="admonition-note-1" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="tutorials/send-events.html#admonition-note-1"></a></p>
+</div>
+<div>
+<p>Mapped events will be sent to Cumulocity via MQTT if the incoming Thin Edge JSON event payload size is less than 16K bytes. If higher, HTTP will be used.</p>
+</div>
+</div>
 <p>Find more information about events data model in Cumulocity <a href="https://cumulocity.com/guides/concepts/domain-model/#events">here</a>.</p>
 <h2 id="sending-an-event-for-a-childexternal-device-to-the-cloud"><a class="header" href="#sending-an-event-for-a-childexternal-device-to-the-cloud">Sending an event for a child/external device to the cloud</a></h2>
 <p>An event for a child/external device can be triggered on thin-edge.io by sending an MQTT message in Thin Edge JSON format to certain MQTT topics.</p>
@@ -1907,14 +1968,26 @@ these monitoring metrics will be forwarded to the cloud.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="manage-the-software-on-your-devices-from-cumulocity-cloud"><a class="header" href="#manage-the-software-on-your-devices-from-cumulocity-cloud">Manage the software on your devices from Cumulocity cloud</a></h1>
 <p>This document describes how to manage the software modules that are installed on a thin-edge device from the
 cloud using the <strong>software management</strong> feature of thin-edge.io.</p>
-<blockquote>
-<p>Note: This tutorial shows the Debian based distributions <strong>apt</strong> package manager use-case powered by our official <strong>apt</strong> plugin.
+<div id="admonition-note" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="tutorials/software-management.html#admonition-note"></a></p>
+</div>
+<div>
+<p>This tutorial shows the Debian based distributions <strong>apt</strong> package manager use-case powered by our official <strong>apt</strong> plugin.
 Other package managers can be supported by adding a plugin.
 Refer to <a href="tutorials/./write-my-software-management-plugin.html">this</a> document on how to write a plugin to support software management for any other software type.</p>
-</blockquote>
-<blockquote>
-<p>Important: As of now, software management feature is supported only from Cumulocity cloud, which supports only <code>install</code> and <code>delete</code> as an action of c8y_SoftwareUpdate operation.</p>
-</blockquote>
+</div>
+</div>
+<div id="admonition-warning" class="admonition warning">
+<div class="admonition-title">
+<p>Warning</p>
+<p><a class="admonition-anchor-link" href="tutorials/software-management.html#admonition-warning"></a></p>
+</div>
+<div>
+<p>As of now, software management feature is supported only from Cumulocity cloud, which supports only <code>install</code> and <code>delete</code> as an action of c8y_SoftwareUpdate operation.</p>
+</div>
+</div>
 <p>Three components are required on your devices to enable software management:</p>
 <ol>
 <li>
@@ -1940,7 +2013,7 @@ As of now there is only one (apt) plugin is supported.</p>
 <h2 id="managing-the-device-software-repository-on-cumulocity-cloud"><a class="header" href="#managing-the-device-software-repository-on-cumulocity-cloud">Managing the device software <strong>repository</strong> on Cumulocity cloud</a></h2>
 <p>Managing the software packages installed on the devices from your Cumulocity tenant is a two steps operation.</p>
 <ul>
-<li>Populate the software repository with all the software packages and versions you plan to install.</li>
+<li>Populate the software repository with all the software packages and versions you plan to install.</li>
 <li>Trigger software update operations on the devices, to install specific packages from the repository.</li>
 </ul>
 <p>Find more information about <a href="https://cumulocity.com/guides/users-guide/device-management/#managing-device-software">managing the device software</a></p>
@@ -2005,9 +2078,15 @@ Find more information about <a href="https://cumulocity.com/guides/users-guide/d
 <ul>
 <li><a href="https://cumulocity.com/guides/users-guide/device-management/#to-delete-software-from-a-device">removed</a></li>
 </ul>
-<blockquote>
-<p>Note: Once the above mentioned operation is selected, one should click on <strong>Apply changes</strong> to confirm operation.</p>
-</blockquote>
+<div id="admonition-note-1" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="tutorials/software-management.html#admonition-note-1"></a></p>
+</div>
+<div>
+<p>Once the above mentioned operation is selected, one should click on <strong>Apply changes</strong> to confirm operation.</p>
+</div>
+</div>
 <h2 id="default-plugin"><a class="header" href="#default-plugin">Default plugin</a></h2>
 <p>When there are multiple plugins installed on the device, one can set one of them as a default plugin.
 If there is only one plugin installed on the device, then implicitly this will be the default plugin.</p>
@@ -2468,9 +2547,15 @@ This operation will do the reboot of our device when we receive trigger from the
 <p>To add new operation we will create a file in <code>/etc/tedge/operations/c8y</code> directory:</p>
 <pre><code class="language-shell">sudo -u tedge touch /etc/tedge/operations/c8y/c8y_Restart
 </code></pre>
-<blockquote>
-<p>Note: We are using <code>sudo -u</code> to create the file because we want to make sure that the file is owned by <code>tedge</code> user.</p>
-</blockquote>
+<div id="admonition-note" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="tutorials/supported_operations.html#admonition-note"></a></p>
+</div>
+<div>
+<p>We are using <code>sudo -u</code> to create the file because we want to make sure that the file is owned by <code>tedge</code> user.</p>
+</div>
+</div>
 <p>Now the new operation will be automatically added to the list and the list will be sent to the cloud.</p>
 <p>To add a new operation to a child device, create a new file in <code>/etc/tedge/operations/c8y/&lt;child-device&gt;</code> directory as below.</p>
 <pre><code class="language-shell">sudo -u tedge touch /etc/tedge/operations/c8y/&lt;child-device&gt;/c8y_Restart
@@ -2494,9 +2579,15 @@ Let's create the operation configuration file:</p>
 <p>First we create a file with the name of the operation:</p>
 <pre><code class="language-shell">sudo -u tedge touch /etc/tedge/operations/c8y/c8y_Command
 </code></pre>
-<blockquote>
-<p>Note: the needs to be readable by <code>thin-edge.io</code> user - <code>tedge</code> - and should have permissions <code>644</code>.</p>
-</blockquote>
+<div id="admonition-note-1" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="tutorials/supported_operations.html#admonition-note-1"></a></p>
+</div>
+<div>
+<p>The needs to be readable by <code>thin-edge.io</code> user - <code>tedge</code> - and should have permissions <code>644</code>.</p>
+</div>
+</div>
 <p>In this example we want <code>thin-edge.io</code> to pick up a message on specific topic and execute the command on the device, our topic is <code>c8y/s/ds</code>.
 We also know that the message we expect is going to use SmartRest template <code>511</code> and our plugin is located in <code>/etc/tedge/operations/command</code>.
 Then we need to add the configuration to the file (<code>/etc/tedge/operations/c8y/c8y_Command</code>):</p>
@@ -2527,9 +2618,15 @@ exit &quot;$EXIT_CODE&quot;
 <p>This simple example will parse the third field of the received SmartREST message and execute the command.
 If it exits with the status code <code>0</code>, a successful message with the stdout content will be reported to Cumulocity.
 If it exits with a non-zero code, a failure message with the stderr content will be sent out.</p>
-<blockquote>
-<p>Note: The command will be executed with tedge-mapper permission level so most of the system level commands will not work.</p>
-</blockquote>
+<div id="admonition-note-2" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="tutorials/supported_operations.html#admonition-note-2"></a></p>
+</div>
+<div>
+<p>The command will be executed with tedge-mapper permission level so most of the system level commands will not work.</p>
+</div>
+</div>
 <h3 id="list-of-currently-supported-operations-parameters"><a class="header" href="#list-of-currently-supported-operations-parameters">List of currently supported operations parameters</a></h3>
 <ul>
 <li><code>topic</code> - The topic on which the operation will be executed.</li>
@@ -2573,10 +2670,16 @@ case &quot;$COMMAND&quot; in
 esac
 exit 0
 </code></pre>
-<blockquote>
-<p><strong>Info</strong>: the filename will be used as a plugin type to report the software list to a cloud.
+<div id="admonition-info" class="admonition info">
+<div class="admonition-title">
+<p>Info</p>
+<p><a class="admonition-anchor-link" href="tutorials/write-my-software-management-plugin.html#admonition-info"></a></p>
+</div>
+<div>
+<p>The plugin filename will be used as a plugin type to report the software list to a cloud.
 If you name it <code>docker.sh</code>, you will see <code>docker.sh</code> as a plugin type in cloud.</p>
-</blockquote>
+</div>
+</div>
 <p>If you execute <code>./docker list</code>, you will see this kind of output.</p>
 <pre><code class="language-csv">alpine  3.14
 eclipse-mosquitto   2.0-openssl
@@ -2598,10 +2701,16 @@ Hence, you can implement a plugin in your preferred language.</p>
 </tbody></table>
 <p>The order of the commands invoked by the Software Management Agent is:
 <code>prepare</code> -&gt; <code>update-list</code> or [<code>install</code>, <code>remove</code>] -&gt;<code>finalize</code></p>
-<blockquote>
-<p><strong>info</strong>: There is no guarantee of the order between <code>install</code> and <code>remove</code>.
-If you need a specific order, use <code>update-list</code> command instead.</p>
-</blockquote>
+<div id="admonition-info-1" class="admonition info">
+<div class="admonition-title">
+<p>Info</p>
+<p><a class="admonition-anchor-link" href="tutorials/write-my-software-management-plugin.html#admonition-info-1"></a></p>
+</div>
+<div>
+<p>There is no guarantee of the order between <code>install</code> and <code>remove</code>.
+If you need a specific order, use the <code>update-list</code> command instead.</p>
+</div>
+</div>
 <p>In the following sections, we will dive into each command and other rules deeply.</p>
 <h2 id="input-output-and-errors"><a class="header" href="#input-output-and-errors">Input, Output, and Errors</a></h2>
 <p>Before we dive into each command, we should clarify the basic rules of plugins.</p>
@@ -2638,9 +2747,15 @@ Given that your plugin is named <code>docker</code>, then the Software Managemen
 <pre><code class="language-shell">sudo /etc/tedge/sm-plugins/docker list
 </code></pre>
 <p>to report the list of software modules installed.</p>
-<blockquote>
-<p><strong>Important</strong>: the Software Management Agent executes a plugin using <code>sudo</code> and as <code>tedge-agent</code> user.</p>
-</blockquote>
+<div id="admonition-attention" class="admonition warning">
+<div class="admonition-title">
+<p>Attention</p>
+<p><a class="admonition-anchor-link" href="tutorials/write-my-software-management-plugin.html#admonition-attention"></a></p>
+</div>
+<div>
+<p>The Software Management Agent executes the plugin commands using <code>sudo</code> using the <code>tedge</code> user.</p>
+</div>
+</div>
 <p><code>docker</code> should output in the CSV with tabulations as separators like</p>
 <pre><code class="language-csv">alpine  3.14
 eclipse-mosquitto   2.0-openssl
@@ -2880,10 +2995,16 @@ website</a>.</p>
 recommend to look into <a href="https://docs.yoctoproject.org/brief-yoctoprojectqs/index.html">official yocto documentation</a>
 as the installation process will now skip all information that were mentioned there! For workspace organization or
 raspberry pi distribution, we also recommend this <a href="https://github.com/jynik/ready-set-yocto">guide</a></p>
-<blockquote>
-<p>Most of the installation process is based on <a href="https://docs.yoctoproject.org/brief-yoctoprojectqs/index.html">Yocto Project Quick Build
-guide</a>.</p>
-</blockquote>
+<div id="admonition-note" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="tutorials/yocto-linux.html#admonition-note"></a></p>
+</div>
+<div>
+<p>Most of the installation process is based on
+<a href="https://docs.yoctoproject.org/brief-yoctoprojectqs/index.html">Yocto Project Quick Build guide</a>.</p>
+</div>
+</div>
 <p>Before starting, be sure the host, where you plan to build a new Yocto image with thin-edge, meets the following
 requirements:</p>
 <ul>
@@ -2898,10 +3019,16 @@ Project Development Tasks Manual.</li>
 <li>Python 3.6.0 or greater.</li>
 <li>gcc 5.0 or greater.</li>
 </ul>
-<blockquote>
+<div id="admonition-note-1" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="tutorials/yocto-linux.html#admonition-note-1"></a></p>
+</div>
+<div>
 <p>For the purposes of the tutorial, we assume <code>/home/yocto/</code> working directory. If using other directory, be sure to
 change paths where needed.</p>
-</blockquote>
+</div>
+</div>
 <h3 id="build-host-packages"><a class="header" href="#build-host-packages">Build Host Packages</a></h3>
 <p>Install essential packages:</p>
 <pre><code class="language-bash">sudo apt install gawk wget git diffstat unzip texinfo gcc build-essential chrpath socat cpio python3 python3-pip python3-pexpect xz-utils debianutils iputils-ping python3-git python3-jinja2 libegl1-mesa libsdl1.2-dev pylint3 xterm python3-subunit mesa-common-dev zstd liblz4-tool
@@ -2911,10 +3038,8 @@ change paths where needed.</p>
 process. If using these options, to see previous commits or other branches see
 <a href="https://stackoverflow.com/questions/29270058/how-to-fetch-all-git-history-after-i-clone-the-repo-with-depth-1">here</a>
 and <a href="https://stackoverflow.com/questions/17714159/how-do-i-undo-a-single-branch-clone">here</a>.</p>
-<blockquote>
-<p>Alternatively, you could use <code>--branch=honister</code> for Yocto version 3.4 Honister. If doing so, remember to also use
-<code>--branch=honister</code> for all additional layers that require it.</p>
-</blockquote>
+<p>Alternatively, you could use <code>--branch=honister</code> for Yocto version 3.4 Honister.
+If doing so, remember to also use <code>--branch=honister</code> for all additional layers that require it.</p>
 <pre><code class="language-bash">git clone git://git.yoctoproject.org/poky --branch=kirkstone --depth=1
 </code></pre>
 <p>Resulting directory structure should look like this:</p>
@@ -2974,12 +3099,18 @@ git clone https://github.com/thin-edge/meta-tedge
 git clone https://github.com/meta-rust/meta-rust.git
 git clone --branch=kirkstone git://git.openembedded.org/meta-openembedded
 </code></pre>
-<blockquote>
+<div id="admonition-note-2" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="tutorials/yocto-linux.html#admonition-note-2"></a></p>
+</div>
+<div>
 <p>As with Poky itself, when cloning meta-openembedded either provide <code>--branch=kirkstone</code> for the clone command or
 manually <code>git switch kirkstone</code> in <code>meta-openembedded</code> repository after cloning. Some Yocto layers support different
 Yocto versions on different branches, in which case be sure to select correct branch. <code>meta-tedge</code> however supports 2
 versions, Honister and Kirkstone on the main branch, so there's no need to change the default branch.</p>
-</blockquote>
+</div>
+</div>
 <p>Resulting in the following directory structure:</p>
 <pre><code>.
 ├── meta-openembedded
@@ -2987,11 +3118,9 @@ versions, Honister and Kirkstone on the main branch, so there's no need to chang
 ├── meta-tedge
 └── poky
 </code></pre>
-<blockquote>
 <p>As these layers and <code>poky</code> are all different git repositories, we clone them next to the poky directory, but you can
 put them inside <code>poky</code> if you prefer. The only thing that matters is to use a correct path in the
 <code>poky/build/conf/bblayers.conf</code> file.</p>
-</blockquote>
 <p>Next, we add these layers to our build using <code>bitbake-layers</code> tool. Be aware that <code>meta-openembedded</code> is not itself a
 layer, but a collection of many layers. We need to run it from the <code>build</code> directory:</p>
 <pre><code class="language-bash">cd poky/build
@@ -3027,12 +3156,18 @@ BBLAYERS ?= &quot; \
 <p>For thin-edge to work, it has to run some setup scripts upon the first boot and interact with system services via the
 init system. Right now, <code>meta-tedge</code> only supports systemd init manager. The default in yocto is initrd, thus we have to
 change it.</p>
-<blockquote>
+<div id="admonition-important" class="admonition tip">
+<div class="admonition-title">
+<p>Important</p>
+<p><a class="admonition-anchor-link" href="tutorials/yocto-linux.html#admonition-important"></a></p>
+</div>
+<div>
 <p>This, and any successive changes to the build configuration should happen only in your local configuration, ie.
 <code>poky/build/conf/local.conf</code> or in configuration files of layers you create yourself. Changing any files in layers you
 do not control - in our example <code>meta-tedge</code> or any of the layers in <code>meta-openembedded</code> - is discouraged, because any
 changes you make to them may be lost when you update the layer.</p>
-</blockquote>
+</div>
+</div>
 <p>Activate <code>systemd</code> as default init manager by adding following line to <code>poky/build/conf/local.conf</code>:</p>
 <pre><code>INIT_MANAGER=&quot;systemd&quot;
 </code></pre>
@@ -3070,10 +3205,16 @@ PACKAGE_CLASSES ?= &quot;package_deb&quot;
 use <code>nographic</code> option to run the emulator inside the current terminal, so that we may copy-paste from our system
 clipboard, which wouldn't work in an external window. If this is not necessary, or if you run a graphical image, such as
 <code>core-image-sato</code>, you can omit this option.</p>
-<blockquote>
+<div id="admonition-tip" class="admonition tip">
+<div class="admonition-title">
+<p>Tip</p>
+<p><a class="admonition-anchor-link" href="tutorials/yocto-linux.html#admonition-tip"></a></p>
+</div>
+<div>
 <p>For more information about runqemu tool, see <a href="https://docs.yoctoproject.org/4.0.5/dev-manual/qemu.html">Using the Quick EMUlator
 (QEMU)</a> in Yocto Development Tasks manual.</p>
-</blockquote>
+</div>
+</div>
 <pre><code class="language-bash">runqemu nographic
 </code></pre>
 <p>After booting up, there will be a prompt to login. Login as <code>root</code>, password won't be required for the default
@@ -3108,10 +3249,16 @@ enable/disable/modify functionality of a device, e.g to access a shell via the U
 </code></pre>
 <p>Once the build is complete, the image will be located in <code>/tmp/deploy/images/$MACHINE/</code> directory where <code>$MACHINE</code>
 denotes your target platform. Copy the image to the SD card and run your device.</p>
-<blockquote>
-<p>To make Yocto run on another hardware, check other layers in the <a href="https://layers.openembedded.org/layerindex/branch/master/layers/">OpenEmbedded Layer
-Index</a>.</p>
-</blockquote>
+<div id="admonition-tip-1" class="admonition tip">
+<div class="admonition-title">
+<p>Tip</p>
+<p><a class="admonition-anchor-link" href="tutorials/yocto-linux.html#admonition-tip-1"></a></p>
+</div>
+<div>
+<p>To make Yocto run on another hardware, check other layers in the
+<a href="https://layers.openembedded.org/layerindex/branch/master/layers/">OpenEmbedded Layer Index</a>.</p>
+</div>
+</div>
 <h2 id="further-recommendations"><a class="header" href="#further-recommendations">Further recommendations</a></h2>
 <p>After building the reference distribution and image, you can explore creating your own layer and image, and then
 integrating <code>tedge-*</code> recipes for it.</p>
@@ -3172,43 +3319,67 @@ integrating <code>tedge-*</code> recipes for it.</p>
 <pre><code class="language-shell">curl -fsSL https://raw.githubusercontent.com/thin-edge/thin-edge.io/main/get-thin-edge_io.sh | sudo sh -s
 </code></pre>
 <p>You can execute that command on your device and it will do all required steps for an initial setup.</p>
+<div id="admonition-note" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="howto-guides/002_installation.html#admonition-note"></a></p>
+</div>
+<div>
+<p>If you want to get a specific version, append the <code>&lt;version&gt;</code> 3 digits (e.g. <code>0.7.3</code>):</p>
 <blockquote>
-<p>Note: If you want to get a specific version, add <code>&lt;version&gt;</code> at the end like below.
-<code>&lt;version&gt;</code> is consist of 3 digits, e.g. <code>0.7.3</code>.</p>
 <pre><code class="language-shell">curl -fsSL https://raw.githubusercontent.com/thin-edge/thin-edge.io/main/get-thin-edge_io.sh | sudo sh -s &lt;version&gt;
 </code></pre>
 </blockquote>
+</div>
+</div>
 <p>If you prefer to have a little more control over the installation or the script did not work for you,
 please go on with the <a href="howto-guides/002_installation.html#manual-installation-steps">manual installation steps</a>.</p>
 <h2 id="upgrade-thin-edgeio-with-get-thin-edge_iosh-script"><a class="header" href="#upgrade-thin-edgeio-with-get-thin-edge_iosh-script">Upgrade thin-edge.io with get-thin-edge_io.sh script</a></h2>
 <p>If you already have <code>thin-edge.io</code> on your device, to upgrade <code>thin-edge.io</code>,
 the easiest way is to use the same script as the installation. Follow the steps below.
 There is no need to remove old version.</p>
-<blockquote>
-<p>Note for only <strong>0.7.7 or lower version</strong>: To upgrade <code>thin-edge.io</code> from these versions,
-all thin-edge.io components <strong>must be stopped</strong> before upgrading.
-The components are:
+<div id="admonition-note-1" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="howto-guides/002_installation.html#admonition-note-1"></a></p>
+</div>
+<div>
+<p>For version **0.7.7 or lower, to upgrade <code>thin-edge.io</code> from these versions,
+all thin-edge.io components <strong>must be stopped</strong> before upgrading.</p>
+<p>The components are:
 <code>tedge-mapper-c8y</code>, <code>tedge-mapper-az</code>, <code>tedge-mapper-collectd</code>, <code>tedge-agent</code>, <code>tedge-watchdog</code>, <code>c8y-log-plugin</code>, <code>c8y-configuration-plugin</code>.</p>
 <p>To stop <code>tedge-mapper-c8y</code>, <code>tedge-agent</code>, <code>tedge-mapper-az</code>, <code>tedge-mapper-aws</code>, you can simply run the commands below.</p>
+<blockquote>
 <pre><code class="language-shell">sudo tedge disconnect c8y
 sudo tedge disconnect az
 sudo tedge disconnect aws
 </code></pre>
+</blockquote>
 <p>To stop each component one by one, this is an example how to stop them with <code>systemctl</code>:</p>
+<blockquote>
 <pre><code class="language-shell">systemctl stop tedge-mapper-c8y
 systemctl stop tedge-agent
 systemctl stop c8y-log-plugin
 </code></pre>
 </blockquote>
+</div>
+</div>
 <p>Run <code>get-thin-edge_io.sh</code> script as below to upgrade to the latest version.</p>
 <pre><code class="language-shell">curl -fsSL https://raw.githubusercontent.com/thin-edge/thin-edge.io/main/get-thin-edge_io.sh | sudo sh -s
 </code></pre>
+<div id="admonition-note-2" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="howto-guides/002_installation.html#admonition-note-2"></a></p>
+</div>
+<div>
+<p>If you want to upgrade to a specific version, append the <code>&lt;version&gt;</code> 3 digits, e.g. <code>0.7.3</code>:</p>
 <blockquote>
-<p>Note: If you want to upgrade to a specific version, add <code>&lt;version&gt;</code> at the end like below.
-<code>&lt;version&gt;</code> is consist of 3 digits, e.g. <code>0.7.3</code>.</p>
 <pre><code class="language-shell">curl -fsSL https://raw.githubusercontent.com/thin-edge/thin-edge.io/main/get-thin-edge_io.sh | sudo sh -s &lt;version&gt;
 </code></pre>
 </blockquote>
+</div>
+</div>
 <h2 id="thin-edgeio-manual-installation"><a class="header" href="#thin-edgeio-manual-installation">thin-edge.io manual installation</a></h2>
 <p>To install thin edge package it is required to use <code>curl</code> to download the package and <code>dpkg</code> to install it.</p>
 <h3 id="dependency-installation"><a class="header" href="#dependency-installation">Dependency installation</a></h3>
@@ -3216,9 +3387,15 @@ systemctl stop c8y-log-plugin
 <code>mosquitto</code> can be installed with your package manager. For apt the command may look as following:</p>
 <pre><code class="language-shell">apt install mosquitto
 </code></pre>
-<blockquote>
-<p>Note: Some OSes may require you to use <code>sudo</code> to install packages.</p>
-</blockquote>
+<div id="admonition-note-3" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="howto-guides/002_installation.html#admonition-note-3"></a></p>
+</div>
+<div>
+<p>Some OSes may require you to use <code>sudo</code> to install packages.</p>
+</div>
+</div>
 <pre><code class="language-shell">sudo apt install mosquitto
 </code></pre>
 <h3 id="thin-edgeio-package-download"><a class="header" href="#thin-edgeio-package-download">thin-edge.io package download</a></h3>
@@ -3227,10 +3404,10 @@ systemctl stop c8y-log-plugin
 <pre><code class="language-shell">curl -LJO https://github.com/thin-edge/thin-edge.io/releases/download/&lt;package&gt;_&lt;version&gt;_&lt;arch&gt;.deb
 </code></pre>
 <p>where:</p>
-<blockquote>
-<p><code>version</code> -&gt; thin-edge.io version in x.x.x format</p>
-<p><code>arch</code> -&gt; architecture type (amd64, armhf, arm64)</p>
-</blockquote>
+<ul>
+<li><code>version</code> -&gt; thin-edge.io version in x.x.x format</li>
+<li><code>arch</code> -&gt; architecture type (amd64, armhf, arm64)</li>
+</ul>
 <p>Eg:</p>
 <pre><code class="language-shell">curl -LJO https://github.com/thin-edge/thin-edge.io/releases/download/0.9.0/tedge_0.9.0_armhf.deb
 </code></pre>
@@ -3239,9 +3416,15 @@ systemctl stop c8y-log-plugin
 </code></pre>
 <h3 id="thin-edgeio-package-installation"><a class="header" href="#thin-edgeio-package-installation">thin-edge.io package installation</a></h3>
 <p>Now, we have downloaded the package we can proceed to installation. First we will install cli tool <code>tedge</code>.</p>
-<blockquote>
-<p>Note: Some OSes may require you to use <code>sudo</code> to install packages and therefore all following commands may need <code>sudo</code>.</p>
-</blockquote>
+<div id="admonition-note-4" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="howto-guides/002_installation.html#admonition-note-4"></a></p>
+</div>
+<div>
+<p>Some OSes may require you to use <code>sudo</code> to install packages and therefore all following commands may need <code>sudo</code>.</p>
+</div>
+</div>
 <p>To install <code>tedge</code> use following command:</p>
 <pre><code class="language-shell">dpkg -i tedge_&lt;version&gt;_&lt;arch&gt;.deb
 </code></pre>
@@ -3269,16 +3452,28 @@ COMMANDS:
     remove     Uninstall thin-edge.io with keeping configuration files
     purge      Uninstall thin-edge.io and also remove configuration files
 </code></pre>
-<blockquote>
-<p>Note: The uninstall script removes/purges the core thin-edge.io packages like <code>tedge, tedge-mapper, and tedge-agent</code> as well as thin-edge.io plugins like <code>tedge-apt-plugin, c8y-log-plugin, c8y-configuration-plugin</code> etc.</p>
-</blockquote>
+<div id="admonition-note-5" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="howto-guides/002_installation.html#admonition-note-5"></a></p>
+</div>
+<div>
+<p>The uninstall script removes/purges the core thin-edge.io packages like <code>tedge, tedge-mapper, and tedge-agent</code> as well as thin-edge.io plugins like <code>tedge-apt-plugin, c8y-log-plugin, c8y-configuration-plugin</code> etc.</p>
+</div>
+</div>
 <h3 id="remove-thin-edgeio"><a class="header" href="#remove-thin-edgeio"><code>Remove</code> thin-edge.io</a></h3>
 <p>Use uninstall script as shown below just to <code>remove</code> the <code>thin-edge.io</code> packages.</p>
 <pre><code class="language-shell">./uninstall-thin-edge_io.sh remove
 </code></pre>
-<blockquote>
-<p>Note: Removes just the thin-edge.io packages and does not remove the <code>configuration</code> files.</p>
-</blockquote>
+<div id="admonition-note-6" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="howto-guides/002_installation.html#admonition-note-6"></a></p>
+</div>
+<div>
+<p><code>./uninstall-thin-edge_io.sh remove</code> removes just the thin-edge.io packages and does not remove the <code>configuration</code> files.</p>
+</div>
+</div>
 <p>The same thing can also be executed using a one-liner to download and run the script.</p>
 <pre><code class="language-shell">curl -sSL https://raw.githubusercontent.com/thin-edge/thin-edge.io/main/uninstall-thin-edge_io.sh | sudo sh -s remove
 </code></pre>
@@ -3304,9 +3499,15 @@ associated with these thin-edge.io packages.</p>
 <h3 id="obtaining-binaries"><a class="header" href="#obtaining-binaries">Obtaining binaries</a></h3>
 <p>The prebuilt binaries can be obtained from <code>thin-edge.io</code> <a href="https://github.com/thin-edge/thin-edge.io/releases">repository releases</a>.</p>
 <p>By default <code>thin-edge.io</code> is built with 3 architectures in mind: <code>amd64 (x86_64)</code>, <code>arm64 (aarch64)</code> and <code>armhf</code> with gnulibc bindings, so if you are looking to install <code>thin-edge.io</code> on a different platform you have to build your own binaries from source which you can do easily if you follow the <a href="howto-guides/./../BUILDING.html">Building <code>thin-edge.io</code></a> guide.</p>
-<blockquote>
-<p>Note: By default <code>thin-edge.io</code> is built with <code>GNU libc</code>, but it is possible to use <code>musl</code> instead.</p>
-</blockquote>
+<div id="admonition-note" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="howto-guides/015_installation_without_deb_support.html#admonition-note"></a></p>
+</div>
+<div>
+<p>By default <code>thin-edge.io</code> is built with <code>musl</code>, but it is possible to use <code>GNU libc</code> instead.</p>
+</div>
+</div>
 <p>Full installation of <code>thin-edge.io</code> requires the following components:</p>
 <ul>
 <li>tedge</li>
@@ -3314,13 +3515,11 @@ associated with these thin-edge.io packages.</p>
 <li>tedge-agent</li>
 </ul>
 <h4 id="extracting-binaries-from-deb-packages"><a class="header" href="#extracting-binaries-from-deb-packages">Extracting binaries from deb packages</a></h4>
-<blockquote>
 <p>Required packages:</p>
 <ul>
 <li>ar</li>
 <li>tar</li>
 </ul>
-</blockquote>
 <p>Currently all binaries provided with releases are packaged into <code>deb</code> packages.
 <code>deb</code> packages can be extracted to get the binaries for installation (example):</p>
 <pre><code class="language-shell">ar -x tedge_&lt;version&gt;_amd64.deb | tar -xf data.tar.xz
@@ -3404,9 +3603,15 @@ For <code>tedge</code> debian package do:</p>
 <p>This unpacks two directories <code>usr/bin/</code>, move its contents to <code>/usr/bin</code></p>
 <pre><code class="language-shell">sudo mv usr/bin/tedge /usr/bin
 </code></pre>
-<blockquote>
-<p>Note: Do the same for tedge_agent and tedge_mapper debian packages.</p>
-</blockquote>
+<div id="admonition-note" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="howto-guides/026_how_to_install_thin_edge_manually.html#admonition-note"></a></p>
+</div>
+<div>
+<p>Do the same for tedge_agent and tedge_mapper debian packages.</p>
+</div>
+</div>
 <h2 id="step-1-creating-the-tedge-user"><a class="header" href="#step-1-creating-the-tedge-user">Step 1: Creating the tedge user</a></h2>
 <p>The next step is to create the tedge user. This is normally taken care by the debian package for the <code>tedge</code> CLI tool.</p>
 <p>To do this in Gentoo, for example, you can:</p>
@@ -3428,9 +3633,8 @@ sudo tedge-mapper --init c8y
 <p align="center">
   <img src="howto-guides/./images/manual_installation-binaries_init.png" alt="Sublime's custom image"/>
 </p>
-<blockquote>
-<p>Note: if you do not restart mosquitto you will see a Connection refused error. Do not worry, this error can be ignored.</p>
-</blockquote>
+<pre><code class="language-asmonish note">If you do not restart mosquitto you will see a Connection refused error. Do not worry, this error can be ignored.
+</code></pre>
 <p>Ensure that running the init has created the following files and directories in <code>/etc/tedge</code>:</p>
 <p align="center">
   <img src="howto-guides/./images/manual_installation-tedge_directories.png" alt="Sublime's custom image"/>
@@ -3444,13 +3648,23 @@ sudo tedge-mapper --init c8y
 </code></pre>
 <h2 id="step-4-creating-openrc-service-files"><a class="header" href="#step-4-creating-openrc-service-files">Step 4: Creating OpenRC service files</a></h2>
 <p>You will need service files for tedge_agent and tedge_mapper. For example:</p>
-<blockquote>
-<p>Note that, for Cumulocity IoT, the <code>tedge connect</code> command expects three service files called: mosquitto, tedge-agent and tedge-mapper-c8y</p>
-</blockquote>
+<div id="admonition-note-1" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="howto-guides/026_how_to_install_thin_edge_manually.html#admonition-note-1"></a></p>
+</div>
+<div>
+<p>For Cumulocity IoT, the <code>tedge connect</code> command expects three service files called: mosquitto, tedge-agent and tedge-mapper-c8y</p>
+</div>
+</div>
 <p>For the <code>tedge-agent</code> service an example file is the following:</p>
+<div id="admonition-etcinitdtedge-agent" class="admonition example">
+<div class="admonition-title">
+<p>/etc/init.d/tedge-agent</p>
+<p><a class="admonition-anchor-link" href="howto-guides/026_how_to_install_thin_edge_manually.html#admonition-etcinitdtedge-agent"></a></p>
+</div>
+<div>
 <blockquote>
-<p>FILE: /etc/init.d/tedge-agent</p>
-</blockquote>
 <pre><code class="language-sh">#!/sbin/runscript
 
 start() {
@@ -3465,10 +3679,17 @@ stop() {
     eend $?
 }
 </code></pre>
-<p>For the <code>tedge-mapper-c8y</code> service an example file is the following:</p>
-<blockquote>
-<p>FILE: /etc/init.d/tedge-mapper-c8y</p>
 </blockquote>
+</div>
+</div>
+<p>For the <code>tedge-mapper-c8y</code> service an example file is the following</p>
+<div id="admonition-etcinitdtedge-mapper-c8y" class="admonition example">
+<div class="admonition-title">
+<p>/etc/init.d/tedge-mapper-c8y</p>
+<p><a class="admonition-anchor-link" href="howto-guides/026_how_to_install_thin_edge_manually.html#admonition-etcinitdtedge-mapper-c8y"></a></p>
+</div>
+<div>
+<blockquote>
 <pre><code class="language-sh">#!/sbin/runscript
 
 start() {
@@ -3483,14 +3704,21 @@ stop() {
    eend $?
 }
 </code></pre>
+</blockquote>
+</div>
+</div>
 <pre><code class="language-sh">sudo chmod +x /etc/init.d/tedge-agent
 sudo chmod +x /etc/init.d/tedge-mapper-c8y
 </code></pre>
 <p>Next, we need to add a <code>system.toml</code> to <code>/etc/tedge/</code>, telling it to use OpenRC. To do this create the following file:</p>
+<div id="admonition-etctedgesystemtoml" class="admonition example">
+<div class="admonition-title">
+<p>/etc/tedge/system.toml</p>
+<p><a class="admonition-anchor-link" href="howto-guides/026_how_to_install_thin_edge_manually.html#admonition-etctedgesystemtoml"></a></p>
+</div>
+<div>
 <blockquote>
-<p>FILE: /etc/tedge/system.toml</p>
-</blockquote>
-<pre><code class="language-sh">[init]
+<pre><code>[init]
 name = &quot;OpenRC&quot;
 is_available = [&quot;/sbin/rc-service&quot;, &quot;-l&quot;]
 restart = [&quot;/sbin/rc-service&quot;, &quot;{}&quot;, &quot;restart&quot;]
@@ -3499,6 +3727,9 @@ enable =  [&quot;/sbin/rc-update&quot;, &quot;add&quot;, &quot;{}&quot;]
 disable =  [&quot;/sbin/rc-update&quot;, &quot;delete&quot;, &quot;{}&quot;]
 is_active = [&quot;/sbin/rc-service&quot;, &quot;{}&quot;, &quot;status&quot;]
 </code></pre>
+</blockquote>
+</div>
+</div>
 <p>Limit the file's permission to read only:</p>
 <pre><code class="language-sh">sudo chmod 444 /etc/tedge/system.toml
 </code></pre>
@@ -3508,10 +3739,16 @@ sudo rc-update add tedge-mapper-c8y default
 </code></pre>
 <p>We are finally ready to <a href="howto-guides/../tutorials/connect-c8y.html">connect to Cumulocity</a>!</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="install-and-enable-the-software-management-feature"><a class="header" href="#install-and-enable-the-software-management-feature">Install and enable the software management feature</a></h1>
-<blockquote>
-<p>Note: As of now, this feature is supported only on devices with <strong>debian</strong> based
+<div id="admonition-note" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="howto-guides/012_install_and_enable_software_management.html#admonition-note"></a></p>
+</div>
+<div>
+<p>As of now, this feature is supported only on devices with <strong>debian</strong> based
 distributions, which use the <strong>apt</strong> package manager(Ex: RaspberryPi OS , Ubuntu, Debian), from Cumulocity cloud.</p>
-</blockquote>
+</div>
+</div>
 <p>Below steps show how to download, install and enable thin-edge software management feature.</p>
 <h2 id="download-and-install-software-management-packages-on-the-device"><a class="header" href="#download-and-install-software-management-packages-on-the-device">Download and install software management packages on the device</a></h2>
 <p>As a prerequisite, install <a href="howto-guides/../howto-guides/002_installation.html">tedge and tedge-mapper</a> if not installed already.</p>
@@ -3520,10 +3757,10 @@ distributions, which use the <strong>apt</strong> package manager(Ex: RaspberryP
 <pre><code class="language-shell">curl -LJO https://github.com/thin-edge/thin-edge.io/releases/download/&lt;package&gt;_&lt;version&gt;_&lt;arch&gt;.deb
 </code></pre>
 <p>where:</p>
-<blockquote>
-<p><code>version</code> -&gt; thin-edge.io software management components version in x.x.x format</p>
-<p><code>arch</code> -&gt; architecture type (amd64, armhf)</p>
-</blockquote>
+<ul>
+<li><code>version</code> -&gt; thin-edge.io software management components version in x.x.x format</li>
+<li><code>arch</code> -&gt; architecture type (amd64, armhf)</li>
+</ul>
 <p>Download <code>tedge-apt-plugin</code> and <code>tedge-agent</code></p>
 <pre><code class="language-shell">curl -LJO https://github.com/thin-edge/thin-edge.io/releases/download/0.9.0/tedge-apt-plugin_0.9.0_armhf.deb
 curl -LJO https://github.com/thin-edge/thin-edge.io/releases/download/0.9.0/tedge-agent_0.9.0_armhf.deb
@@ -3533,10 +3770,16 @@ curl -LJO https://github.com/thin-edge/thin-edge.io/releases/download/0.9.0/tedg
 <pre><code class="language-shell">sudo dpkg -i tedge-apt-plugin_&lt;version&gt;_&lt;arch&gt;.deb
 sudo dpkg -i tedge-agent_&lt;version&gt;_&lt;arch&gt;.deb
 </code></pre>
-<blockquote>
-<p>Note: Software management feature will be enabled after installation if the device
+<div id="admonition-note-1" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="howto-guides/012_install_and_enable_software_management.html#admonition-note-1"></a></p>
+</div>
+<div>
+<p>Software management feature will be enabled after installation if the device
 is connected to the Cumulocity cloud using <code>tedge connect c8y</code>.</p>
-</blockquote>
+</div>
+</div>
 <h2 id="start-and-enable-the-software-management-feature"><a class="header" href="#start-and-enable-the-software-management-feature">Start and enable the software management feature</a></h2>
 <h3 id="using-tedge-connect-c8y"><a class="header" href="#using-tedge-connect-c8y">Using <code>tedge connect c8y</code></a></h3>
 <p>The <code>tedge connect c8y</code> will automatically start and enable the software management feature.
@@ -3544,9 +3787,15 @@ Find more about <a href="howto-guides/../howto-guides/004_connect.html">how to c
 <p>Once the thin-edge device is successfully connected to Cumulocity cloud, the <strong>Software</strong> option will be enabled and
 the list of software that are installed on the device will be visible as shown in the figure below.</p>
 <p><img src="howto-guides/./images/start-software-management.png" alt="Add new software" /></p>
-<blockquote>
-<p>Note: Disconnecting thin-edge device from cloud with <code>tedge disconnect c8y</code> command will stop and disable the software management feature.</p>
-</blockquote>
+<div id="admonition-note-2" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="howto-guides/012_install_and_enable_software_management.html#admonition-note-2"></a></p>
+</div>
+<div>
+<p>Disconnecting thin-edge device from cloud with <code>tedge disconnect c8y</code> command will stop and disable the software management feature.</p>
+</div>
+</div>
 <h3 id="manually-enabling-and-disabling-software-management-feature"><a class="header" href="#manually-enabling-and-disabling-software-management-feature">Manually enabling and disabling software management feature</a></h3>
 <p>For debugging purpose or to disable/enable the software management services, one can start/stop manually as shown below.</p>
 <h3 id="starting-the-services"><a class="header" href="#starting-the-services">Starting the services</a></h3>
@@ -3615,9 +3864,15 @@ mytenant.cumulocity.com
 </div>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="how-to-configure-the-local-port-and-bind-address-in-mosquitto"><a class="header" href="#how-to-configure-the-local-port-and-bind-address-in-mosquitto">How to configure the local port and bind address in mosquitto?</a></h1>
 <p>Configuring a mosquitto port and bind address in thin-edge.io is a three-step process.</p>
-<blockquote>
-<p>Note: The mqtt.port and the mqtt.bind_address can be set/unset independently.</p>
-</blockquote>
+<div id="admonition-note" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="howto-guides/008_config_local_mqtt_bind_address_and_port.html#admonition-note"></a></p>
+</div>
+<div>
+<p>The mqtt.port and the mqtt.bind_address can be set/unset independently.</p>
+</div>
+</div>
 <h2 id="step-1-disconnect-thin-edgeio-edge-device"><a class="header" href="#step-1-disconnect-thin-edgeio-edge-device">Step 1: Disconnect thin-edge.io edge device</a></h2>
 <p>The thin edge device has to be disconnected from the cloud using the <code>tedge</code> command</p>
 <pre><code class="language-shell">tedge disconnect c8y/az
@@ -3628,10 +3883,16 @@ mytenant.cumulocity.com
 </code></pre>
 <pre><code class="language-shell">tedge config set mqtt.bind_address 127.0.0.1
 </code></pre>
-<blockquote>
-<p>Note: The bind_address is the address of the one of the device interface.
-For example this can be get as <code>ifconfig | grep inet</code> or set it to <code>0.0.0.0</code></p>
-</blockquote>
+<div id="admonition-note-1" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="howto-guides/008_config_local_mqtt_bind_address_and_port.html#admonition-note-1"></a></p>
+</div>
+<div>
+<p>The bind_address is the address of one of the device network interface.
+For example, this can be get as <code>ifconfig | grep inet</code> or set it to <code>0.0.0.0</code></p>
+</div>
+</div>
 <p>This will make sure that all the mqtt clients use the newer port and the bind address that
 has been set once the device is connected to the cloud as in step 3.</p>
 <h2 id="verify-the-port-and-the-bind-address-configuredset"><a class="header" href="#verify-the-port-and-the-bind-address-configuredset">Verify the port and the bind address configured/set</a></h2>
@@ -3687,15 +3948,20 @@ Then (Steps 1-3) the collectd-mapper has to be restarted to use the newly set po
 <p>If the server you are trying to connect <code>thin-edge.io</code> to is presenting a certificate with a root that is not currently trusted, then you can add the server's root certificate to the list of trusted root certificates.
 For the most part the store will be filled with certificates from your TLS/SSL provider, but when you want to use self-signed certificates you may need to update your local certificate store.
 Below are instructions on how to add new CA certificate and update the certificate store.</p>
-<blockquote>
-<p>Please note: Provided instructions are for supported OSes and may not apply to the flavour you are running, if you need help with other OS please consult appropriate documentation.</p>
-</blockquote>
+<div id="admonition-note" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="howto-guides/010_add_self_signed_trusted.html#admonition-note"></a></p>
+</div>
+<div>
+<p>Provided instructions are for supported OSes and may not apply to the flavour you are running,
+if you need help with other OS please consult appropriate documentation.</p>
+</div>
+</div>
 <h2 id="ubuntu-and-raspberry-pi-os"><a class="header" href="#ubuntu-and-raspberry-pi-os">Ubuntu and Raspberry Pi OS</a></h2>
-<blockquote>
 <p>If you do not have the <code>ca-certificates</code> package installed on your system, install it with your package manager.</p>
 <pre><code class="language-shell">sudo apt install ca-certificates
 </code></pre>
-</blockquote>
 <p>To add a self-signed certificate to the trusted certificate repository on thin-edge.io system:</p>
 <p>Create a <code>/usr/local/share/ca-certificates/</code> directory if it does not exist on your computer:</p>
 <pre><code class="language-shell">sudo mkdir /usr/local/share/ca-certificates/
@@ -3765,10 +4031,16 @@ then systemd will assume that service to be unhealthy and restart it.</p>
 <h3 id="step-1-enable-the-watchdog-feature-in-the-systemd-service-file"><a class="header" href="#step-1-enable-the-watchdog-feature-in-the-systemd-service-file">Step 1: Enable the watchdog feature in the systemd service file</a></h3>
 <p>For example, to enable the watchdog feature for <code>tedge-mapper-c8y</code> service,
 update the systemd service file as shown below:</p>
-<blockquote>
-<p>Note: The systemd service file for tedge services are usually present in <code>/lib/systemd/system</code> directory, 
+<div id="admonition-note" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="howto-guides/021_enable_tedge_watchdog_using_systemd.html#admonition-note"></a></p>
+</div>
+<div>
+<p>The systemd service file for tedge services are usually present in <code>/lib/systemd/system</code> directory, 
 like <code>/lib/systemd/system/tedge-mapper-c8y.service</code>.</p>
-</blockquote>
+</div>
+</div>
 <p>Add <code>tedge-watchdog.service</code> as an <code>After</code> service dependency under <code>[Unit]</code> section.
 Add the watchdog interval as <code>WatchdogSec=30</code> under <code>[Service]</code> section.
 Update the restart condition as <code>Restart=always</code> under <code>[Service]</code> section.</p>
@@ -3798,22 +4070,40 @@ by periodically sending health check messages to them within their configured <c
 the health status response from that service is expected on <code>tedge/health/&lt;service-name&gt;</code> topic.</p>
 <p>Once the health status response is received from a particular service,
 the <code>tedge-watchdog</code> service will send the <a href="https://www.freedesktop.org/software/systemd/man/sd_notify.html#">systemd notification</a> to systemd on behalf of that monitored service.</p>
-<blockquote>
-<p>Note: If none of the <code>thin-edge</code> services are enabled with the watchdog feature, then the <code>tedge-watchdog</code> service will stop with an <code>inactive</code> state.
-To monitor any of the <code>thin-edge</code> services, one has to update the corresponding <code>systemd</code> service file with <code>WatchdogSec</code> and then restart the <code>tedge-watchdog</code> service.</p>
-</blockquote>
+<div id="admonition-note-1" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="howto-guides/021_enable_tedge_watchdog_using_systemd.html#admonition-note-1"></a></p>
+</div>
+<div>
+<p>If none of the <code>thin-edge</code> services are enabled with the watchdog feature, then the <code>tedge-watchdog</code> service will stop with an <code>inactive</code> state.
+To monitor any of the <code>thin-edge</code> services, one has to update the corresponding <code>systemd</code> service file with <code>WatchdogSec</code>
+and then restart the <code>tedge-watchdog</code> service.</p>
+</div>
+</div>
 <h2 id="debugging"><a class="header" href="#debugging">Debugging</a></h2>
 <p>One can observe the message exchange between the <code>service</code> and the <code>watchdog</code>
 by subscribing to <code>tedge/health/#</code> and <code>tedge/health-check/#</code> topics.
 For more info check <a href="howto-guides/./020_monitor_tedge_health.html">here</a></p>
-<blockquote>
-<p>Note: If the watchdog service does not send the notification to the systemd within <code>WatchdogSec</code> interval for a service,
+<div id="admonition-note-2" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="howto-guides/021_enable_tedge_watchdog_using_systemd.html#admonition-note-2"></a></p>
+</div>
+<div>
+<p>If the watchdog service does not send the notification to the systemd within <code>WatchdogSec</code> interval for a service,
 then systemd restarts that service by killing the old process and spawning a new one to replace it.</p>
-</blockquote>
-<blockquote>
-<p>Note: <a href="https://www.medo64.com/2019/01/systemd-watchdog-for-any-service/">Here</a> is an example about using <code>systemd watchdog</code> feature.</p>
-</blockquote>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="how-to-change-default-paths"><a class="header" href="#how-to-change-default-paths">How to change default paths</a></h1>
+</div>
+</div>
+<div id="admonition-example" class="admonition example">
+<div class="admonition-title">
+<p>Example</p>
+<p><a class="admonition-anchor-link" href="howto-guides/021_enable_tedge_watchdog_using_systemd.html#admonition-example"></a></p>
+</div>
+<div>
+<p><a href="https://www.medo64.com/2019/01/systemd-watchdog-for-any-service/">Here</a> is an example about using <code>systemd watchdog</code> feature.</p>
+</div>
+</div><div style="break-before: page; page-break-before: always;"></div><h1 id="how-to-change-default-paths"><a class="header" href="#how-to-change-default-paths">How to change default paths</a></h1>
 <p>The <code>tedge config set</code> command can be used to change various file system paths used by tedge components.
 The following table captures the paths that can be changed, with their default locations.</p>
 <table><thead><tr><th>Config Key</th><th>Description</th><th>Default Value</th></tr></thead><tbody>
@@ -3863,9 +4153,15 @@ sudo systemctl stop tedge-agent
 </code></pre>
 <pre><code>Certificate was successfully created
 </code></pre>
-<blockquote>
-<p>Note: <code>tedge cert</code> requires <code>sudo</code> privilege. This command provides no output on success.</p>
-</blockquote>
+<div id="admonition-note" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="howto-guides/003_registration.html#admonition-note"></a></p>
+</div>
+<div>
+<p><code>tedge cert</code> requires <code>sudo</code> privilege. This command provides no output on success.</p>
+</div>
+</div>
 <p><a href="howto-guides/../references/tedge-cert.html"><code>sudo tedge cert create</code></a> will create certificate in a default location (<code>/etc/tedge/device-certs/</code>).
 To use a custom location, refer to <a href="howto-guides/../references/tedge-config.html"><code>tedge config</code></a>.</p>
 <p>Now you should have a certificate in the <code>/etc/tedge/device-certs/</code> directory.</p>
@@ -3891,9 +4187,15 @@ Caused by:
             Existing file: &quot;/etc/tedge/device-certs/tedge-certificate.pem&quot;
             Run `tedge cert remove` first to generate a new certificate.
 </code></pre>
-<blockquote>
-<p>Warning! Removing a certificate can break the bridge and more seriously delete a certificate that was a CA-signed certificate.</p>
-</blockquote>
+<div id="admonition-danger" class="admonition danger">
+<div class="admonition-title">
+<p>Danger</p>
+<p><a class="admonition-anchor-link" href="howto-guides/003_registration.html#admonition-danger"></a></p>
+</div>
+<div>
+<p>Removing a certificate can break the bridge and more seriously delete a certificate that was a CA-signed certificate.</p>
+</div>
+</div>
 <p>Follow the instruction to remove the existing certificate and issue <a href="howto-guides/../references/tedge-cert.html"><code>tedge cert remove</code></a>:</p>
 <pre><code class="language-shell">sudo tedge cert remove
 </code></pre>
@@ -3908,16 +4210,28 @@ Caused by:
 <div style="break-before: page; page-break-before: always;"></div><h1 id="how-to-connect"><a class="header" href="#how-to-connect">How to connect?</a></h1>
 <h2 id="connect-to-cumulocity-iot"><a class="header" href="#connect-to-cumulocity-iot">Connect to Cumulocity IoT</a></h2>
 <p>To create northbound connection a local bridge shall be established and this can be achieved with <code>tedge</code> cli and following commands:</p>
-<blockquote>
+<div id="admonition-note" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="howto-guides/004_connect.html#admonition-note"></a></p>
+</div>
+<div>
 <p>Note: <code>tedge connect</code> requires <code>sudo</code> privilege.</p>
-</blockquote>
-<hr />
+</div>
+</div>
+<h2 id="setting-the-cloud-end-point"><a class="header" href="#setting-the-cloud-end-point">Setting the cloud end-point</a></h2>
 <p>Configure required parameters for thin-edge.io with <a href="howto-guides/../references/tedge-config.html"><code>tedge config set</code></a>:</p>
 <pre><code class="language-shell">sudo tedge config set c8y.url example.cumulocity.com
 </code></pre>
+<div id="admonition-info" class="admonition info">
+<div class="admonition-title">
+<p>Info</p>
+<p><a class="admonition-anchor-link" href="howto-guides/004_connect.html#admonition-info"></a></p>
+</div>
+<div>
+<p>If you are unsure which parameters required by the command, simply run the command and it will tell you which parameters are missing.</p>
+<p>For example, if we issue <a href="howto-guides/../references/tedge-connect.html"><code>tedge connect c8y</code></a> without any configuration following advice will be given:</p>
 <blockquote>
-<p>Tip: If you you are unsure which parameters are required for the command to work run the command and it will tell you which parameters are missing.
-For example, if we issue <a href="howto-guides/../references/tedge-connect.html"><code>tedge connect c8y</code></a> without any configuration following advice will be given:</p>
 <pre><code class="language-shell">$ tedge connect c8y`
 ...
 Error: failed to execute `tedge connect`.
@@ -3925,23 +4239,35 @@ Error: failed to execute `tedge connect`.
 Caused by:
     Required configuration item is not provided 'c8y.url', run 'tedge config set c8y.url &lt;value&gt;' to add it to config.
 </code></pre>
-<p>This message explains which configuration parameter is missing and how to add it to configuration, in this case we are told to run <code>tedge config set c8y.url &lt;value&gt;</code>.</p>
 </blockquote>
-<hr />
+<p>This message explains which configuration parameter is missing and how to add it to configuration,
+in this case we are told to run <code>tedge config set c8y.url &lt;value&gt;</code>.</p>
+</div>
+</div>
+<h2 id="making-the-cloud-trust-the-device"><a class="header" href="#making-the-cloud-trust-the-device">Making the cloud trust the device</a></h2>
 <p>The next step is to have the device certificate trusted by Cumulocity. This is done by uploading the certificate of the signee.
-You can upload root certificate via <a href="https://cumulocity.com/guides/users-guide/device-management/#trusted-certificates">Cumulocity UI</a> or with <a href="howto-guides/../references/tedge-cert.html"><code>tedge cert upload</code></a> as described below.</p>
-<blockquote>
-<p>Note: This command takes parameter <code>user</code>, this is due to upload mechanism to Cumulocity cloud which uses username and password for authentication.</p>
-<p>After issuing this command you are going to be prompted for a password. Users usernames and passwords are not stored in configuration due to security.</p>
-</blockquote>
+You can upload the root certificate using the <a href="https://cumulocity.com/guides/users-guide/device-management/#trusted-certificates">Cumulocity UI</a>
+or with <a href="howto-guides/../references/tedge-cert.html"><code>tedge cert upload</code></a> command as described below.</p>
+<div id="admonition-note-1" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="howto-guides/004_connect.html#admonition-note-1"></a></p>
+</div>
+<div>
+<p>The <code>tedge cert upload</code> command requires the credentials of a Cumulocity user
+having the permissions to upload trusted certificates on the Cumulocity tenant of the device.</p>
+<p>The user name is provided as <code>--user &lt;username&gt;</code> parameter,
+and the command will prompt you for this user's password.
+These credentials are used only for this upload and will in no case be stored on the device.</p>
+</div>
+</div>
 <pre><code class="language-shell">sudo tedge cert upload c8y --user &lt;username&gt;
 </code></pre>
-<p>where:</p>
-<blockquote>
-<p><code>username</code> -&gt; user in Cumulocity with permissions to upload new certificates</p>
-</blockquote>
-<hr />
-<p>To create bridge use <a href="howto-guides/../references/tedge-connect.html"><code>tedge connect</code></a>:</p>
+<h2 id="creating-an-mqtt-brigde-between-the-device-and-the-cloud"><a class="header" href="#creating-an-mqtt-brigde-between-the-device-and-the-cloud">Creating an MQTT brigde between the device and the cloud</a></h2>
+<p>The connection from the device to the cloud is established using a so-called MQTT bridge:
+a permanent secured bi-directionnel MQTT connection that forward messages back and forth
+between the two end-points.</p>
+<p>To create the bridge use the <a href="howto-guides/../references/tedge-connect.html"><code>tedge connect</code></a> command.</p>
 <pre><code class="language-shell">sudo tedge connect c8y
 </code></pre>
 <pre><code>Checking if systemd is available.
@@ -4019,9 +4345,15 @@ Disabling tedge-agent service.
 
 tedge-agent service successfully stopped and disabled!
 </code></pre>
-<blockquote>
-<p>Note: <code>tedge disconnect c8y</code> also stops and disable <strong>tedge-mapper</strong> service if it is installed on the device.</p>
-</blockquote>
+<div id="admonition-note-2" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="howto-guides/004_connect.html#admonition-note-2"></a></p>
+</div>
+<div>
+<p><code>tedge disconnect c8y</code> also stops and disable the <strong>tedge-mapper</strong> service if it is installed on the device.</p>
+</div>
+</div>
 <p>And now you can issue <a href="howto-guides/../references/tedge-connect.html"><code>tedge connect c8y</code></a> to create new bridge.</p>
 <h4 id="connection-check-warning"><a class="header" href="#connection-check-warning">Connection check warning</a></h4>
 <p>Sample output of tedge connect when this warning occurs:</p>
@@ -4171,36 +4503,60 @@ Then, it publishes an empty string to the topic <code>az/twin/GET/?$rid=1</code>
 <p>On a thin-edge device different components like mappers, agent, and plugins run. The log messages of these components can be accessed as below.
 The logs here capture INFO, WARNING, and ERROR messages.</p>
 <h3 id="cloud-mapper-logs"><a class="header" href="#cloud-mapper-logs">Cloud mapper logs</a></h3>
-<p>The thin-edge cloud mapper component that sends the measurement data to the cloud can be accessed as below.</p>
+<p>The thin-edge cloud mapper component that sends the measurement data to the cloud can be accessed as below.</p>
 <h4 id="tedge-cumulocity-mapper"><a class="header" href="#tedge-cumulocity-mapper">Tedge Cumulocity mapper</a></h4>
-<p>The log messages of the Cumulocity mapper component that sends the measurement data from the thin-edge device to the Cumulocity
-cloud can be accessed as below</p>
+<p>The log messages of the Cumulocity mapper component that sends the measurement data from the thin-edge device to the Cumulocity
+cloud can be accessed as below</p>
 <p><code>journalctl -u tedge-mapper-c8y.service</code></p>
-<blockquote>
-<p>Note: Run <code>tedge-mapper --debug c8y</code> to log more debug messages</p>
-</blockquote>
+<div id="admonition-note" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="howto-guides/014_thin_edge_logs.html#admonition-note"></a></p>
+</div>
+<div>
+<p>Run <code>tedge-mapper --debug c8y</code> to log more debug messages</p>
+</div>
+</div>
 <h4 id="tedge-azure-mapper"><a class="header" href="#tedge-azure-mapper">Tedge Azure mapper</a></h4>
-<p>The log messages of the Azure mapper component that sends the measurement data from the thin-edge device to the Azure
-cloud can be accessed as below.</p>
+<p>The log messages of the Azure mapper component that sends the measurement data from the thin-edge device to the Azure
+cloud can be accessed as below.</p>
 <p><code>journalctl -u tedge-mapper-az.service</code></p>
-<blockquote>
-<p>Note: Run <code>tedge-mapper --debug az</code> to log more debug messages</p>
-</blockquote>
+<div id="admonition-note-1" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="howto-guides/014_thin_edge_logs.html#admonition-note-1"></a></p>
+</div>
+<div>
+<p>Run <code>tedge-mapper --debug az</code> to log more debug messages</p>
+</div>
+</div>
 <h4 id="tedge-aws-mapper"><a class="header" href="#tedge-aws-mapper">Tedge AWS mapper</a></h4>
-<p>The log messages of the AWS mapper component that sends the measurement data from the thin-edge device to the AWS
-cloud can be accessed as below.</p>
+<p>The log messages of the AWS mapper component that sends the measurement data from the thin-edge device to the AWS
+cloud can be accessed as below.</p>
 <p><code>journalctl -u tedge-mapper-aws.service</code></p>
-<blockquote>
-<p>Note: Run <code>tedge_mapper --debug aws</code> to log more debug messages</p>
-</blockquote>
+<div id="admonition-note-2" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="howto-guides/014_thin_edge_logs.html#admonition-note-2"></a></p>
+</div>
+<div>
+<p>Run <code>tedge_mapper --debug aws</code> to log more debug messages</p>
+</div>
+</div>
 <h3 id="device-monitoring-logs"><a class="header" href="#device-monitoring-logs">Device monitoring logs</a></h3>
 <p>The thin-edge device monitoring component logs can be found as below</p>
 <h4 id="collectd-mapper-logs"><a class="header" href="#collectd-mapper-logs">Collectd mapper logs</a></h4>
 <p>The log messages of the collectd mapper that sends the monitoring data to the cloud can be accessed as below</p>
 <p><code>journalctl -u tedge-mapper-collectd.service</code></p>
-<blockquote>
-<p>Note: Run <code>tedge-mapper --debug collectd</code> to log more debug messages</p>
-</blockquote>
+<div id="admonition-note-3" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="howto-guides/014_thin_edge_logs.html#admonition-note-3"></a></p>
+</div>
+<div>
+<p>Run <code>tedge-mapper --debug collectd</code> to log more debug messages</p>
+</div>
+</div>
 <h3 id="software-management-logs"><a class="header" href="#software-management-logs">Software Management logs</a></h3>
 <p>This section describes how to access the software management component logs</p>
 <h4 id="software-update-operation-log"><a class="header" href="#software-update-operation-log">Software update operation log</a></h4>
@@ -4213,9 +4569,15 @@ the log file captures <code>exit status, stdout, and stderr</code> messages.</p>
 <p>For example: tedge-agent logs plugin calls finalize and list.</p>
 <p>tedge-agent : TTY=unknown ; PWD=/tmp ; USER=root ; COMMAND=/etc/tedge/sm-plugins/apt finalize</p>
 <p>tedge-agent : TTY=unknown ; PWD=/tmp ; USER=root ; COMMAND=/etc/tedge/sm-plugins/apt list</p>
-<blockquote>
-<p>Note: Run <code>tedge-agent --debug</code> to log more debug messages</p>
-</blockquote>
+<div id="admonition-note-4" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="howto-guides/014_thin_edge_logs.html#admonition-note-4"></a></p>
+</div>
+<div>
+<p>Run <code>tedge-agent --debug</code> to log more debug messages</p>
+</div>
+</div>
 <h2 id="thirdparty-component-logs"><a class="header" href="#thirdparty-component-logs">Thirdparty component logs</a></h2>
 <p>Thin-edge uses the third-party components <code>Mosquitto</code> as the mqtt broker and <code>Collectd</code> for monitoring purpose.
 The logs that are created by these components can be accessed on a thin-edge device as below.</p>
@@ -4223,9 +4585,15 @@ The logs that are created by these components can be accessed on a thin-edge dev
 <p>Thin-edge uses <code>Mosquitto</code> as the <code>mqtt broker</code> for local communication as well as to communicate with the cloud.
 The <code>Mosquitto</code> logs can be found in <code>/var/log/mosquitto/mosquitto.log</code>.
 <code>Mosquitto</code> captures error, warning, notice, information, subscribe, and unsubscribe messages.</p>
-<blockquote>
-<p>Note: Set <code>log_type debug</code> or <code>log_type all</code> on /etc/mosquitto/mosquitto.conf, to capture more debug information.</p>
-</blockquote>
+<div id="admonition-note-5" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="howto-guides/014_thin_edge_logs.html#admonition-note-5"></a></p>
+</div>
+<div>
+<p>Set <code>log_type debug</code> or <code>log_type all</code> on /etc/mosquitto/mosquitto.conf, to capture more debug information.</p>
+</div>
+</div>
 <h3 id="collectd-logs"><a class="header" href="#collectd-logs">Collectd logs</a></h3>
 <p><code>Collectd</code> is used for monitoring the resource status of a thin-edge device.
 Collectd logs all the messages at <code>/var/log/syslog</code>.
@@ -4239,12 +4607,17 @@ level in <code>system.toml</code></p>
 <p>For example for tedge-mapper:</p>
 <pre><code class="language-shell">
 sudo -u tedge -- tedge-mapper  --debug c8y
-
 </code></pre>
-<blockquote>
-<p>Note: In a similar way it can be set for all the <code>thin-edge.io</code> services.
+<div id="admonition-note-6" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="howto-guides/014_thin_edge_logs.html#admonition-note-6"></a></p>
+</div>
+<div>
+<p>In a similar way it can be set for all the <code>thin-edge.io</code> services.
 Only <code>debug</code> level can be set through cli. Also, it enables <code>trace</code> level.</p>
-</blockquote>
+</div>
+</div>
 <h3 id="setting-log-level-through-systemtoml"><a class="header" href="#setting-log-level-through-systemtoml">Setting <code>log level</code> through <code>system.toml</code></a></h3>
 <p>The log levels can also be configured through the <code>system.toml</code> file.
 The supported log levels are <code>info, warn, error, trace, debug</code>.</p>
@@ -4255,10 +4628,15 @@ tedge-watchdog = &quot;debug&quot;
 c8y-log-plugin = &quot;warn&quot;
 c8y-configuration-plugin = &quot;error&quot;
 </code></pre>
-<blockquote>
-<p>Note: The log level strings are case insensitive</p>
-</blockquote>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="how-to-restart-your-thin-edgeio-device"><a class="header" href="#how-to-restart-your-thin-edgeio-device">How to restart your thin-edge.io device</a></h1>
+<div id="admonition-note-7" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="howto-guides/014_thin_edge_logs.html#admonition-note-7"></a></p>
+</div>
+<div>
+<p>The log level strings are case insensitive</p>
+</div>
+</div><div style="break-before: page; page-break-before: always;"></div><h1 id="how-to-restart-your-thin-edgeio-device"><a class="header" href="#how-to-restart-your-thin-edgeio-device">How to restart your thin-edge.io device</a></h1>
 <p>If your device is running thin-edge.io, you can restart it from the cloud. This guide shows how to trigger a restart operation from different cloud providers.</p>
 <h3 id="cumulocity"><a class="header" href="#cumulocity">Cumulocity</a></h3>
 <p>Go to your device's homepage on c8y, and find the &quot;Control&quot; button. </p>
@@ -4295,9 +4673,15 @@ c8y-configuration-plugin = &quot;error&quot;
 <p>Wildcard (<code>#</code>) topic is used by <a href="https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901242">MQTT protocol</a> as a wildcard and will listen on all topics</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="connecting-an-external-device-to-thin-edgeio"><a class="header" href="#connecting-an-external-device-to-thin-edgeio">Connecting an external device to <code>thin-edge.io</code></a></h1>
 <p>With <code>thin-edge.io</code> you can enable connection for external devices to your <code>thin-edge.io</code> enabled device with the use of a few commands.</p>
-<blockquote>
-<p>Note: Currently, only one additional listener can be defined.</p>
-</blockquote>
+<div id="admonition-note" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="howto-guides/013_connect_external_device.html#admonition-note"></a></p>
+</div>
+<div>
+<p>Currently, only one additional listener can be defined.</p>
+</div>
+</div>
 <h2 id="configuration-1"><a class="header" href="#configuration-1">Configuration</a></h2>
 <p>External devices connection can be setup by using the <code>tedge</code> cli tool making some changes to the configuration.</p>
 <p>The following configurations option are available for you if you want to add an external listener to thin-edge.io:</p>
@@ -4307,10 +4691,17 @@ c8y-configuration-plugin = &quot;error&quot;
 <p><code>mqtt.external.capath</code>           Path to a file containing the PEM encoded CA certificates that are trusted when checking incoming client certificates. Example: /etc/ssl/certs
 <code>mqtt.external.certfile</code>         Path to the certificate file, which is used by external MQTT listener. Example: /etc/tedge/server-certs/tedge-certificate.pem
 <code>mqtt.external.keyfile</code>          Path to the private key file, which is used by external MQTT listener. Example: /etc/tedge/server-certs/tedge-private-key.pem</p>
-<blockquote>
+<div id="admonition-note-1" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="howto-guides/013_connect_external_device.html#admonition-note-1"></a></p>
+</div>
+<div>
 <p>If none of these options is set, then no external listener is set.
-If one of these options is set, then default values are inferred by the MQTT server (Mosquitto). For instance, the port defaults to 1883 for a non-TLS listener, and to 8883 for a TLS listener.</p>
-</blockquote>
+If one of these options is set, then default values are inferred by the MQTT server (Mosquitto).
+For instance, the port defaults to 1883 for a non-TLS listener, and to 8883 for a TLS listener.</p>
+</div>
+</div>
 <p>These settings can be considered in 2 groups, listener configuration and TLS configuration.</p>
 <h3 id="configure-basic-listener"><a class="header" href="#configure-basic-listener">Configure basic listener</a></h3>
 <p>To configure basic listener you should provide port and/or bind address which will use default interface.
@@ -4330,10 +4721,15 @@ tedge config set mqtt.external.keyfile /etc/tedge/server-certs/tedge-private-key
 <p>To fully enable TLS authentication clients, client side certificate validation can be enabled:</p>
 <pre><code class="language-shell">tedge config set mqtt.external.capath /etc/ssl/certs
 </code></pre>
-<blockquote>
-<p>Note: Providing all 3 configuration will trigger thin-edge.io to require client certificates.</p>
-</blockquote>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="how-to-monitor-health-of-tedge-daemons"><a class="header" href="#how-to-monitor-health-of-tedge-daemons">How to monitor health of tedge daemons</a></h1>
+<div id="admonition-note-2" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="howto-guides/013_connect_external_device.html#admonition-note-2"></a></p>
+</div>
+<div>
+<p>When these 3 mqtt settings are configured then client certificates will be required to connect thin-edge.</p>
+</div>
+</div><div style="break-before: page; page-break-before: always;"></div><h1 id="how-to-monitor-health-of-tedge-daemons"><a class="header" href="#how-to-monitor-health-of-tedge-daemons">How to monitor health of tedge daemons</a></h1>
 <p>The health of tedge daemons like <code>tedge-mapper</code>, <code>tedge-agent</code> etc can be monitored via MQTT.
 These daemons expose MQTT health endpoints which you can query to check if the process is still active or not.</p>
 <p>To get the last known health status of a daemon you can subscribe to the following topic</p>
@@ -4342,9 +4738,15 @@ These daemons expose MQTT health endpoints which you can query to check if the p
 <p>To refresh the health status of the daemon, publish an empty message on the topic below.</p>
 <pre><code>tedge/health-check/&lt;tedge-daemon-name&gt;
 </code></pre>
-<blockquote>
-<p>Note: if the response is not received then most likely the daemon is down, or not responding</p>
-</blockquote>
+<div id="admonition-note" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="howto-guides/020_monitor_tedge_health.html#admonition-note"></a></p>
+</div>
+<div>
+<p>If the response is not received then most likely the daemon is down, or not responding</p>
+</div>
+</div>
 <p>For example, <code>tedge-mapper-c8y</code> publishes below message on topic <code>tedge/health/tedge-mapper-c8y</code> when it starts</p>
 <pre><code class="language-json">{&quot;pid&quot;:290854,&quot;status&quot;:&quot;up&quot;,&quot;time&quot;:1674739912}
 </code></pre>
@@ -4514,20 +4916,32 @@ s/uc/$TEMPLATE_NAME
 <p>To add new template to <code>thin-edge.io</code> the <code>tedge config</code> cli tool can be used as following:</p>
 <pre><code class="language-shell">tedge config set c8y.smartrest.templates template-1,template-2
 </code></pre>
-<blockquote>
-<p>Note: To add/append a new template to a device that's already configured with some, all the existing templates should also be declared along with the new one in the <code>tedge config set</code> command.
+<div id="admonition-note" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="howto-guides/024_smartrest_templates.html#admonition-note"></a></p>
+</div>
+<div>
+<p>To add/append a new template to a device that's already configured with some, all the existing templates should also be declared along with the new one in the <code>tedge config set</code> command.
 For example, if <code>template-1</code> is already configured on the device, as following:</p>
+<blockquote>
 <pre><code class="language-shell">$ tedge config get c8y.smartrest.templates
 [&quot;template-1&quot;]
 </code></pre>
+</blockquote>
 <p>To add new template to the set it is required to include current template, so the command would look like this:</p>
+<blockquote>
 <pre><code class="language-shell">tedge config set c8y.smartrest.templates template-1,template-2
 </code></pre>
+</blockquote>
 <p>Now when we get the configuration the both templates will be there:</p>
+<blockquote>
 <pre><code class="language-shell">$ tedge config get c8y.smartrest.templates
 [&quot;template-1&quot;, &quot;template-2&quot;]
 </code></pre>
 </blockquote>
+</div>
+</div>
 <h2 id="removing-templates-from-configuration"><a class="header" href="#removing-templates-from-configuration">Removing templates from configuration</a></h2>
 <p>To remove all the templates, the <code>unset</code> subcommand can used as follows:</p>
 <pre><code class="language-shell">tedge config unset c8y.smartrest.templates
@@ -4599,9 +5013,15 @@ Open the file <code>/etc/tedge/c8y/c8y-configuration-plugin.toml</code> and add 
 <li><code>user</code>, <code>group</code> and <code>mode</code> are UNIX file permission settings to be used to create a configuration file. If not provided, the files will be created with <code>root</code> user. If the file exists already, its ownership will be retained.</li>
 </ul>
 <p>For more details on this configuration file format, refer to the <a href="howto-guides/./../references/c8y-configuration-management.html#configuration">reference guide</a>.</p>
-<blockquote>
-<p>Note: You can also configure the <code>c8y-configuration-plugin.toml</code> from the cloud later.</p>
-</blockquote>
+<div id="admonition-note" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="howto-guides/025_config_management_plugin.html#admonition-note"></a></p>
+</div>
+<div>
+<p>You can also configure the <code>c8y-configuration-plugin.toml</code> from the cloud later.</p>
+</div>
+</div>
 <p><strong>Step 2</strong>
 Start the configuration plugin process and enable it on boot by <code>systemctl</code> (recommended).</p>
 <pre><code class="language-shell">sudo systemctl start c8y-configuration-plugin.service
@@ -4624,10 +5044,16 @@ You can find <code>c8y-configuration-plugin</code> and more are listed as suppor
 You can choose the file that you uploaded from the <strong>AVAILABLE SUPPORTED CONFIGURATIONS</strong> section, and then apply that file to your device by clicking on the <strong>Send configuration to device</strong> button.</p>
 <p>After the operation created gets marked SUCCESSFUL, reload the page.
 Then you can find new supported configuration types as you defined.</p>
-<blockquote>
-<p>Note: All configuration updates are notified over <code>tedge/configuration_change/&lt;config-type&gt;</code> MQTT topic, giving the opportunity to software components installed on the device or a child device to react to these updates.
+<div id="admonition-note-1" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="howto-guides/025_config_management_plugin.html#admonition-note-1"></a></p>
+</div>
+<div>
+<p>All configuration updates are notified over <code>tedge/configuration_change/&lt;config-type&gt;</code> MQTT topic, giving the opportunity to software components installed on the device or a child device to react to these updates.
 For more details, refer to the <a href="howto-guides/./../references/c8y-configuration-management.html#notifications">Notifications section of the specification</a>.</p>
-</blockquote>
+</div>
+</div>
 <p>To get to know more about the <code>c8y-configuration-plugin</code>, refer to <a href="howto-guides/./../references/c8y-configuration-management.html">Specifications of Device Configuration Management using Cumulocity</a>.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="enable-configuration-management-on-child-devices"><a class="header" href="#enable-configuration-management-on-child-devices">Enable configuration management on child devices</a></h1>
 <p>Configuration management can be enabled for child devices using the same <code>c8y-configuration-plugin</code>,
@@ -4999,9 +5425,15 @@ health status message format for both the <code>thin-edge</code> and for the <co
 <tr><td>Thin-edge-device</td><td><code>tedge/health/&lt;service-name&gt;</code></td><td><code>{&quot;status&quot;:&quot;status of the service&quot;,&quot;type&quot;:&quot;type of service&quot;}</code></td></tr>
 <tr><td>Child-device</td><td><code>tedge/health/&lt;child-device-id&gt;/&lt;service-name&gt;</code></td><td><code>{&quot;status&quot;:&quot;status of the service&quot;,&quot;type&quot;:&quot;type of service&quot;}</code></td></tr>
 </tbody></table>
-<blockquote>
-<p>Note: The <code>status</code> here can be <code>up or down</code> or any other string. For example, <code>unknown</code>.</p>
-</blockquote>
+<div id="admonition-note" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="howto-guides/028_c8y_service_monitoring.html#admonition-note"></a></p>
+</div>
+<div>
+<p>The <code>status</code> here can be <code>up or down</code> or any other string. For example, <code>unknown</code>.</p>
+</div>
+</div>
 <p>For example, to monitor the health status of a <code>tedge-mapper-c8y service</code> that is running on a <code>thin-edge.io</code> device
 one has to send the below message.</p>
 <pre><code>tedge mqtt pub tedge/health/tedge-mapper-c8y `{&quot;status&quot;:&quot;up&quot;,&quot;type&quot;:&quot;thin-edge.io&quot;}` -q 2 -r
@@ -5010,9 +5442,15 @@ one has to send the below message.</p>
 <p>To monitor the health of a <code>docker</code> service that is running on an <code>external-sensor</code> child device,</p>
 <pre><code>tedge mqtt pub tedge/health/external-sensor/docker `{&quot;status&quot;:&quot;up&quot;,&quot;type&quot;:&quot;systemd&quot;}` -q 2 -r
 </code></pre>
-<blockquote>
-<p>Note: The health status message has to be sent as a <code>retain</code> message.</p>
-</blockquote>
+<div id="admonition-note-1" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="howto-guides/028_c8y_service_monitoring.html#admonition-note-1"></a></p>
+</div>
+<div>
+<p>The health status message has to be sent as a <code>retain</code> message.</p>
+</div>
+</div>
 <p>When an <code>empty health status,i.e('{}' or '')</code> message sent, the <code>status</code> will be replaced with <code>unknown</code> and the <code>type</code> will be replaced with default value <code>service</code>.</p>
 <h2 id="conversion-of-the-health-status-message-to-cumulocity-iot-service-monitor-message"><a class="header" href="#conversion-of-the-health-status-message-to-cumulocity-iot-service-monitor-message">Conversion of the <code>health status</code> message to <code>Cumulocity IoT service monitor</code> message.</a></h2>
 <p>The <code>tedge-mapper-c8y</code> will translate the <code>health status</code> message that is received on <code>tedge/health/#</code>
@@ -5022,27 +5460,36 @@ topic to <code>Cumulocity</code> specific <code>service monitor</code> message a
 <tr><td>Thin-edge-device</td><td><code>c8y/s/us</code></td><td><code>102,&lt;unique-service-id&gt;,type,service-name,status</code></td></tr>
 <tr><td>Child-device</td><td><code>c8y/s/us/&lt;child-id&gt;</code></td><td><code>102,&lt;unique-service-id&gt;,type,service-name,status</code></td></tr>
 </tbody></table>
-<blockquote>
-<p>Note: The <code>unique-service-id</code> for thin-edge device will be  <code>&lt;device-name&gt;_&lt;service-name&gt;</code>.
+<div id="admonition-note-2" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="howto-guides/028_c8y_service_monitoring.html#admonition-note-2"></a></p>
+</div>
+<div>
+<p>The <code>unique-service-id</code> for thin-edge device will be  <code>&lt;device-name&gt;_&lt;service-name&gt;</code>.
 In case of child device <code>&lt;device-name&gt;_&lt;child-id&gt;_&lt;service-name&gt;</code>.</p>
-</blockquote>
-<blockquote>
-<p>Note: <code>102</code> is the <code>smartrest</code> template number for the service monitoring message.</p>
-</blockquote>
+<p>Note also that <code>102</code> is the <code>smartrest</code> template number for the service monitoring message.</p>
+</div>
+</div>
 <h2 id="configuring-the-default-service-type"><a class="header" href="#configuring-the-default-service-type">Configuring the default service type</a></h2>
 <p>The <code>default service type</code> can be configured using the <code>tedge</code> cli.</p>
 <p>The example below shows how one can set the default service type to <code>systemd</code>.</p>
 <pre><code>tedge config set service.type systemd
 
 </code></pre>
-<blockquote>
-<p>Note: When the <code>service type</code> was not sent with the <code>health status</code> message, then the configured default value will be used by
+<div id="admonition-note-3" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="howto-guides/028_c8y_service_monitoring.html#admonition-note-3"></a></p>
+</div>
+<div>
+<p>When the <code>service type</code> was not sent with the <code>health status</code> message, then the configured default value will be used by
 the mapper while translating the <code>health status</code> message to <code>service status</code> message.</p>
-</blockquote>
+</div>
+</div>
 <p>To clear the configured default service type one can use the command below.
 This will set the <code>service.type</code> to <code>service</code>.</p>
 <pre><code>tedge config unset service.type
-
 </code></pre>
 <h1 id="references-3"><a class="header" href="#references-3">References</a></h1>
 <p>More info about the service monitoring can be found in the below link</p>
@@ -6214,16 +6661,20 @@ To get started you need Cargo's bin directory (<code>$HOME/.cargo/bin</code>) in
 </code></pre>
 <pre><code>rustc 1.65.0 (897e37553 2022-11-02)
 </code></pre>
-<blockquote>
-<p>Note: Above command will add rust to path only for existing session,
+<div id="admonition-note" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="BUILDING.html#admonition-note"></a></p>
+</div>
+<div>
+<p>Above command will add rust to path only for existing session,
 after you restart the session you will have to add it again,
 to add rust to the path permanently it will depend on your shell but for Bash,
 you simply need to add the line from above, <code>export PATH=$PATH:$HOME/.cargo/bin</code> to your ~/.bashrc.</p>
-</blockquote>
-<blockquote>
 <p>For other shells, you'll want to find the appropriate place to set a configuration at start time,
 eg. zsh uses ~/.zshrc. Check your shell's documentation to find what file it uses.</p>
-</blockquote>
+</div>
+</div>
 <p>thin-edge.io operates the <code>MSRV</code> (Minimum Supported Rust Version) and uses stable toolchain.</p>
 <p>Current MSRV is <code>1.65</code>.</p>
 <h3 id="cross-compilation-toolchain-optional"><a class="header" href="#cross-compilation-toolchain-optional">Cross compilation toolchain (optional)</a></h3>

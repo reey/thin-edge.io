@@ -162,9 +162,15 @@ If multiple events are raised for a given type, thin-edge.io will process them a
     &quot;time&quot;: &quot;2021-01-01T05:30:45+00:00&quot;
 }
 </code></pre>
-<blockquote>
-<p>Note: Both the <code>text</code> field and the <code>time</code> field are optional.</p>
-</blockquote>
+<div id="admonition-note" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="#admonition-note"></a></p>
+</div>
+<div>
+<p>Both the <code>text</code> field and the <code>time</code> field are optional.</p>
+</div>
+</div>
 <p>When the <code>message</code> field is not provided, the <code>event-type</code> from the MQTT topic will be used as the message as well if the connected cloud mandates one.
 When the <code>time</code> field is not provided, thin-edge.io will use the current system time as the <code>time</code> of the event.
 When you want to skip both fields, use an empty payload to indicate the same.
@@ -177,9 +183,15 @@ The event payload structure is the same, as described in the previous section.</
 <p>If the device is connected to some supported IoT cloud platform, an event that is triggered locally on thin-edge.io will be forwarded to the connected cloud platform as well.
 The mapping of thin-edge events data to its respective cloud-native representation will be done by the corresponding cloud mapper process.
 For example, if the device is connected to Cumulocity IoT cloud platform, the Cumulocity cloud mapper process will translate the thin-edge event JSON data to its equivalent Cumulocity SmartREST representation.</p>
-<blockquote>
-<p>Warning: As of now, event data mapping is supported only on Cumulocity IoT cloud platform.</p>
-</blockquote>
+<div id="admonition-warning" class="admonition warning">
+<div class="admonition-title">
+<p>Warning</p>
+<p><a class="admonition-anchor-link" href="#admonition-warning"></a></p>
+</div>
+<div>
+<p>As of now, event data mapping is supported only on Cumulocity IoT cloud platform.</p>
+</div>
+</div>
 <h3 id="cumulocity-cloud-data-mapping"><a class="header" href="#cumulocity-cloud-data-mapping">Cumulocity cloud data mapping</a></h3>
 <p>The Cumulocity mapper will convert Thin Edge JSON events into its Cumulocity SmartREST equivalent if the payload only contains either a <code>text</code> field or <code>time</code> field.</p>
 <p>For example the <code>login_event</code> described in the earlier sections will be converted to the following Cumulocity SmartREST message:</p>
@@ -198,9 +210,15 @@ For example, if the device is connected to Cumulocity IoT cloud platform, the Cu
   }
 }
 </code></pre>
-<blockquote>
-<p>Note: Mapped events will be sent to Cumulocity via MQTT if the incoming Thin Edge JSON event payload size is less than 16K bytes. If higher, HTTP will be used.</p>
-</blockquote>
+<div id="admonition-note-1" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="#admonition-note-1"></a></p>
+</div>
+<div>
+<p>Mapped events will be sent to Cumulocity via MQTT if the incoming Thin Edge JSON event payload size is less than 16K bytes. If higher, HTTP will be used.</p>
+</div>
+</div>
 <p>Find more information about events data model in Cumulocity <a href="https://cumulocity.com/guides/concepts/domain-model/#events">here</a>.</p>
 <h2 id="sending-an-event-for-a-childexternal-device-to-the-cloud"><a class="header" href="#sending-an-event-for-a-childexternal-device-to-the-cloud">Sending an event for a child/external device to the cloud</a></h2>
 <p>An event for a child/external device can be triggered on thin-edge.io by sending an MQTT message in Thin Edge JSON format to certain MQTT topics.</p>

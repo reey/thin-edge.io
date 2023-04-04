@@ -142,9 +142,15 @@
 </code></pre>
 <pre><code>Certificate was successfully created
 </code></pre>
-<blockquote>
-<p>Note: <code>tedge cert</code> requires <code>sudo</code> privilege. This command provides no output on success.</p>
-</blockquote>
+<div id="admonition-note" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="#admonition-note"></a></p>
+</div>
+<div>
+<p><code>tedge cert</code> requires <code>sudo</code> privilege. This command provides no output on success.</p>
+</div>
+</div>
 <p><a href="../references/tedge-cert.html"><code>sudo tedge cert create</code></a> will create certificate in a default location (<code>/etc/tedge/device-certs/</code>).
 To use a custom location, refer to <a href="../references/tedge-config.html"><code>tedge config</code></a>.</p>
 <p>Now you should have a certificate in the <code>/etc/tedge/device-certs/</code> directory.</p>
@@ -170,9 +176,15 @@ Caused by:
             Existing file: &quot;/etc/tedge/device-certs/tedge-certificate.pem&quot;
             Run `tedge cert remove` first to generate a new certificate.
 </code></pre>
-<blockquote>
-<p>Warning! Removing a certificate can break the bridge and more seriously delete a certificate that was a CA-signed certificate.</p>
-</blockquote>
+<div id="admonition-danger" class="admonition danger">
+<div class="admonition-title">
+<p>Danger</p>
+<p><a class="admonition-anchor-link" href="#admonition-danger"></a></p>
+</div>
+<div>
+<p>Removing a certificate can break the bridge and more seriously delete a certificate that was a CA-signed certificate.</p>
+</div>
+</div>
 <p>Follow the instruction to remove the existing certificate and issue <a href="../references/tedge-cert.html"><code>tedge cert remove</code></a>:</p>
 <pre><code class="language-shell">sudo tedge cert remove
 </code></pre>

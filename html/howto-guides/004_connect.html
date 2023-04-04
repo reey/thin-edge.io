@@ -138,16 +138,28 @@
                         <h1 id="how-to-connect"><a class="header" href="#how-to-connect">How to connect?</a></h1>
 <h2 id="connect-to-cumulocity-iot"><a class="header" href="#connect-to-cumulocity-iot">Connect to Cumulocity IoT</a></h2>
 <p>To create northbound connection a local bridge shall be established and this can be achieved with <code>tedge</code> cli and following commands:</p>
-<blockquote>
+<div id="admonition-note" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="#admonition-note"></a></p>
+</div>
+<div>
 <p>Note: <code>tedge connect</code> requires <code>sudo</code> privilege.</p>
-</blockquote>
-<hr />
+</div>
+</div>
+<h2 id="setting-the-cloud-end-point"><a class="header" href="#setting-the-cloud-end-point">Setting the cloud end-point</a></h2>
 <p>Configure required parameters for thin-edge.io with <a href="../references/tedge-config.html"><code>tedge config set</code></a>:</p>
 <pre><code class="language-shell">sudo tedge config set c8y.url example.cumulocity.com
 </code></pre>
+<div id="admonition-info" class="admonition info">
+<div class="admonition-title">
+<p>Info</p>
+<p><a class="admonition-anchor-link" href="#admonition-info"></a></p>
+</div>
+<div>
+<p>If you are unsure which parameters required by the command, simply run the command and it will tell you which parameters are missing.</p>
+<p>For example, if we issue <a href="../references/tedge-connect.html"><code>tedge connect c8y</code></a> without any configuration following advice will be given:</p>
 <blockquote>
-<p>Tip: If you you are unsure which parameters are required for the command to work run the command and it will tell you which parameters are missing.
-For example, if we issue <a href="../references/tedge-connect.html"><code>tedge connect c8y</code></a> without any configuration following advice will be given:</p>
 <pre><code class="language-shell">$ tedge connect c8y`
 ...
 Error: failed to execute `tedge connect`.
@@ -155,23 +167,35 @@ Error: failed to execute `tedge connect`.
 Caused by:
     Required configuration item is not provided 'c8y.url', run 'tedge config set c8y.url &lt;value&gt;' to add it to config.
 </code></pre>
-<p>This message explains which configuration parameter is missing and how to add it to configuration, in this case we are told to run <code>tedge config set c8y.url &lt;value&gt;</code>.</p>
 </blockquote>
-<hr />
+<p>This message explains which configuration parameter is missing and how to add it to configuration,
+in this case we are told to run <code>tedge config set c8y.url &lt;value&gt;</code>.</p>
+</div>
+</div>
+<h2 id="making-the-cloud-trust-the-device"><a class="header" href="#making-the-cloud-trust-the-device">Making the cloud trust the device</a></h2>
 <p>The next step is to have the device certificate trusted by Cumulocity. This is done by uploading the certificate of the signee.
-You can upload root certificate via <a href="https://cumulocity.com/guides/users-guide/device-management/#trusted-certificates">Cumulocity UI</a> or with <a href="../references/tedge-cert.html"><code>tedge cert upload</code></a> as described below.</p>
-<blockquote>
-<p>Note: This command takes parameter <code>user</code>, this is due to upload mechanism to Cumulocity cloud which uses username and password for authentication.</p>
-<p>After issuing this command you are going to be prompted for a password. Users usernames and passwords are not stored in configuration due to security.</p>
-</blockquote>
+You can upload the root certificate using the <a href="https://cumulocity.com/guides/users-guide/device-management/#trusted-certificates">Cumulocity UI</a>
+or with <a href="../references/tedge-cert.html"><code>tedge cert upload</code></a> command as described below.</p>
+<div id="admonition-note-1" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="#admonition-note-1"></a></p>
+</div>
+<div>
+<p>The <code>tedge cert upload</code> command requires the credentials of a Cumulocity user
+having the permissions to upload trusted certificates on the Cumulocity tenant of the device.</p>
+<p>The user name is provided as <code>--user &lt;username&gt;</code> parameter,
+and the command will prompt you for this user's password.
+These credentials are used only for this upload and will in no case be stored on the device.</p>
+</div>
+</div>
 <pre><code class="language-shell">sudo tedge cert upload c8y --user &lt;username&gt;
 </code></pre>
-<p>where:</p>
-<blockquote>
-<p><code>username</code> -&gt; user in Cumulocity with permissions to upload new certificates</p>
-</blockquote>
-<hr />
-<p>To create bridge use <a href="../references/tedge-connect.html"><code>tedge connect</code></a>:</p>
+<h2 id="creating-an-mqtt-brigde-between-the-device-and-the-cloud"><a class="header" href="#creating-an-mqtt-brigde-between-the-device-and-the-cloud">Creating an MQTT brigde between the device and the cloud</a></h2>
+<p>The connection from the device to the cloud is established using a so-called MQTT bridge:
+a permanent secured bi-directionnel MQTT connection that forward messages back and forth
+between the two end-points.</p>
+<p>To create the bridge use the <a href="../references/tedge-connect.html"><code>tedge connect</code></a> command.</p>
 <pre><code class="language-shell">sudo tedge connect c8y
 </code></pre>
 <pre><code>Checking if systemd is available.
@@ -249,9 +273,15 @@ Disabling tedge-agent service.
 
 tedge-agent service successfully stopped and disabled!
 </code></pre>
-<blockquote>
-<p>Note: <code>tedge disconnect c8y</code> also stops and disable <strong>tedge-mapper</strong> service if it is installed on the device.</p>
-</blockquote>
+<div id="admonition-note-2" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="#admonition-note-2"></a></p>
+</div>
+<div>
+<p><code>tedge disconnect c8y</code> also stops and disable the <strong>tedge-mapper</strong> service if it is installed on the device.</p>
+</div>
+</div>
 <p>And now you can issue <a href="../references/tedge-connect.html"><code>tedge connect c8y</code></a> to create new bridge.</p>
 <h4 id="connection-check-warning"><a class="header" href="#connection-check-warning">Connection check warning</a></h4>
 <p>Sample output of tedge connect when this warning occurs:</p>

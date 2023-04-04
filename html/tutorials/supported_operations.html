@@ -211,9 +211,15 @@ This operation will do the reboot of our device when we receive trigger from the
 <p>To add new operation we will create a file in <code>/etc/tedge/operations/c8y</code> directory:</p>
 <pre><code class="language-shell">sudo -u tedge touch /etc/tedge/operations/c8y/c8y_Restart
 </code></pre>
-<blockquote>
-<p>Note: We are using <code>sudo -u</code> to create the file because we want to make sure that the file is owned by <code>tedge</code> user.</p>
-</blockquote>
+<div id="admonition-note" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="#admonition-note"></a></p>
+</div>
+<div>
+<p>We are using <code>sudo -u</code> to create the file because we want to make sure that the file is owned by <code>tedge</code> user.</p>
+</div>
+</div>
 <p>Now the new operation will be automatically added to the list and the list will be sent to the cloud.</p>
 <p>To add a new operation to a child device, create a new file in <code>/etc/tedge/operations/c8y/&lt;child-device&gt;</code> directory as below.</p>
 <pre><code class="language-shell">sudo -u tedge touch /etc/tedge/operations/c8y/&lt;child-device&gt;/c8y_Restart
@@ -237,9 +243,15 @@ Let's create the operation configuration file:</p>
 <p>First we create a file with the name of the operation:</p>
 <pre><code class="language-shell">sudo -u tedge touch /etc/tedge/operations/c8y/c8y_Command
 </code></pre>
-<blockquote>
-<p>Note: the needs to be readable by <code>thin-edge.io</code> user - <code>tedge</code> - and should have permissions <code>644</code>.</p>
-</blockquote>
+<div id="admonition-note-1" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="#admonition-note-1"></a></p>
+</div>
+<div>
+<p>The needs to be readable by <code>thin-edge.io</code> user - <code>tedge</code> - and should have permissions <code>644</code>.</p>
+</div>
+</div>
 <p>In this example we want <code>thin-edge.io</code> to pick up a message on specific topic and execute the command on the device, our topic is <code>c8y/s/ds</code>.
 We also know that the message we expect is going to use SmartRest template <code>511</code> and our plugin is located in <code>/etc/tedge/operations/command</code>.
 Then we need to add the configuration to the file (<code>/etc/tedge/operations/c8y/c8y_Command</code>):</p>
@@ -270,9 +282,15 @@ exit &quot;$EXIT_CODE&quot;
 <p>This simple example will parse the third field of the received SmartREST message and execute the command.
 If it exits with the status code <code>0</code>, a successful message with the stdout content will be reported to Cumulocity.
 If it exits with a non-zero code, a failure message with the stderr content will be sent out.</p>
-<blockquote>
-<p>Note: The command will be executed with tedge-mapper permission level so most of the system level commands will not work.</p>
-</blockquote>
+<div id="admonition-note-2" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="#admonition-note-2"></a></p>
+</div>
+<div>
+<p>The command will be executed with tedge-mapper permission level so most of the system level commands will not work.</p>
+</div>
+</div>
 <h3 id="list-of-currently-supported-operations-parameters"><a class="header" href="#list-of-currently-supported-operations-parameters">List of currently supported operations parameters</a></h3>
 <ul>
 <li><code>topic</code> - The topic on which the operation will be executed.</li>

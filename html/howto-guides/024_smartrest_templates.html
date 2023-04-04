@@ -153,20 +153,32 @@ s/uc/$TEMPLATE_NAME
 <p>To add new template to <code>thin-edge.io</code> the <code>tedge config</code> cli tool can be used as following:</p>
 <pre><code class="language-shell">tedge config set c8y.smartrest.templates template-1,template-2
 </code></pre>
-<blockquote>
-<p>Note: To add/append a new template to a device that's already configured with some, all the existing templates should also be declared along with the new one in the <code>tedge config set</code> command.
+<div id="admonition-note" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="#admonition-note"></a></p>
+</div>
+<div>
+<p>To add/append a new template to a device that's already configured with some, all the existing templates should also be declared along with the new one in the <code>tedge config set</code> command.
 For example, if <code>template-1</code> is already configured on the device, as following:</p>
+<blockquote>
 <pre><code class="language-shell">$ tedge config get c8y.smartrest.templates
 [&quot;template-1&quot;]
 </code></pre>
+</blockquote>
 <p>To add new template to the set it is required to include current template, so the command would look like this:</p>
+<blockquote>
 <pre><code class="language-shell">tedge config set c8y.smartrest.templates template-1,template-2
 </code></pre>
+</blockquote>
 <p>Now when we get the configuration the both templates will be there:</p>
+<blockquote>
 <pre><code class="language-shell">$ tedge config get c8y.smartrest.templates
 [&quot;template-1&quot;, &quot;template-2&quot;]
 </code></pre>
 </blockquote>
+</div>
+</div>
 <h2 id="removing-templates-from-configuration"><a class="header" href="#removing-templates-from-configuration">Removing templates from configuration</a></h2>
 <p>To remove all the templates, the <code>unset</code> subcommand can used as follows:</p>
 <pre><code class="language-shell">tedge config unset c8y.smartrest.templates

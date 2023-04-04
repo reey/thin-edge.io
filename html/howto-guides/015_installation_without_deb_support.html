@@ -143,9 +143,15 @@
 <h3 id="obtaining-binaries"><a class="header" href="#obtaining-binaries">Obtaining binaries</a></h3>
 <p>The prebuilt binaries can be obtained from <code>thin-edge.io</code> <a href="https://github.com/thin-edge/thin-edge.io/releases">repository releases</a>.</p>
 <p>By default <code>thin-edge.io</code> is built with 3 architectures in mind: <code>amd64 (x86_64)</code>, <code>arm64 (aarch64)</code> and <code>armhf</code> with gnulibc bindings, so if you are looking to install <code>thin-edge.io</code> on a different platform you have to build your own binaries from source which you can do easily if you follow the <a href="./../BUILDING.html">Building <code>thin-edge.io</code></a> guide.</p>
-<blockquote>
-<p>Note: By default <code>thin-edge.io</code> is built with <code>GNU libc</code>, but it is possible to use <code>musl</code> instead.</p>
-</blockquote>
+<div id="admonition-note" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="#admonition-note"></a></p>
+</div>
+<div>
+<p>By default <code>thin-edge.io</code> is built with <code>musl</code>, but it is possible to use <code>GNU libc</code> instead.</p>
+</div>
+</div>
 <p>Full installation of <code>thin-edge.io</code> requires the following components:</p>
 <ul>
 <li>tedge</li>
@@ -153,13 +159,11 @@
 <li>tedge-agent</li>
 </ul>
 <h4 id="extracting-binaries-from-deb-packages"><a class="header" href="#extracting-binaries-from-deb-packages">Extracting binaries from deb packages</a></h4>
-<blockquote>
 <p>Required packages:</p>
 <ul>
 <li>ar</li>
 <li>tar</li>
 </ul>
-</blockquote>
 <p>Currently all binaries provided with releases are packaged into <code>deb</code> packages.
 <code>deb</code> packages can be extracted to get the binaries for installation (example):</p>
 <pre><code class="language-shell">ar -x tedge_&lt;version&gt;_amd64.deb | tar -xf data.tar.xz

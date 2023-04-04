@@ -191,9 +191,15 @@ Open the file <code>/etc/tedge/c8y/c8y-configuration-plugin.toml</code> and add 
 <li><code>user</code>, <code>group</code> and <code>mode</code> are UNIX file permission settings to be used to create a configuration file. If not provided, the files will be created with <code>root</code> user. If the file exists already, its ownership will be retained.</li>
 </ul>
 <p>For more details on this configuration file format, refer to the <a href="./../references/c8y-configuration-management.html#configuration">reference guide</a>.</p>
-<blockquote>
-<p>Note: You can also configure the <code>c8y-configuration-plugin.toml</code> from the cloud later.</p>
-</blockquote>
+<div id="admonition-note" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="#admonition-note"></a></p>
+</div>
+<div>
+<p>You can also configure the <code>c8y-configuration-plugin.toml</code> from the cloud later.</p>
+</div>
+</div>
 <p><strong>Step 2</strong>
 Start the configuration plugin process and enable it on boot by <code>systemctl</code> (recommended).</p>
 <pre><code class="language-shell">sudo systemctl start c8y-configuration-plugin.service
@@ -216,10 +222,16 @@ You can find <code>c8y-configuration-plugin</code> and more are listed as suppor
 You can choose the file that you uploaded from the <strong>AVAILABLE SUPPORTED CONFIGURATIONS</strong> section, and then apply that file to your device by clicking on the <strong>Send configuration to device</strong> button.</p>
 <p>After the operation created gets marked SUCCESSFUL, reload the page.
 Then you can find new supported configuration types as you defined.</p>
-<blockquote>
-<p>Note: All configuration updates are notified over <code>tedge/configuration_change/&lt;config-type&gt;</code> MQTT topic, giving the opportunity to software components installed on the device or a child device to react to these updates.
+<div id="admonition-note-1" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="#admonition-note-1"></a></p>
+</div>
+<div>
+<p>All configuration updates are notified over <code>tedge/configuration_change/&lt;config-type&gt;</code> MQTT topic, giving the opportunity to software components installed on the device or a child device to react to these updates.
 For more details, refer to the <a href="./../references/c8y-configuration-management.html#notifications">Notifications section of the specification</a>.</p>
-</blockquote>
+</div>
+</div>
 <p>To get to know more about the <code>c8y-configuration-plugin</code>, refer to <a href="./../references/c8y-configuration-management.html">Specifications of Device Configuration Management using Cumulocity</a>.</p>
 
                     </main>

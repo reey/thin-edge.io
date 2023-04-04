@@ -138,14 +138,26 @@
                         <h1 id="manage-the-software-on-your-devices-from-cumulocity-cloud"><a class="header" href="#manage-the-software-on-your-devices-from-cumulocity-cloud">Manage the software on your devices from Cumulocity cloud</a></h1>
 <p>This document describes how to manage the software modules that are installed on a thin-edge device from the
 cloud using the <strong>software management</strong> feature of thin-edge.io.</p>
-<blockquote>
-<p>Note: This tutorial shows the Debian based distributions <strong>apt</strong> package manager use-case powered by our official <strong>apt</strong> plugin.
+<div id="admonition-note" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="#admonition-note"></a></p>
+</div>
+<div>
+<p>This tutorial shows the Debian based distributions <strong>apt</strong> package manager use-case powered by our official <strong>apt</strong> plugin.
 Other package managers can be supported by adding a plugin.
 Refer to <a href="./write-my-software-management-plugin.html">this</a> document on how to write a plugin to support software management for any other software type.</p>
-</blockquote>
-<blockquote>
-<p>Important: As of now, software management feature is supported only from Cumulocity cloud, which supports only <code>install</code> and <code>delete</code> as an action of c8y_SoftwareUpdate operation.</p>
-</blockquote>
+</div>
+</div>
+<div id="admonition-warning" class="admonition warning">
+<div class="admonition-title">
+<p>Warning</p>
+<p><a class="admonition-anchor-link" href="#admonition-warning"></a></p>
+</div>
+<div>
+<p>As of now, software management feature is supported only from Cumulocity cloud, which supports only <code>install</code> and <code>delete</code> as an action of c8y_SoftwareUpdate operation.</p>
+</div>
+</div>
 <p>Three components are required on your devices to enable software management:</p>
 <ol>
 <li>
@@ -171,7 +183,7 @@ As of now there is only one (apt) plugin is supported.</p>
 <h2 id="managing-the-device-software-repository-on-cumulocity-cloud"><a class="header" href="#managing-the-device-software-repository-on-cumulocity-cloud">Managing the device software <strong>repository</strong> on Cumulocity cloud</a></h2>
 <p>Managing the software packages installed on the devices from your Cumulocity tenant is a two steps operation.</p>
 <ul>
-<li>Populate the software repository with all the software packages and versions you plan to install.</li>
+<li>Populate the software repository with all the software packages and versions you plan to install.</li>
 <li>Trigger software update operations on the devices, to install specific packages from the repository.</li>
 </ul>
 <p>Find more information about <a href="https://cumulocity.com/guides/users-guide/device-management/#managing-device-software">managing the device software</a></p>
@@ -236,9 +248,15 @@ Find more information about <a href="https://cumulocity.com/guides/users-guide/d
 <ul>
 <li><a href="https://cumulocity.com/guides/users-guide/device-management/#to-delete-software-from-a-device">removed</a></li>
 </ul>
-<blockquote>
-<p>Note: Once the above mentioned operation is selected, one should click on <strong>Apply changes</strong> to confirm operation.</p>
-</blockquote>
+<div id="admonition-note-1" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="#admonition-note-1"></a></p>
+</div>
+<div>
+<p>Once the above mentioned operation is selected, one should click on <strong>Apply changes</strong> to confirm operation.</p>
+</div>
+</div>
 <h2 id="default-plugin"><a class="header" href="#default-plugin">Default plugin</a></h2>
 <p>When there are multiple plugins installed on the device, one can set one of them as a default plugin.
 If there is only one plugin installed on the device, then implicitly this will be the default plugin.</p>
