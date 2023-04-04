@@ -197,12 +197,12 @@ Hence, you can implement a plugin in your preferred language.</p>
 <tr><td>list</td><td>-</td><td>lines with tab separated values</td><td>Returns the list of software modules that have been installed with this plugin.</td></tr>
 <tr><td>prepare</td><td>-</td><td>-</td><td>Executes the provided actions before a sequence of install and remove commands.</td></tr>
 <tr><td>finalize</td><td>-</td><td>-</td><td>Executes the provided actions after a sequence of install and remove commands.</td></tr>
-<tr><td>install</td><td>NAME [--module-version VERSION] [--file FILE]</td><td>-</td><td>Executes the action of installation.</td></tr>
-<tr><td>remove</td><td>NAME [--module-version VERSION]</td><td>-</td><td>Executes the action of uninstallation.</td></tr>
-<tr><td>update-list</td><td>COMMAND NAME [--module-version VERSION] [--file FILE]</td><td>-</td><td>Executes the list of <code>install</code> and <code>remove</code> commands.</td></tr>
+<tr><td>install</td><td><code>NAME [--module-version VERSION] [--file FILE]</code></td><td>-</td><td>Executes the action of installation.</td></tr>
+<tr><td>remove</td><td><code>NAME [--module-version VERSION]</code></td><td>-</td><td>Executes the action of uninstallation.</td></tr>
+<tr><td>update-list</td><td><code>COMMAND NAME [--module-version VERSION] [--file FILE]</code></td><td>-</td><td>Executes the list of <code>install</code> and <code>remove</code> commands.</td></tr>
 </tbody></table>
 <p>The order of the commands invoked by the Software Management Agent is:
-<code>prepare</code> -&gt; <code>update-list</code> or [<code>install</code>, <code>remove</code>] -&gt;<code>finalize</code></p>
+<code>prepare</code> -&gt; <code>update-list</code> or (<code>install</code>, <code>remove</code>) -&gt;<code>finalize</code></p>
 <div id="admonition-info-1" class="admonition info">
 <div class="admonition-title">
 <p>Info</p>
