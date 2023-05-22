@@ -1029,15 +1029,15 @@ See this <a href="tutorials/connect-aws.html">tutorial</a>, if you want to conne
 <pre><code>sudo tedge config set c8y.url your-tenant.cumulocity.com
 </code></pre>
 <p>Set the path to the root certificate if necessary. The default is <code>/etc/ssl/certs</code>.</p>
-<pre><code>sudo tedge config set c8y.root.cert.path /etc/ssl/certs
+<pre><code>sudo tedge config set c8y.root_cert_path /etc/ssl/certs
 </code></pre>
 <p>This will set the root certificate path of the Cumulocity IoT.
 In most of the Linux flavors, the certificate will be present in /etc/ssl/certs.
 If not found download it from <a href="https://www.identrust.com/dst-root-ca-x3">here</a>.</p>
 <h2 id="connecting-to-cumulocity-server-signed-with-self-signed-certificate"><a class="header" href="#connecting-to-cumulocity-server-signed-with-self-signed-certificate">Connecting to Cumulocity server signed with self-signed certificate</a></h2>
 <p>If the Cumulocity IoT instance that you're connecting to, is signed with a self-signed certificate(eg: Cumulocity IoT Edge instance),
-then the path to that server certificate must be set as the c8y.root.cert.path as follows:</p>
-<pre><code>sudo tedge config set c8y.root.cert.path /path/to/the/self-signed/certificate
+then the path to that server certificate must be set as the c8y.root_cert_path as follows:</p>
+<pre><code>sudo tedge config set c8y.root_cert_path /path/to/the/self-signed/certificate
 </code></pre>
 <div id="admonition-warning" class="admonition warning">
 <div class="admonition-title">
@@ -1246,7 +1246,7 @@ The new device can be seen on the IoT Hub portal by navigating to &quot;Explores
 </code></pre>
 <p>The URL/Hostname can be found in the Azure web portal, clicking on the overview section of your IoT Hub.</p>
 <p>Set the path to the root certificate if necessary. The default is <code>/etc/ssl/certs</code>.</p>
-<pre><code class="language-shell">sudo tedge config set az.root.cert.path /etc/ssl/certs/Baltimore_CyberTrust_Root.pem
+<pre><code class="language-shell">sudo tedge config set az.root_cert_path /etc/ssl/certs/Baltimore_CyberTrust_Root.pem
 </code></pre>
 <p>This will set the root certificate path of the Azure IoT Hub.
 In most of the Linux flavors, the certificate will be present in /etc/ssl/certs. If not found download it from <a href="https://www.digicert.com/kb/digicert-root-certificates.htm">here</a>.</p>
@@ -1371,7 +1371,7 @@ Hub as below.</p>
 <p>The URL is unique to the AWS account and region that is used, and can be found in the AWS IoT Core by navigating to
 &quot;Settings&quot;. It will be listed under &quot;Device data endpoint&quot; (e.g. <code>a2e8ahbpo21syc.iot.eu-central-1.amazonaws.com</code>)</p>
 <p>Set the path to the root certificate if necessary. The default is <code>/etc/ssl/certs</code>.</p>
-<pre><code class="language-shell">sudo tedge config set aws.root.cert.path /etc/ssl/certs/AmazonRootCA1.pem
+<pre><code class="language-shell">sudo tedge config set aws.root_cert_path /etc/ssl/certs/AmazonRootCA1.pem
 </code></pre>
 <p>This will set the root certificate path of the AWS IoT Hub. In most of the Linux flavors, the certificate will be
 present in /etc/ssl/certs. If not found download it from
@@ -2169,7 +2169,7 @@ The rest of the MQTT and HTTP interactions would remain the same.</p>
 <p>Since child-device connectors typically run on thin-edge.io device itself, these APIs can be accessed via a local IP or even 127.0.0.1.
 In cases where the child-device connector is deployed on the external child-device itself,
 the MQTT and HTTP APIs of thin-edge.io need to be accessed over the network using its IP address, 
-which is configured using the thin-edge.io configuration settings <code>mqtt.external.bind_address</code> or <code>mqtt.bind_address</code>.
+which is configured using the thin-edge.io configuration settings <code>mqtt.external.bind.address</code> or <code>mqtt.bind.address</code>.
 The MQTT APIs are exposed via port 1883 and the HTTP APIs are exposed via port 8000.</p>
 <p>In this tutorial 127.0.0.1. is used.</p>
 <h1 id="prerequisites"><a class="header" href="#prerequisites">Prerequisites</a></h1>
@@ -2248,7 +2248,7 @@ This is a separate file, in the same format, required for each child-device, wit
 <p>The child-device connector needs to upload this file to thin-edge.io with an HTTP PUT request to the URL:
 <code>http://{tedge-ip}:8000/tedge/file-transfer/{child-id}/c8y-configuration-plugin</code></p>
 <ul>
-<li><code>{tedge-ip}</code> is the IP of the thin-edge.io device which is configured as <code>mqtt.external.bind_address</code> or <code>mqtt.bind_address</code> or
+<li><code>{tedge-ip}</code> is the IP of the thin-edge.io device which is configured as <code>mqtt.external.bind.address</code> or <code>mqtt.bind.address</code> or
 <code>127.0.0.1</code> if neither is configured.</li>
 <li><code>{child-id}</code> is the child-device-id.</li>
 </ul>
@@ -3851,9 +3851,9 @@ env TEDGE_C8Y_URL=mytenant.cumulocity.com tedge-agent
 <p>The names for these environment variables are prefixed with <code>TEDGE_</code> to avoid conflicts with other applications, and any <code>.</code>s in the variable names are replaced with <code>_</code>s. Some example mappings are shown below:</p>
 <table><thead><tr><th>Setting</th><th>Environment variable</th></tr></thead><tbody>
 <tr><td><code>c8y.url</code></td><td><code>TEDGE_C8Y_URL</code></td></tr>
-<tr><td><code>device.key.path</code></td><td><code>TEDGE_DEVICE_KEY_PATH</code></td></tr>
-<tr><td><code>device.cert.path</code></td><td><code>TEDGE_DEVICE_CERT_PATH</code></td></tr>
-<tr><td><code>mqtt.bind_address</code></td><td><code>TEDGE_MQTT_BIND_ADDRESS</code></td></tr>
+<tr><td><code>device.key_path</code></td><td><code>TEDGE_DEVICE_KEY_PATH</code></td></tr>
+<tr><td><code>device.cert_path</code></td><td><code>TEDGE_DEVICE_CERT_PATH</code></td></tr>
+<tr><td><code>mqtt.bind.address</code></td><td><code>TEDGE_MQTT_BIND_ADDRESS</code></td></tr>
 </tbody></table>
 <p>You can also use <code>tedge config</code> to inspect the value that is set, which may prove useful if you are using a mix of toml configuration and environment variables. If you had tedge.toml file set as shown <a href="howto-guides/006_config.html#tedgetoml">above</a>, you could run:</p>
 <pre><code class="language-command">tedge config get c8y.url
@@ -3880,7 +3880,7 @@ mytenant.cumulocity.com
 <p><a class="admonition-anchor-link" href="howto-guides/008_config_local_mqtt_bind_address_and_port.html#admonition-note"></a></p>
 </div>
 <div>
-<p>The mqtt.port and the mqtt.bind_address can be set/unset independently.</p>
+<p>The mqtt.bind.port and the mqtt.bind.address can be set/unset independently.</p>
 </div>
 </div>
 <h2 id="step-1-disconnect-thin-edgeio-edge-device"><a class="header" href="#step-1-disconnect-thin-edgeio-edge-device">Step 1: Disconnect thin-edge.io edge device</a></h2>
@@ -3888,10 +3888,10 @@ mytenant.cumulocity.com
 <pre><code class="language-shell">tedge disconnect c8y/az
 </code></pre>
 <h2 id="step-2-set-and-verify-the-new-mqtt-port-and-bind-address"><a class="header" href="#step-2-set-and-verify-the-new-mqtt-port-and-bind-address">Step 2: Set and verify the new mqtt port and bind address</a></h2>
-<p>Use the <code>tedge</code> command to set the mqtt.port and mqtt.bind_address with a desired port and bind address as below.</p>
-<pre><code class="language-shell">tedge config set mqtt.port 1024
+<p>Use the <code>tedge</code> command to set the mqtt.bind.port and mqtt.bind.address with a desired port and bind address as below.</p>
+<pre><code class="language-shell">tedge config set mqtt.bind.port 1024
 </code></pre>
-<pre><code class="language-shell">tedge config set mqtt.bind_address 127.0.0.1
+<pre><code class="language-shell">tedge config set mqtt.bind.address 127.0.0.1
 </code></pre>
 <div id="admonition-note-1" class="admonition note">
 <div class="admonition-title">
@@ -3907,9 +3907,9 @@ For example, this can be get as <code>ifconfig | grep inet</code> or set it to <
 has been set once the device is connected to the cloud as in step 3.</p>
 <h2 id="verify-the-port-and-the-bind-address-configuredset"><a class="header" href="#verify-the-port-and-the-bind-address-configuredset">Verify the port and the bind address configured/set</a></h2>
 <p>Use the <code>tedge</code> command to print the mqtt port and bind address that has been set as below.</p>
-<pre><code class="language-shell">tedge config get mqtt.port
+<pre><code class="language-shell">tedge config get mqtt.bind.port
 </code></pre>
-<pre><code class="language-shell">tedge config get mqtt.bind_address
+<pre><code class="language-shell">tedge config get mqtt.bind.address
 </code></pre>
 <h2 id="step-3-connect-the-thin-edge-device-to-cloud"><a class="header" href="#step-3-connect-the-thin-edge-device-to-cloud">Step 3: Connect the thin edge device to cloud</a></h2>
 <p>Use the <code>tedge</code> command to connect to the desired cloud as below.</p>
@@ -3928,17 +3928,17 @@ tedge-mapper-aws.service, tedge-agent.service) to use the newly set port and the
 <p>Note: The step 1 and 2 can be followed in any order.</p>
 <h2 id="update-to-use-default-port-and-bind-address"><a class="header" href="#update-to-use-default-port-and-bind-address">Update to use default port and bind address</a></h2>
 <p>Use the <code>tedge</code> command to set the default port (1883) and default bind address (localhost) as below.</p>
-<pre><code class="language-shell">tedge config unset mqtt.port
+<pre><code class="language-shell">tedge config unset mqtt.bind.port
 </code></pre>
-<pre><code class="language-shell">tedge config unset mqtt.bind_address
+<pre><code class="language-shell">tedge config unset mqtt.bind.address
 </code></pre>
 <p>Once the port or the bind address is reverted to default, the <a href="howto-guides/008_config_local_mqtt_bind_address_and_port.html#Step-3:-Connect-the-thin-edge-device-to-cloud">step 1</a>
 and 3 has to be followed to use the default port or the default bind address.</p>
 <h2 id="error-case"><a class="header" href="#error-case">Error case</a></h2>
 <p>The below example shows that we cannot set a string value for the port number.</p>
-<pre><code class="language-shell">tedge config set mqtt.port '&quot;1234&quot;'
+<pre><code class="language-shell">tedge config set mqtt.bind.port '&quot;1234&quot;'
 
-Error: failed to set the configuration key: mqtt.port with value: &quot;1234&quot;.
+Error: failed to set the configuration key: mqtt.bind.port with value: &quot;1234&quot;.
 
 Caused by:
     Conversion from String failed
@@ -4695,12 +4695,12 @@ c8y-configuration-plugin = &quot;error&quot;
 <h2 id="configuration-1"><a class="header" href="#configuration-1">Configuration</a></h2>
 <p>External devices connection can be setup by using the <code>tedge</code> cli tool making some changes to the configuration.</p>
 <p>The following configurations option are available for you if you want to add an external listener to thin-edge.io:</p>
-<p><code>mqtt.external.port</code>             Mqtt broker port, which is used by the external mqtt clients to publish or subscribe. Example: 8883
-<code>mqtt.external.bind_address</code>     IP address / hostname, which the mqtt broker limits incoming connections on. Example: 0.0.0.0
-<code>mqtt.external.bind_interface</code>   Name of network interface, which the mqtt broker limits incoming connections on. Example: wlan0</p>
-<p><code>mqtt.external.capath</code>           Path to a file containing the PEM encoded CA certificates that are trusted when checking incoming client certificates. Example: /etc/ssl/certs
-<code>mqtt.external.certfile</code>         Path to the certificate file, which is used by external MQTT listener. Example: /etc/tedge/server-certs/tedge-certificate.pem
-<code>mqtt.external.keyfile</code>          Path to the private key file, which is used by external MQTT listener. Example: /etc/tedge/server-certs/tedge-private-key.pem</p>
+<p><code>mqtt.external.bind.port</code>             Mqtt broker port, which is used by the external mqtt clients to publish or subscribe. Example: 8883
+<code>mqtt.external.bind.address</code>     IP address / hostname, which the mqtt broker limits incoming connections on. Example: 0.0.0.0
+<code>mqtt.external.bind.interface</code>   Name of network interface, which the mqtt broker limits incoming connections on. Example: wlan0</p>
+<p><code>mqtt.external.ca_path</code>           Path to a file containing the PEM encoded CA certificates that are trusted when checking incoming client certificates. Example: /etc/ssl/certs
+<code>mqtt.external.cert_file</code>         Path to the certificate file, which is used by external MQTT listener. Example: /etc/tedge/server-certs/tedge-certificate.pem
+<code>mqtt.external.key_file</code>          Path to the private key file, which is used by external MQTT listener. Example: /etc/tedge/server-certs/tedge-private-key.pem</p>
 <div id="admonition-note-1" class="admonition note">
 <div class="admonition-title">
 <p>Note</p>
@@ -4715,21 +4715,21 @@ For instance, the port defaults to 1883 for a non-TLS listener, and to 8883 for 
 <p>These settings can be considered in 2 groups, listener configuration and TLS configuration.</p>
 <h3 id="configure-basic-listener"><a class="header" href="#configure-basic-listener">Configure basic listener</a></h3>
 <p>To configure basic listener you should provide port and/or bind address which will use default interface.
-To change the default interface you can use mqtt.external.bind_interface configuration option.</p>
+To change the default interface you can use mqtt.external.bind.interface configuration option.</p>
 <p>To set them you can use <code>tedge config</code> as so:</p>
-<pre><code class="language-shell">tedge config set mqtt.external.port 8883
+<pre><code class="language-shell">tedge config set mqtt.external.bind.port 8883
 </code></pre>
 <p>To allow connections from all IP addresses on the interface:</p>
-<pre><code class="language-shell">tedge config set mqtt.external.bind_address 0.0.0.0
+<pre><code class="language-shell">tedge config set mqtt.external.bind.address 0.0.0.0
 </code></pre>
 <h3 id="configure-tls-on-the-listener"><a class="header" href="#configure-tls-on-the-listener">Configure TLS on the listener</a></h3>
-<p>To configure the external listener with TLS additional settings are available: <code>mqtt.external.capath</code> <code>mqtt.external.certfile</code> <code>mqtt.external.keyfile</code></p>
+<p>To configure the external listener with TLS additional settings are available: <code>mqtt.external.ca_path</code> <code>mqtt.external.cert_file</code> <code>mqtt.external.key_file</code></p>
 <p>To enable MQTT over TLS, a server side certificate must be configured using the 2 following settings:</p>
-<pre><code class="language-shell">tedge config set mqtt.external.certfile /etc/tedge/server-certs/tedge-certificate.pem
-tedge config set mqtt.external.keyfile /etc/tedge/server-certs/tedge-private-key.pem
+<pre><code class="language-shell">tedge config set mqtt.external.cert_file /etc/tedge/server-certs/tedge-certificate.pem
+tedge config set mqtt.external.key_file /etc/tedge/server-certs/tedge-private-key.pem
 </code></pre>
 <p>To fully enable TLS authentication clients, client side certificate validation can be enabled:</p>
-<pre><code class="language-shell">tedge config set mqtt.external.capath /etc/ssl/certs
+<pre><code class="language-shell">tedge config set mqtt.external.ca_path /etc/ssl/certs
 </code></pre>
 <div id="admonition-note-2" class="admonition note">
 <div class="admonition-title">
@@ -5093,7 +5093,7 @@ Similarly, handling of a configuration snapshot or update request involves sendi
 MQTT messages before and after the configuration file is uploaded/downloaded via HTTP to/from thin-edge.</p>
 <p>Since child device agents typically run on an external device and not on the thin-edge device itself,
 the MQTT and HTTP APIs of thin-edge need to be accessed over the network using its IP address,
-which is configured using the tedge configuration settings <code>mqtt.external.bind_address</code> or <code>mqtt.bind_address</code>.
+which is configured using the tedge configuration settings <code>mqtt.external.bind.address</code> or <code>mqtt.bind.address</code>.
 The MQTT APIs are exposed via port 1883 and the HTTP APIs are exposed via port 8000.
 In rare cases, where the child device agent is installed alongside thin-edge on the same device,
 these APIs can be accessed via a local IP or even <code>127.0.0.1</code>.</p>
@@ -5121,7 +5121,7 @@ in a <code>c8y-configuration-plugin.toml</code> file in the same format as speci
 to the URL: <code>http://{tedge-ip}:8000/tedge/file-transfer/{child-id}/c8y-configuration-plugin</code></p>
 <ul>
 <li><code>{tedge-ip}</code> is the IP of the thin-edge device which is configured as 
-<code>mqtt.external.bind_address</code> or <code>mqtt.bind_address</code> or <code>127.0.0.1</code> if neither is configured.</li>
+<code>mqtt.external.bind.address</code> or <code>mqtt.bind.address</code> or <code>127.0.0.1</code> if neither is configured.</li>
 <li><code>{child-id}</code> is the child-device-id</li>
 </ul>
 <p>Once the upload is complete, the agent should notify thin-edge about the upload by sending the following MQTT message:</p>
@@ -7382,8 +7382,8 @@ So, the issue can be fixed from the cloud.</li>
 <p>The behavior of the <code>c8y-configuration-plugin</code> is also controlled
 by the configuration of thin-edge:</p>
 <ul>
-<li><code>tedge config get mqtt.bind_address</code>: the address of the local MQTT bus.</li>
-<li><code>tedge config get mqtt.port</code>: the TCP port of the local MQTT bus.</li>
+<li><code>tedge config get mqtt.bind.address</code>: the address of the local MQTT bus.</li>
+<li><code>tedge config get mqtt.bind.port</code>: the TCP port of the local MQTT bus.</li>
 <li><code>tedge config get tmp.path</code>: the directory where the files are updated
 before being copied atomically to their targets.</li>
 </ul>
@@ -7497,14 +7497,14 @@ and all the connections to thin-edge are established by the child devices.</p>
 <li>Thin-edge opens two ports for MQTT and HTTP over the local network.
 These ports are controlled on the main device <code>tedge config</code>:
 <ul>
-<li><code>mqtt.external.bind_address</code></li>
-<li><code>mqtt.external.port</code></li>
+<li><code>mqtt.external.bind.address</code></li>
+<li><code>mqtt.external.bind.port</code></li>
 <li><code>http.external.port</code></li>
 </ul>
 </li>
 <li>The child devices must know the main device IP address.
 <ul>
-<li>This is the address set for <code>mqtt.external.bind_address</code> on the main device.</li>
+<li>This is the address set for <code>mqtt.external.bind.address</code> on the main device.</li>
 <li>For the very specific case, where the child-device agent runs on the main device,
 this connection address can be the <code>localhost</code>.</li>
 </ul>
@@ -7761,11 +7761,11 @@ as the storage on thin-edge devices are typically very limited.</p>
 </ul>
 <p>The <code>tedge-ip</code> is derived from the following tedge configurations:</p>
 <ul>
-<li>mqtt.bind_address</li>
-<li>mqtt.external.bind_address</li>
+<li>mqtt.bind.address</li>
+<li>mqtt.external.bind.address</li>
 </ul>
-<p>If the <code>mqtt.external.bind_address</code> is configured, then the <code>tedge-ip</code> is set to that value,
-else the <code>mqtt.bind_address</code> is used with the default value of <code>127.0.0.1</code>.</p>
+<p>If the <code>mqtt.external.bind.address</code> is configured, then the <code>tedge-ip</code> is set to that value,
+else the <code>mqtt.bind.address</code> is used with the default value of <code>127.0.0.1</code>.</p>
 <p>The files uploaded to this repository are stored at <code>/var/tedge/file-transfer</code> directory.
 The <code>{path}/{to}/{resource}</code> specified in the URL is replicated under this directory.
 For example, a file uploaded to <code>http://{tedge-ip}/tedge/file-transfer/config_update/mosquitto/mosquitto.conf</code>

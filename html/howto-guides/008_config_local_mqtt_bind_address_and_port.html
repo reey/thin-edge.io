@@ -146,7 +146,7 @@
 <p><a class="admonition-anchor-link" href="#admonition-note"></a></p>
 </div>
 <div>
-<p>The mqtt.port and the mqtt.bind_address can be set/unset independently.</p>
+<p>The mqtt.bind.port and the mqtt.bind.address can be set/unset independently.</p>
 </div>
 </div>
 <h2 id="step-1-disconnect-thin-edgeio-edge-device"><a class="header" href="#step-1-disconnect-thin-edgeio-edge-device">Step 1: Disconnect thin-edge.io edge device</a></h2>
@@ -154,10 +154,10 @@
 <pre><code class="language-shell">tedge disconnect c8y/az
 </code></pre>
 <h2 id="step-2-set-and-verify-the-new-mqtt-port-and-bind-address"><a class="header" href="#step-2-set-and-verify-the-new-mqtt-port-and-bind-address">Step 2: Set and verify the new mqtt port and bind address</a></h2>
-<p>Use the <code>tedge</code> command to set the mqtt.port and mqtt.bind_address with a desired port and bind address as below.</p>
-<pre><code class="language-shell">tedge config set mqtt.port 1024
+<p>Use the <code>tedge</code> command to set the mqtt.bind.port and mqtt.bind.address with a desired port and bind address as below.</p>
+<pre><code class="language-shell">tedge config set mqtt.bind.port 1024
 </code></pre>
-<pre><code class="language-shell">tedge config set mqtt.bind_address 127.0.0.1
+<pre><code class="language-shell">tedge config set mqtt.bind.address 127.0.0.1
 </code></pre>
 <div id="admonition-note-1" class="admonition note">
 <div class="admonition-title">
@@ -173,9 +173,9 @@ For example, this can be get as <code>ifconfig | grep inet</code> or set it to <
 has been set once the device is connected to the cloud as in step 3.</p>
 <h2 id="verify-the-port-and-the-bind-address-configuredset"><a class="header" href="#verify-the-port-and-the-bind-address-configuredset">Verify the port and the bind address configured/set</a></h2>
 <p>Use the <code>tedge</code> command to print the mqtt port and bind address that has been set as below.</p>
-<pre><code class="language-shell">tedge config get mqtt.port
+<pre><code class="language-shell">tedge config get mqtt.bind.port
 </code></pre>
-<pre><code class="language-shell">tedge config get mqtt.bind_address
+<pre><code class="language-shell">tedge config get mqtt.bind.address
 </code></pre>
 <h2 id="step-3-connect-the-thin-edge-device-to-cloud"><a class="header" href="#step-3-connect-the-thin-edge-device-to-cloud">Step 3: Connect the thin edge device to cloud</a></h2>
 <p>Use the <code>tedge</code> command to connect to the desired cloud as below.</p>
@@ -194,17 +194,17 @@ tedge-mapper-aws.service, tedge-agent.service) to use the newly set port and the
 <p>Note: The step 1 and 2 can be followed in any order.</p>
 <h2 id="update-to-use-default-port-and-bind-address"><a class="header" href="#update-to-use-default-port-and-bind-address">Update to use default port and bind address</a></h2>
 <p>Use the <code>tedge</code> command to set the default port (1883) and default bind address (localhost) as below.</p>
-<pre><code class="language-shell">tedge config unset mqtt.port
+<pre><code class="language-shell">tedge config unset mqtt.bind.port
 </code></pre>
-<pre><code class="language-shell">tedge config unset mqtt.bind_address
+<pre><code class="language-shell">tedge config unset mqtt.bind.address
 </code></pre>
 <p>Once the port or the bind address is reverted to default, the <a href="#Step-3:-Connect-the-thin-edge-device-to-cloud">step 1</a>
 and 3 has to be followed to use the default port or the default bind address.</p>
 <h2 id="error-case"><a class="header" href="#error-case">Error case</a></h2>
 <p>The below example shows that we cannot set a string value for the port number.</p>
-<pre><code class="language-shell">tedge config set mqtt.port '&quot;1234&quot;'
+<pre><code class="language-shell">tedge config set mqtt.bind.port '&quot;1234&quot;'
 
-Error: failed to set the configuration key: mqtt.port with value: &quot;1234&quot;.
+Error: failed to set the configuration key: mqtt.bind.port with value: &quot;1234&quot;.
 
 Caused by:
     Conversion from String failed

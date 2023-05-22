@@ -174,15 +174,15 @@ See this <a href="connect-aws.html">tutorial</a>, if you want to connect AWS IoT
 <pre><code>sudo tedge config set c8y.url your-tenant.cumulocity.com
 </code></pre>
 <p>Set the path to the root certificate if necessary. The default is <code>/etc/ssl/certs</code>.</p>
-<pre><code>sudo tedge config set c8y.root.cert.path /etc/ssl/certs
+<pre><code>sudo tedge config set c8y.root_cert_path /etc/ssl/certs
 </code></pre>
 <p>This will set the root certificate path of the Cumulocity IoT.
 In most of the Linux flavors, the certificate will be present in /etc/ssl/certs.
 If not found download it from <a href="https://www.identrust.com/dst-root-ca-x3">here</a>.</p>
 <h2 id="connecting-to-cumulocity-server-signed-with-self-signed-certificate"><a class="header" href="#connecting-to-cumulocity-server-signed-with-self-signed-certificate">Connecting to Cumulocity server signed with self-signed certificate</a></h2>
 <p>If the Cumulocity IoT instance that you're connecting to, is signed with a self-signed certificate(eg: Cumulocity IoT Edge instance),
-then the path to that server certificate must be set as the c8y.root.cert.path as follows:</p>
-<pre><code>sudo tedge config set c8y.root.cert.path /path/to/the/self-signed/certificate
+then the path to that server certificate must be set as the c8y.root_cert_path as follows:</p>
+<pre><code>sudo tedge config set c8y.root_cert_path /path/to/the/self-signed/certificate
 </code></pre>
 <div id="admonition-warning" class="admonition warning">
 <div class="admonition-title">

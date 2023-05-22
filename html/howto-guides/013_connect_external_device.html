@@ -152,12 +152,12 @@
 <h2 id="configuration"><a class="header" href="#configuration">Configuration</a></h2>
 <p>External devices connection can be setup by using the <code>tedge</code> cli tool making some changes to the configuration.</p>
 <p>The following configurations option are available for you if you want to add an external listener to thin-edge.io:</p>
-<p><code>mqtt.external.port</code>             Mqtt broker port, which is used by the external mqtt clients to publish or subscribe. Example: 8883
-<code>mqtt.external.bind_address</code>     IP address / hostname, which the mqtt broker limits incoming connections on. Example: 0.0.0.0
-<code>mqtt.external.bind_interface</code>   Name of network interface, which the mqtt broker limits incoming connections on. Example: wlan0</p>
-<p><code>mqtt.external.capath</code>           Path to a file containing the PEM encoded CA certificates that are trusted when checking incoming client certificates. Example: /etc/ssl/certs
-<code>mqtt.external.certfile</code>         Path to the certificate file, which is used by external MQTT listener. Example: /etc/tedge/server-certs/tedge-certificate.pem
-<code>mqtt.external.keyfile</code>          Path to the private key file, which is used by external MQTT listener. Example: /etc/tedge/server-certs/tedge-private-key.pem</p>
+<p><code>mqtt.external.bind.port</code>             Mqtt broker port, which is used by the external mqtt clients to publish or subscribe. Example: 8883
+<code>mqtt.external.bind.address</code>     IP address / hostname, which the mqtt broker limits incoming connections on. Example: 0.0.0.0
+<code>mqtt.external.bind.interface</code>   Name of network interface, which the mqtt broker limits incoming connections on. Example: wlan0</p>
+<p><code>mqtt.external.ca_path</code>           Path to a file containing the PEM encoded CA certificates that are trusted when checking incoming client certificates. Example: /etc/ssl/certs
+<code>mqtt.external.cert_file</code>         Path to the certificate file, which is used by external MQTT listener. Example: /etc/tedge/server-certs/tedge-certificate.pem
+<code>mqtt.external.key_file</code>          Path to the private key file, which is used by external MQTT listener. Example: /etc/tedge/server-certs/tedge-private-key.pem</p>
 <div id="admonition-note-1" class="admonition note">
 <div class="admonition-title">
 <p>Note</p>
@@ -172,21 +172,21 @@ For instance, the port defaults to 1883 for a non-TLS listener, and to 8883 for 
 <p>These settings can be considered in 2 groups, listener configuration and TLS configuration.</p>
 <h3 id="configure-basic-listener"><a class="header" href="#configure-basic-listener">Configure basic listener</a></h3>
 <p>To configure basic listener you should provide port and/or bind address which will use default interface.
-To change the default interface you can use mqtt.external.bind_interface configuration option.</p>
+To change the default interface you can use mqtt.external.bind.interface configuration option.</p>
 <p>To set them you can use <code>tedge config</code> as so:</p>
-<pre><code class="language-shell">tedge config set mqtt.external.port 8883
+<pre><code class="language-shell">tedge config set mqtt.external.bind.port 8883
 </code></pre>
 <p>To allow connections from all IP addresses on the interface:</p>
-<pre><code class="language-shell">tedge config set mqtt.external.bind_address 0.0.0.0
+<pre><code class="language-shell">tedge config set mqtt.external.bind.address 0.0.0.0
 </code></pre>
 <h3 id="configure-tls-on-the-listener"><a class="header" href="#configure-tls-on-the-listener">Configure TLS on the listener</a></h3>
-<p>To configure the external listener with TLS additional settings are available: <code>mqtt.external.capath</code> <code>mqtt.external.certfile</code> <code>mqtt.external.keyfile</code></p>
+<p>To configure the external listener with TLS additional settings are available: <code>mqtt.external.ca_path</code> <code>mqtt.external.cert_file</code> <code>mqtt.external.key_file</code></p>
 <p>To enable MQTT over TLS, a server side certificate must be configured using the 2 following settings:</p>
-<pre><code class="language-shell">tedge config set mqtt.external.certfile /etc/tedge/server-certs/tedge-certificate.pem
-tedge config set mqtt.external.keyfile /etc/tedge/server-certs/tedge-private-key.pem
+<pre><code class="language-shell">tedge config set mqtt.external.cert_file /etc/tedge/server-certs/tedge-certificate.pem
+tedge config set mqtt.external.key_file /etc/tedge/server-certs/tedge-private-key.pem
 </code></pre>
 <p>To fully enable TLS authentication clients, client side certificate validation can be enabled:</p>
-<pre><code class="language-shell">tedge config set mqtt.external.capath /etc/ssl/certs
+<pre><code class="language-shell">tedge config set mqtt.external.ca_path /etc/ssl/certs
 </code></pre>
 <div id="admonition-note-2" class="admonition note">
 <div class="admonition-title">

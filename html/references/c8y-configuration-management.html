@@ -362,8 +362,8 @@ So, the issue can be fixed from the cloud.</li>
 <p>The behavior of the <code>c8y-configuration-plugin</code> is also controlled
 by the configuration of thin-edge:</p>
 <ul>
-<li><code>tedge config get mqtt.bind_address</code>: the address of the local MQTT bus.</li>
-<li><code>tedge config get mqtt.port</code>: the TCP port of the local MQTT bus.</li>
+<li><code>tedge config get mqtt.bind.address</code>: the address of the local MQTT bus.</li>
+<li><code>tedge config get mqtt.bind.port</code>: the TCP port of the local MQTT bus.</li>
 <li><code>tedge config get tmp.path</code>: the directory where the files are updated
 before being copied atomically to their targets.</li>
 </ul>
@@ -477,14 +477,14 @@ and all the connections to thin-edge are established by the child devices.</p>
 <li>Thin-edge opens two ports for MQTT and HTTP over the local network.
 These ports are controlled on the main device <code>tedge config</code>:
 <ul>
-<li><code>mqtt.external.bind_address</code></li>
-<li><code>mqtt.external.port</code></li>
+<li><code>mqtt.external.bind.address</code></li>
+<li><code>mqtt.external.bind.port</code></li>
 <li><code>http.external.port</code></li>
 </ul>
 </li>
 <li>The child devices must know the main device IP address.
 <ul>
-<li>This is the address set for <code>mqtt.external.bind_address</code> on the main device.</li>
+<li>This is the address set for <code>mqtt.external.bind.address</code> on the main device.</li>
 <li>For the very specific case, where the child-device agent runs on the main device,
 this connection address can be the <code>localhost</code>.</li>
 </ul>

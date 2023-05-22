@@ -166,7 +166,7 @@ Similarly, handling of a configuration snapshot or update request involves sendi
 MQTT messages before and after the configuration file is uploaded/downloaded via HTTP to/from thin-edge.</p>
 <p>Since child device agents typically run on an external device and not on the thin-edge device itself,
 the MQTT and HTTP APIs of thin-edge need to be accessed over the network using its IP address,
-which is configured using the tedge configuration settings <code>mqtt.external.bind_address</code> or <code>mqtt.bind_address</code>.
+which is configured using the tedge configuration settings <code>mqtt.external.bind.address</code> or <code>mqtt.bind.address</code>.
 The MQTT APIs are exposed via port 1883 and the HTTP APIs are exposed via port 8000.
 In rare cases, where the child device agent is installed alongside thin-edge on the same device,
 these APIs can be accessed via a local IP or even <code>127.0.0.1</code>.</p>
@@ -194,7 +194,7 @@ in a <code>c8y-configuration-plugin.toml</code> file in the same format as speci
 to the URL: <code>http://{tedge-ip}:8000/tedge/file-transfer/{child-id}/c8y-configuration-plugin</code></p>
 <ul>
 <li><code>{tedge-ip}</code> is the IP of the thin-edge device which is configured as 
-<code>mqtt.external.bind_address</code> or <code>mqtt.bind_address</code> or <code>127.0.0.1</code> if neither is configured.</li>
+<code>mqtt.external.bind.address</code> or <code>mqtt.bind.address</code> or <code>127.0.0.1</code> if neither is configured.</li>
 <li><code>{child-id}</code> is the child-device-id</li>
 </ul>
 <p>Once the upload is complete, the agent should notify thin-edge about the upload by sending the following MQTT message:</p>
