@@ -239,6 +239,7 @@ SUBCOMMANDS:
     connect       Connect to connector provider
     disconnect    Remove bridge connection for a provider
     help          Print this message or the help of the given subcommand(s)
+    init          Initialize Thin Edge
     mqtt          Publish a message on a topic and subscribe a topic
     reconnect     Reconnect command, calls disconnect followed by connect
 </code></pre>
@@ -3628,10 +3629,8 @@ sudo useradd --system --no-create-home -c &quot;&quot; -s /sbin/nologin -g tedge
 </code></pre>
 <p>Next, create the files and directories required by thin-edge.io and restart mosquitto too.</p>
 <pre><code class="language-shell">sudo rc-service mosquitto stop
-sudo tedge --init
+sudo tedge init --user tedge --group tedge
 sudo rc-service mosquitto start
-sudo tedge-agent --init
-sudo tedge-mapper --init c8y
 </code></pre>
 <p>This should show the following output:</p>
 <p align="center">
@@ -4144,26 +4143,20 @@ mkdir ~/tedge_tmp_dir
 sudo chown tedge:tedge ~/tedge_tmp_dir 
 
 </code></pre>
-<p>You must restart the <code>tedge</code> daemons after any of these paths are updated, for it to take effect.
-But, when the <code>data.path</code> is updated, the daemon must be re-initialized as well with its <code>--init</code> option.</p>
+<p>You must restart the <code>tedge</code> daemons after any of these paths are updated, for it to take effect.</p>
 <p>For example, the <code>tedge-agent</code> must be re-initialized as follows:</p>
-<pre><code class="language-shell"># Stop the service
-sudo systemctl stop tedge-agent
-
-# Re-initialize the service
-sudo tedge-agent --init
-
-# Restart the service
-sudo systemctl stop tedge-agent
+<pre><code class="language-shell"># Restart the service
+sudo systemctl restart tedge-agent
 </code></pre>
-<p>The following daemons also need to be re-initialized after <code>data.path</code> is updated:</p>
+<p>The following daemons also need to be re-started after <code>data.path</code> is updated:</p>
 <ul>
 <li><code>c8y-configuration-plugin</code></li>
 <li><code>c8y-firmware-plugin</code></li>
 </ul>
-<p>To revert any of these paths back to their default locations, just <code>unset</code> that config as follows:</p>
+<p>To revert any of these paths back to their default locations, <code>unset</code> that config as follows:</p>
 <pre><code class="language-shell">sudo tedge config unset tmp.path
 </code></pre>
+<p>... and restart the relevant services.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="how-to-register"><a class="header" href="#how-to-register">How to register?</a></h1>
 <h2 id="create-self-signed-certificate"><a class="header" href="#create-self-signed-certificate">Create self-signed certificate</a></h2>
 <p>To create new certificate you can use <a href="howto-guides/../references/tedge-cert.html"><code>tedge cert create</code></a> thin-edge.io command:</p>
@@ -4883,7 +4876,6 @@ If you're using systemctl you can do: </p>
 debian package.</p>
 <p>If you have not installed via the debian package, make sure you have the following:</p>
 <ul>
-<li>run <code>sudo c8y-log-plugin --init</code></li>
 <li>a <code>c8y-log-plugin.service</code> file in <code>/lib/systemd/system/c8y-log-plugin.service</code></li>
 <li>a <code>c8y-log-plugin</code> binary in <code>/usr/bin/c8y-log-plugin</code></li>
 <li>check if <code>/etc/tedge/c8y/c8y-log-plugin.toml</code> was created</li>
@@ -5798,31 +5790,31 @@ openssl x509 -req \
 <li>ARMv8 Raspberry Pi OS 11</li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="thin-edge-config-files"><a class="header" href="#thin-edge-config-files">Thin-edge config files</a></h1>
-<p>Thin-edge.io requires config files for its operation. The <code>tedge --init</code> option is used to create
+<p>Thin-edge.io requires config files for its operation. The <code>tedge init</code> command is used to create
 the base directory and other directories inside the base directory with appropriate user and permissions.
-The <code>tedge-mapper --init c8y/az</code> and <code>tedge-agent --init</code> will create the
-directories/files inside the base directory that are required for their operation.</p>
+The <code>tedge-mapper</code> and <code>tedge-agent</code> will create the config
+directories/files inside the base directory that are required for their operation on startup.</p>
 <p>By default, the config files are created in <code>/etc/tedge</code> directory. To create the config files in
 a custom base directory one has to use <code>--config-dir &lt;Path to base directory&gt;</code> option.</p>
 <h2 id="creating-thin-edge-config-files"><a class="header" href="#creating-thin-edge-config-files">Creating <code>thin-edge</code> config files</a></h2>
-<p>The config files are created using <code>tedge --init</code> as below.</p>
-<pre><code class="language-shell">sudo tedge --init
+<p>The config files are created using <code>tedge init</code> as below.</p>
+<pre><code class="language-shell">sudo tedge init
 </code></pre>
 <p>All the directories will be created in the <code>/etc/tedge</code> directory. The directories layout looks as below.</p>
 <pre><code class="language-shell">ls -l /etc/tedge
 
 total 16
 drwxrwxr-x 2 mosquitto mosquitto 4096 Jun 10 14:49 device-certs
-drwxrwxr-x 2 tedge     tedge     4096 Jun 10 14:49 mosquitto-conf
+drwxrwxr-x 2 mosquitto mosquitto 4096 Jun 10 14:49 mosquitto-conf
 drwxrwxr-x 2 tedge     tedge     4096 Jun 10 14:49 operations
 drwxrwxr-x 2 tedge     tedge     4096 Jun 10 14:49 plugins
 </code></pre>
 <p>Use the below command to create the config directories in a custom directory.</p>
-<pre><code class="language-shell">sudo tedge --config-dir /global/path/to/config/dir --init
+<pre><code class="language-shell">sudo tedge --config-dir /global/path/to/config/dir init
 </code></pre>
 <p>Now all the config directories will be created inside the <code>/global/path/to/config/dir</code> directory.</p>
 <p>The directories and files that are required by the <code>tedge-mapper</code> are created as below.</p>
-<pre><code class="language-shell">sudo tedge-mapper --init c8y
+<pre><code class="language-shell">sudo tedge-mapper c8y
 </code></pre>
 <pre><code>ls -l /etc/tedge/operations/c8y
 total 0
@@ -5830,16 +5822,17 @@ total 0
 -rw-r--r-- 1 tedge tedge 0 Jun 14 14:37 c8y_SoftwareUpdate
 </code></pre>
 <p>To create these directories in a custom directory, use <code>--config-dir</code> option as below.</p>
-<pre><code class="language-shell">sudo tedge_mapper --config-dir /global/path/to/config/dir --init c8y
+<pre><code class="language-shell">sudo tedge_mapper --config-dir /global/path/to/config/dir c8y
 </code></pre>
-<p>The directories and files that are required by the <code>tedge-agent</code> are created as below.</p>
-<pre><code class="language-shell">sudo tedge-agent --init
-</code></pre>
+<p>The directories and files that are required by the <code>tedge-agent</code> are created on startup as follows:</p>
 <pre><code>ls -l /etc/tedge/.agent
 -rw-r--r-- 1 tedge tedge 0 Jun 15 11:51 /etc/tedge/.agent/current-operation
+
+ls -l /var/tedge/
+drwxr-xr-x 2 tedge tedge 0 Jun 15 11:51 /var/tedge/file-transfer
 </code></pre>
 <p>To create these directories and files in a custom directory, use the <code>--config-dir</code> option as below as below.</p>
-<pre><code class="language-shell">sudo tedge-agent --config-dir /global/path/to/config/dir --init
+<pre><code class="language-shell">sudo tedge-agent --config-dir /global/path/to/config/dir
 </code></pre>
 <h2 id="manage-the-configuration-parameters"><a class="header" href="#manage-the-configuration-parameters">Manage the configuration parameters</a></h2>
 <p>The configuration parameters can be set/unset/list in a config file as below</p>
@@ -6046,6 +6039,7 @@ SUBCOMMANDS:
     connect       Connect to connector provider
     disconnect    Remove bridge connection for a provider
     help          Print this message or the help of the given subcommand(s)
+    init          Initialize Thin Edge
     mqtt          Publish a message on a topic and subscribe a topic
     reconnect     Reconnect command, calls disconnect followed by connect
 </code></pre>
@@ -7212,11 +7206,12 @@ using the configuration management feature of Cumulocity, combined with the <cod
 <h2 id="installation-2"><a class="header" href="#installation-2">Installation</a></h2>
 <p>As part of this plugin installation:</p>
 <ul>
-<li>The <code>--init</code> command of the plugin is executed, which creates an empty file at <code>/etc/tedge/operations/c8y/c8y_LogfileRequest</code> indicating that this device supports <code>c8y_LogfileRequest</code> operation from Cumulocity.</li>
 <li>On systemd enabled devices, the service definition file for this <code>c8y-log-plugin</code> daemon is also installed as part of this plugin installation.</li>
 </ul>
 <p>Once installed, the <code>c8y-log-plugin</code> is run as a daemon on the device listening to log requests from Cumulocity on <code>c8y/s/us</code> MQTT topic.
-On startup, it reports all the log file types that it manages, defined in the <code>c8y-log-plugin.toml</code></p>
+On startup, the plugin declares to the Cumulocity mapper that it supports <code>c8y_LogfileRequest</code> operation
+by creating an empty file at <code>/etc/tedge/operations/c8y/c8y_LogfileRequest</code>.
+It also reports all the log file types that it manages, defined in the <code>c8y-log-plugin.toml</code></p>
 <h2 id="configuration-2"><a class="header" href="#configuration-2">Configuration</a></h2>
 <p>The <code>c8y-log-plugin</code> configuration is stored by default under <code>/etc/tedge/c8y/c8y-log-plugin.toml</code>.</p>
 <p>This <a href="https://toml.io/en/">TOML</a> file defines the list of log files that can be retrieved from the cloud tenant.
@@ -7393,9 +7388,7 @@ two files must be added under <code>/etc/tedge/operations/c8y/</code>
 to declare that this plugin supports two Cumulocity operations:
 uploading and downloading configuration files
 (which respective SmartRest2 codes are <code>526</code> and <code>524</code>).</p>
-<p>These two files can be created using the <code>c8y-configuration-plugin --init</code> option:</p>
-<pre><code class="language-shell">sudo c8y-configuration-plugin --init
-</code></pre>
+<p>These two files are created on the very first startup of <code>c8y-configuration-plugin</code>:</p>
 <pre><code class="language-shell">ls -l /etc/tedge/operations/c8y/c8y_UploadConfigFile
 </code></pre>
 <pre><code>-rw-r--r-- 1 tedge tedge 95 Mar 22 14:24 /etc/tedge/operations/c8y/c8y_UploadConfigFile

@@ -161,26 +161,20 @@ mkdir ~/tedge_tmp_dir
 sudo chown tedge:tedge ~/tedge_tmp_dir 
 
 </code></pre>
-<p>You must restart the <code>tedge</code> daemons after any of these paths are updated, for it to take effect.
-But, when the <code>data.path</code> is updated, the daemon must be re-initialized as well with its <code>--init</code> option.</p>
+<p>You must restart the <code>tedge</code> daemons after any of these paths are updated, for it to take effect.</p>
 <p>For example, the <code>tedge-agent</code> must be re-initialized as follows:</p>
-<pre><code class="language-shell"># Stop the service
-sudo systemctl stop tedge-agent
-
-# Re-initialize the service
-sudo tedge-agent --init
-
-# Restart the service
-sudo systemctl stop tedge-agent
+<pre><code class="language-shell"># Restart the service
+sudo systemctl restart tedge-agent
 </code></pre>
-<p>The following daemons also need to be re-initialized after <code>data.path</code> is updated:</p>
+<p>The following daemons also need to be re-started after <code>data.path</code> is updated:</p>
 <ul>
 <li><code>c8y-configuration-plugin</code></li>
 <li><code>c8y-firmware-plugin</code></li>
 </ul>
-<p>To revert any of these paths back to their default locations, just <code>unset</code> that config as follows:</p>
+<p>To revert any of these paths back to their default locations, <code>unset</code> that config as follows:</p>
 <pre><code class="language-shell">sudo tedge config unset tmp.path
 </code></pre>
+<p>... and restart the relevant services.</p>
 
                     </main>
 

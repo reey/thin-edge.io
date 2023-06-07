@@ -155,11 +155,12 @@ using the configuration management feature of Cumulocity, combined with the <cod
 <h2 id="installation"><a class="header" href="#installation">Installation</a></h2>
 <p>As part of this plugin installation:</p>
 <ul>
-<li>The <code>--init</code> command of the plugin is executed, which creates an empty file at <code>/etc/tedge/operations/c8y/c8y_LogfileRequest</code> indicating that this device supports <code>c8y_LogfileRequest</code> operation from Cumulocity.</li>
 <li>On systemd enabled devices, the service definition file for this <code>c8y-log-plugin</code> daemon is also installed as part of this plugin installation.</li>
 </ul>
 <p>Once installed, the <code>c8y-log-plugin</code> is run as a daemon on the device listening to log requests from Cumulocity on <code>c8y/s/us</code> MQTT topic.
-On startup, it reports all the log file types that it manages, defined in the <code>c8y-log-plugin.toml</code></p>
+On startup, the plugin declares to the Cumulocity mapper that it supports <code>c8y_LogfileRequest</code> operation
+by creating an empty file at <code>/etc/tedge/operations/c8y/c8y_LogfileRequest</code>.
+It also reports all the log file types that it manages, defined in the <code>c8y-log-plugin.toml</code></p>
 <h2 id="configuration"><a class="header" href="#configuration">Configuration</a></h2>
 <p>The <code>c8y-log-plugin</code> configuration is stored by default under <code>/etc/tedge/c8y/c8y-log-plugin.toml</code>.</p>
 <p>This <a href="https://toml.io/en/">TOML</a> file defines the list of log files that can be retrieved from the cloud tenant.
