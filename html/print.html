@@ -2984,9 +2984,7 @@ That example exists immediately if one of the commands fails.</p>
 <p>You can also refer to:</p>
 <ul>
 <li>the specification of the <a href="https://github.com/thin-edge/thin-edge.io/blob/main/docs/src/references/plugin-api.md">Package Manager Plugin API</a>.</li>
-<li><a href="https://github.com/thin-edge/thin-edge.io/tree/main/plugins/tedge_apt_plugin">the APT plugin</a> written in Rust. </li>
-<li><a href="https://github.com/thin-edge/thin-edge.io/blob/main/sm/plugins/tedge_docker_plugin/tedge_docker_plugin.sh">the example Docker plugin</a> written in POSIX standard shell script.
-This plugin can install/remove docker containers using docker image tags. This plugin is <strong>not</strong> to be used in production without necessary enhancements. It is to be used only as a reference to write your own plugin.</li>
+<li><a href="https://github.com/thin-edge/thin-edge.io/tree/main/plugins/tedge_apt_plugin">the APT plugin</a> written in Rust.</li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="build-thin-edge-for-a-yocto-linux-distribution"><a class="header" href="#build-thin-edge-for-a-yocto-linux-distribution">Build Thin Edge for a Yocto Linux distribution</a></h1>
 <p>Yocto Project enables you to create a customised Linux distribution for your IoT devices. You can select the base image
@@ -7248,38 +7246,7 @@ Updates from Cumulocity can be achieved simply by listing this log plugin's conf
 in the configuration file of the <code>c8y-configuration-plugin</code>.
 This will enable the <code>c8y-log-plugin.toml</code> to be tracked and managed by the <code>c8y-configuration-plugin</code>.</p>
 <h2 id="usage-1"><a class="header" href="#usage-1">Usage</a></h2>
-<pre><code class="language-shell">c8y-log-plugin 0.11.0
-Thin-edge device log file retriever for Cumulocity
-
-USAGE:
-    c8y-log-plugin [OPTIONS]
-
-OPTIONS:
-        --config-dir &lt;CONFIG_DIR&gt;
-            [default: /etc/tedge]
-
-        --debug
-            Turn-on the debug log level.
-            
-            If off only reports ERROR, WARN, and INFO If on also reports DEBUG and TRACE
-
-    -h, --help
-            Print help information
-
-    -i, --init
-            Create supported operation files
-
-    -V, --version
-            Print version information
-
-On start, `c8y-log-plugin` notifies the cloud tenant of the log types listed in the `CONFIG_FILE`,
-sending this list with a `118` on `c8y/s/us`.
-`c8y-log-plugin` subscribes then to `c8y/s/ds` listening for logfile operation requests (`522`)
-notifying the Cumulocity tenant of their progress (messages `501`, `502` and `503`).
-
-The thin-edge `CONFIG_DIR` is used to store:
-  * c8y-log-plugin.toml - the configuration file that specifies which logs to be retrieved
-</code></pre>
+<pre><code class="language-shell"></code></pre>
 <h2 id="logging"><a class="header" href="#logging">Logging</a></h2>
 <p>The <code>c8y-log-plugin</code> reports progress and errors to the OS journal which can be retrieved using <code>journalctl</code>.</p>
 <h2 id="future-enhancements"><a class="header" href="#future-enhancements">Future enhancements</a></h2>
@@ -7525,41 +7492,7 @@ before being copied atomically to their targets.</li>
 <h2 id="usage-2"><a class="header" href="#usage-2">Usage</a></h2>
 <pre><code class="language-shell">c8y-configuration-plugin --help
 </code></pre>
-<pre><code class="language-shell">c8y-configuration-plugin 0.11.0
-Thin-edge device configuration management for Cumulocity
-
-USAGE:
-    c8y-configuration-plugin [OPTIONS]
-
-OPTIONS:
-        --config-dir &lt;CONFIG_DIR&gt;
-            [default: /etc/tedge]
-
-        --debug
-            Turn-on the debug log level.
-            
-            If off only reports ERROR, WARN, and INFO If on also reports DEBUG and TRACE
-
-    -h, --help
-            Print help information
-
-    -i, --init
-            Create supported operation files
-
-    -V, --version
-            Print version information
-
-On start, `c8y-configuration-plugin` notifies the cloud tenant of the managed configuration files,
-listed in the `CONFIG_FILE`, sending this list with a `119` on `c8y/s/us`.
-`c8y-configuration-plugin` subscribes then to `c8y/s/ds` listening for configuration operation
-requests (messages `524` and `526`).
-notifying the Cumulocity tenant of their progress (messages `501`, `502` and `503`).
-
-The thin-edge `CONFIG_DIR` is used to find where:
-  * to store temporary files on download: `tedge config get tmp.path`,
-  * to log operation errors and progress: `tedge config get log.path`,
-  * to connect the MQTT bus: `tedge config get mqtt.client.port`.
-</code></pre>
+<pre><code class="language-shell"></code></pre>
 <h2 id="logging-1"><a class="header" href="#logging-1">Logging</a></h2>
 <p>The <code>c8y-configuration-plugin</code> reports progress and errors on its <code>stderr</code>.</p>
 <ul>
