@@ -1,0 +1,427 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Firmware Management - thin-edge.io docs</title>
+        <!-- Custom HTML head -->
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../././mdbook-admonish.css">
+        <link rel="stylesheet" href="../theme/pagetoc.css">
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item "><a href="../001_overview.html"><strong aria-hidden="true">1.</strong> Overview</a></li><li class="chapter-item "><a href="../tutorials/getting-started.html"><strong aria-hidden="true">2.</strong> Getting started</a></li><li class="chapter-item "><a href="../architecture/architecture.html"><strong aria-hidden="true">3.</strong> Concepts</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../architecture/faq.html"><strong aria-hidden="true">3.1.</strong> Architecture FAQ</a></li><li class="chapter-item "><a href="../architecture/thin-edge-json.html"><strong aria-hidden="true">3.2.</strong> Thin Edge Json</a></li><li class="chapter-item "><a href="../architecture/mapper.html"><strong aria-hidden="true">3.3.</strong> The Mapper</a></li><li class="chapter-item "><a href="../architecture/software-management.html"><strong aria-hidden="true">3.4.</strong> Software Management</a></li></ol></li><li class="chapter-item "><a href="../tutorials/tutorials.html"><strong aria-hidden="true">4.</strong> Tutorial</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../tutorials/connect-c8y.html"><strong aria-hidden="true">4.1.</strong> Connect my device to Cumulocity IoT</a></li><li class="chapter-item "><a href="../tutorials/connect-azure.html"><strong aria-hidden="true">4.2.</strong> Connect my device to Azure IoT</a></li><li class="chapter-item "><a href="../tutorials/connect-aws.html"><strong aria-hidden="true">4.3.</strong> Connect my device to AWS IoT</a></li><li class="chapter-item "><a href="../tutorials/send-thin-edge-data.html"><strong aria-hidden="true">4.4.</strong> Send measurements</a></li><li class="chapter-item "><a href="../tutorials/raise-alarm.html"><strong aria-hidden="true">4.5.</strong> Raise alarms</a></li><li class="chapter-item "><a href="../tutorials/send-events.html"><strong aria-hidden="true">4.6.</strong> Send events</a></li><li class="chapter-item "><a href="../tutorials/device-monitoring.html"><strong aria-hidden="true">4.7.</strong> Monitor my device</a></li><li class="chapter-item "><a href="../tutorials/software-management.html"><strong aria-hidden="true">4.8.</strong> Manage my device software</a></li><li class="chapter-item "><a href="../tutorials/child-device-config-management.html"><strong aria-hidden="true">4.9.</strong> Configuration management on child-devices</a></li><li class="chapter-item "><a href="../tutorials/supported_operations.html"><strong aria-hidden="true">4.10.</strong> Supported Operations Management for Cumulocity IoT</a></li><li class="chapter-item "><a href="../tutorials/write-my-software-management-plugin.html"><strong aria-hidden="true">4.11.</strong> Write my software management plugin</a></li><li class="chapter-item "><a href="../tutorials/yocto-linux.html"><strong aria-hidden="true">4.12.</strong> Build Thin Edge for a Yocto Linux distribution</a></li></ol></li><li class="chapter-item "><a href="../howto-guides/howto-guides.html"><strong aria-hidden="true">5.</strong> How-to Guides</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../howto-guides/002_installation.html"><strong aria-hidden="true">5.1.</strong> How to install thin-edge.io?</a></li><li class="chapter-item "><a href="../howto-guides/015_installation_without_deb_support.html"><strong aria-hidden="true">5.2.</strong> How to install thin-edge.io on any Linux OS (no deb support)?</a></li><li class="chapter-item "><a href="../howto-guides/026_how_to_install_thin_edge_manually.html"><strong aria-hidden="true">5.3.</strong> How to install thin-edge manually with openrc</a></li><li class="chapter-item "><a href="../howto-guides/012_install_and_enable_software_management.html"><strong aria-hidden="true">5.4.</strong> How to install and enable software management?</a></li><li class="chapter-item "><a href="../howto-guides/006_config.html"><strong aria-hidden="true">5.5.</strong> How to configure thin-edge.io?</a></li><li class="chapter-item "><a href="../howto-guides/008_config_local_mqtt_bind_address_and_port.html"><strong aria-hidden="true">5.6.</strong> How to configure the local mqtt bind address and port?</a></li><li class="chapter-item "><a href="../howto-guides/010_add_self_signed_trusted.html"><strong aria-hidden="true">5.7.</strong> How to add self-signed certificate root to trusted certificates list?</a></li><li class="chapter-item "><a href="../howto-guides/019_how_to_use_preferred_init_system.html"><strong aria-hidden="true">5.8.</strong> How to use thin-edge.io with your preferred init system</a></li><li class="chapter-item "><a href="../howto-guides/021_enable_tedge_watchdog_using_systemd.html"><strong aria-hidden="true">5.9.</strong> How to enable watchdog using systemd?</a></li><li class="chapter-item "><a href="../howto-guides/018_update_config_paths.html"><strong aria-hidden="true">5.10.</strong> How to change temp path</a></li><li class="chapter-item "><a href="../howto-guides/003_registration.html"><strong aria-hidden="true">5.11.</strong> How to create a test certificate?</a></li><li class="chapter-item "><a href="../howto-guides/004_connect.html"><strong aria-hidden="true">5.12.</strong> How to connect a cloud end-point?</a></li><li class="chapter-item "><a href="../howto-guides/007_test_connection.html"><strong aria-hidden="true">5.13.</strong> How to test the cloud connection?</a></li><li class="chapter-item "><a href="../howto-guides/014_thin_edge_logs.html"><strong aria-hidden="true">5.14.</strong> How to access the logs on the device?</a></li><li class="chapter-item "><a href="../howto-guides/016_restart_device_operation.html"><strong aria-hidden="true">5.15.</strong> How to restart your thin-edge.io device</a></li><li class="chapter-item "><a href="../howto-guides/005_pub_sub.html"><strong aria-hidden="true">5.16.</strong> How to use tedge mqtt module?</a></li><li class="chapter-item "><a href="../howto-guides/013_connect_external_device.html"><strong aria-hidden="true">5.17.</strong> How to connect an external device?</a></li><li class="chapter-item "><a href="../howto-guides/020_monitor_tedge_health.html"><strong aria-hidden="true">5.18.</strong> How to monitor health of tedge daemons</a></li><li class="chapter-item "><a href="../howto-guides/009_trouble_shooting_monitoring.html"><strong aria-hidden="true">5.19.</strong> How to trouble shoot device monitoring?</a></li><li class="chapter-item "><a href="../howto-guides/022_c8y_fragments.html"><strong aria-hidden="true">5.20.</strong> How to add custom fragments to Cumulocity</a></li><li class="chapter-item "><a href="../howto-guides/023_c8y_log_plugin.html"><strong aria-hidden="true">5.21.</strong> How to retrieve logs with the log plugin</a></li><li class="chapter-item "><a href="../howto-guides/024_smartrest_templates.html"><strong aria-hidden="true">5.22.</strong> How to add C8Y SmartRest Templates</a></li><li class="chapter-item "><a href="../howto-guides/025_config_management_plugin.html"><strong aria-hidden="true">5.23.</strong> How to manage configuration files with Cumulocity</a></li><li class="chapter-item "><a href="../howto-guides/child_device_config_management_agent.html"><strong aria-hidden="true">5.24.</strong> How to enable configuration management on child devices</a></li><li class="chapter-item "><a href="../howto-guides/child_device_firmware_management.html"><strong aria-hidden="true">5.25.</strong> How to enable firmware management on child devices</a></li><li class="chapter-item "><a href="../howto-guides/027_remote_access_with_cumulocity.html"><strong aria-hidden="true">5.26.</strong> How to remotely connect to your thin-edge.io device via SSH/VNC/Telnet with Cumulocity remote access</a></li><li class="chapter-item "><a href="../howto-guides/028_c8y_service_monitoring.html"><strong aria-hidden="true">5.27.</strong> How to monitor a service from Cumulocity</a></li><li class="chapter-item "><a href="../howto-guides/017_apama_software_management_plugin.html"><strong aria-hidden="true">5.28.</strong> How to manage Apama software artifacts with Apama plugin?</a></li><li class="chapter-item "><a href="../howto-guides/011_retrieve_jwt_token_from_cumulocity.html"><strong aria-hidden="true">5.29.</strong> How to retrieve JWT token from Cumulocity?</a></li><li class="chapter-item "><a href="../howto-guides/029_mqtt_local_broker_authentication.html"><strong aria-hidden="true">5.30.</strong> How to set up client/server authentication for the local MQTT broker</a></li></ol></li><li class="chapter-item expanded "><a href="../references/references.html"><strong aria-hidden="true">6.</strong> Reference</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../supported-platforms.html"><strong aria-hidden="true">6.1.</strong> Supported platforms</a></li><li class="chapter-item "><a href="../references/thin-edge-config-files.html"><strong aria-hidden="true">6.2.</strong> Thin-edge.io configuration files</a></li><li class="chapter-item "><a href="../references/bridged-topics.html"><strong aria-hidden="true">6.3.</strong> MQTT bridge configuration</a></li><li class="chapter-item "><a href="../references/init-system-config.html"><strong aria-hidden="true">6.4.</strong> Init System Configuration File</a></li><li class="chapter-item "><a href="../references/tedge.html"><strong aria-hidden="true">6.5.</strong> tedge command</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../references/tedge-cert.html"><strong aria-hidden="true">6.5.1.</strong> tedge cert command</a></li><li class="chapter-item "><a href="../references/tedge-config.html"><strong aria-hidden="true">6.5.2.</strong> tedge config command</a></li><li class="chapter-item "><a href="../references/tedge-connect.html"><strong aria-hidden="true">6.5.3.</strong> tedge connect command</a></li><li class="chapter-item "><a href="../references/tedge-disconnect.html"><strong aria-hidden="true">6.5.4.</strong> tedge disconnect command</a></li><li class="chapter-item "><a href="../references/tedge-mqtt.html"><strong aria-hidden="true">6.5.5.</strong> tedge mqtt command</a></li></ol></li><li class="chapter-item "><a href="../architecture/domain-model.html"><strong aria-hidden="true">6.6.</strong> Domain Model</a></li><li class="chapter-item "><a href="../architecture/data-model.html"><strong aria-hidden="true">6.7.</strong> Data Model</a></li><li class="chapter-item "><a href="../BUILDING.html"><strong aria-hidden="true">6.8.</strong> Building</a></li><li class="chapter-item "><a href="../references/plugin-api.html"><strong aria-hidden="true">6.9.</strong> Plugin API</a></li><li class="chapter-item "><a href="../references/c8y-log-management.html"><strong aria-hidden="true">6.10.</strong> Log Management</a></li><li class="chapter-item "><a href="../references/c8y-configuration-management.html"><strong aria-hidden="true">6.11.</strong> Configuration Management</a></li><li class="chapter-item expanded "><a href="../references/c8y-firmware-management.html" class="active"><strong aria-hidden="true">6.12.</strong> Firmware Management</a></li><li class="chapter-item "><a href="../references/tedge-file-transfer-service.html"><strong aria-hidden="true">6.13.</strong> Thin Edge File Transfer Service</a></li></ol></li><li class="chapter-item "><a href="../SUMMARY.html"><strong aria-hidden="true">7.</strong> Index</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">thin-edge.io docs</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <h1 id="device-firmware-management-using-cumulocity"><a class="header" href="#device-firmware-management-using-cumulocity">Device Firmware Management using Cumulocity</a></h1>
+<p>Thin-edge provides an operation plugin to
+<a href="https://cumulocity.com/guides/users-guide/device-management/#firmware-repo">manage device firmware using Cumulocity</a>.
+Firmware management is currently supported only for child devices and not for the main tedge device.</p>
+<ul>
+<li>The firmware update operations are defined and triggered from Cumulocity</li>
+<li>Thin-edge acts as the proxy between Cumulocity and the child device
+facilitating the routing of firmware update requests as well as the transfer of firmware binary files from cloud to the device.</li>
+<li>Updating the firmware of a device is done by some device specific firmware management software.
+Since thin-edge can not directly interact with that piece of software over whatever third-party protocol it supports,
+an additional piece of software, referred to as <code>child-device-connector</code> in the rest of this doc,
+must be developed by the child device admin to perform the actual installation itself, in coordination with thin-edge.</li>
+<li>The <code>child-device-connector</code> may be installed directly on the child device or alongside thin-edge as well,
+as long as it can  access the HTTP and MQTT APIs of thin-edge interact with the child device directly.</li>
+</ul>
+<p>This document describes:</p>
+<ul>
+<li>how to install, configure and use the <code>c8y-firmware-plugin</code></li>
+<li>how to implement a <code>child-device-connector</code> following the protocol of <code>c8y-firmware-plugin</code></li>
+</ul>
+<h2 id="installation"><a class="header" href="#installation">Installation</a></h2>
+<p>The plugin will be installed at <code>/usr/bin/c8y-firmware-plugin</code> by the debian package.
+The systemd service definition files for the plugin are also installed at <code>/lib/systemd/system/c8y-firmware-plugin.service</code>.</p>
+<p>No operations files are created under <code>/etc/tedge/operations/c8y/</code>
+as this plugin doesn't support firmware updates for the tedge device.
+Operation files for child devices must be created as part of their bootstrap process, which is explained later.</p>
+<h2 id="configuration"><a class="header" href="#configuration">Configuration</a></h2>
+<p>The plugin supports a single tedge configuration named <code>firmware.child.update.timeout</code>,
+that defines the amount of time the plugin wait for a child device to finish a firmware update once the request is delivered.
+The default timeout value (in seconds) is <code>3600</code> and can be updated with:</p>
+<pre><code class="language-shell">sudo tedge config set firmware.child.update.timeout &lt;value_in_seconds&gt;
+</code></pre>
+<h2 id="usage"><a class="header" href="#usage">Usage</a></h2>
+<pre><code class="language-shell">c8y-firmware-plugin --help
+</code></pre>
+<pre><code class="language-shell"></code></pre>
+<p>The <code>c8y-firmware-plugin</code> has to be run as a daemon on the device.
+On systemd supported OSes, it can be run as a daemon service as follows:</p>
+<pre><code class="language-shell">systemctl start c8y-firmware-plugin
+systemctl enable c8y-firmware-plugin
+</code></pre>
+<h2 id="firmware-update-protocol-between-thin-edge-and-the-child-devices"><a class="header" href="#firmware-update-protocol-between-thin-edge-and-the-child-devices">Firmware update protocol between thin-edge and the child-devices</a></h2>
+<p>The plugin manages the download and delivery of firmware files for child-devices connected to the thin-edge device,
+acting as a proxy between the cloud and the child-devices.
+The firmware updates are downloaded from the cloud on the thin-edge device then made available to the child-devices over HTTP.
+The child devices are notified of incoming firmware update requests via MQTT.
+The <code>child-device-connector</code> has to subscribe to these MQTT messages, download the firmware files via HTTP,
+and notify the firmware plugin of the firmware update progress via MQTT.</p>
+<ul>
+<li>The responsibilities of the plugin are:
+<ul>
+<li>to download the firmware files pushed from the cloud, caching it to be shared with child devices</li>
+<li>to handle network failures during the download even on flaky networks</li>
+<li>to publish the downloaded firmware files over a local HTTP server and make them available to the child-devices,</li>
+<li>to notify the child-devices when firmware updates are available,</li>
+<li>to receive forward the firmware update status updates from the child devices to the cloud</li>
+</ul>
+</li>
+<li>By contrast, the plugin is not responsible for:
+<ul>
+<li>checking the integrity of the downloaded file which is a third-party binary</li>
+<li>installing the firmware files on the child-devices.</li>
+</ul>
+</li>
+<li>The <code>child-device-connector</code> is required to listen for firmware update related MQTT notifications from the plugin
+and behave accordingly along the protocol defined by this plugin.
+<ul>
+<li>Being specific to each type of child device based on its device specific protocol for applying a firmware update.</li>
+<li>This software can be installed on the child device.</li>
+<li>This software can also be installed on the main device,
+when the target device cannot be altered or connected to the main device over MQTT and HTTP.</li>
+</ul>
+</li>
+</ul>
+<h3 id="child-device-connector-connecting-to-thin-edge-device"><a class="header" href="#child-device-connector-connecting-to-thin-edge-device">Child device connector connecting to thin-edge device</a></h3>
+<p>The <code>child-device-connector</code> is responsible for handling the firmware update requests sent by the thin-edge
+and translating it to the relevant 3rd-party device specific API to install the firmware on that device.
+The <code>child-device-connector</code> interacts with thin-edge over its MQTT and HTTP APIs.
+In cases where the child device connector is installed alongside thin-edge on the same device,
+these APIs can be accessed via a local IP or even <code>127.0.0.1</code>.
+The MQTT APIs are exposed via port 1883 and the HTTP APIs are exposed via port 8000, by default.
+When the child device connector is running directly on the external child device,
+the MQTT and HTTP APIs of thin-edge need to be accessed over the network using its IP address and ports,
+which are configured using the tedge config settings <code>mqtt.client.host</code> or <code>mqtt.client.port</code> for MQTT
+and <code>http.address</code> and <code>http.port</code> for HTTP.</p>
+<h3 id="child-devices-declaring-firmware-management-support"><a class="header" href="#child-devices-declaring-firmware-management-support">Child devices declaring firmware management support</a></h3>
+<p>For child devices, the operation files must be created under <code>/etc/tedge/operations/c8y/$CHILD_DEVICE_ID</code>,
+where <code>$CHILD_DEVICE_ID</code> should be replaced with the child's identity.
+These files are not created by the plugin itself, but must be created by the child device connector or
+by any other means for each child device as follows:</p>
+<pre><code class="language-shell">$ tree /etc/tedge/operations/c8y
+/etc/tedge/operations/c8y
+|-- child-1
+|   |-- c8y_Firmware
+|-- child-2
+    |-- c8y_Firmware
+</code></pre>
+<p>The Cumulocity mapper will detect the creation of these child device operation files
+and report them as supported operations for those child devices.</p>
+<h3 id="the-child-device-connector-handling-firmware-update-requests-from-thin-edge-device"><a class="header" href="#the-child-device-connector-handling-firmware-update-requests-from-thin-edge-device">The child device connector handling firmware update requests from thin-edge device</a></h3>
+<p>When the plugin receives a firmware update request file for a child device,
+it downloads the firmware file, caches it to be reused on other child devices as well
+and exposes it to the child device via its file-transfer service. 
+It also notifies the cloud on the progress of this firmware update operation
+as and when it gets status updates from the child device.</p>
+<p>The following diagram captures the required interactions between all relevant parties:</p>
+<pre class="mermaid">sequenceDiagram
+    participant C8Y Cloud
+    participant C8Y Firmware Plugin
+    participant Tedge Agent
+    participant Child Device Connector
+    
+
+        C8Y Cloud-&gt;&gt;C8Y Firmware Plugin: MQTT: c8y_Firmware request with `child-id` and `c8y.url` for the updated firmware file
+        C8Y Firmware Plugin-&gt;&gt;C8Y Cloud: Download the firmware file from `c8y.url` to firmware cache
+        C8Y Firmware Plugin-&gt;&gt;Tedge Agent: Symlink the cached firmware file to file-transfer repository and generate a `tedge.url` for it
+        C8Y Firmware Plugin-&gt;&gt;Child Device Connector: MQTT: firmware_update request to `child-id` with `tedge.url`
+
+        Child Device Connector -&gt;&gt; C8Y Firmware Plugin: MQTT: firmware_update response with operation status: &quot;executing&quot; 
+        C8Y Firmware Plugin -&gt;&gt; C8Y Cloud: MQTT: Update c8y_Firmware operation status to &quot;EXECUTING&quot;
+        Child Device Connector-&gt;&gt;Tedge Agent: HTTP: Download the firmware file from `tedge.url`
+        Child Device Connector-&gt;&gt;Child Device Connector: Apply downloaded firmware file
+        Child Device Connector -&gt;&gt; C8Y Firmware Plugin: MQTT: firmware_update response with operation status: &quot;successful&quot; 
+
+        C8Y Firmware Plugin -&gt;&gt; C8Y Cloud: MQTT: Update c8y_Firmware operation status to &quot;SUCCESSFUL&quot;
+        C8Y Firmware Plugin -&gt;&gt; C8Y Firmware Plugin: Remove the symlink from file-transfer repository but keep the cached firmware copy for reuse
+</pre>
+<p>The following keywords are used in the following section for brevity:</p>
+<ul>
+<li><code>TEDGE_DATA_PATH</code>: The path set by tedge config <code>data.path</code>. Default: <code>/var/tedge</code></li>
+<li><code>TEDGE_TMP_PATH</code>: The path set by tedge config <code>tmp.path</code>. Default: <code>/tmp</code></li>
+<li><code>FIRMWARE_CACHE_PATH</code>: <code>$TEDGE_DATA_PATH/cache</code></li>
+<li><code>FIRMWARE_OP_PATH</code>: <code>$TEDGE_DATA_PATH/firmware</code></li>
+<li><code>FILE_TRANSFER_REPO</code>: <code>$TEDGE_DATA_PATH/file-transfer</code></li>
+<li><code>TEDGE_HTTP_ADDRESS</code>: The combination of tedge configs <code>http.address</code>:<code>http.port</code></li>
+<li><code>OP_ID</code>: An operation ID</li>
+<li><code>FILE_ID</code>: A firmware file id derived from the SHA-256 digest of the firmware url</li>
+</ul>
+<ol>
+<li>The plugin, on reception of a <code>c8y_Firmware</code> request from Cumulocity for a child device named <code>$CHILD_DEVICE_ID</code>
+in the SmartREST format <code>515,$CHILD_DEVICE_ID,$FIRMWARE_NAME,$FIRMWARE_VERSION,$FIRMWARE_URL</code>
+<ol>
+<li>Validate if the same firmware update operation is already in progress
+by iterating over all the operation files in the <code>$FIRMWARE_OP_PATH</code> directory.
+The operation files contains the last <code>firmware_update</code> request's JSON payload along with the <code>device</code> ID.
+If an operation file with the <code>child_id</code> id, <code>name</code>, <code>version</code> and <code>url</code> fields matching
+the incoming <code>$FIRMWARE_NAME</code>,<code>$FIRMWARE_VERSION</code> and <code>$FIRMWARE_URL</code> is found,
+the same request is re-sent to the child device by just incrementing the <code>attempt</code> count value.
+The operation file content is also overwritten the with updated <code>attempt</code> count. </li>
+<li>If a pending operation match is not found, do a look up if the firmware file for the given url already exists
+in its firmware cache at <code>$FIRMWARE_CACHE_PATH</code>.
+The file name for the lookup is derived from the SHA-256 digest of the firmware url.</li>
+<li>If a cached copy is not found in the firmware cache, the plugin downloads the firmware file from the <code>url</code>
+to <code>$FIRMWARE_CACHE_PATH</code> with the name derived from the SHA-256 digest of the firmware url.
+If a cached firmware copy is found, downloading is skipped.</li>
+<li>Create an operation file at <code>$FIRMWARE_OP_PATH/$OP_ID</code>
+with a JSON record containing the following fields:
+<ul>
+<li><code>operation_id</code>: A unique id generated by the plugin</li>
+<li><code>child_id</code>: The child device ID received in the cloud request</li>
+<li><code>name</code>: Name of the firmware received in the cloud request</li>
+<li><code>version</code>: Version of the firmware received in the cloud request</li>
+<li><code>server_url</code>: The firmware URL received in the cloud request</li>
+<li><code>tedge_url</code>: The file-transfer service entry URL for the downloaded firmware file (<code>http://$TEDGE_HTTP_ADDRESS/tedge/file-transfer/$CHILD_DEVICE_ID/firmware_update/$FILE_ID</code>)</li>
+<li><code>sha256</code>: The SHA-256 checksum of the firmware file served via the <code>tedge_url</code></li>
+<li><code>attempt</code>: The count that indicates if this request is being resent or not, with an initial value of <code>1</code></li>
+</ul>
+</li>
+<li>After creating the operation file, do a look up if the firmware file for the given url already exists</li>
+</ol>
+</li>
+<li>The cached firmware file is published via the file-transfer repository of <code>tedge-agent</code> 
+by creating a symlink to the cached firmware file is created in the file-transfer repository at
+<code>$FILE_TRANSFER_REPO/$CHILD_DEVICE_ID/firmware_update/$FILE_ID</code> making this file available via
+the HTTP endpoint: <code>http://$TEDGE_HTTP_ADDRESS/tedge/file-transfer/$CHILD_DEVICE_ID/firmware_update/$FILE_ID</code>.</li>
+<li>Once the updated firmware file is published via the HTTP file transfer service,
+the plugin send the <code>firmware_update</code> request to the child device connector by publishing an MQTT message:
+<ul>
+<li>Topic: <code>tedge/$CHILD_DEVICE_ID/commands/req/firmware_update</code></li>
+<li>The payload is a JSON record with the following fields
+<ul>
+<li><code>id</code>: A unique id generated by the plugin</li>
+<li><code>name</code>: Name of the firmware received in the cloud request</li>
+<li><code>version</code>: Version of the firmware received in the cloud request</li>
+<li><code>url</code>: The file-transfer service entry URL(<code>http://$TEDGE_HTTP_ADDRESS/tedge/file-transfer/$CHILD_DEVICE_ID/firmware_update/$FILE_ID</code>)</li>
+<li><code>sha256</code>: The SHA-256 checksum of the firmware file served via the <code>url</code></li>
+<li><code>attempt</code>: The count that indicates if this request is being resent or not, starting from <code>1</code> for the original request</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>On reception of the firmware update request on the topic <code>tedge/$CHILD_DEVICE_ID/commands/req/firmware_update</code>,
+the child device connector is expected to do the following:
+<ol>
+<li>Send an acknowledgement of the receipt of the request by sending an executing status message via MQTT:
+<ul>
+<li>Topic: <code>tedge/$CHILD_DEVICE_ID/commands/res/firmware_update</code></li>
+<li>Payload must be a JSON record with the following fields
+<ul>
+<li><code>id</code>: The <code>id</code> of the request</li>
+<li><code>status</code>: &quot;executing&quot;</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>GET</code>s the firmware file from the <code>url</code> specified by the notification message.</li>
+<li>Validate the integrity of the downloaded binary by matching its SHA-256 hash value
+against the <code>sha256</code> checksum value received in the request.</li>
+<li>Apply the downloaded firmware file update on the device using whatever device specific protocol.</li>
+</ol>
+</li>
+<li>After applying the update, send the final operation status update to thin-edge via MQTT:
+<ol>
+<li>Topic: <code>tedge/$CHILD_DEVICE_ID/commands/res/firmware_update</code></li>
+<li>The payload must be a JSON record with the following fields:
+<ul>
+<li><code>id</code>: The <code>id</code> of the request received</li>
+<li><code>status</code>: <code>successful</code> or <code>failed</code> based on the result of updating the firmware</li>
+<li><code>reason</code>: The reason for the failure, applicable only for <code>failed</code> status.</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>On reception of an operation status message, the plugin maps it to SmartREST and forwards it to the cloud.
+<ul>
+<li>When a <code>successful</code> or <code>failed</code> status message is finally received,
+then the plugin cleans up the corresponding operation file at <code>$FIRMWARE_OP_PATH/$OP_ID</code> and
+the firmware file entry in the file transfer repository at <code>$FILE_TRANSFER_REPO/$CHILD_DEVICE_ID/firmware_update/$FILE_ID</code>.</li>
+<li>If a notification message is received while none is expected,
+i.e with an operation <code>id</code> that doesn't exist at <code>$TEDGE_DATA_PATH/firmware/&lt;id&gt;</code>,
+then this notification message is deemed stale and ignored.</li>
+</ul>
+</li>
+</ol>
+<h2 id="logging"><a class="header" href="#logging">Logging</a></h2>
+<p>The plugin logs its progress and errors on to its <code>stderr</code>.</p>
+<p>The following details are logged:</p>
+<ul>
+<li>All the <code>c8y_Firmware</code> requests received from Cumulocity</li>
+<li>All the mapped <code>firmware_update</code> requests sent to each child device</li>
+<li>The <code>firmware_update</code> responses received from the chold devices</li>
+<li>All errors are reported with the operation context</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../references/c8y-configuration-management.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../references/tedge-file-transfer-service.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../references/c8y-configuration-management.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../references/tedge-file-transfer-service.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../mermaid.min.js"></script>
+        <script src="../mermaid-init.js"></script>
+        <script src="../theme/pagetoc.js"></script>
+    </div>
+    </body>
+</html>
