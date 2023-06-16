@@ -2594,12 +2594,24 @@ Let's create the operation configuration file:</p>
 </div>
 <p>In this example we want <code>thin-edge.io</code> to pick up a message on specific topic and execute the command on the device, our topic is <code>c8y/s/ds</code>.
 We also know that the message we expect is going to use SmartRest template <code>511</code> and our plugin is located in <code>/etc/tedge/operations/command</code>.
-Then we need to add the configuration to the file (<code>/etc/tedge/operations/c8y/c8y_Command</code>):</p>
+The operation is configured to <code>timeout</code> after 10 seconds, to avoid it from running for too long/forever.</p>
+<p>Then we need to add the configuration to the file (<code>/etc/tedge/operations/c8y/c8y_Command</code>):</p>
 <pre><code class="language-toml">[exec]
   topic = &quot;c8y/s/ds&quot;
   on_message = &quot;511&quot;
   command = &quot;/etc/tedge/operations/command&quot;
+  timeout = 10
 </code></pre>
+<div id="admonition-note-2" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="tutorials/supported_operations.html#admonition-note-2"></a></p>
+</div>
+<div>
+<p>The <code>timeout</code> that is configured will be in seconds. If a custom operation is not configured with a <code>timeout</code> value, then it will use default <code>timeout</code>,.i.e. 3600 seconds.
+If the operation does not complete within that specified <code>timeout</code> period, then the operation will be stopped/killed, and marked as failed in the cloud.</p>
+</div>
+</div>
 <p>And now the content of our command plugin:</p>
 <pre><code class="language-shell">#!/bin/bash
 # Parse the smart rest message, ignore the first two field, and everything afterwards is the command
@@ -2622,10 +2634,10 @@ exit &quot;$EXIT_CODE&quot;
 <p>This simple example will parse the third field of the received SmartREST message and execute the command.
 If it exits with the status code <code>0</code>, a successful message with the stdout content will be reported to Cumulocity.
 If it exits with a non-zero code, a failure message with the stderr content will be sent out.</p>
-<div id="admonition-note-2" class="admonition note">
+<div id="admonition-note-3" class="admonition note">
 <div class="admonition-title">
 <p>Note</p>
-<p><a class="admonition-anchor-link" href="tutorials/supported_operations.html#admonition-note-2"></a></p>
+<p><a class="admonition-anchor-link" href="tutorials/supported_operations.html#admonition-note-3"></a></p>
 </div>
 <div>
 <p>The command will be executed with tedge-mapper permission level so most of the system level commands will not work.</p>
