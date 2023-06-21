@@ -1,0 +1,311 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Connect my device to AWS IoT - thin-edge.io docs</title>
+        <!-- Custom HTML head -->
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../././mdbook-admonish.css">
+        <link rel="stylesheet" href="../theme/pagetoc.css">
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item "><a href="../001_overview.html"><strong aria-hidden="true">1.</strong> Overview</a></li><li class="chapter-item expanded "><a href="../start/index.html"><strong aria-hidden="true">2.</strong> Getting started</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../start/getting-started.html"><strong aria-hidden="true">2.1.</strong> Getting started</a></li><li class="chapter-item "><a href="../start/connect-c8y.html"><strong aria-hidden="true">2.2.</strong> Connect my device to Cumulocity IoT</a></li><li class="chapter-item "><a href="../start/connect-azure.html"><strong aria-hidden="true">2.3.</strong> Connect my device to Azure IoT</a></li><li class="chapter-item expanded "><a href="../start/connect-aws.html" class="active"><strong aria-hidden="true">2.4.</strong> Connect my device to AWS IoT</a></li><li class="chapter-item "><a href="../start/send-thin-edge-data.html"><strong aria-hidden="true">2.5.</strong> Send measurements</a></li><li class="chapter-item "><a href="../start/raise-alarm.html"><strong aria-hidden="true">2.6.</strong> Raise alarms</a></li><li class="chapter-item "><a href="../start/send-events.html"><strong aria-hidden="true">2.7.</strong> Send events</a></li><li class="chapter-item "><a href="../start/device-monitoring.html"><strong aria-hidden="true">2.8.</strong> Monitor my device</a></li><li class="chapter-item "><a href="../start/software-management.html"><strong aria-hidden="true">2.9.</strong> Manage my device software</a></li></ol></li><li class="chapter-item "><a href="../understand/index.html"><strong aria-hidden="true">3.</strong> Concepts</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../understand/faq.html"><strong aria-hidden="true">3.1.</strong> Architecture FAQ</a></li><li class="chapter-item "><a href="../understand/thin-edge-json.html"><strong aria-hidden="true">3.2.</strong> Thin Edge Json</a></li><li class="chapter-item "><a href="../understand/mapper.html"><strong aria-hidden="true">3.3.</strong> The Mapper</a></li><li class="chapter-item "><a href="../understand/software-management.html"><strong aria-hidden="true">3.4.</strong> Software Management</a></li></ol></li><li class="chapter-item "><a href="../operate/index.html"><strong aria-hidden="true">4.</strong> Operate devices</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../operate/installation/index.html"><strong aria-hidden="true">4.1.</strong> Installation</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../operate/installation/002_installation.html"><strong aria-hidden="true">4.1.1.</strong> How to install thin-edge.io?</a></li><li class="chapter-item "><a href="../operate/installation/015_installation_without_deb_support.html"><strong aria-hidden="true">4.1.2.</strong> How to install thin-edge.io on any Linux OS (no deb support)?</a></li><li class="chapter-item "><a href="../operate/installation/026_how_to_install_thin_edge_manually.html"><strong aria-hidden="true">4.1.3.</strong> How to install thin-edge manually with openrc</a></li><li class="chapter-item "><a href="../operate/installation/012_install_and_enable_software_management.html"><strong aria-hidden="true">4.1.4.</strong> How to install and enable software management?</a></li></ol></li><li class="chapter-item "><a href="../operate/configuration/index.html"><strong aria-hidden="true">4.2.</strong> Configuration</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../operate/configuration/006_config.html"><strong aria-hidden="true">4.2.1.</strong> How to configure thin-edge.io?</a></li><li class="chapter-item "><a href="../operate/configuration/008_config_local_mqtt_bind_address_and_port.html"><strong aria-hidden="true">4.2.2.</strong> How to configure the local mqtt bind address and port?</a></li><li class="chapter-item "><a href="../operate/configuration/019_how_to_use_preferred_init_system.html"><strong aria-hidden="true">4.2.3.</strong> How to use thin-edge.io with your preferred init system</a></li><li class="chapter-item "><a href="../operate/configuration/018_update_config_paths.html"><strong aria-hidden="true">4.2.4.</strong> How to change temp path?</a></li><li class="chapter-item "><a href="../operate/configuration/child-device-config-management.html"><strong aria-hidden="true">4.2.5.</strong> Configuration management on child-devices</a></li></ol></li><li class="chapter-item "><a href="../operate/security/index.html"><strong aria-hidden="true">4.3.</strong> Security and Access Control</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../operate/security/003_registration.html"><strong aria-hidden="true">4.3.1.</strong> How to create a test certificate?</a></li><li class="chapter-item "><a href="../operate/security/010_add_self_signed_trusted.html"><strong aria-hidden="true">4.3.2.</strong> How to add self-signed certificate root to trusted certificates list?</a></li><li class="chapter-item "><a href="../operate/security/029_mqtt_local_broker_authentication.html"><strong aria-hidden="true">4.3.3.</strong> How to set up client/server authentication for the local MQTT broker</a></li></ol></li><li class="chapter-item "><a href="../operate/connection/index.html"><strong aria-hidden="true">4.4.</strong> Connection to cloud</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../operate/connection/004_connect.html"><strong aria-hidden="true">4.4.1.</strong> How to connect cloud end-point?</a></li></ol></li><li class="chapter-item "><a href="../operate/telemetry/index.html"><strong aria-hidden="true">4.5.</strong> Processing Telemetry Data</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../operate/telemetry/005_pub_sub.html"><strong aria-hidden="true">4.5.1.</strong> How to use tedge mqtt?</a></li></ol></li><li class="chapter-item "><a href="../operate/operations/index.html"><strong aria-hidden="true">4.6.</strong> Operations</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../operate/operations/016_restart_device_operation.html"><strong aria-hidden="true">4.6.1.</strong> How to restart your thin-edge.io device</a></li></ol></li><li class="chapter-item "><a href="../operate/monitoring/index.html"><strong aria-hidden="true">4.7.</strong> Monitoring</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../operate/monitoring/021_enable_tedge_watchdog_using_systemd.html"><strong aria-hidden="true">4.7.1.</strong> How to enable watchdog using systemd?</a></li><li class="chapter-item "><a href="../operate/monitoring/013_connect_external_device.html"><strong aria-hidden="true">4.7.2.</strong> How to connect an external device?</a></li></ol></li><li class="chapter-item "><a href="../operate/troubleshooting/index.html"><strong aria-hidden="true">4.8.</strong> Troubleshooting</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../operate/troubleshooting/007_test_connection.html"><strong aria-hidden="true">4.8.1.</strong> How to test the cloud connection?</a></li><li class="chapter-item "><a href="../operate/troubleshooting/014_thin_edge_logs.html"><strong aria-hidden="true">4.8.2.</strong> How to access the logs on the device?</a></li><li class="chapter-item "><a href="../operate/troubleshooting/020_monitor_tedge_health.html"><strong aria-hidden="true">4.8.3.</strong> How to monitor health of tedge daemons</a></li><li class="chapter-item "><a href="../operate/troubleshooting/009_trouble_shooting_monitoring.html"><strong aria-hidden="true">4.8.4.</strong> How to trouble shoot device monitoring?</a></li></ol></li><li class="chapter-item "><a href="../operate/c8y/index.html"><strong aria-hidden="true">4.9.</strong> Device Management with Cumulocity</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../operate/c8y/supported_operations.html"><strong aria-hidden="true">4.9.1.</strong> Supported Operations Management for Cumulocity IoT</a></li><li class="chapter-item "><a href="../operate/c8y/022_c8y_fragments.html"><strong aria-hidden="true">4.9.2.</strong> How to add custom fragments to Cumulocity</a></li><li class="chapter-item "><a href="../operate/c8y/023_c8y_log_plugin.html"><strong aria-hidden="true">4.9.3.</strong> How to retrieve logs with the log plugin</a></li><li class="chapter-item "><a href="../operate/c8y/024_smartrest_templates.html"><strong aria-hidden="true">4.9.4.</strong> How to add C8Y SmartRest Templates</a></li><li class="chapter-item "><a href="../operate/c8y/025_config_management_plugin.html"><strong aria-hidden="true">4.9.5.</strong> How to manage configuration files with Cumulocity</a></li><li class="chapter-item "><a href="../operate/c8y/child_device_config_management_agent.html"><strong aria-hidden="true">4.9.6.</strong> How to enable configuration management on child devices</a></li><li class="chapter-item "><a href="../operate/c8y/child_device_firmware_management.html"><strong aria-hidden="true">4.9.7.</strong> How to enable firmware management on child devices</a></li><li class="chapter-item "><a href="../operate/c8y/027_remote_access_with_cumulocity.html"><strong aria-hidden="true">4.9.8.</strong> How to remotely connect to your thin-edge.io device via SSH/VNC/Telnet with Cumulocity remote access</a></li><li class="chapter-item "><a href="../operate/c8y/028_c8y_service_monitoring.html"><strong aria-hidden="true">4.9.9.</strong> How to monitor a service from Cumulocity</a></li><li class="chapter-item "><a href="../operate/c8y/017_apama_software_management_plugin.html"><strong aria-hidden="true">4.9.10.</strong> How to manage Apama software artifacts with Apama plugin?</a></li><li class="chapter-item "><a href="../operate/c8y/011_retrieve_jwt_token_from_cumulocity.html"><strong aria-hidden="true">4.9.11.</strong> How to retrieve JWT token from Cumulocity?</a></li></ol></li></ol></li><li class="chapter-item "><a href="../extend/index.html"><strong aria-hidden="true">5.</strong> Extend thin-edge</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../extend/write-my-software-management-plugin.html"><strong aria-hidden="true">5.1.</strong> Write my software management plugin</a></li><li class="chapter-item "><a href="../extend/yocto-linux.html"><strong aria-hidden="true">5.2.</strong> Build Thin Edge for a Yocto Linux distribution</a></li></ol></li><li class="chapter-item "><a href="../contribute/index.html"><strong aria-hidden="true">6.</strong> Contribute to thin-edge</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../contribute/BUILDING.html"><strong aria-hidden="true">6.1.</strong> Building</a></li><li class="chapter-item "><a href="../contribute/DEV_CONTAINER.html"><strong aria-hidden="true">6.2.</strong> Using a dev container</a></li><li class="chapter-item "><a href="../contribute/DEBIAN_PACKAGE_HOSTING.html"><strong aria-hidden="true">6.3.</strong> Debian package hosting</a></li><li class="chapter-item "><a href="../contribute/INSTALLING_DOCKER.html"><strong aria-hidden="true">6.4.</strong> Installing Docker</a></li></ol></li><li class="chapter-item "><a href="../references/index.html"><strong aria-hidden="true">7.</strong> Reference</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../references/supported-platforms.html"><strong aria-hidden="true">7.1.</strong> Supported platforms</a></li><li class="chapter-item "><a href="../references/thin-edge-config-files.html"><strong aria-hidden="true">7.2.</strong> Thin-edge.io configuration files</a></li><li class="chapter-item "><a href="../references/bridged-topics.html"><strong aria-hidden="true">7.3.</strong> MQTT bridge configuration</a></li><li class="chapter-item "><a href="../references/init-system-config.html"><strong aria-hidden="true">7.4.</strong> Init System Configuration File</a></li><li class="chapter-item "><a href="../references/tedge.html"><strong aria-hidden="true">7.5.</strong> tedge command</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../references/tedge-cert.html"><strong aria-hidden="true">7.5.1.</strong> tedge cert command</a></li><li class="chapter-item "><a href="../references/tedge-config.html"><strong aria-hidden="true">7.5.2.</strong> tedge config command</a></li><li class="chapter-item "><a href="../references/tedge-connect.html"><strong aria-hidden="true">7.5.3.</strong> tedge connect command</a></li><li class="chapter-item "><a href="../references/tedge-disconnect.html"><strong aria-hidden="true">7.5.4.</strong> tedge disconnect command</a></li><li class="chapter-item "><a href="../references/tedge-mqtt.html"><strong aria-hidden="true">7.5.5.</strong> tedge mqtt command</a></li></ol></li><li class="chapter-item "><a href="../understand/domain-model.html"><strong aria-hidden="true">7.6.</strong> Domain Model</a></li><li class="chapter-item "><a href="../understand/data-model.html"><strong aria-hidden="true">7.7.</strong> Data Model</a></li><li class="chapter-item "><a href="../references/plugin-api.html"><strong aria-hidden="true">7.8.</strong> Plugin API</a></li><li class="chapter-item "><a href="../references/c8y-log-management.html"><strong aria-hidden="true">7.9.</strong> Log Management</a></li><li class="chapter-item "><a href="../references/c8y-configuration-management.html"><strong aria-hidden="true">7.10.</strong> Configuration Management</a></li><li class="chapter-item "><a href="../references/c8y-firmware-management.html"><strong aria-hidden="true">7.11.</strong> Firmware Management</a></li><li class="chapter-item "><a href="../references/tedge-file-transfer-service.html"><strong aria-hidden="true">7.12.</strong> Thin Edge File Transfer Service</a></li></ol></li><li class="chapter-item "><a href="../SUMMARY.html"><strong aria-hidden="true">8.</strong> Index</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">thin-edge.io docs</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <h1 id="connect-your-device-to-aws-iot"><a class="header" href="#connect-your-device-to-aws-iot">Connect your device to AWS IoT</a></h1>
+<p>The very first step to enable <strong>thin-edge.io</strong> is to connect your device to the cloud.</p>
+<ul>
+<li>This is a 10 minutes operation to be done only once.</li>
+<li>It establishes a permanent connection from your device to the cloud end-point.</li>
+<li>This connection is secure (encrypted over TLS), and the two peers are identified by x509 certificates.</li>
+<li>Sending data to the cloud will then be as simple as sending data locally.</li>
+</ul>
+<p>The focus is here on connecting the device to AWS IoT.
+See this <a href="connect-c8y.html">tutorial</a>, if you want to connect Cumulocity IoT instead.
+See this <a href="connect-azure.html">tutorial</a>, if you want to connect Azure IoT instead.</p>
+<p>Before you try to connect your device to AWS IoT, you need:</p>
+<ul>
+<li><a href="../operate/installation/002_installation.html">Install <code>thin-edge.io</code> on your device</a>.</li>
+</ul>
+<p>You can now use <a href="../references/tedge.html"><code>tedge</code> command</a> to:</p>
+<ul>
+<li><a href="connect-aws.html#create-the-certificate">create a certificate for your device</a>,</li>
+<li><a href="connect-aws.html#register-the-device-on-AWS">register the device on AWS IoT Hub</a>,</li>
+<li><a href="connect-aws.html#configure-the-device">configure the device</a>,</li>
+<li><a href="connect-aws.html#connect-the-device">connect the device</a>, and</li>
+<li><a href="#sending-your-first-telemetry-data">send your first telemetry data</a>.</li>
+</ul>
+<h2 id="create-the-certificate"><a class="header" href="#create-the-certificate">Create the certificate</a></h2>
+<p>The <code>tedge cert create</code> command creates a self-signed certificate which can be used for testing purpose.</p>
+<p>A single argument is required: an identifier for the device.
+This identifier will be used to uniquely identify your devices among others in your cloud tenant.
+This identifier will be also used as the Common Name (CN) of the certificate.
+Indeed, this certificate aims to authenticate that this device is the device with that identity.</p>
+<pre><code class="language-shell">sudo tedge cert create --device-id my-device
+</code></pre>
+<h2 id="show-certificate-details"><a class="header" href="#show-certificate-details">Show certificate details</a></h2>
+<p>You can then check the content of that certificate.</p>
+<pre><code class="language-shell">$ sudo tedge cert show
+Device certificate: /etc/tedge/device-certs/tedge-certificate.pem
+Subject: CN=my-device, O=Thin Edge, OU=Test Device
+Issuer: CN=my-device, O=Thin Edge, OU=Test Device
+Valid from: Tue, 09 Mar 2021 14:10:30 +0000
+Valid up to: Thu, 10 Mar 2022 14:10:30 +0000
+Thumbprint: 860218AD0A996004449521E2713C28F67B5EA580
+</code></pre>
+<p>You may notice that the issuer of this certificate is the device itself.
+This is a self-signed certificate.
+To use a certificate signed by your Certificate Authority,
+see the reference guide of <a href="../references/tedge-cert.html"><code>tedge cert</code></a>.</p>
+<h2 id="register-the-device-on-aws-iot-hub"><a class="header" href="#register-the-device-on-aws-iot-hub">Register the device on AWS IoT Hub</a></h2>
+<p>For a device to be trusted by AWS, one needs a device certificate and the <code>tedge cert create</code> command is the simplest way to get one.
+Also a policy needs to be attached to the device certificate in AWS IoT Core. AWS IoT Core policies determine what an
+authenticated identity can do (here the authenticated identity is the device being connected). More info on AWS IoT Core
+policies can be found <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-policies.html">here</a>.</p>
+<p>To create a new policy, head over to the AWS IoT Core and navigate to <em><strong>Security -&gt; Policies -&gt; Create policy -&gt; Policy properties -&gt; Policy name -&gt; Enter the name of your policy (e.g.tedge)</strong></em></p>
+<p>On the Policy statements tab click on <em><strong>JSON</strong></em> and enter the policy in the <em><strong>Policy document</strong></em> (an example policy can be found <a href="./aws-example-policy.json">here</a>) then click <em><strong>Create</strong></em></p>
+<p>In the AWS IoT Core, navigate to <em><strong>Manage -&gt; All devices -&gt; Things -&gt; Create things -&gt; Create Single thing -&gt; Next</strong></em>. Enter the Thing name which can be obtained from the device with: <code>tedge config get device.id</code></p>
+<p>In the Device Shadow section which allows connected devices to sync states with AWS choose <em><strong>Unnamed shadow (classic)</strong></em> and click <em><strong>Next</strong></em> and <em><strong>Configure device certificate - optional</strong></em> page opens.</p>
+<p>At <em><strong>Device certificate</strong></em> choose <em><strong>Use my certificate -&gt; CA is not registered with AWS IoT</strong></em> then <em><strong>Choose file</strong></em> and select your tedge-certificate.pem file, click on <em><strong>Open -&gt; Next</strong></em>.</p>
+<p>The last step needed is to attach previously created policy to your certificate, <em><strong>Attach policies to certificate -optional</strong></em> -&gt; Select your created policy <em><strong>-&gt; Create thing</strong></em>.</p>
+<h2 id="configure-the-device"><a class="header" href="#configure-the-device">Configure the device</a></h2>
+<p>To connect the device to the AWS IoT Hub, one needs to set the URL of the IoT Hub and the root certificate of the IoT
+Hub as below.</p>
+<p>Set the URL of your AWS IoT Hub.</p>
+<pre><code class="language-shell">sudo tedge config set aws.url [your-aws-url.com]
+</code></pre>
+<p>The URL is unique to the AWS account and region that is used, and can be found in the AWS IoT Core by navigating to
+&quot;Settings&quot;. It will be listed under &quot;Device data endpoint&quot; (e.g. <code>a2e8ahbpo21syc.iot.eu-central-1.amazonaws.com</code>)</p>
+<p>Set the path to the root certificate if necessary. The default is <code>/etc/ssl/certs</code>.</p>
+<pre><code class="language-shell">sudo tedge config set aws.root_cert_path /etc/ssl/certs/AmazonRootCA1.pem
+</code></pre>
+<p>This will set the root certificate path of the AWS IoT Hub. In most of the Linux flavors, the certificate will be
+present in /etc/ssl/certs. If not found download it from
+<a href="https://docs.aws.amazon.com/iot/latest/developerguide/server-authentication.html#server-authentication-certs">here</a>.</p>
+<h2 id="connect-the-device"><a class="header" href="#connect-the-device">Connect the device</a></h2>
+<p>Now, you are ready to get your device connected to AWS IoT Hub with <code>tedge connect aws</code>.
+This command configures the MQTT broker:</p>
+<ul>
+<li>to establish a permanent and secure connection to the AWS cloud,</li>
+<li>to forward local messages to the cloud and vice versa.</li>
+</ul>
+<p>Also, if you have installed <code>tedge_mapper</code>, this command starts and enables the tedge-mapper-aws systemd service.
+At last, it sends packets to AWS IoT Hub to check the connection.</p>
+<pre><code class="language-shell">$ sudo tedge connect aws
+Checking if systemd is available.
+
+Checking if configuration for requested bridge already exists.
+
+Validating the bridge certificates.
+
+Saving configuration for requested bridge.
+
+Restarting mosquitto service.
+
+Awaiting mosquitto to start. This may take up to 5 seconds.
+
+Enabling mosquitto service on reboots.
+
+Successfully created bridge connection!
+
+Sending packets to check connection. This may take up to 2 seconds.
+
+Received expected response on topic aws/connection-success, connection check is successful.
+Connection check is successful.
+
+Checking if tedge-mapper is installed.
+
+Starting tedge-mapper-aws service.
+
+Persisting tedge-mapper-aws on reboot.
+
+tedge-mapper-aws service successfully started and enabled!
+
+</code></pre>
+<h2 id="sending-your-first-telemetry-data"><a class="header" href="#sending-your-first-telemetry-data">Sending your first telemetry data</a></h2>
+<p>Using the AWS mapper, you can publish measurement telemetry data to AWS by publishing on the <code>tedge/measurements</code> topic:</p>
+<pre><code class="language-shell">tedge mqtt pub tedge/measurements '{&quot;temperature&quot;: 21.3}'
+</code></pre>
+<p>Alternatively, post your own custom messages on <code>aws/td/#</code> topic:</p>
+<pre><code class="language-shell">tedge mqtt pub aws/td '{&quot;text&quot;: &quot;My message&quot;}'
+</code></pre>
+<p>To view the messages that were sent from the device to the cloud, follow this
+<a href="https://docs.aws.amazon.com/iot/latest/developerguide/view-mqtt-messages.html">document</a>.</p>
+<h2 id="next-steps"><a class="header" href="#next-steps">Next Steps</a></h2>
+<p>You can now:</p>
+<ul>
+<li>learn how to <a href="send-thin-edge-data.html">send various kind of telemetry data</a>
+using the cloud-agnostic <a href="../understand/thin-edge-json.html">Thin-Edge-Json data format</a>,</li>
+<li>or have a detailed view of the <a href="../references/bridged-topics.html#aws-mqtt-topics">topics mapped to and from AWS</a>
+if you prefer to use directly AWS specific formats and protocols.</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../start/connect-azure.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../start/send-thin-edge-data.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../start/connect-azure.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../start/send-thin-edge-data.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../mermaid.min.js"></script>
+        <script src="../mermaid-init.js"></script>
+        <script src="../theme/pagetoc.js"></script>
+    </div>
+    </body>
+</html>
